@@ -1,4 +1,5 @@
 import { getPublication } from "@/lib/hashnode";
+import { getAllLocalPosts } from "@/lib/content";
 import PostCard from "@/components/PostCard";
 
 export const revalidate = 300;
@@ -6,13 +7,17 @@ export const revalidate = 300;
 export default async function Home() {
   let posts: { node: import("@/lib/types").Post }[] = [];
   let total = 0;
+  let usingLocal = false;
 
   try {
     const pub = await getPublication();
     posts = pub.posts.edges;
     total = pub.posts.totalDocuments;
   } catch {
-    // Hashnode ainda não configurado — fallback para dados locais
+    const localPosts = getAllLocalPosts();
+    posts = localPosts.map((p) => ({ node: p }));
+    total = localPosts.length;
+    usingLocal = true;
   }
 
   return (
@@ -35,13 +40,15 @@ export default async function Home() {
         </p>
         <div className="mt-6 flex gap-4 text-sm">
           <div className="flex items-center gap-1.5 text-gray-400">
-            <span className="font-semibold text-gray-900">{total || 14}</span>
-            <span>artigos</span>
+            <span className="font-semibold text-gray-900">{total || 0}</span>
+            <span>{total === 1 ? "artigo" : "artigos"}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-gray-400">
-            <span className="font-semibold text-gray-900">IA</span>
-            <span>+SEO</span>
-          </div>
+          {usingLocal && (
+            <div className="flex items-center gap-1.5 text-gray-400">
+              <span className="font-semibold text-gray-900">conteúdo</span>
+              <span>local</span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -63,7 +70,7 @@ export default async function Home() {
         ) : (
           <div className="rounded-lg border border-gray-100 bg-gray-50 p-8 text-center">
             <p className="text-sm text-gray-400">
-              Blog em configuração. Em breve, os primeiros artigos serão publicados.
+              Nenhum artigo publicado ainda.
             </p>
           </div>
         )}

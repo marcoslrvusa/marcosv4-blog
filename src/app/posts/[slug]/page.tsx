@@ -1,4 +1,5 @@
-import { getPost, getAllPostSlugs } from "@/lib/hashnode";
+import { getPost, getAllPostSlugs as getHashnodeSlugs } from "@/lib/hashnode";
+import { getLocalPost, getAllLocalSlugs } from "@/lib/content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Calendar, Tag } from "lucide-react";
@@ -7,12 +8,15 @@ import LinkedInIcon from "@/components/LinkedInIcon";
 export const revalidate = 300;
 
 export async function generateStaticParams() {
+  const localSlugs = getAllLocalSlugs();
+  let hashnodeSlugs: string[] = [];
   try {
-    const slugs = await getAllPostSlugs();
-    return slugs.map((slug: string) => ({ slug }));
+    hashnodeSlugs = await getHashnodeSlugs();
   } catch {
-    return [];
+    // silent
   }
+  const allSlugs = [...new Set([...localSlugs, ...hashnodeSlugs])];
+  return allSlugs.map((slug: string) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -21,21 +25,24 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const post = await getPost(slug);
-    if (!post) return { title: "Post não encontrado" };
-    return {
+  let post = getLocalPost(slug);
+  if (!post) {
+    try {
+      post = await getPost(slug);
+    } catch {
+      // silent
+    }
+  }
+  if (!post) return { title: "Post não encontrado" };
+  return {
+    title: post.title,
+    description: post.brief,
+    openGraph: {
       title: post.title,
       description: post.brief,
-      openGraph: {
-        title: post.title,
-        description: post.brief,
-        ...(post.coverImage?.url && { images: [{ url: post.coverImage.url }] }),
-      },
-    };
-  } catch {
-    return { title: "Post não encontrado" };
-  }
+      ...(post.coverImage?.url && { images: [{ url: post.coverImage.url }] }),
+    },
+  };
 }
 
 export default async function PostPage({
@@ -45,11 +52,13 @@ export default async function PostPage({
 }) {
   const { slug } = await params;
 
-  let post: import("@/lib/types").Post | null = null;
-  try {
-    post = await getPost(slug);
-  } catch {
-    // silent
+  let post: import("@/lib/types").Post | null = getLocalPost(slug);
+  if (!post) {
+    try {
+      post = await getPost(slug);
+    } catch {
+      // silent
+    }
   }
 
   if (!post) {

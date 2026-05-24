@@ -1,0 +1,61 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { marked } from "marked";
+import type { Post } from "./types";
+
+const postsDir = path.join(process.cwd(), "content/posts");
+
+export function getAllLocalPosts(): Post[] {
+  if (!fs.existsSync(postsDir)) return [];
+
+  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"));
+
+  return files
+    .map((file) => parsePostFile(file))
+    .filter((p): p is Post => p !== null)
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
+}
+
+export function getLocalPost(slug: string): Post | null {
+  try {
+    const file = fs.readdirSync(postsDir).find((f) => f.startsWith(slug));
+    if (!file) return null;
+    return parsePostFile(file);
+  } catch {
+    return null;
+  }
+}
+
+export function getAllLocalSlugs(): string[] {
+  if (!fs.existsSync(postsDir)) return [];
+  return fs
+    .readdirSync(postsDir)
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => f.replace(/\.md$/, ""));
+}
+
+function parsePostFile(filename: string): Post | null {
+  const filePath = path.join(postsDir, filename);
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+
+  const html = marked.parse(content, { async: false }) as string;
+
+  return {
+    id: filename.replace(/\.md$/, ""),
+    title: data.title || "",
+    brief: data.brief || "",
+    slug: filename.replace(/\.md$/, ""),
+    publishedAt: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+    content: { markdown: content, html },
+    tags: data.tags
+      ? data.tags.map((t: string) => ({ name: t, slug: t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-") }))
+      : [],
+    author: { name: "Marcos Peretto", profilePicture: null },
+    coverImage: data.coverImage ? { url: data.coverImage } : null,
+  };
+}
