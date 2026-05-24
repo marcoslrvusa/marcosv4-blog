@@ -175,4 +175,4 @@ O que vimos no I/O foi o **fim do primeiro tempo**. O segundo tempo será sobre 
 
 ---
 
-*Marcos Peretto é AI Lead na V4 Company, onde lidera a adoção de IA em operações de marketing e automação. Escreve sobre tecnologia, estratégia e o impacto da IA nos negócios.*
+*Marcos Luciano é AI Lead na V4 Company, onde lidera a adoção de IA em operações de marketing e automação. Escreve sobre tecnologia, estratégia e o impacto da IA nos negócios.*

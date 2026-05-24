@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const playfair = Playfair_Display({
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s — marcosv4.cloud",
   },
   description:
-    "Análises sobre inteligência artificial, tecnologia, geopolítica e estratégia. Por Marcos Peretto, AI Lead na V4 Company.",
+    "Análises sobre inteligência artificial, tecnologia, geopolítica e estratégia. Por Marcos Luciano, AI Lead na V4 Company.",
   openGraph: {
     title: "marcosv4.cloud",
     description: "Tecnologia, AI e Estratégia na Era dos Agentes",
@@ -40,10 +41,10 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-gray-900">
+      <body className="flex min-h-full flex-col bg-white font-sans text-v4-gray-900">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -2,8 +2,6 @@ import { getPost, getAllPostSlugs as getHashnodeSlugs } from "@/lib/hashnode";
 import { getLocalPost, getAllLocalSlugs } from "@/lib/content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Calendar, Tag } from "lucide-react";
-import LinkedInIcon from "@/components/LinkedInIcon";
 
 export const revalidate = 300;
 
@@ -13,7 +11,6 @@ export async function generateStaticParams() {
   try {
     hashnodeSlugs = await getHashnodeSlugs();
   } catch {
-    // silent
   }
   const allSlugs = [...new Set([...localSlugs, ...hashnodeSlugs])];
   return allSlugs.map((slug: string) => ({ slug }));
@@ -30,7 +27,6 @@ export async function generateMetadata({
     try {
       post = await getPost(slug);
     } catch {
-      // silent
     }
   }
   if (!post) return { title: "Post não encontrado" };
@@ -57,7 +53,6 @@ export default async function PostPage({
     try {
       post = await getPost(slug);
     } catch {
-      // silent
     }
   }
 
@@ -72,51 +67,43 @@ export default async function PostPage({
   });
 
   const articleUrl = `https://marcosv4.cloud/posts/${post.slug}`;
-  const shareText = encodeURIComponent(`${post.title} — marcosv4.cloud`);
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
-      <header className="mb-12">
-        <div className="mb-4 flex flex-wrap items-center gap-3 text-xs text-gray-400">
-          <time
-            dateTime={post.publishedAt}
-            className="flex items-center gap-1"
-          >
-            <Calendar className="h-3 w-3" />
-            {date}
-          </time>
-          {post.tags?.slice(0, 3).map((tag) => (
-            <span
-              key={tag.slug}
-              className="flex items-center gap-1 rounded-full bg-v4-red-light px-2.5 py-0.5 font-medium text-v4-red-dark"
-            >
-              <Tag className="h-2.5 w-2.5" />
-              {tag.name}
-            </span>
-          ))}
-        </div>
+    <article className="mx-auto max-w-5xl px-6">
+      <header className="border-b border-v4-gray-100 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-6 flex flex-wrap items-center gap-3 text-[10px] text-v4-gray-400 uppercase tracking-wider font-semibold">
+            <time dateTime={post.publishedAt}>{date}</time>
+            {post.tags?.slice(0, 3).map((tag) => (
+              <span
+                key={tag.slug}
+                className="rounded-sm bg-v4-red-light px-2 py-0.5 font-bold text-v4-red"
+              >
+                {tag.name}
+              </span>
+            ))}
+          </div>
 
-        <h1 className="font-serif text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl">
-          {post.title}
-        </h1>
+          <h1 className="font-sans text-3xl font-extrabold leading-tight tracking-tight text-v4-gray-900 sm:text-4xl">
+            {post.title}
+          </h1>
 
-        {post.brief && (
-          <p className="mt-4 text-lg leading-relaxed text-gray-500">
-            {post.brief}
-          </p>
-        )}
+          {post.brief && (
+            <p className="mt-4 text-sm leading-relaxed text-v4-gray-500 max-w-xl">
+              {post.brief}
+            </p>
+          )}
 
-        <div className="mt-8 border-t border-gray-100 pt-6">
-          <div className="flex items-center justify-between">
+          <div className="mt-8 flex items-center justify-between border-t border-v4-gray-100 pt-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-sm font-semibold text-gray-500">
-                MP
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-v4-red text-xs font-bold text-white">
+                ML
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">
-                  Marcos Peretto
+                <p className="text-xs font-bold text-v4-gray-900">
+                  Marcos Luciano
                 </p>
-                <p className="text-xs text-gray-400">
+                <p className="text-[10px] text-v4-gray-400">
                   AI Lead @ V4 Company
                 </p>
               </div>
@@ -126,16 +113,18 @@ export default async function PostPage({
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
+                className="inline-flex items-center gap-1.5 rounded-sm border border-v4-gray-200 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-v4-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
               >
-                <LinkedInIcon className="h-3 w-3" />
+                <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
                 Compartilhar
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(articleUrl)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
+                className="inline-flex items-center gap-1.5 rounded-sm border border-v4-gray-200 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-v4-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
               >
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -148,42 +137,48 @@ export default async function PostPage({
       </header>
 
       {post.coverImage?.url && (
-        <div className="mb-12 overflow-hidden rounded-lg">
-          <img
-            src={post.coverImage.url}
-            alt={post.title}
-            className="w-full object-cover"
-          />
+        <div className="mx-auto max-w-3xl -mt-px">
+          <div className="overflow-hidden">
+            <img
+              src={post.coverImage.url}
+              alt={post.title}
+              className="w-full object-cover"
+            />
+          </div>
         </div>
       )}
 
-      <div
-        className="prose prose-sm max-w-none prose-gray prose-headings:font-serif prose-headings:tracking-tight prose-headings:text-gray-900 prose-a:text-v4-red prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-normal prose-pre:rounded-lg prose-pre:border prose-pre:border-gray-100 prose-pre:bg-gray-50 prose-blockquote:border-l-v4-red prose-blockquote:text-gray-500 prose-figure:my-8 prose-img:rounded-lg"
-        dangerouslySetInnerHTML={{ __html: post.content.html }}
-      />
+      <div className="mx-auto max-w-3xl py-12 sm:py-16">
+        <div
+          className="prose prose-sm max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content.html }}
+        />
+      </div>
 
-      <footer className="mt-16 border-t border-gray-100 pt-8">
-        <div className="rounded-lg border border-gray-100 bg-gray-50 p-6">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-v4-red text-white font-bold text-lg">
-              MP
+      <footer className="mx-auto max-w-3xl border-t border-v4-gray-100 py-12 sm:py-16">
+        <div className="rounded-sm border border-v4-gray-100 bg-v4-gray-50 p-6 sm:p-8">
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-v4-red text-lg font-bold text-white">
+              ML
             </div>
-            <div>
-              <p className="font-semibold text-gray-900">Marcos Peretto</p>
-              <p className="text-sm text-gray-500">
+            <div className="flex-1">
+              <p className="font-bold text-v4-gray-900">Marcos Luciano</p>
+              <p className="text-xs text-v4-gray-500">
                 AI Lead na V4 Company. 12 anos de SEO. Escrevo sobre tecnologia,
                 estratégia e o impacto da IA no mundo.
               </p>
-              <a
-                href="https://linkedin.com/in/marcosperetto"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-v4-red hover:underline"
-              >
-                <LinkedInIcon className="h-3 w-3" />
-                Conectar no LinkedIn
-              </a>
             </div>
+            <a
+              href="https://linkedin.com/in/marcosperetto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm border border-v4-red px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-v4-red transition-colors hover:bg-v4-red hover:text-white"
+            >
+              <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              Conectar no LinkedIn
+            </a>
           </div>
         </div>
       </footer>
