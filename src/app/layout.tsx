@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -10,22 +11,22 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "marcosv4.cloud — Tecnologia, AI e Estratégia",
+    default: "marcosv4.cloud — Senior Developer & AI Lead",
     template: "%s — marcosv4.cloud",
   },
   description:
-    "Análises sobre inteligência artificial, tecnologia, geopolítica e estratégia. Por Marcos Peretto, AI Lead na V4 Company.",
+    "Senior Developer, Data Scientist e Publicitário. AI Lead na V4 Company. Análises sobre tecnologia, inteligência artificial e estratégia digital.",
   openGraph: {
     title: "marcosv4.cloud",
-    description: "Tecnologia, AI e Estratégia na Era dos Agentes",
+    description: "Senior Developer, Data Scientist & AI Lead",
     siteName: "marcosv4.cloud",
     type: "website",
     locale: "pt_BR",
@@ -40,13 +41,15 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-gray-900">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <Providers>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

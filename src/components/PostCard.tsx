@@ -9,33 +9,32 @@ export default function PostCard({ post }: { post: Post }) {
   });
 
   return (
-    <article className="group border-b border-gray-100 py-8 first:pt-0 last:border-0">
-      <div className="flex items-start gap-2">
-        <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-v4-red" />
-        <div className="min-w-0 flex-1">
-          <div className="mb-2 flex flex-wrap items-center gap-2 text-xs text-gray-400">
-            <time dateTime={post.publishedAt}>{date}</time>
-            {post.tags?.slice(0, 2).map((tag) => (
-              <span
-                key={tag.slug}
-                className="rounded-full bg-v4-red-light px-2 py-0.5 text-xs font-medium text-v4-red-dark"
-              >
-                {tag.name}
-              </span>
-            ))}
-          </div>
-          <Link href={`/posts/${post.slug}`}>
-            <h2 className="mb-2 text-lg font-semibold leading-snug text-gray-900 transition-colors group-hover:text-v4-red">
-              {post.title}
-            </h2>
-          </Link>
-          {post.brief && (
-            <p className="line-clamp-2 text-sm leading-relaxed text-gray-500">
-              {post.brief}
-            </p>
-          )}
+    <Link href={`/posts/${post.slug}`} className="group block">
+      <article className="rounded-xl border border-border bg-card p-5 transition-all hover:border-v4-red/30 hover:bg-card-hover hover:shadow-[0_0_24px_rgba(220,38,38,0.06)]">
+        <div className="flex items-center gap-2 text-xs text-muted">
+          <time dateTime={post.publishedAt}>{date}</time>
+          {post.tags?.slice(0, 2).map((tag) => (
+            <span
+              key={tag.slug}
+              className="rounded-md border border-border bg-background px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
+            >
+              {tag.name}
+            </span>
+          ))}
         </div>
-      </div>
-    </article>
+        <h2 className="mt-3 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-v4-red">
+          {post.title}
+        </h2>
+        {post.brief && (
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
+            {post.brief}
+          </p>
+        )}
+        <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground group-hover:text-v4-red">
+          Ler artigo
+          <span className="transition-transform group-hover:translate-x-0.5">→</span>
+        </div>
+      </article>
+    </Link>
   );
 }

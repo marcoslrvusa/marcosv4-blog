@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Newspaper } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 import LinkedInIcon from "@/components/LinkedInIcon";
 
 const navLinks = [
@@ -10,15 +12,19 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 group">
-          <Newspaper className="h-5 w-5 text-v4-red" />
-          <span className="text-sm font-bold tracking-tight text-gray-900">
-            marcos<span className="text-v4-red">v4</span>
-            <span className="text-gray-400 font-normal">.cloud</span>
+          <span className="font-mono text-sm font-medium tracking-tight text-foreground">
+            marcosv4<span className="text-v4-red">:~$</span>
           </span>
+          <span className="font-mono text-sm text-muted cursor-blink" />
         </Link>
 
         <nav className="flex items-center gap-6">
@@ -26,7 +32,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-500 transition-colors hover:text-v4-red"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -35,11 +41,24 @@ export default function Header() {
             href="https://linkedin.com/in/marcosperetto"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 transition-colors hover:text-v4-red"
+            className="text-muted-foreground transition-colors hover:text-foreground"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              aria-label="Alternar tema"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+            </button>
+          )}
         </nav>
       </div>
     </header>

@@ -76,19 +76,16 @@ export default async function PostPage({
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
-      <header className="mb-12">
-        <div className="mb-4 flex flex-wrap items-center gap-3 text-xs text-gray-400">
-          <time
-            dateTime={post.publishedAt}
-            className="flex items-center gap-1"
-          >
+      <header className="mb-12 animate-fade-in">
+        <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
+          <time dateTime={post.publishedAt} className="flex items-center gap-1">
             <Calendar className="h-3 w-3" />
             {date}
           </time>
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag.slug}
-              className="flex items-center gap-1 rounded-full bg-v4-red-light px-2.5 py-0.5 font-medium text-v4-red-dark"
+              className="flex items-center gap-1 rounded-md border border-border bg-card px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground"
             >
               <Tag className="h-2.5 w-2.5" />
               {tag.name}
@@ -96,28 +93,28 @@ export default async function PostPage({
           ))}
         </div>
 
-        <h1 className="font-serif text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
           {post.title}
         </h1>
 
         {post.brief && (
-          <p className="mt-4 text-lg leading-relaxed text-gray-500">
+          <p className="mt-4 text-base leading-relaxed text-muted">
             {post.brief}
           </p>
         )}
 
-        <div className="mt-8 border-t border-gray-100 pt-6">
+        <div className="mt-8 border-t border-border pt-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-sm font-semibold text-gray-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-v4-red text-sm font-semibold text-white">
                 MP
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-medium text-foreground">
                   Marcos Peretto
                 </p>
-                <p className="text-xs text-gray-400">
-                  AI Lead @ V4 Company
+                <p className="font-mono text-xs text-muted-foreground">
+                  Senior Developer @ V4 Company
                 </p>
               </div>
             </div>
@@ -126,7 +123,7 @@ export default async function PostPage({
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-colors hover:border-v4-red hover:text-v4-red"
               >
                 <LinkedInIcon className="h-3 w-3" />
                 Compartilhar
@@ -135,7 +132,7 @@ export default async function PostPage({
                 href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-v4-red hover:text-v4-red"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-colors hover:border-v4-red hover:text-v4-red"
               >
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -148,7 +145,7 @@ export default async function PostPage({
       </header>
 
       {post.coverImage?.url && (
-        <div className="mb-12 overflow-hidden rounded-lg">
+        <div className="mb-12 overflow-hidden rounded-xl animate-fade-in-delay-1">
           <img
             src={post.coverImage.url}
             alt={post.title}
@@ -158,21 +155,21 @@ export default async function PostPage({
       )}
 
       <div
-        className="prose prose-sm max-w-none prose-gray prose-headings:font-serif prose-headings:tracking-tight prose-headings:text-gray-900 prose-a:text-v4-red prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-normal prose-pre:rounded-lg prose-pre:border prose-pre:border-gray-100 prose-pre:bg-gray-50 prose-blockquote:border-l-v4-red prose-blockquote:text-gray-500 prose-figure:my-8 prose-img:rounded-lg"
+        className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground prose-a:text-v4-red prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded-md prose-code:bg-card prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-accent-cyan prose-code:font-normal prose-pre:rounded-xl prose-pre:border prose-pre:border-border prose-pre:bg-card prose-pre:text-sm prose-blockquote:border-l-v4-red prose-blockquote:text-muted prose-figure:my-8 prose-img:rounded-xl animate-fade-in-delay-1"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
 
-      <footer className="mt-16 border-t border-gray-100 pt-8">
-        <div className="rounded-lg border border-gray-100 bg-gray-50 p-6">
+      <footer className="mt-16 animate-fade-in-delay-2">
+        <div className="gradient-border rounded-xl p-5">
           <div className="flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-v4-red text-white font-bold text-lg">
               MP
             </div>
-            <div>
-              <p className="font-semibold text-gray-900">Marcos Peretto</p>
-              <p className="text-sm text-gray-500">
-                AI Lead na V4 Company. 12 anos de SEO. Escrevo sobre tecnologia,
-                estratégia e o impacto da IA no mundo.
+            <div className="min-w-0 flex-1">
+              <p className="font-semibold text-foreground">Marcos Peretto</p>
+              <p className="text-sm text-muted">
+                Senior Developer · AI Lead @ V4 Company · Pós em Ciência de Dados.
+                Escrevo sobre tecnologia, estratégia e o impacto da IA no mundo.
               </p>
               <a
                 href="https://linkedin.com/in/marcosperetto"
