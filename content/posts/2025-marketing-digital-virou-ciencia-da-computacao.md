@@ -161,4 +161,4 @@ A resposta vai ser: **aconteceu em maio de 2025. Você só não percebeu.**
 
 ---
 
-*Marcos Peretto é AI Lead na V4 Company. Esta é a terceira parte de uma série especial sobre Google I/O e Google Marketing Live 2025. [Parte 1: Google I/O 2025 — O Despertar da IA Universal](/posts/google-io-2025-despertar-ia-universal). [Parte 2: Google Marketing Live 2025 — O Search que Você Conhecia Mudou](/posts/google-marketing-live-2025-search-mudou).*
+*Marcos Luciano é AI Lead na V4 Company. Esta é a terceira parte de uma série especial sobre Google I/O e Google Marketing Live 2025. [Parte 1: Google I/O 2025 — O Despertar da IA Universal](/posts/google-io-2025-despertar-ia-universal). [Parte 2: Google Marketing Live 2025 — O Search que Você Conhecia Mudou](/posts/google-marketing-live-2025-search-mudou).*
