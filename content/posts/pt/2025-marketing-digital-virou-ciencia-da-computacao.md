@@ -8,7 +8,7 @@ tags:
   - Marketing Digital
   - Futuro
   - Carreira
-coverImage: https://lh3.googleusercontent.com/JDIJTsICfijhczWEqg9bsCfCFC5n5Dx3LQQ5Cv4YslGUM9vYtMqs3iW48nIMQcI6K1AuyUbHFjBQYXsZERFQn7b7Lgc_36emJESPM3Ipkd6CtB0as8aLjhLJW7SS3CFAEM9PDHdAGOM
+coverImage: /images/marketing-digital-cover.jpg
 ---
 
 ## A Semana que Mudou Tudo

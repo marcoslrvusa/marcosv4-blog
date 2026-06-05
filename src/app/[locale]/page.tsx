@@ -3,6 +3,7 @@ import { getPublication } from "@/lib/hashnode";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
+import TerminalText from "@/components/TerminalText";
 import {
   Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles,
   BookOpen, Award, Briefcase, Layers, ChevronRight,
@@ -138,6 +139,14 @@ export default async function Home({
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
           {t("hero.description")}
         </p>
+
+        <div className="mt-6">
+          <TerminalText lines={[
+            "whoami  → AI Lead @ V4 Company",
+            "skills  → AI Search · SEO · Growth · Architecture",
+            "mission → Engineering AI Lead",
+          ]} />
+        </div>
 
         <div className="mt-6 flex items-center gap-6 text-sm">
           <div className="flex items-center gap-1.5 text-muted">

@@ -6,7 +6,7 @@ tags:
   - Nvidia
   - Arquitetura
   - IA
-coverImage:
+coverImage: /images/nvidia-cover.jpg
 ---
 
 ## O Anúncio

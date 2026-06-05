@@ -6,6 +6,7 @@ import { Calendar, Tag, Clock } from "lucide-react";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import NewsletterForm from "@/components/NewsletterForm";
+import ReadingProgress from "@/components/ReadingProgress";
 import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
@@ -90,7 +91,9 @@ export default async function PostPage({
   const shareText = encodeURIComponent(`${post.title} — AI First`);
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <>
+      <ReadingProgress />
+      <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
       <header className="mb-12 animate-fade-in">
         <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
           <time dateTime={post.publishedAt} className="flex items-center gap-1.5">
@@ -217,5 +220,6 @@ export default async function PostPage({
         <NewsletterForm locale={locale} />
       </div>
     </article>
+    </>
   );
 }

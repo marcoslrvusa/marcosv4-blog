@@ -6,7 +6,7 @@ tags:
   - Google
   - Arquitetura
   - IA
-coverImage:
+coverImage: /images/project-astra-cover.jpg
 ---
 
 ## O Projeto que o Google Não Apressou

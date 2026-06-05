@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import ParticleBackground from "@/components/ParticleBackground";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,7 +41,9 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <ParticleBackground />
         <Providers>{children}</Providers>
+        <BackToTop />
       </body>
     </html>
   );
