@@ -3,7 +3,11 @@ import { getPublication } from "@/lib/hashnode";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
-import { Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles } from "lucide-react";
+import {
+  Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles,
+  BookOpen, Award, Briefcase, Layers, ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
 export const revalidate = 300;
 
@@ -14,7 +18,14 @@ const badges = [
   { label: "12+ Anos XP", icon: BadgeCheck },
 ];
 
-export default async function Home() {
+  const topics = [
+    { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-accent-emerald", border: "border-accent-emerald/20" },
+    { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-cyan", border: "border-accent-cyan/20" },
+    { label: "AI Search", slug: "ai-search", icon: Layers, color: "text-accent-amber", border: "border-accent-amber/20" },
+    { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-purple-400", border: "border-purple-400/20" },
+  ];
+
+  export default async function Home() {
   let posts: { node: import("@/lib/types").Post }[] = [];
   let total = 0;
   let usingLocal = false;
@@ -29,6 +40,12 @@ export default async function Home() {
     total = localPosts.length;
     usingLocal = true;
   }
+
+  const tags = posts.flatMap(({ node }) => node.tags?.map((t) => t.slug) || []);
+  const topicCounts = topics.map((t) => ({
+    ...t,
+    count: tags.filter((tag) => tag.includes(t.slug)).length,
+  }));
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
@@ -76,7 +93,35 @@ export default async function Home() {
           })}
         </div>
 
-        <h1 className="mt-6 font-sans text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        {/* Stats Bar */}
+        <div className="mt-8 mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
+            <p className="font-mono text-2xl font-bold text-foreground">{total}</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              Artigos
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
+            <p className="font-mono text-2xl font-bold text-foreground">12+</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              Anos de XP
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
+            <p className="font-mono text-2xl font-bold text-foreground">8</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              Certificações
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
+            <p className="font-mono text-2xl font-bold text-foreground">4</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              Tópicos
+            </p>
+          </div>
+        </div>
+
+        <h1 className="font-sans text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
           <span className="text-muted">$ </span>
           <span className="text-foreground">echo</span>
           <span className="text-accent-emerald"> &quot;</span>
@@ -140,8 +185,68 @@ export default async function Home() {
         )}
       </section>
 
+      {/* Topics Grid */}
+      <section className="mt-16 animate-fade-in-delay-2">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="font-mono text-xs font-medium text-muted-foreground">
+            $ tree topics/
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {topicCounts.map((topic) => {
+            const Icon = topic.icon;
+            return (
+              <Link
+                key={topic.slug}
+                href={`/posts?tag=${topic.slug}`}
+                className="group rounded-xl border border-border bg-card/30 p-4 transition-all hover:border-accent-emerald/30 hover:bg-card/60"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`rounded-lg border ${topic.border} p-2 ${topic.color}`}>
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-foreground">{topic.label}</p>
+                    <p className="font-mono text-[11px] text-muted-foreground">
+                      {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
+                    </p>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-accent-emerald" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* LinkedIn Authority */}
+      <section className="mt-12 animate-fade-in-delay-3">
+        <a
+          href="https://linkedin.com/in/marcoslrvieira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3 rounded-xl border border-accent-emerald/10 bg-accent-emerald/[0.02] px-5 py-4 transition-all hover:border-accent-emerald/20 hover:bg-accent-emerald/[0.04]"
+        >
+          <div className="rounded-lg border border-accent-emerald/20 bg-accent-emerald/5 p-2">
+            <svg className="h-5 w-5 text-accent-emerald" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-medium text-foreground group-hover:text-accent-emerald">
+              Conecte-se no LinkedIn
+            </p>
+            <p className="font-mono text-[11px] text-muted-foreground">
+              /in/marcoslrvieira
+            </p>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-accent-emerald" />
+        </a>
+      </section>
+
       {/* Newsletter Form */}
-      <section className="mt-16 animate-fade-in-delay-3">
+      <section className="mt-12 animate-fade-in-delay-3">
         <NewsletterForm />
       </section>
     </div>
