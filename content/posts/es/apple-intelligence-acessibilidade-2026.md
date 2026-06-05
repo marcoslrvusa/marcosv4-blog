@@ -6,7 +6,7 @@ tags:
   - Apple
   - IA
   - Mercado
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/apple-vision-cover.jpg
 ---
 
 El 28 de abril de 2026, Apple presentó un conjunto de funciones de accesibilidad impulsadas por IA que, al menos por un día, sacaron el foco de la carrera armamentista de modelos y pusieron la tecnología al servicio de quienes más lo necesitan. En un mercado obsesionado por parámetros y benchmarks, Apple recordó que la IA puede — y debe — tener un impacto social profundo.

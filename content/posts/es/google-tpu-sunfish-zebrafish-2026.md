@@ -6,7 +6,7 @@ tags:
   - Google
   - Hardware
   - Arquitectura
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/google-cloud-cover.jpg
 ---
 
 En el Google Cloud Next de 2026, realizado el 15 de abril en Las Vegas, Google reveló su nueva generación de TPUs: Sunfish para entrenamiento y Zebrafish para inferencia. Por primera vez, Google separa claramente las arquitecturas de entrenamiento e inferencia, un movimiento que señala madurez en el mercado de silicio personalizado para IA y un desafío directo al dominio de NVIDIA.

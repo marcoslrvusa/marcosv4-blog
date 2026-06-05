@@ -6,7 +6,7 @@ tags:
   - Google
   - IA
   - Arquitectura
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/genie-cover.jpg
 ---
 
 El 25 de abril de 2026, Google expandió Project Genie para soportar generación de mundos 3D navegables a partir de imágenes de Street View. Anunciado originalmente en 2024 como un generador de mundos 2D para juegos, Genie ahora construye entornos tridimensionales completos y coherentes basados en un puñado de fotos de calles reales. La tecnología transforma cualquier lugar del planeta en un escenario 3D explorable en minutos.

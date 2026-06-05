@@ -5,9 +5,10 @@ import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import TerminalText from "@/components/TerminalText";
 import EbookCta from "@/components/EbookCta";
+import HeroSearch from "@/components/HeroSearch";
 import {
-  Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles,
-  BookOpen, Award, Briefcase, Layers, ChevronRight,
+  Brain, BarChart3, BadgeCheck, Sparkles,
+  BookOpen, Briefcase, Layers, ChevronRight, TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -54,90 +55,89 @@ export default async function Home({
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
       {/* Hero Section */}
       <section className="mb-16 animate-fade-in">
-        <div className="mb-6 flex items-center gap-2">
+        <div className="mb-8 flex items-center gap-2">
           <span className="status-pulse flex h-2 w-2 rounded-full bg-accent-emerald" />
           <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-accent-emerald">
             {t("tagline")}
           </span>
         </div>
 
-        {/* Author Card */}
-        <div className="mb-6 flex items-center gap-4 rounded-xl border border-border bg-card/50 p-4">
+        <div className="mb-8 flex items-center gap-4 rounded-xl border border-border bg-card/50 p-4">
           <Image
             src="/profile.png"
             alt="Marcos Luciano"
-            width={96}
-            height={96}
+            width={64}
+            height={64}
             className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
             priority
           />
-          <div>
-            <h2 className="text-lg font-semibold text-foreground">
-              Marcos Luciano
-            </h2>
-            <p className="text-sm text-muted">
-              {t("badges.lead")} · {t("badges.specialist")}
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2">
+              <h2 className="text-base font-semibold text-foreground">
+                Marcos Luciano
+              </h2>
+              <span className="rounded-md border border-accent-emerald/10 bg-accent-emerald/5 px-1.5 py-0.5 font-mono text-[10px] text-accent-emerald">
+                {t("badges.lead")}
+              </span>
+            </div>
+            <p className="mt-0.5 text-sm text-muted">
+              AI Lead @ V4 Company
             </p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <span className="inline-flex items-center gap-1 rounded-md border border-accent-cyan/10 bg-accent-cyan/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-cyan/80">
+                <Brain className="h-2.5 w-2.5" />
+                {t("badges.specialist")}
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-md border border-accent-amber/10 bg-accent-amber/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-amber/80">
+                <BarChart3 className="h-2.5 w-2.5" />
+                {t("badges.datacamp")}
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-md border border-purple-400/10 bg-purple-400/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-purple-400/80">
+                <BadgeCheck className="h-2.5 w-2.5" />
+                {t("badges.xp")}
+              </span>
+            </div>
           </div>
         </div>
 
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
-            <TrendingUp className="h-3 w-3" />
-            {t("badges.lead")}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
-            <Brain className="h-3 w-3" />
-            {t("badges.specialist")}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
-            <BarChart3 className="h-3 w-3" />
-            {t("badges.datacamp")}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
-            <BadgeCheck className="h-3 w-3" />
-            {t("badges.xp")}
-          </span>
-        </div>
-
-        {/* Stats Bar */}
-        <div className="mt-8 mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
-            <p className="font-mono text-2xl font-bold text-foreground">{total}</p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+        {/* Stats + Search */}
+        <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
+            <p className="font-mono text-xl font-bold text-foreground">{total}</p>
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               {t("stats.articles")}
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
-            <p className="font-mono text-2xl font-bold text-foreground">12+</p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
+            <p className="font-mono text-xl font-bold text-foreground">12+</p>
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               {t("stats.xp")}
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
-            <p className="font-mono text-2xl font-bold text-foreground">8</p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
+            <p className="font-mono text-xl font-bold text-foreground">8</p>
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               {t("stats.certs")}
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
-            <p className="font-mono text-2xl font-bold text-foreground">4</p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
+            <p className="font-mono text-xl font-bold text-foreground">4</p>
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               {t("stats.topics")}
             </p>
           </div>
         </div>
 
-        <h1 className="font-sans text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-          <span className="text-muted">$ </span>
+        <h1 className="font-sans text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
+          <span className="text-[#555]">$ </span>
           <span className="text-foreground">echo</span>
           <span className="text-accent-emerald"> &quot;</span>
-          <span className="text-gradient">
+          <span className="bg-gradient-to-r from-accent-emerald via-accent-cyan to-purple-400 bg-clip-text text-transparent">
             {t("hero.title")}
           </span>
           <span className="text-accent-emerald">&quot;</span>
         </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
           {t("hero.description")}
         </p>
 
@@ -149,12 +149,8 @@ export default async function Home({
           ]} />
         </div>
 
-        <div className="mt-6 flex items-center gap-6 text-sm">
-          <div className="flex items-center gap-1.5 text-muted">
-            <span className="font-semibold text-foreground">{total || 0}</span>
-            <span>{total === 1 ? t("common.article", {}) : `${total} ${t("stats.articles", {})}`.split(" ").slice(1).join(" ")}</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-muted">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <div className="flex items-center gap-2 text-sm">
             <Sparkles className="h-3.5 w-3.5 text-accent-cyan" />
             <span className="text-xs text-muted-foreground">
               {t("updated")} {new Date().toLocaleDateString(locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR")}
@@ -165,6 +161,10 @@ export default async function Home({
               <span className="text-accent-emerald">*</span>{t("localContent")}
             </div>
           )}
+        </div>
+
+        <div className="mt-8">
+          <HeroSearch locale={locale} />
         </div>
       </section>
 

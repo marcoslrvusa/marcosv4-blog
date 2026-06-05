@@ -6,7 +6,7 @@ tags:
   - Apple
   - AI
   - Market
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/apple-vision-cover.jpg
 ---
 
 On April 28, 2026, Apple presented a set of AI-powered accessibility features that, for at least one day, shifted the focus away from the model arms race and placed technology at the service of those who need it most. In a market obsessed with parameters and benchmarks, Apple reminded us that AI can — and should — have a profound social impact.

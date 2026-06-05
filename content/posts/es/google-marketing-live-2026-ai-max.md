@@ -6,7 +6,7 @@ tags:
   - Google
   - Mercado
   - AI Search
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/marketing-live-cover.jpg
 ---
 
 El Google Marketing Live 2026 podría ser recordado como el día en que la búsqueda tradicional murió. Google anunció AI Max, un nuevo formato de campaña que inserta anuncios contextualmente dentro de las AI Overviews — no al lado de ellas, sino integrados en el texto generado.

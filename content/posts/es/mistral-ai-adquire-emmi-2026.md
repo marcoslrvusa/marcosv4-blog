@@ -5,7 +5,7 @@ date: 2026-05-18
 tags:
   - Mistral
   - Mercado
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/mistral-cover.jpg
 ---
 
 Mistral AI cerró el 18 de mayo de 2026 la adquisición de la startup alemana Emmi AI por 800 millones de euros — la mayor M&A de IA en Europa hasta la fecha. Emmi, especializada en fine-tuning eficiente y modelos pequeños para dispositivos edge, es la pieza que faltaba en el rompecabezas de Mistral.

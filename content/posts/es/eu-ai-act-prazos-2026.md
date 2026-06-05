@@ -6,7 +6,7 @@ tags:
   - Regulación
   - Mercado
   - Estrategia
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/eu-ai-act-cover.jpg
 ---
 
 El 28 de enero de 2026, las primeras obligaciones del EU AI Act entraron en vigor, marcando el inicio del régimen regulatorio más completo del mundo para inteligencia artificial. A diferencia de lo que muchos esperaban — que las reglas fueran blandas o se pospusieran — la Comisión Europea fue rigurosa: los sistemas de IA clasificados como "alto riesgo" ahora necesitan evaluación de conformidad antes de ser colocados en el mercado.

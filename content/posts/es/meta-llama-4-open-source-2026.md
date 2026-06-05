@@ -6,7 +6,7 @@ tags:
   - Meta
   - Arquitectura
   - Open Source
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/meta-cover.jpg
 ---
 
 El 18 de febrero de 2026, Meta lanzó Llama 4, el modelo de lenguaje open-source más poderoso jamás creado. Con 405 mil millones de parámetros activos (1.2 billones en total, gracias a la arquitectura Mixture of Experts de 16 expertos), Llama 4 superó a GPT-4 en benchmarks de razonamiento matemático (94.1% en MATH), código (89.3% en HumanEval) y comprensión contextual (96.2% en MMLU-Pro).

@@ -6,7 +6,7 @@ tags:
   - Seguridad
   - GitHub
   - Mercado
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/github-cover.jpg
 ---
 
 El 24 de mayo de 2026, GitHub confirmó públicamente la mayor filtración de repositorios privados de su historia: 3.800 repositorios expuestos, incluyendo tokens de API, llaves SSH y credenciales de producción de cientos de empresas.

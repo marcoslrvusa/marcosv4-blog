@@ -6,7 +6,7 @@ tags:
   - Meta
   - Architecture
   - Open Source
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/meta-cover.jpg
 ---
 
 On February 18, 2026, Meta launched Llama 4, the most powerful open-source language model ever created. With 405 billion active parameters (1.2 trillion total, thanks to a Mixture of Experts architecture with 16 experts), Llama 4 surpassed GPT-4 in mathematical reasoning (94.1% on MATH), code (89.3% on HumanEval), and contextual understanding (96.2% on MMLU-Pro) benchmarks.

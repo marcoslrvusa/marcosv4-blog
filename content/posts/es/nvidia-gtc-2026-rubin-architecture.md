@@ -6,7 +6,7 @@ tags:
   - Nvidia
   - Arquitectura
   - Hardware
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/nvidia-cover.jpg
 ---
 
 Jensen Huang subió al escenario de la GTC 2026 en San José el 22 de marzo con una promesa audaz: la arquitectura Rubin, sucesora de Blackwell, ofrecerá 3x el rendimiento en entrenamiento de modelos de lenguaje y 4x la eficiencia energética en inferencia. Las cifras son impresionantes, pero lo que realmente importa es cómo NVIDIA está rediseñando el centro de datos completo, no solo la GPU.

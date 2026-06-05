@@ -6,7 +6,7 @@ tags:
   - DataCamp
   - Tutoriales
   - Carrera
-coverImage: /images/datacamp-roadmap.svg
+coverImage: /images/datacamp-roadmap.jpg
 ---
 
 ![Carrera en Ciencia de Datos — Ruta DataCamp](/images/datacamp-roadmap.svg)

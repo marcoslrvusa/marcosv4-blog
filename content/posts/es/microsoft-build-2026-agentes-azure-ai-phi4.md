@@ -6,7 +6,7 @@ tags:
   - Microsoft
   - Mercado
   - IA
-coverImage: /images/microsoft-build-cover.svg
+coverImage: /images/microsoft-build-cover.jpg
 ---
 
 ## El Tema del Build 2026

@@ -6,7 +6,7 @@ tags:
   - China
   - Meta
   - Market
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/china-cover.jpg
 ---
 
 On April 9, 2026, the Chinese government officially blocked Meta's US$2 billion acquisition of Manus AI, citing risks to national security and transfer of sensitive technology. The decision was expected by geopolitical analysts, but marks a significant hardening in China's stance regarding AI intellectual property.

@@ -6,7 +6,7 @@ tags:
   - OpenAI
   - Architecture
   - Market
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/openai-cover.jpg
 ---
 
 OpenAI silently promoted GPT-5.5 Instant to default model status on May 7, 2026. Those still using GPT-4o in API calls without specifying a model now receive responses from 5.5 Instant — a change that catches many off guard.

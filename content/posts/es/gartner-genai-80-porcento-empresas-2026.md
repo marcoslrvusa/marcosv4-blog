@@ -5,7 +5,7 @@ date: 2026-06-08
 tags:
   - Mercado
   - Estrategia
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/gartner-cover.jpg
 ---
 
 Gartner publicó el 8 de junio de 2026 su informe anual de adopción de IA generativa: el 80% de las empresas con más de 500 empleados ya tiene al menos una aplicación de GenAI en producción. La cifra era del 37% en 2024 y del 55% en 2025 — la curva de adopción más rápida de cualquier tecnología en la historia moderna.

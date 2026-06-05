@@ -6,7 +6,7 @@ tags:
   - DataCamp
   - Tutorials
   - Career
-coverImage: /images/datacamp-roadmap.svg
+coverImage: /images/datacamp-roadmap.jpg
 ---
 
 ![Data Science Career — DataCamp Roadmap](/images/datacamp-roadmap.svg)

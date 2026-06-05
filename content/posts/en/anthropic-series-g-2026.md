@@ -5,7 +5,7 @@ date: 2026-02-03
 tags:
   - Anthropic
   - Market
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/anthropic-cover.jpg
 ---
 
 On February 3, 2026, Anthropic announced the closing of its Series G — US$30 billion in new investments at a US$380 billion valuation. The amount is larger than the GDP of 140 countries and represents the largest private investment round in history, surpassing OpenAI's US$20.5B in 2025. It took just 19 days since the US$350B valuation announcement for the market to re-evaluate the company upward.

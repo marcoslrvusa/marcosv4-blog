@@ -6,7 +6,7 @@ tags:
   - Google
   - AI
   - Audio
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/gemini-cover.jpg
 ---
 
 On April 20, 2026, Google released Gemini 3.1 Flash TTS, a text-to-speech model that, for the first time, makes synthetic voices virtually indistinguishable from human ones in natural conversational contexts. This is not just another incremental TTS improvement — it is a paradigm shift in human-machine interaction.

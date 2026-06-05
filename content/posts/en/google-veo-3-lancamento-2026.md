@@ -6,7 +6,7 @@ tags:
   - Google
   - Video
   - AI
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/google-veo-cover.jpg
 ---
 
 On February 10, 2026, Google DeepMind launched Veo 3, its third-generation AI video generation model. The leap is significant: native 4K resolution, frame-by-frame control via text, and the ability to maintain character consistency across multiple scenes — something that plagued previous generations of video models.

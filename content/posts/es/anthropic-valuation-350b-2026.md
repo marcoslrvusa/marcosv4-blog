@@ -6,7 +6,7 @@ tags:
   - Anthropic
   - Mercado
   - Agentes
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/anthropic-cover.jpg
 ---
 
 El 15 de enero de 2026, Anthropic anunció haber alcanzado la marca de US$350 mil millones de valoración, consolidándose como la empresa de inteligencia artificial más valiosa del mundo — superando a OpenAI (estimada en US$280B) y a xAI de Elon Musk (US$120B). El principal motor de este crecimiento fue Claude Code, lanzado a mediados de 2025, que ya genera US$1 mil millones en ingresos anuales recurrentes.

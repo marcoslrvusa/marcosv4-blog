@@ -6,7 +6,7 @@ tags:
   - Alibaba
   - Architecture
   - Open Source
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/alibaba-cover.jpg
 ---
 
 On May 1, 2026, Alibaba released Qwen3.7-Max, a 1.2 trillion parameter model with Mixture-of-Experts architecture (200B activated per token), which surpasses GPT-5.5 on mathematical reasoning benchmarks (92.1% on MATH-500) and ties in general knowledge on MMLU-Pro (91.4%). The model is not just another Chinese release — it is the first open-weight model that legitimizes China as a real competitor at the top of the AI pyramid.

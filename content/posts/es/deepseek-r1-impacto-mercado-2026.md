@@ -6,7 +6,7 @@ tags:
   - DeepSeek
   - Mercado
   - Arquitectura
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/deepseek-cover.jpg
 ---
 
 El 20 de enero de 2026, DeepSeek, laboratorio de IA con sede en Hangzhou, lanzó el R1 — un modelo de razonamiento open-source que redefinió las reglas del juego. Con 671 mil millones de parámetros (activando solo 37B por token mediante arquitectura Mixture of Experts), el R1 alcanzó puntuaciones comparables al GPT-4 en benchmarks como MATH (91.2%), MMLU (88.5%) y HumanEval (84.7%). ¿El impacto? Todas las acciones de empresas de semiconductores cayeron el mismo día.

@@ -6,7 +6,7 @@ tags:
   - Microsoft
   - Agentes
   - Arquitectura
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/microsoft-build-cover.jpg
 ---
 
 El 18 de marzo de 2026, Microsoft reveló la integración más profunda jamás vista entre GitHub Copilot y la plataforma GitHub. Ya no se trata de autocompletado o sugerencia de líneas: ahora, los agentes de IA pueden abrir pull requests completos, revisar código línea por línea y disparar deploys a producción sin intervención humana directa.

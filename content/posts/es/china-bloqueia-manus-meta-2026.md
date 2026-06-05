@@ -6,7 +6,7 @@ tags:
   - China
   - Meta
   - Mercado
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/china-cover.jpg
 ---
 
 El 9 de abril de 2026, el gobierno chino bloqueó oficialmente la adquisición de Manus AI por Meta por US$2 mil millones, citando riesgos a la seguridad nacional y a la transferencia de tecnología sensible. La decisión era esperada por analistas de geopolítica, pero marca un endurecimiento significativo en la postura de China respecto a la propiedad intelectual de IA.

@@ -6,7 +6,7 @@ tags:
   - OpenAI
   - Agentes
   - Arquitectura
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/codex-cover.jpg
 ---
 
 El 22 de abril de 2026, OpenAI puso a disposición del público Codex CLI, una herramienta que transforma el terminal del desarrollador en un entorno de agente de IA autónomo. A diferencia de las interfaces de chat o autocompletado, Codex CLI opera como un ingeniero senior que contratas por llamada de API — lee tu repositorio, entiende el contexto, ejecuta comandos, escribe código, prueba e itera hasta que el resultado sea correcto.

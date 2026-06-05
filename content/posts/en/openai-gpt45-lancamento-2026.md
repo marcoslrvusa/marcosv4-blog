@@ -5,7 +5,7 @@ date: 2026-03-05
 tags:
   - OpenAI
   - Architecture
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/openai-cover.jpg
 ---
 
 On March 5, 2026, OpenAI launched GPT-4.5, which the company itself calls "the last purely autoregressive model before GPT-5." Codenamed Orion internally, the new model brings incremental yet significant advances — and reveals much about OpenAI's strategy for 2026: consolidate before revolutionizing.

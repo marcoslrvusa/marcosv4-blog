@@ -8,6 +8,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
+import SearchModal from "@/components/SearchModal";
 
 const locales = [
   { code: "pt", label: "PT" },
@@ -47,7 +48,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-3">
           <Link
             href="/"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
@@ -60,6 +61,8 @@ export default function Header() {
           >
             {t("about")}
           </Link>
+
+          <SearchModal />
 
           <div className="relative">
             <button

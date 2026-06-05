@@ -6,7 +6,7 @@ tags:
   - Nvidia
   - Architecture
   - Hardware
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/nvidia-cover.jpg
 ---
 
 Jensen Huang took the stage at GTC 2026 in San Jose on March 22 with an audacious promise: the Rubin architecture, successor to Blackwell, will deliver 3x the language model training performance and 4x the energy efficiency in inference. The numbers are impressive, but what truly matters is how NVIDIA is redesigning the entire data center, not just the GPU.

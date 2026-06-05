@@ -5,7 +5,7 @@ date: 2026-06-01
 tags:
   - Anthropic
   - Mercado
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/anthropic-cover.jpg
 ---
 
 El 1 de junio de 2026, Anthropic cerró la mayor ronda de captación de la historia del mercado tecnológico: US$ 65 mil millones en la Serie H, con una valoración pre-money de US$ 900 mil millones y post-money de US$ 965 mil millones, superando a OpenAI (valorada en US$ 780B en mayo de 2026) y convirtiéndose en la empresa de IA más valiosa del mundo.

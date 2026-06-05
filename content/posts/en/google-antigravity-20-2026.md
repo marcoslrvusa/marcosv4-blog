@@ -6,7 +6,7 @@ tags:
   - Google
   - Agents
   - Architecture
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/google-cover.jpg
 ---
 
 Four days after the I/O announcement, Google released Antigravity 2.0 for all Google Workspace Business Plus subscribers and above. Antigravity is not a product — it is an agent layer that spans all apps in the Google ecosystem.

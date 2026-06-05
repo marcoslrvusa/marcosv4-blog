@@ -6,7 +6,7 @@ tags:
   - Google
   - Agentes
   - Cloud
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/google-cloud-cover.jpg
 ---
 
 El 12 de marzo de 2026, Google Cloud Next 2026 en San Francisco trajo el anuncio más esperado del evento: la plataforma Gemini Enterprise Agents. Se trata de un entorno completo low-code/no-code para construir, probar, desplegar y monitorear agentes de IA — integrado nativamente al ecosistema Google Cloud, incluyendo BigQuery, Workspace (Gmail, Docs, Sheets, Meet), Salesforce, SAP y más de 200 conectores preconstruidos.

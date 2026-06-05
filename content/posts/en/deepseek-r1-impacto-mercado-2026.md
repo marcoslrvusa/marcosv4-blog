@@ -6,7 +6,7 @@ tags:
   - DeepSeek
   - Market
   - Architecture
-coverImage: /images/articles/placeholder-ai.svg
+coverImage: /images/deepseek-cover.jpg
 ---
 
 On January 20, 2026, DeepSeek, an AI lab based in Hangzhou, released the R1 — an open-source reasoning model that redefined the rules of the game. With 671 billion parameters (activating only 37B per token via Mixture of Experts architecture), the R1 achieved scores comparable to GPT-4 on benchmarks such as MATH (91.2%), MMLU (88.5%), and HumanEval (84.7%). The impact? Every semiconductor company stock fell on the same day.
