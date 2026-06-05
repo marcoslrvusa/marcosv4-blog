@@ -129,7 +129,7 @@ export default async function PostPage({
                   Marcos Luciano
                 </p>
                 <p className="font-mono text-xs text-muted-foreground">
-                  Senior Media Buyer @ V4 Company
+                  AI Lead @ V4 Company
                 </p>
               </div>
             </div>
@@ -188,7 +188,7 @@ export default async function PostPage({
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">
-                Senior Media Buyer · AI & SEO Specialist · DataCamp Data Scientist.
+                AI Lead · AI & SEO Specialist · DataCamp Data Scientist.
                 Escrevo sobre IA, arquitetura de sistemas e o mercado de inteligência artificial no Brasil.
               </p>
               <a

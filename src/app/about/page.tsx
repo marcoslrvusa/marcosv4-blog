@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Sobre",
   description:
-    "Marcos Luciano — Senior Media Buyer, AI & SEO Specialist na V4 Company",
+    "Marcos Luciano — AI Lead, AI & SEO Specialist na V4 Company",
 };
 
 const certs = [
@@ -72,7 +72,7 @@ export default function About() {
               Marcos <span className="text-accent-emerald">Luciano</span>
             </h1>
             <p className="mt-1 text-base text-muted">
-              Senior Media Buyer · AI & SEO Specialist · Publicitário
+              AI Lead · AI & SEO Specialist · Publicitário
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function About() {
             <h2 className="font-semibold text-foreground">Atualmente</h2>
           </div>
           <p className="text-sm leading-relaxed text-muted">
-            <strong className="text-foreground">Senior Media Buyer na V4 Company</strong>,
+            <strong className="text-foreground">AI Lead na V4 Company</strong>,
             com 12+ anos de experiência em SEO, growth e marketing digital.
             Especialista em performance marketing, AI Ops e estratégias de busca
             — do PageRank ao RankBrain, do BERT aos Overviews generativos.
@@ -170,7 +170,7 @@ export default function About() {
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">
-                Senior Media Buyer · AI & SEO Specialist · DataCamp Data Scientist
+                AI Lead · AI & SEO Specialist · DataCamp Data Scientist
               </p>
               <a
                 href="https://linkedin.com/in/marcoslrvieira"

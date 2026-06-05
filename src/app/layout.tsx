@@ -19,15 +19,15 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "marcosv4.cloud — AI & Arquitetura de Sistemas Inteligentes",
-    template: "%s — marcosv4.cloud",
+    default: "AI First — AI & Arquitetura de Sistemas Inteligentes",
+    template: "%s — AI First",
   },
   description:
-    "Senior Media Buyer, AI & SEO Specialist com 12+ anos de experiência. Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil.",
+    "AI Lead, AI & SEO Specialist com 12+ anos de experiência. Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil.",
   openGraph: {
-    title: "marcosv4.cloud",
-    description: "Senior Media Buyer, AI & SEO Specialist | Maior autoridade em IA do Brasil",
-    siteName: "marcosv4.cloud",
+    title: "AI First",
+    description: "AI Lead, AI & SEO Specialist | Maior autoridade em IA do Brasil",
+    siteName: "AI First",
     type: "website",
     locale: "pt_BR",
   },
@@ -38,7 +38,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Marcos Luciano",
   alternateName: "Marcos Luciano Vieira",
-  jobTitle: "Senior Media Buyer, AI & SEO Specialist",
+  jobTitle: "AI Lead, AI & SEO Specialist",
   worksFor: { "@type": "Organization", name: "V4 Company" },
   url: "https://marcosv4.cloud",
   sameAs: ["https://linkedin.com/in/marcoslrvieira"],
@@ -71,7 +71,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/atom+xml"
-          title="marcosv4.cloud — RSS Feed"
+          title="AI First — RSS Feed"
           href="/feed.xml"
         />
       </head>

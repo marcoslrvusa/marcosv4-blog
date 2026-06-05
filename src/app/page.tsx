@@ -8,7 +8,7 @@ import { Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles } from "lucide-react
 export const revalidate = 300;
 
 const badges = [
-  { label: "Senior Media Buyer", icon: TrendingUp },
+  { label: "AI Lead", icon: TrendingUp },
   { label: "AI & SEO Specialist", icon: Brain },
   { label: "DataCamp Data Scientist", icon: BarChart3 },
   { label: "12+ Anos XP", icon: BadgeCheck },
@@ -56,7 +56,7 @@ export default async function Home() {
               Marcos Luciano
             </h2>
             <p className="text-sm text-muted">
-              Senior Media Buyer · AI & SEO Specialist
+              AI Lead · AI & SEO Specialist
             </p>
           </div>
         </div>
@@ -81,12 +81,12 @@ export default async function Home() {
           <span className="text-foreground">echo</span>
           <span className="text-accent-emerald"> &quot;</span>
           <span className="text-gradient">
-            Inteligência Artificial & Arquitetura AI
+            AI First — Inteligência Artificial & Arquitetura AI
           </span>
           <span className="text-accent-emerald">&quot;</span>
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-          Senior Media Buyer, AI & SEO Specialist com 12+ anos de experiência.
+          AI Lead, AI & SEO Specialist com 12+ anos de experiência.
           Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases
           replicáveis de Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil.
         </p>

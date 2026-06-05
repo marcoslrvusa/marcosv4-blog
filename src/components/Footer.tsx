@@ -26,7 +26,7 @@ export default function Footer() {
             <LinkedInIcon className="h-4 w-4" />
           </a>
           <span className="font-mono text-[11px] text-muted-foreground">
-            © {new Date().getFullYear()} marcosv4.cloud
+            © {new Date().getFullYear()} AI First
           </span>
         </div>
       </div>

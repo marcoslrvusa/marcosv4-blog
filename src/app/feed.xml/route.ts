@@ -24,8 +24,8 @@ export async function GET() {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>marcosv4.cloud — AI & Arquitetura de Sistemas Inteligentes</title>
-  <subtitle>Senior Media Buyer, AI & SEO Specialist. Escrevo sobre IA, arquitetura e mercado.</subtitle>
+  <title>AI First — AI & Arquitetura de Sistemas Inteligentes</title>
+  <subtitle>AI Lead, AI & SEO Specialist. Escrevo sobre IA, arquitetura e mercado.</subtitle>
   <link href="${BASE_URL}/feed.xml" rel="self"/>
   <link href="${BASE_URL}" rel="alternate"/>
   <id>${BASE_URL}/</id>
