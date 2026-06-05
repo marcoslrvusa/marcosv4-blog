@@ -8,24 +8,25 @@ import {
   BookOpen, Award, Briefcase, Layers, ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
 
-const badges = [
-  { label: "AI Lead", icon: TrendingUp },
-  { label: "AI & SEO Specialist", icon: Brain },
-  { label: "DataCamp Data Scientist", icon: BarChart3 },
-  { label: "12+ Anos XP", icon: BadgeCheck },
+const topics = [
+  { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-accent-emerald", border: "border-accent-emerald/20" },
+  { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-cyan", border: "border-accent-cyan/20" },
+  { label: "AI Search", slug: "ai-search", icon: Layers, color: "text-accent-amber", border: "border-accent-amber/20" },
+  { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-purple-400", border: "border-purple-400/20" },
 ];
 
-  const topics = [
-    { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-accent-emerald", border: "border-accent-emerald/20" },
-    { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-cyan", border: "border-accent-cyan/20" },
-    { label: "AI Search", slug: "ai-search", icon: Layers, color: "text-accent-amber", border: "border-accent-amber/20" },
-    { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-purple-400", border: "border-purple-400/20" },
-  ];
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
 
-  export default async function Home() {
   let posts: { node: import("@/lib/types").Post }[] = [];
   let total = 0;
   let usingLocal = false;
@@ -35,7 +36,7 @@ const badges = [
     posts = pub.posts.edges;
     total = pub.posts.totalDocuments;
   } catch {
-    const localPosts = getAllLocalPosts();
+    const localPosts = getAllLocalPosts(locale);
     posts = localPosts.map((p) => ({ node: p }));
     total = localPosts.length;
     usingLocal = true;
@@ -54,7 +55,7 @@ const badges = [
         <div className="mb-6 flex items-center gap-2">
           <span className="status-pulse flex h-2 w-2 rounded-full bg-accent-emerald" />
           <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-accent-emerald">
-            AI Authority — Brasil
+            {t("tagline")}
           </span>
         </div>
 
@@ -73,24 +74,28 @@ const badges = [
               Marcos Luciano
             </h2>
             <p className="text-sm text-muted">
-              AI Lead · AI & SEO Specialist
+              {t("badges.lead")} · {t("badges.specialist")}
             </p>
           </div>
         </div>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          {badges.map((badge) => {
-            const Icon = badge.icon;
-            return (
-              <span
-                key={badge.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80"
-              >
-                <Icon className="h-3 w-3" />
-                {badge.label}
-              </span>
-            );
-          })}
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
+            <TrendingUp className="h-3 w-3" />
+            {t("badges.lead")}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
+            <Brain className="h-3 w-3" />
+            {t("badges.specialist")}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
+            <BarChart3 className="h-3 w-3" />
+            {t("badges.datacamp")}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/10 bg-accent-emerald/5 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wider text-accent-emerald/80">
+            <BadgeCheck className="h-3 w-3" />
+            {t("badges.xp")}
+          </span>
         </div>
 
         {/* Stats Bar */}
@@ -98,25 +103,25 @@ const badges = [
           <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
             <p className="font-mono text-2xl font-bold text-foreground">{total}</p>
             <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              Artigos
+              {t("stats.articles")}
             </p>
           </div>
           <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
             <p className="font-mono text-2xl font-bold text-foreground">12+</p>
             <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              Anos de XP
+              {t("stats.xp")}
             </p>
           </div>
           <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
             <p className="font-mono text-2xl font-bold text-foreground">8</p>
             <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              Certificações
+              {t("stats.certs")}
             </p>
           </div>
           <div className="rounded-xl border border-border bg-card/30 p-4 text-center">
             <p className="font-mono text-2xl font-bold text-foreground">4</p>
             <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              Tópicos
+              {t("stats.topics")}
             </p>
           </div>
         </div>
@@ -126,30 +131,28 @@ const badges = [
           <span className="text-foreground">echo</span>
           <span className="text-accent-emerald"> &quot;</span>
           <span className="text-gradient">
-            AI First — Inteligência Artificial & Arquitetura AI
+            {t("hero.title")}
           </span>
           <span className="text-accent-emerald">&quot;</span>
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-          AI Lead, AI & SEO Specialist com 12+ anos de experiência.
-          Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases
-          replicáveis de Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil.
+          {t("hero.description")}
         </p>
 
         <div className="mt-6 flex items-center gap-6 text-sm">
           <div className="flex items-center gap-1.5 text-muted">
             <span className="font-semibold text-foreground">{total || 0}</span>
-            <span>{total === 1 ? "artigo" : "artigos"} publicados</span>
+            <span>{total === 1 ? t("common.article", {}) : `${total} ${t("stats.articles", {})}`.split(" ").slice(1).join(" ")}</span>
           </div>
           <div className="flex items-center gap-1.5 text-muted">
             <Sparkles className="h-3.5 w-3.5 text-accent-cyan" />
             <span className="text-xs text-muted-foreground">
-              atualizado em {new Date().toLocaleDateString("pt-BR")}
+              {t("updated")} {new Date().toLocaleDateString(locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR")}
             </span>
           </div>
           {usingLocal && (
             <div className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
-              <span className="text-accent-emerald">*</span>conteúdo local
+              <span className="text-accent-emerald">*</span>{t("localContent")}
             </div>
           )}
         </div>
@@ -158,11 +161,11 @@ const badges = [
       {/* Divider */}
       <div className="mb-8 flex items-center gap-3 animate-fade-in-delay-1">
         <span className="font-mono text-xs font-medium text-muted-foreground">
-          $ ls -la artigos/
+          $ ls -la {t("divider")}/
         </span>
         <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
         <span className="font-mono text-[10px] text-muted-foreground">
-          {total} resultados
+          {total} {t("results")}
         </span>
       </div>
 
@@ -172,14 +175,14 @@ const badges = [
           <div className="space-y-4">
             {posts.map(({ node }) => (
               <div key={node.id} className="animate-fade-in-delay-2">
-                <PostCard post={node} />
+                <PostCard post={node} locale={locale} />
               </div>
             ))}
           </div>
         ) : (
           <div className="glass-card rounded-xl p-12 text-center">
             <p className="font-mono text-sm text-muted-foreground">
-              Nenhum artigo publicado ainda.
+              {t("noPosts")}
             </p>
           </div>
         )}
@@ -189,7 +192,7 @@ const badges = [
       <section className="mt-16 animate-fade-in-delay-2">
         <div className="mb-6 flex items-center gap-3">
           <span className="font-mono text-xs font-medium text-muted-foreground">
-            $ tree topics/
+            $ tree {t("topics").toLowerCase().replace(/\s+/g, "-")}/
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
         </div>
@@ -209,7 +212,7 @@ const badges = [
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-foreground">{topic.label}</p>
                     <p className="font-mono text-[11px] text-muted-foreground">
-                      {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
+                      {topic.count} {topic.count === 1 ? t("common.article", {}) : t("common.articles", {})}
                     </p>
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-accent-emerald" />
@@ -235,10 +238,10 @@ const badges = [
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-sm font-medium text-foreground group-hover:text-accent-emerald">
-              Conecte-se no LinkedIn
+              {t("linkedin")}
             </p>
             <p className="font-mono text-[11px] text-muted-foreground">
-              /in/marcoslrvieira
+              {t("linkedinSub")}
             </p>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-accent-emerald" />
@@ -247,7 +250,7 @@ const badges = [
 
       {/* Newsletter Form */}
       <section className="mt-12 animate-fade-in-delay-3">
-        <NewsletterForm />
+        <NewsletterForm locale={locale} />
       </section>
     </div>
   );

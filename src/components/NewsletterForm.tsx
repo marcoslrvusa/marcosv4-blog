@@ -2,8 +2,10 @@
 
 import { useState, FormEvent } from "react";
 import { Mail, Check, Loader2, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-export default function NewsletterForm() {
+export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
+  const t = useTranslations("newsletter");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -20,23 +22,23 @@ export default function NewsletterForm() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, name, locale }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
         setStatus("success");
-        setMessage("Inscrição confirmada! Você vai receber os artigos no seu email.");
+        setMessage(t("success"));
         setEmail("");
         setName("");
       } else {
         setStatus("error");
-        setMessage(data.error || "Erro ao inscrever. Tente novamente.");
+        setMessage(data.error || t("error"));
       }
     } catch {
       setStatus("error");
-      setMessage("Erro de conexão. Tente novamente.");
+      setMessage(t("error"));
     }
   }
 
@@ -49,11 +51,10 @@ export default function NewsletterForm() {
           </div>
           <div>
             <h3 className="text-base font-semibold text-foreground">
-              Receba IA todo dia no seu email
+              {t("title")}
             </h3>
             <p className="mt-1 text-sm text-muted">
-              Um artigo por dia sobre inteligência artificial, arquitetura de
-              sistemas AI e o mercado — direto de quem vive o mercado.
+              {t("description")}
             </p>
           </div>
         </div>
@@ -68,7 +69,7 @@ export default function NewsletterForm() {
             <div className="flex flex-1 flex-col gap-2 sm:flex-row">
               <input
                 type="text"
-                placeholder="Seu nome (opcional)"
+                placeholder={t("namePlaceholder")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
@@ -76,7 +77,7 @@ export default function NewsletterForm() {
               <input
                 type="email"
                 required
-                placeholder="seu@email.com"
+                placeholder={t("emailPlaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
@@ -92,7 +93,7 @@ export default function NewsletterForm() {
               ) : (
                 <Sparkles className="h-4 w-4" />
               )}
-              Inscrever
+              {t("cta")}
             </button>
           </form>
         )}
@@ -102,7 +103,11 @@ export default function NewsletterForm() {
         )}
 
         <p className="text-xs text-muted-foreground">
-          Sem spam. Descadastre-se quando quiser. Seus dados não serão compartilhados.
+          {locale === "en"
+            ? "No spam. Unsubscribe anytime. Your data will not be shared."
+            : locale === "es"
+            ? "Sin spam. Date de baja cuando quieras. Tus datos no serán compartidos."
+            : "Sem spam. Descadastre-se quando quiser. Seus dados não serão compartilhados."}
         </p>
       </div>
     </div>

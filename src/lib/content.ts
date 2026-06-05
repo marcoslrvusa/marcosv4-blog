@@ -4,15 +4,18 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import type { Post } from "./types";
 
-const postsDir = path.join(process.cwd(), "content/posts");
+function postsDir(locale = "pt") {
+  return path.join(process.cwd(), "content/posts", locale);
+}
 
-export function getAllLocalPosts(): Post[] {
-  if (!fs.existsSync(postsDir)) return [];
+export function getAllLocalPosts(locale = "pt"): Post[] {
+  const dir = postsDir(locale);
+  if (!fs.existsSync(dir)) return [];
 
-  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"));
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
 
   return files
-    .map((file) => parsePostFile(file))
+    .map((file) => parsePostFile(file, locale))
     .filter((p): p is Post => p !== null)
     .sort(
       (a, b) =>
@@ -20,26 +23,28 @@ export function getAllLocalPosts(): Post[] {
     );
 }
 
-export function getLocalPost(slug: string): Post | null {
+export function getLocalPost(slug: string, locale = "pt"): Post | null {
   try {
-    const file = fs.readdirSync(postsDir).find((f) => f.startsWith(slug));
+    const dir = postsDir(locale);
+    const file = fs.readdirSync(dir).find((f) => f.startsWith(slug));
     if (!file) return null;
-    return parsePostFile(file);
+    return parsePostFile(file, locale);
   } catch {
     return null;
   }
 }
 
-export function getAllLocalSlugs(): string[] {
-  if (!fs.existsSync(postsDir)) return [];
+export function getAllLocalSlugs(locale = "pt"): string[] {
+  const dir = postsDir(locale);
+  if (!fs.existsSync(dir)) return [];
   return fs
-    .readdirSync(postsDir)
+    .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/\.md$/, ""));
 }
 
-function parsePostFile(filename: string): Post | null {
-  const filePath = path.join(postsDir, filename);
+function parsePostFile(filename: string, locale = "pt"): Post | null {
+  const filePath = path.join(postsDir(locale), filename);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 

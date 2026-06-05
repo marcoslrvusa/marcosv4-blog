@@ -1,0 +1,82 @@
+{
+  "site": {
+    "title": "AI First",
+    "subtitle": "IA y Arquitectura de Sistemas Inteligentes",
+    "description": "AI Lead, AI & SEO Specialist | La mayor autoridad en IA de Brasil",
+    "tagline": "Engineering AI Lead",
+    "domain": "marcosv4.cloud"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "articles": "Artículos"
+  },
+  "home": {
+    "hero": {
+      "title": "AI First — Inteligencia Artificial y Arquitectura IA",
+      "description": "AI Lead, AI & SEO Specialist con 12+ años de experiencia. Escribo sobre inteligencia artificial, arquitectura de sistemas AI, casos replicables de Nvidia/Microsoft/Google/OpenAI y el mercado de IA en Brasil."
+    },
+    "stats": {
+      "articles": "Artículos",
+      "xp": "Años de XP",
+      "certs": "Certificaciones",
+      "topics": "Temas"
+    },
+    "badges": {
+      "lead": "AI Lead",
+      "specialist": "AI & SEO Specialist",
+      "datacamp": "DataCamp Data Scientist",
+      "xp": "12+ Años XP"
+    },
+    "divider": "artículos",
+    "results": "resultados",
+    "noPosts": "Ningún artículo publicado todavía.",
+    "updated": "actualizado el",
+    "localContent": "contenido local",
+    "topics": "Contenido por Tema",
+    "linkedin": "Conéctate en LinkedIn",
+    "linkedinSub": "/in/marcoslrvieira"
+  },
+  "post": {
+    "minRead": "min de lectura",
+    "share": "Compartir",
+    "post": "Publicar",
+    "connectLinkedin": "Conectar en LinkedIn",
+    "authorBio": "AI Lead · AI & SEO Specialist · DataCamp Data Scientist. Escribo sobre IA, arquitectura de sistemas y el mercado de inteligencia artificial en Brasil.",
+    "notFound": "Artículo no encontrado"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Marcos Luciano — AI Lead, AI & SEO Specialist en V4 Company",
+    "galleryLabel": "galería",
+    "currentRole": "AI Lead en V4 Company",
+    "currentDesc": "con 12+ años de experiencia en SEO, growth y marketing digital. Especialista en performance marketing, AI Ops y estrategias de búsqueda — desde PageRank hasta RankBrain, desde BERT hasta Overviews generativos.",
+    "education": "Formación y Certificaciones",
+    "stack": "Stack",
+    "whatYouFind": "Lo que encontrarás aquí",
+    "items": [
+      "Casos de IA Replicables — arquitecturas reales de Nvidia, Microsoft, Google y OpenAI traducidas a aplicación práctica",
+      "Mercado de IA — coyuntura, actualizaciones y lo que los lanzamientos realmente significan para profesionales",
+      "AI Search — SEO, AEO y GEO en la era de los motores generativos",
+      "Arquitectura IA — guías prácticas para construir sistemas con LLMs, agentes y automatización inteligente"
+    ],
+    "connectLinkedin": "Conectar en LinkedIn"
+  },
+  "newsletter": {
+    "title": "Recibe los próximos artículos",
+    "description": "Suscríbete para recibir nuevos artículos sobre IA, arquitectura y mercado directamente en tu correo.",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu@email.com",
+    "cta": "Suscribir",
+    "success": "¡Suscripción confirmada! 🎉",
+    "error": "Algo salió mal. Intenta de nuevo."
+  },
+  "footer": {
+    "madeWith": "Hecho con ☕ por",
+    "copyright": "AI First"
+  },
+  "common": {
+    "articles": "artículos",
+    "article": "artículo"
+  }
+}

@@ -1,33 +1,36 @@
-import { getPost, getAllPostSlugs as getHashnodeSlugs } from "@/lib/hashnode";
 import { getLocalPost, getAllLocalSlugs } from "@/lib/content";
+import { getPost, getAllPostSlugs as getHashnodeSlugs } from "@/lib/hashnode";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Calendar, Tag, Clock, Sparkles } from "lucide-react";
+import { Calendar, Tag, Clock } from "lucide-react";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import NewsletterForm from "@/components/NewsletterForm";
+import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
 
 export async function generateStaticParams() {
-  const localSlugs = getAllLocalSlugs();
-  let hashnodeSlugs: string[] = [];
-  try {
-    hashnodeSlugs = await getHashnodeSlugs();
-  } catch {
-    // silent
+  const locales = ["pt", "en", "es"];
+  const params: { locale: string; slug: string }[] = [];
+
+  for (const locale of locales) {
+    const slugs = getAllLocalSlugs(locale);
+    for (const slug of slugs) {
+      params.push({ locale, slug });
+    }
   }
-  const allSlugs = [...new Set([...localSlugs, ...hashnodeSlugs])];
-  return allSlugs.map((slug: string) => ({ slug }));
+
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  let post = getLocalPost(slug);
+  const { locale, slug } = await params;
+  let post = getLocalPost(slug, locale);
   if (!post) {
     try {
       post = await getPost(slug);
@@ -50,11 +53,12 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "post" });
 
-  let post: import("@/lib/types").Post | null = getLocalPost(slug);
+  let post: import("@/lib/types").Post | null = getLocalPost(slug, locale);
   if (!post) {
     try {
       post = await getPost(slug);
@@ -67,19 +71,23 @@ export default async function PostPage({
     notFound();
   }
 
-  const date = new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const date = new Date(post.publishedAt).toLocaleDateString(
+    locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
 
   const readingTime = Math.max(
     1,
     Math.ceil((post.content?.markdown?.length || 0) / 1000)
   );
 
-  const articleUrl = `https://marcosv4.cloud/posts/${post.slug}`;
-  const shareText = encodeURIComponent(`${post.title} — marcosv4.cloud`);
+  const baseUrl = locale === "pt" ? "https://marcosv4.cloud" : `https://marcosv4.cloud/${locale}`;
+  const articleUrl = `${baseUrl}/posts/${post.slug}`;
+  const shareText = encodeURIComponent(`${post.title} — AI First`);
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
@@ -91,7 +99,7 @@ export default async function PostPage({
           </time>
           <span className="flex items-center gap-1.5">
             <Clock className="h-3 w-3 text-accent-cyan" />
-            {readingTime} min de leitura
+            {readingTime} {t("minRead")}
           </span>
           {post.tags?.slice(0, 3).map((tag) => (
             <span
@@ -141,7 +149,7 @@ export default async function PostPage({
                 className="inline-flex items-center gap-1.5 rounded-lg border border-accent-emerald/20 px-3 py-1.5 font-mono text-xs font-medium text-accent-emerald transition-all hover:bg-accent-emerald/10"
               >
                 <LinkedInIcon className="h-3 w-3" />
-                Compartilhar
+                {t("share")}
               </a>
               <a
                 href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(articleUrl)}`}
@@ -152,7 +160,7 @@ export default async function PostPage({
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                Postar
+                {t("post")}
               </a>
             </div>
           </div>
@@ -188,8 +196,7 @@ export default async function PostPage({
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">
-                AI Lead · AI & SEO Specialist · DataCamp Data Scientist.
-                Escrevo sobre IA, arquitetura de sistemas e o mercado de inteligência artificial no Brasil.
+                {t("authorBio")}
               </p>
               <a
                 href="https://linkedin.com/in/marcoslrvieira"
@@ -198,7 +205,7 @@ export default async function PostPage({
                 className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-accent-emerald hover:underline"
               >
                 <LinkedInIcon className="h-3 w-3" />
-                Conectar no LinkedIn
+                {t("connectLinkedin")}
               </a>
             </div>
           </div>
@@ -207,7 +214,7 @@ export default async function PostPage({
 
       {/* Newsletter */}
       <div className="mt-8 animate-fade-in-delay-3">
-        <NewsletterForm />
+        <NewsletterForm locale={locale} />
       </div>
     </article>
   );

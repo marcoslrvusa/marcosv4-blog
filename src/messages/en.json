@@ -1,0 +1,82 @@
+{
+  "site": {
+    "title": "AI First",
+    "subtitle": "AI & Intelligent Systems Architecture",
+    "description": "AI Lead, AI & SEO Specialist | Brazil's leading AI authority",
+    "tagline": "Engineering AI Lead",
+    "domain": "marcosv4.cloud"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles"
+  },
+  "home": {
+    "hero": {
+      "title": "AI First — Artificial Intelligence & AI Architecture",
+      "description": "AI Lead, AI & SEO Specialist with 12+ years of experience. I write about artificial intelligence, AI systems architecture, replicable cases from Nvidia/Microsoft/Google/OpenAI, and the AI market in Brazil."
+    },
+    "stats": {
+      "articles": "Articles",
+      "xp": "Years XP",
+      "certs": "Certifications",
+      "topics": "Topics"
+    },
+    "badges": {
+      "lead": "AI Lead",
+      "specialist": "AI & SEO Specialist",
+      "datacamp": "DataCamp Data Scientist",
+      "xp": "12+ Years XP"
+    },
+    "divider": "articles",
+    "results": "results",
+    "noPosts": "No articles published yet.",
+    "updated": "updated",
+    "localContent": "local content",
+    "topics": "Content by Topic",
+    "linkedin": "Connect on LinkedIn",
+    "linkedinSub": "/in/marcoslrvieira"
+  },
+  "post": {
+    "minRead": "min read",
+    "share": "Share",
+    "post": "Post",
+    "connectLinkedin": "Connect on LinkedIn",
+    "authorBio": "AI Lead · AI & SEO Specialist · DataCamp Data Scientist. I write about AI, systems architecture, and the artificial intelligence market in Brazil.",
+    "notFound": "Post not found"
+  },
+  "about": {
+    "title": "About",
+    "description": "Marcos Luciano — AI Lead, AI & SEO Specialist at V4 Company",
+    "galleryLabel": "gallery",
+    "currentRole": "AI Lead at V4 Company",
+    "currentDesc": "with 12+ years of experience in SEO, growth, and digital marketing. Specialist in performance marketing, AI Ops, and search strategies — from PageRank to RankBrain, from BERT to Generative Overviews.",
+    "education": "Education & Certifications",
+    "stack": "Stack",
+    "whatYouFind": "What you'll find here",
+    "items": [
+      "Replicable AI Cases — real architectures from Nvidia, Microsoft, Google, and OpenAI translated into practical applications",
+      "AI Market — conjuncture, updates, and what releases actually mean for professionals",
+      "AI Search — SEO, AEO, and GEO in the age of generative engines",
+      "AI Architecture — practical guides for building systems with LLMs, agents, and intelligent automation"
+    ],
+    "connectLinkedin": "Connect on LinkedIn"
+  },
+  "newsletter": {
+    "title": "Get the next articles",
+    "description": "Subscribe to receive new articles about AI, architecture, and market news directly in your inbox.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "cta": "Subscribe",
+    "success": "Subscription confirmed! 🎉",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "madeWith": "Made with ☕ by",
+    "copyright": "AI First"
+  },
+  "common": {
+    "articles": "articles",
+    "article": "article"
+  }
+}

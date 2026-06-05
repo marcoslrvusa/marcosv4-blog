@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,38 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "AI First — AI & Arquitetura de Sistemas Inteligentes",
-    template: "%s — AI First",
-  },
-  description:
-    "AI Lead, AI & SEO Specialist com 12+ anos de experiência. Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil.",
-  openGraph: {
-    title: "AI First",
-    description: "AI Lead, AI & SEO Specialist | Maior autoridade em IA do Brasil",
-    siteName: "AI First",
-    type: "website",
-    locale: "pt_BR",
-  },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Marcos Luciano",
-  alternateName: "Marcos Luciano Vieira",
-  jobTitle: "AI Lead, AI & SEO Specialist",
-  worksFor: { "@type": "Organization", name: "V4 Company" },
-  url: "https://marcosv4.cloud",
-  sameAs: ["https://linkedin.com/in/marcoslrvieira"],
-  knowsAbout: [
-    "Inteligência Artificial",
-    "Machine Learning",
-    "AI Search",
-    "SEO",
-    "Performance Marketing",
-    "Arquitetura de Sistemas AI",
-  ],
+  icons: { shortcut: "/favicon.ico" },
 };
 
 export default function RootLayout({
@@ -64,10 +31,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         <link
           rel="alternate"
           type="application/atom+xml"
@@ -76,11 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Providers>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

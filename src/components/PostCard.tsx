@@ -16,25 +16,30 @@ function getTagColor(tag: string) {
   return colors[key] || "text-muted-foreground border-border bg-card";
 }
 
-export default function PostCard({ post }: { post: Post }) {
-  const date = new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+export default function PostCard({ post, locale = "pt" }: { post: Post; locale?: string }) {
+  const date = new Date(post.publishedAt).toLocaleDateString(
+    locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
 
   const readingTime = Math.max(
     1,
     Math.ceil((post.content?.markdown?.length || 0) / 1000)
   );
 
+  const prefix = locale === "pt" ? "" : `/${locale}`;
+
   return (
-    <Link href={`/posts/${post.slug}`} className="group block">
+    <Link href={`${prefix}/posts/${post.slug}`} className="group block">
       <article className="glass-card rounded-xl p-5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,136,0.04)] hover:border-accent-emerald/20">
         <div className="flex items-center gap-2 text-xs text-muted">
           <time dateTime={post.publishedAt}>{date}</time>
           <span className="text-muted-foreground">·</span>
-          <span className="text-muted-foreground">{readingTime} min de leitura</span>
+          <span className="text-muted-foreground">{readingTime} min</span>
           {post.tags?.slice(0, 2).map((tag) => (
             <span
               key={tag.slug}
@@ -53,7 +58,7 @@ export default function PostCard({ post }: { post: Post }) {
           </p>
         )}
         <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground group-hover:text-accent-emerald transition-colors">
-          Ler artigo
+          {locale === "en" ? "Read article" : locale === "es" ? "Leer artículo" : "Ler artigo"}
           <span className="transition-transform group-hover:translate-x-0.5">→</span>
         </div>
       </article>
