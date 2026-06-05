@@ -2,26 +2,26 @@ import LinkedInIcon from "@/components/LinkedInIcon";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t border-border bg-card/50">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <p className="font-mono text-xs text-muted-foreground">
-          <span className="text-v4-red">$</span> echo &quot;Feito com ☕ na{" "}
+          <span className="text-accent-emerald">$</span> echo &quot;Feito com ☕ por{" "}
           <a
-            href="https://v4company.com"
+            href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground transition-colors hover:text-v4-red"
+            className="font-medium text-foreground transition-colors hover:text-accent-emerald"
           >
-            V4 Company
+            Marcos Luciano
           </a>
           &quot;
         </p>
         <div className="flex items-center gap-4">
           <a
-            href="https://linkedin.com/in/marcosperetto"
+            href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-muted-foreground transition-colors hover:text-accent-emerald"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>

@@ -55,7 +55,7 @@ function parsePostFile(filename: string): Post | null {
     tags: data.tags
       ? data.tags.map((t: string) => ({ name: t, slug: t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-") }))
       : [],
-    author: { name: "Marcos Peretto", profilePicture: null },
+    author: { name: "Marcos Luciano", profilePicture: null },
     coverImage: data.coverImage ? { url: data.coverImage } : null,
   };
 }
