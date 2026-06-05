@@ -4,6 +4,7 @@ import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import TerminalText from "@/components/TerminalText";
+import EbookCta from "@/components/EbookCta";
 import {
   Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles,
   BookOpen, Award, Briefcase, Layers, ChevronRight,
@@ -230,6 +231,11 @@ export default async function Home({
             );
           })}
         </div>
+      </section>
+
+      {/* Lead Magnet */}
+      <section className="mt-12 animate-fade-in-delay-2">
+        <EbookCta locale={locale} />
       </section>
 
       {/* LinkedIn Authority */}

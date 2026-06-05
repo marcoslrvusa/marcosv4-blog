@@ -78,5 +78,19 @@
   "common": {
     "articles": "articles",
     "article": "article"
+  },
+  "ebook": {
+    "title": "Practical AI Search Guide",
+    "description": "5 steps to get found by ChatGPT, Perplexity, and Google AI Overviews",
+    "formTitle": "Download the Free Guide",
+    "formDescription": "Enter your email to receive the complete AI Search guide PDF.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "cta": "Download Free",
+    "success": "Done! The complete guide is unlocked below.",
+    "error": "Something went wrong. Please try again.",
+    "previewNote": "👆 This is a preview. Fill out the form below to unlock the full content and download the PDF.",
+    "downloadReady": "✅ Guide unlocked!",
+    "printCta": "Save as PDF (Ctrl+P)"
   }
 }

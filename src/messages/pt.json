@@ -78,5 +78,19 @@
   "common": {
     "articles": "artigos",
     "article": "artigo"
+  },
+  "ebook": {
+    "title": "Guia Prático de AI Search",
+    "description": "5 passos para ser encontrado pelo ChatGPT, Perplexity e Google AI Overviews",
+    "formTitle": "Baixe o Guia Grátis",
+    "formDescription": "Deixe seu email para receber o PDF completo com o guia de AI Search.",
+    "namePlaceholder": "Seu nome",
+    "emailPlaceholder": "seu@email.com",
+    "cta": "Baixar Grátis",
+    "success": "Pronto! O guia completo está liberado abaixo.",
+    "error": "Algo deu errado. Tente novamente.",
+    "previewNote": "👆 Esta é uma prévia do guia. Preencha o formulário abaixo para liberar o conteúdo completo e baixar o PDF.",
+    "downloadReady": "✅ Guia liberado!",
+    "printCta": "Salvar como PDF (Ctrl+P)"
   }
 }
