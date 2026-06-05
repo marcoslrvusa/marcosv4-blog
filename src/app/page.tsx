@@ -46,8 +46,8 @@ export default async function Home() {
           <Image
             src="/profile.png"
             alt="Marcos Luciano"
-            width={72}
-            height={72}
+            width={96}
+            height={96}
             className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
             priority
           />

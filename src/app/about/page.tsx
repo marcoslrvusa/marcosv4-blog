@@ -58,13 +58,13 @@ export default function About() {
         </div>
 
         {/* Profile Header */}
-        <div className="mb-6 flex items-center gap-5">
+        <div className="mb-8 flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
           <Image
             src="/profile.png"
             alt="Marcos Luciano"
-            width={96}
-            height={96}
-            className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            width={140}
+            height={140}
+            className="rounded-full ring-2 ring-accent-emerald/20 object-cover shrink-0"
             priority
           />
           <div>
@@ -74,6 +74,33 @@ export default function About() {
             <p className="mt-1 text-base text-muted">
               AI Lead · AI & SEO Specialist · Publicitário
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="mt-8 animate-fade-in-delay-1">
+        <div className="mb-4 flex items-center gap-2">
+          <span className="font-mono text-xs text-muted-foreground"># gallery</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/images/marcos-relax.png"
+              alt="Marcos Luciano — relaxado"
+              width={600}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/images/dale.png"
+              alt="Marcos Luciano — Dale"
+              width={600}
+              height={400}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
