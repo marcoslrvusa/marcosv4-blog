@@ -3,7 +3,9 @@ import { getLocalPost, getAllLocalSlugs } from "@/lib/content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Calendar, Tag, Clock, Sparkles } from "lucide-react";
+import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export const revalidate = 300;
 
@@ -115,9 +117,13 @@ export default async function PostPage({
         <div className="mt-8 border-t border-border pt-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-emerald/10 text-sm font-semibold text-accent-emerald ring-1 ring-accent-emerald/20">
-                ML
-              </div>
+              <Image
+                src="/profile.png"
+                alt="Marcos Luciano"
+                width={40}
+                height={40}
+                className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+              />
               <div>
                 <p className="text-sm font-medium text-foreground">
                   Marcos Luciano
@@ -169,12 +175,16 @@ export default async function PostPage({
       />
 
       {/* Author Bio */}
-      <footer className="mt-16 animate-fade-in-delay-2">
+      <footer className="mt-16 animate-fade-in-delay-2 border-b border-border pb-12">
         <div className="gradient-border rounded-xl p-5">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-emerald/10 text-base font-bold text-accent-emerald ring-1 ring-accent-emerald/20">
-              ML
-            </div>
+            <Image
+              src="/profile.png"
+              alt="Marcos Luciano"
+              width={56}
+              height={56}
+              className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            />
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">
@@ -194,6 +204,11 @@ export default async function PostPage({
           </div>
         </div>
       </footer>
+
+      {/* Newsletter */}
+      <div className="mt-8 animate-fade-in-delay-3">
+        <NewsletterForm />
+      </div>
     </article>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import {
   Brain,
@@ -8,8 +9,6 @@ import {
   Building2,
   BadgeCheck,
   TrendingUp,
-  Search,
-  Megaphone,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -57,12 +56,26 @@ export default function About() {
         <div className="mb-2 flex items-center gap-2">
           <span className="font-mono text-xs text-muted-foreground">$ cat about.md</span>
         </div>
-        <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-          Marcos <span className="text-v4-red">Luciano</span>
-        </h1>
-        <p className="mt-2 text-base text-muted">
-          Senior Media Buyer · AI & SEO Specialist · Publicitário
-        </p>
+
+        {/* Profile Header */}
+        <div className="mb-6 flex items-center gap-5">
+          <Image
+            src="/profile.png"
+            alt="Marcos Luciano"
+            width={96}
+            height={96}
+            className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            priority
+          />
+          <div>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              Marcos <span className="text-accent-emerald">Luciano</span>
+            </h1>
+            <p className="mt-1 text-base text-muted">
+              Senior Media Buyer · AI & SEO Specialist · Publicitário
+            </p>
+          </div>
+        </div>
       </section>
 
       <div className="mt-12 space-y-12 animate-fade-in-delay-1">
@@ -147,9 +160,13 @@ export default function About() {
       <div className="mt-12 animate-fade-in-delay-2">
         <div className="gradient-border rounded-xl p-5">
           <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-emerald/10 text-accent-emerald font-bold text-lg ring-1 ring-accent-emerald/20">
-              ML
-            </div>
+            <Image
+              src="/profile.png"
+              alt="Marcos Luciano"
+              width={64}
+              height={64}
+              className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            />
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">

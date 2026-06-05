@@ -1,8 +1,9 @@
 import { getAllLocalPosts } from "@/lib/content";
 import { getPublication } from "@/lib/hashnode";
+import Image from "next/image";
 import PostCard from "@/components/PostCard";
+import NewsletterForm from "@/components/NewsletterForm";
 import { Brain, BarChart3, BadgeCheck, TrendingUp, Sparkles } from "lucide-react";
-import LinkedInIcon from "@/components/LinkedInIcon";
 
 export const revalidate = 300;
 
@@ -38,6 +39,26 @@ export default async function Home() {
           <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-accent-emerald">
             AI Authority — Brasil
           </span>
+        </div>
+
+        {/* Author Card */}
+        <div className="mb-6 flex items-center gap-4 rounded-xl border border-border bg-card/50 p-4">
+          <Image
+            src="/profile.png"
+            alt="Marcos Luciano"
+            width={72}
+            height={72}
+            className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            priority
+          />
+          <div>
+            <h2 className="text-lg font-semibold text-foreground">
+              Marcos Luciano
+            </h2>
+            <p className="text-sm text-muted">
+              Senior Media Buyer · AI & SEO Specialist
+            </p>
+          </div>
         </div>
 
         <div className="mb-4 flex flex-wrap gap-2">
@@ -119,31 +140,9 @@ export default async function Home() {
         )}
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Newsletter Form */}
       <section className="mt-16 animate-fade-in-delay-3">
-        <div className="gradient-border rounded-xl p-6 sm:p-8">
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h3 className="text-base font-semibold text-foreground">
-                Receba os artigos no seu feed
-              </h3>
-              <p className="mt-1 text-sm text-muted">
-                Um artigo por dia sobre IA, arquitetura e mercado.
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://linkedin.com/in/marcoslrvieira"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-accent-emerald/20 bg-accent-emerald/5 px-4 py-2 text-sm font-medium text-accent-emerald transition-all hover:bg-accent-emerald/10"
-              >
-                <LinkedInIcon className="h-4 w-4" />
-                Seguir no LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
+        <NewsletterForm />
       </section>
     </div>
   );

@@ -1,0 +1,110 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+import { Mail, Check, Loader2, Sparkles } from "lucide-react";
+
+export default function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setMessage("Inscrição confirmada! Você vai receber os artigos no seu email.");
+        setEmail("");
+        setName("");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Erro ao inscrever. Tente novamente.");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Erro de conexão. Tente novamente.");
+    }
+  }
+
+  return (
+    <div className="gradient-border rounded-xl p-6 sm:p-8">
+      <div className="flex flex-col gap-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-emerald/10">
+            <Mail className="h-5 w-5 text-accent-emerald" />
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-foreground">
+              Receba IA todo dia no seu email
+            </h3>
+            <p className="mt-1 text-sm text-muted">
+              Um artigo por dia sobre inteligência artificial, arquitetura de
+              sistemas AI e o mercado — direto de quem vive o mercado.
+            </p>
+          </div>
+        </div>
+
+        {status === "success" ? (
+          <div className="flex items-center gap-2 rounded-lg bg-accent-emerald/5 px-4 py-3">
+            <Check className="h-5 w-5 text-accent-emerald" />
+            <p className="text-sm text-accent-emerald">{message}</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-1 flex-col gap-2 sm:flex-row">
+              <input
+                type="text"
+                placeholder="Seu nome (opcional)"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
+              />
+              <input
+                type="email"
+                required
+                placeholder="seu@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-emerald px-5 py-2.5 text-sm font-semibold text-black transition-all hover:bg-accent-emerald/90 disabled:opacity-60"
+            >
+              {status === "loading" ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Sparkles className="h-4 w-4" />
+              )}
+              Inscrever
+            </button>
+          </form>
+        )}
+
+        {status === "error" && (
+          <p className="text-sm text-v4-red">{message}</p>
+        )}
+
+        <p className="text-xs text-muted-foreground">
+          Sem spam. Descadastre-se quando quiser. Seus dados não serão compartilhados.
+        </p>
+      </div>
+    </div>
+  );
+}
