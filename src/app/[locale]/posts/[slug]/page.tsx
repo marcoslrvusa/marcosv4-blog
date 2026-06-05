@@ -7,6 +7,8 @@ import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import NewsletterForm from "@/components/NewsletterForm";
 import ReadingProgress from "@/components/ReadingProgress";
+import PostSidebar from "@/components/PostSidebar";
+import { extractHeadings } from "@/lib/headings";
 import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
@@ -86,6 +88,8 @@ export default async function PostPage({
     Math.ceil((post.content?.markdown?.length || 0) / 1000)
   );
 
+  const tocItems = extractHeadings(post.content.html);
+
   const baseUrl = locale === "pt" ? "https://marcosv4.cloud" : `https://marcosv4.cloud/${locale}`;
   const articleUrl = `${baseUrl}/posts/${post.slug}`;
   const shareText = encodeURIComponent(`${post.title} — AI First`);
@@ -93,7 +97,9 @@ export default async function PostPage({
   return (
     <>
       <ReadingProgress />
-      <article className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
+        <div className="md:grid md:grid-cols-[1fr_260px] md:gap-8">
+          <article>
       <header className="mb-12 animate-fade-in">
         <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
           <time dateTime={post.publishedAt} className="flex items-center gap-1.5">
@@ -220,6 +226,14 @@ export default async function PostPage({
         <NewsletterForm locale={locale} />
       </div>
     </article>
+
+          <div className="mt-12 md:mt-0">
+            <div className="md:sticky md:top-24">
+              <PostSidebar locale={locale} tocItems={tocItems} />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

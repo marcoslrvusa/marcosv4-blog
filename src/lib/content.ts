@@ -4,6 +4,25 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import type { Post } from "./types";
 
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[\s]+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-");
+}
+
+const renderer = {
+  heading({ text, depth }: { text: string; depth: number }) {
+    const id = slugify(text);
+    return `<h${depth} id="${id}">${text}</h${depth}>`;
+  },
+};
+
+marked.use({ renderer });
+
 function postsDir(locale = "pt") {
   return path.join(process.cwd(), "content/posts", locale);
 }

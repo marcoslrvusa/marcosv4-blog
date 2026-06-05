@@ -6,7 +6,7 @@ tags:
   - DataCamp
   - Tutoriais
   - Carreira
-coverImage: /images/datacamp-roadmap.svg
+coverImage: /images/datacamp-roadmap.jpg
 ---
 
 ![Carreira em Ciência de Dados — Roteiro DataCamp](/images/datacamp-roadmap.svg)

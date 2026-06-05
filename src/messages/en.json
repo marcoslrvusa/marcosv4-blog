@@ -43,7 +43,10 @@
     "post": "Post",
     "connectLinkedin": "Connect on LinkedIn",
     "authorBio": "AI Lead · AI & SEO Specialist · DataCamp Data Scientist. I write about AI, systems architecture, and the artificial intelligence market in Brazil.",
-    "notFound": "Post not found"
+    "notFound": "Post not found",
+    "recentPosts": "Recent Posts",
+    "glossary": "AI Glossary",
+    "toc": "In This Article"
   },
   "about": {
     "title": "About",

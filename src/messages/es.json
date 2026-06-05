@@ -43,7 +43,10 @@
     "post": "Publicar",
     "connectLinkedin": "Conectar en LinkedIn",
     "authorBio": "AI Lead · AI & SEO Specialist · DataCamp Data Scientist. Escribo sobre IA, arquitectura de sistemas y el mercado de inteligencia artificial en Brasil.",
-    "notFound": "Artículo no encontrado"
+    "notFound": "Artículo no encontrado",
+    "recentPosts": "Artículos Recientes",
+    "glossary": "Glosario IA",
+    "toc": "En Este Artículo"
   },
   "about": {
     "title": "Sobre Mí",
