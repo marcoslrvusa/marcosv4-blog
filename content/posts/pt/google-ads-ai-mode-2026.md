@@ -6,7 +6,7 @@ tags:
   - Google
   - Mercado
   - AI Search
-coverImage: /images/marketing-live-cover.jpg
+coverImage: /images/marketing-live-cover-3.jpg
 ---
 
 Nove dias após o Marketing Live, o Google ativou anúncios no AI Mode — a versão permanentemente conversacional da busca que substituiu a Search Generative Experience experimental. A monetização da busca conversacional finalmente chegou.

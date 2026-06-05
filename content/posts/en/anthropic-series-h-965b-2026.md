@@ -5,7 +5,7 @@ date: 2026-06-01
 tags:
   - Anthropic
   - Market
-coverImage: /images/anthropic-cover.jpg
+coverImage: /images/anthropic-cover-4.jpg
 ---
 
 On June 1, 2026, Anthropic closed the largest fundraising round in technology market history: $65 billion in Series H, at a $900 billion pre-money valuation, $965 billion post-money, surpassing OpenAI (valued at $780B in May 2026) and becoming the most valuable AI company in the world.

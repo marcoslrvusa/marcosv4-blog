@@ -6,7 +6,7 @@ tags:
   - OpenAI
   - Arquitetura
   - Mercado
-coverImage: /images/openai-cover.jpg
+coverImage: /images/openai-cover-3.jpg
 ---
 
 A OpenAI silenciosamente promoveu o GPT-5.5 Instant ao status de modelo padrão da plataforma em 7 de maio de 2026. Quem ainda usa GPT-4o nas chamadas de API sem especificar modelo agora recebe respostas do 5.5 Instant — uma mudança que pega muitos desprevenidos.

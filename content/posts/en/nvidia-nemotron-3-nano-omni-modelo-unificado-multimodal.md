@@ -6,7 +6,7 @@ tags:
   - Nvidia
   - Architecture
   - AI
-coverImage: /images/nvidia-cover.jpg
+coverImage: /images/nvidia-cover-2.jpg
 ---
 
 ## The Announcement

@@ -5,7 +5,7 @@ date: 2026-02-03
 tags:
   - Anthropic
   - Mercado
-coverImage: /images/anthropic-cover.jpg
+coverImage: /images/anthropic-cover-3.jpg
 ---
 
 Em 3 de fevereiro de 2026, a Anthropic anunciou o fechamento de sua Série G — US$30 bilhões em novos investimentos a um valuation de US$380 bilhões. O valor é maior que o PIB de 140 países e representa a maior rodada de investimento privado da história, superando os US$20,5B da OpenAI em 2025. Bastaram 19 dias desde o anúncio do valuation de US$350B para que o mercado reavaliasse a empresa para cima.

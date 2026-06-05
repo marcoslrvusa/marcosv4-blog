@@ -6,7 +6,7 @@ tags:
   - Google
   - Arquitetura
   - Agentes
-coverImage: /images/google-io-cover.jpg
+coverImage: /images/google-io-cover-2.jpg
 ---
 
 O Google I/O 2026 não foi apenas mais um keynote. Foi a declaração mais agressiva da empresa sobre onde o mercado de inteligência artificial está indo — e o Google quer ser a infraestrutura disso tudo.

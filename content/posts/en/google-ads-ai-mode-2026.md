@@ -6,7 +6,7 @@ tags:
   - Google
   - Market
   - AI Search
-coverImage: /images/marketing-live-cover.jpg
+coverImage: /images/marketing-live-cover-3.jpg
 ---
 
 Nine days after Marketing Live, Google activated ads in AI Mode — the permanently conversational version of search that replaced the experimental Search Generative Experience. The monetization of conversational search has finally arrived.

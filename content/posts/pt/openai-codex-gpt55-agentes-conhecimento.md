@@ -6,7 +6,7 @@ tags:
   - OpenAI
   - Arquitetura
   - IA
-coverImage: /images/openai-cover.jpg
+coverImage: /images/openai-cover-2.jpg
 ---
 
 ## O Contexto

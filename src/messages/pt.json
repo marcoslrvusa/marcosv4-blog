@@ -35,7 +35,9 @@
     "localContent": "conteúdo local",
     "topics": "Conteúdo por Tema",
     "linkedin": "Conecte-se no LinkedIn",
-    "linkedinSub": "/in/marcoslrvieira"
+    "linkedinSub": "/in/marcoslrvieira",
+    "prev": "Anterior",
+    "next": "Próximo"
   },
   "post": {
     "minRead": "min de leitura",

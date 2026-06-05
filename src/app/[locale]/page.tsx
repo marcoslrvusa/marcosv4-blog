@@ -22,12 +22,18 @@ const topics = [
   { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-purple-400", border: "border-purple-400/20" },
 ];
 
+const PER_PAGE = 6;
+
 export default async function Home({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
   const { locale } = await params;
+  const { page: pageParam } = await searchParams;
+  const currentPage = Math.max(1, parseInt(pageParam || "1", 10) || 1);
   const t = await getTranslations({ locale, namespace: "home" });
 
   let posts: { node: import("@/lib/types").Post }[] = [];
@@ -51,8 +57,15 @@ export default async function Home({
     count: tags.filter((tag) => tag.includes(t.slug)).length,
   }));
 
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+  const safePage = Math.min(currentPage, totalPages);
+  const start = (safePage - 1) * PER_PAGE;
+  const pagePosts = posts.slice(start, start + PER_PAGE);
+
+  const prefix = locale === "pt" ? "" : `/${locale}`;
+
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       {/* Hero Section */}
       <section className="mb-16 animate-fade-in">
         <div className="mb-8 flex items-center gap-2">
@@ -179,16 +192,67 @@ export default async function Home({
         </span>
       </div>
 
-      {/* Posts */}
+      {/* Posts Grid */}
       <section className="animate-fade-in-delay-1">
-        {posts.length > 0 ? (
-          <div className="space-y-4">
-            {posts.map(({ node }) => (
-              <div key={node.id} className="animate-fade-in-delay-2">
-                <PostCard post={node} locale={locale} />
-              </div>
-            ))}
-          </div>
+        {pagePosts.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {pagePosts.map(({ node }) => (
+                <div key={node.id} className="animate-fade-in-delay-2">
+                  <PostCard post={node} locale={locale} />
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Pagination">
+                {safePage > 1 && (
+                  <Link
+                    href={`${prefix}/?page=${safePage - 1}`}
+                    className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-accent-emerald/30 hover:text-accent-emerald"
+                  >
+                    ← {t("prev")}
+                  </Link>
+                )}
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                    let pageNum: number;
+                    if (totalPages <= 7) {
+                      pageNum = i + 1;
+                    } else if (safePage <= 4) {
+                      pageNum = i + 1;
+                    } else if (safePage >= totalPages - 3) {
+                      pageNum = totalPages - 6 + i;
+                    } else {
+                      pageNum = safePage - 3 + i;
+                    }
+                    return (
+                      <Link
+                        key={pageNum}
+                        href={`${prefix}/?page=${pageNum}`}
+                        className={`rounded-lg px-3 py-2 font-mono text-xs transition-colors ${
+                          pageNum === safePage
+                            ? "bg-accent-emerald/10 text-accent-emerald"
+                            : "text-muted-foreground hover:text-accent-emerald"
+                        }`}
+                      >
+                        {pageNum}
+                      </Link>
+                    );
+                  })}
+                </div>
+                {safePage < totalPages && (
+                  <Link
+                    href={`${prefix}/?page=${safePage + 1}`}
+                    className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-accent-emerald/30 hover:text-accent-emerald"
+                  >
+                    {t("next")} →
+                  </Link>
+                )}
+              </nav>
+            )}
+          </>
         ) : (
           <div className="glass-card rounded-xl p-12 text-center">
             <p className="font-mono text-sm text-muted-foreground">

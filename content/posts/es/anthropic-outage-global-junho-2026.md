@@ -5,7 +5,7 @@ date: 2026-06-03
 tags:
   - Anthropic
   - Mercado
-coverImage: /images/anthropic-cover.jpg
+coverImage: /images/anthropic-cover-2.jpg
 ---
 
 Dos días después de anunciar la mayor captación de la historia, Anthropic enfrentó el peor apagón de su trayectoria. Claude estuvo completamente offline por 6 horas — de las 09:34 a las 15:42 UTC — afectando a millones de usuarios en 192 países.

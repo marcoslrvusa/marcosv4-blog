@@ -5,7 +5,7 @@ date: 2026-06-03
 tags:
   - Anthropic
   - Market
-coverImage: /images/anthropic-cover.jpg
+coverImage: /images/anthropic-cover-2.jpg
 ---
 
 Two days after announcing the largest fundraising in history, Anthropic faced the worst outage in its history. Claude was completely offline for 6 hours — from 09:34 to 15:42 UTC — affecting millions of users in 192 countries.

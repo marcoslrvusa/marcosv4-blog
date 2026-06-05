@@ -6,7 +6,7 @@ tags:
   - Meta
   - Agentes
   - Mercado
-coverImage: /images/meta-cover.jpg
+coverImage: /images/meta-cover-2.jpg
 ---
 
 Em 6 de janeiro de 2026, a Meta anunciou a aquisição da Manus AI por US$2 bilhões — o maior M&A de IA da história da empresa, superando com folga a compra da Kustomer (US$1B) em 2020. A Manus AI, startup fundada em Xangai em 2023, construiu uma plataforma de agentes autônomos capaz de executar tarefas complexas como análise de contratos, prospecção de leads e automação de workflows empresariais sem intervenção humana.

@@ -6,7 +6,7 @@ tags:
   - Apple
   - Architecture
   - Market
-coverImage: /images/apple-vision-cover.jpg
+coverImage: /images/apple-vision-cover-2.jpg
 ---
 
 On February 25, 2026, Apple announced the complete integration of Apple Intelligence into the Vision Pro, transforming the spatial computing headset into a truly intelligent device. A free update via visionOS 3.0, the new version brings a contextual assistant that understands the surrounding environment, objects in the scene, and user intentions — all processed locally on the headset's M4 Ultra chip.

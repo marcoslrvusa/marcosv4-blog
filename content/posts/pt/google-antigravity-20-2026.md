@@ -6,7 +6,7 @@ tags:
   - Google
   - Agentes
   - Arquitetura
-coverImage: /images/google-cover.jpg
+coverImage: /images/google-cover-2.jpg
 ---
 
 Quatro dias após o anúncio no I/O, o Google liberou o Antigravity 2.0 para todos os assinantes do Google Workspace Business Plus e acima. O Antigravity não é um produto — é uma camada de agentes que atravessa todos os apps do ecossistema Google.
