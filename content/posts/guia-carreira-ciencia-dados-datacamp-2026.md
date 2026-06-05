@@ -6,8 +6,10 @@ tags:
   - DataCamp
   - Tutoriais
   - Carreira
-coverImage:
+coverImage: /images/datacamp-roadmap.svg
 ---
+
+![Carreira em Ciência de Dados — Roteiro DataCamp](/images/datacamp-roadmap.svg)
 
 ## O Mercado de Dados no Brasil em 2026
 

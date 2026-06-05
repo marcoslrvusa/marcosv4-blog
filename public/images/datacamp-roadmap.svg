@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <linearGradient id="gTrack1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff88"/>
+      <stop offset="100%" stop-color="#00cc66"/>
+    </linearGradient>
+    <linearGradient id="gTrack2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+    <linearGradient id="gTrack3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b61ff"/>
+      <stop offset="100%" stop-color="#ff61d8"/>
+    </linearGradient>
+    <linearGradient id="gTrack4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="100%" stop-color="#ff4444"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid4" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg4)"/>
+  <rect width="1200" height="900" fill="url(#grid4)"/>
+
+  <circle cx="150" cy="120" r="180" fill="#00ff88" opacity="0.03" filter="url(#glow4)"/>
+
+  <text x="60" y="65" font-family="'Courier New', monospace" font-size="13" fill="#00ff88" opacity="0.5">$ cat career-roadmap/</text>
+
+  <text x="60" y="115" font-family="'Segoe UI', system-ui, sans-serif" font-size="40" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
+    Carreira em Ciência de Dados
+  </text>
+  <text x="60" y="150" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" fill="#888888">
+    Roteiro DataCamp Data Scientist
+  </text>
+
+  <rect x="60" y="170" width="50" height="3" rx="1.5" fill="url(#gTrack1)"/>
+
+  <!-- Eixo do tempo (vertical) -->
+  <line x1="90" y1="220" x2="90" y2="830" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Trilha 1 -->
+  <g transform="translate(120, 210)">
+    <circle cx="-30" cy="25" r="10" fill="#00ff88" opacity="0.8"/>
+    <rect x="0" y="0" width="480" height="50" rx="10" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="url(#gTrack1)"/>
+    <text x="20" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Trilha 1 · Fundamentos</text>
+    <text x="20" y="40" font-family="'Courier New', monospace" font-size="11" fill="#888888">Mês 1-2 · Python + SQL + Análise Exploratória</text>
+  </g>
+
+  <g transform="translate(120, 280)">
+    <rect x="0" y="0" width="150" height="32" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00ff88"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">pandas</text>
+  </g>
+  <g transform="translate(290, 280)">
+    <rect x="0" y="0" width="130" height="32" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00ff88"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">SQL</text>
+  </g>
+  <g transform="translate(440, 280)">
+    <rect x="0" y="0" width="160" height="32" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00ff88"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Visualização</text>
+  </g>
+
+  <!-- Trilha 2 -->
+  <g transform="translate(120, 350)">
+    <circle cx="-30" cy="25" r="10" fill="#00d4ff" opacity="0.8"/>
+    <rect x="0" y="0" width="480" height="50" rx="10" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="url(#gTrack2)"/>
+    <text x="20" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Trilha 2 · Estatística & ML</text>
+    <text x="20" y="40" font-family="'Courier New', monospace" font-size="11" fill="#888888">Mês 3-4 · Estatística Inferencial + Machine Learning</text>
+  </g>
+
+  <g transform="translate(120, 420)">
+    <rect x="0" y="0" width="150" height="32" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00d4ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Testes A/B</text>
+  </g>
+  <g transform="translate(290, 420)">
+    <rect x="0" y="0" width="130" height="32" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00d4ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">scikit-learn</text>
+  </g>
+  <g transform="translate(440, 420)">
+    <rect x="0" y="0" width="160" height="32" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#00d4ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">SHAP · Validação</text>
+  </g>
+
+  <!-- Trilha 3 -->
+  <g transform="translate(120, 490)">
+    <circle cx="-30" cy="25" r="10" fill="#7b61ff" opacity="0.8"/>
+    <rect x="0" y="0" width="480" height="50" rx="10" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="url(#gTrack3)"/>
+    <text x="20" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Trilha 3 · Engenharia de Dados</text>
+    <text x="20" y="40" font-family="'Courier New', monospace" font-size="11" fill="#888888">Mês 5-6 · Pipelines + dbt + Airflow + DuckDB</text>
+  </g>
+
+  <g transform="translate(120, 560)">
+    <rect x="0" y="0" width="150" height="32" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#7b61ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">ETL · Pipelines</text>
+  </g>
+  <g transform="translate(290, 560)">
+    <rect x="0" y="0" width="130" height="32" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#7b61ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">dbt</text>
+  </g>
+  <g transform="translate(440, 560)">
+    <rect x="0" y="0" width="160" height="32" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#7b61ff"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Airflow / Prefect</text>
+  </g>
+
+  <!-- Trilha 4 -->
+  <g transform="translate(120, 630)">
+    <circle cx="-30" cy="25" r="10" fill="#ff6b6b" opacity="0.8"/>
+    <rect x="0" y="0" width="480" height="50" rx="10" fill="#0a0a1a" stroke="#ff6b6b" stroke-opacity="0.2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="url(#gTrack4)"/>
+    <text x="20" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Trilha 4 · LLMs & Agentes</text>
+    <text x="20" y="40" font-family="'Courier New', monospace" font-size="11" fill="#888888">O Diferencial de 2026 · RAG · LangChain · Fine-tuning</text>
+  </g>
+
+  <g transform="translate(120, 700)">
+    <rect x="0" y="0" width="150" height="32" rx="6" fill="#0d0d1a" stroke="#ff6b6b" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#ff6b6b"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Prompt Engineering</text>
+  </g>
+  <g transform="translate(290, 700)">
+    <rect x="0" y="0" width="130" height="32" rx="6" fill="#0d0d1a" stroke="#ff6b6b" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#ff6b6b"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">RAG</text>
+  </g>
+  <g transform="translate(440, 700)">
+    <rect x="0" y="0" width="160" height="32" rx="6" fill="#0d0d1a" stroke="#ff6b6b" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="14" cy="16" r="3" fill="#ff6b6b"/>
+    <text x="24" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Agentes · Fine-tuning</text>
+  </g>
+
+  <!-- Certificação -->
+  <g transform="translate(120, 770)">
+    <rect x="0" y="0" width="480" height="50" rx="10" fill="#0a0a1a" stroke="#ffd93d" stroke-opacity="0.2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="#ffd93d"/>
+    <circle cx="-30" cy="25" r="10" fill="#ffd93d" opacity="0.8"/>
+    <text x="20" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Certificado DataCamp Data Scientist</text>
+    <text x="20" y="40" font-family="'Courier New', monospace" font-size="11" fill="#888888">Career Track + Assessment + Certification Exam</text>
+  </g>
+
+  <!-- Sidebar: cargos -->
+  <g transform="translate(700, 210)">
+    <rect x="0" y="0" width="440" height="36" rx="8" fill="#0a0a1a" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Courier New', monospace" font-size="11" fill="#888888"># salários médios 2026</text>
+  </g>
+
+  <g transform="translate(700, 270)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#aaaaaa">Analista de Dados Jr.</text>
+    <text x="320" y="22" font-family="'Courier New', monospace" font-size="14" fill="#00ff88" font-weight="700">R$ 4-7k</text>
+  </g>
+  <g transform="translate(700, 320)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#aaaaaa">Cientista de Dados Pl.</text>
+    <text x="320" y="22" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="700">R$ 8-15k</text>
+  </g>
+  <g transform="translate(700, 370)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#aaaaaa">Cientista de Dados Sr.</text>
+    <text x="320" y="22" font-family="'Courier New', monospace" font-size="14" fill="#7b61ff" font-weight="700">R$ 16-25k</text>
+  </g>
+  <g transform="translate(700, 420)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#aaaaaa">Engenheiro de IA</text>
+    <text x="320" y="22" font-family="'Courier New', monospace" font-size="14" fill="#ff6b6b" font-weight="700">R$ 18-30k</text>
+  </g>
+
+  <g transform="translate(700, 480)">
+    <rect x="0" y="0" width="440" height="36" rx="8" fill="#0a0a1a" stroke="#ffd93d" stroke-opacity="0.1" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Courier New', monospace" font-size="11" fill="#ffd93d">$ Maior salto: Cientista de Dados → Engenheiro de IA</text>
+  </g>
+
+  <text x="60" y="875" font-family="'Courier New', monospace" font-size="10" fill="#444444">AI First — Guia Carreira DataCamp 2026</text>
+</svg>

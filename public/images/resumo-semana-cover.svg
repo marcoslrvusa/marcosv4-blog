@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff88"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7b61ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowSoft">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <circle cx="200" cy="150" r="250" fill="#00ff88" opacity="0.03" filter="url(#glowSoft)"/>
+  <circle cx="1000" cy="500" r="300" fill="#00d4ff" opacity="0.03" filter="url(#glowSoft)"/>
+
+  <text x="60" y="120" font-family="'Courier New', monospace" font-size="14" fill="#00ff88" opacity="0.6">$ cat mercado-ia.md</text>
+
+  <text x="60" y="180" font-family="'Segoe UI', system-ui, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-1">
+    Mercado de IA
+  </text>
+  <text x="60" y="230" font-family="'Segoe UI', system-ui, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-1">
+    Resumo da Semana
+  </text>
+
+  <rect x="60" y="255" width="80" height="3" rx="1.5" fill="url(#accent1)"/>
+
+  <text x="60" y="290" font-family="'Segoe UI', system-ui, sans-serif" font-size="20" fill="#888888" letter-spacing="0.5">
+    NVIDIA · Microsoft · OpenAI · Qwen 3.5 · DeepMind
+  </text>
+
+  <text x="60" y="330" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff">
+    $ echo "Agentes físicos · Modelos abertos · GPT-5.5 liberado"
+  </text>
+
+  <g transform="translate(60, 380)">
+    <rect x="0" y="0" width="330" height="80" rx="12" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="330" y2="22" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#00ff88"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#00ff88" opacity="0.8">NVIDIA + MICROSOFT</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Agentes no Windows</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">NIM + Azure Local AI</text>
+  </g>
+
+  <g transform="translate(420, 380)">
+    <rect x="0" y="0" width="330" height="80" rx="12" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="330" y2="22" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#00d4ff"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#00d4ff" opacity="0.8">OPENAI</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">GPT-5.5 Liberado</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">Todos os planos</text>
+  </g>
+
+  <g transform="translate(780, 380)">
+    <rect x="0" y="0" width="360" height="80" rx="12" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="360" y2="22" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#7b61ff"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#7b61ff" opacity="0.8">CHINA</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Qwen 3.5 Supera GPT-5</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">Modelo aberto Apache 2.0</text>
+  </g>
+
+  <g transform="translate(60, 480)">
+    <rect x="0" y="0" width="330" height="80" rx="12" fill="#0a0a1a" stroke="#ff6b6b" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="330" y2="22" stroke="#ff6b6b" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#ff6b6b"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#ff6b6b" opacity="0.8">NVIDIA RESEARCH</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Agentes Físicos</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">CVPR 2026 — Grasping com 94%</text>
+  </g>
+
+  <g transform="translate(420, 480)">
+    <rect x="0" y="0" width="330" height="80" rx="12" fill="#0a0a1a" stroke="#ffd93d" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="330" y2="22" stroke="#ffd93d" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#ffd93d"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#ffd93d" opacity="0.8">DEEPMIND</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Instruções em Linguagem</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">LLM como juiz interno</text>
+  </g>
+
+  <g transform="translate(780, 480)">
+    <rect x="0" y="0" width="360" height="80" rx="12" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="0" y1="22" x2="360" y2="22" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="16" cy="11" r="4" fill="#00ff88"/>
+    <text x="26" y="16" font-family="'Courier New', monospace" font-size="10" fill="#00ff88" opacity="0.8">OBSERVAR</text>
+    <text x="16" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">WWDC · Databricks · AI Act</text>
+    <text x="16" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">Próxima semana</text>
+  </g>
+
+  <text x="60" y="590" font-family="'Courier New', monospace" font-size="11" fill="#555555">
+    marcosv4.cloud — AI First
+  </text>
+  <text x="1060" y="590" font-family="'Courier New', monospace" font-size="11" fill="#555555">
+    03 Jun 2026
+  </text>
+</svg>

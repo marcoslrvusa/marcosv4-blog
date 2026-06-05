@@ -6,8 +6,10 @@ tags:
   - AI Search
   - Estratégia
   - SEO
-coverImage:
+coverImage: /images/seo-aeo-geo-mindmap.svg
 ---
+
+![SEO, AEO e GEO — As 3 camadas da busca em 2026](/images/seo-aeo-geo-mindmap.svg)
 
 ## O Search Não É Mais Um Só
 

@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <linearGradient id="gSEO" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff88"/>
+      <stop offset="100%" stop-color="#00cc66"/>
+    </linearGradient>
+    <linearGradient id="gAEO" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+    <linearGradient id="gGEO" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b61ff"/>
+      <stop offset="100%" stop-color="#ff61d8"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowSEO" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00ff88" opacity="0.4"/>
+    </marker>
+    <marker id="arrowAEO" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00d4ff" opacity="0.4"/>
+    </marker>
+    <marker id="arrowGEO" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b61ff" opacity="0.4"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+  <rect width="1200" height="800" fill="url(#grid2)"/>
+
+  <text x="60" y="60" font-family="'Courier New', monospace" font-size="13" fill="#888888">$ tree search-strategy/</text>
+
+  <text x="60" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
+    SEO <tspan fill="#555555">·</tspan> AEO <tspan fill="#555555">·</tspan> GEO
+  </text>
+  <text x="60" y="140" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" fill="#888888">
+    As 3 camadas da busca em 2026
+  </text>
+
+  <line x1="600" y1="170" x2="600" y2="730" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- SEO Box -->
+  <g transform="translate(60, 180)">
+    <rect x="0" y="0" width="320" height="60" rx="10" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="url(#gSEO)"/>
+    <text x="24" y="26" font-family="'Courier New', monospace" font-size="11" fill="#00ff88" font-weight="700">SEO</text>
+    <text x="24" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#888888">Search Engine Optimization</text>
+  </g>
+
+  <g transform="translate(60, 260)">
+    <line x1="160" y1="0" x2="160" y2="50" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arrowSEO)"/>
+    <rect x="20" y="50" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="68" r="3" fill="#00ff88" opacity="0.6"/>
+    <text x="46" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Cliques orgânicos</text>
+  </g>
+  <g transform="translate(60, 316)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00ff88" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Autoridade temática</text>
+  </g>
+  <g transform="translate(60, 372)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00ff88" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">EEAT · Core Web Vitals</text>
+  </g>
+  <g transform="translate(60, 428)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00ff88" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Dados proprietários</text>
+  </g>
+
+  <!-- AEO Box -->
+  <g transform="translate(440, 180)">
+    <rect x="0" y="0" width="320" height="60" rx="10" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="url(#gAEO)"/>
+    <text x="24" y="26" font-family="'Courier New', monospace" font-size="11" fill="#00d4ff" font-weight="700">AEO</text>
+    <text x="24" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#888888">Answer Engine Optimization</text>
+  </g>
+
+  <g transform="translate(440, 260)">
+    <line x1="160" y1="0" x2="160" y2="50" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arrowAEO)"/>
+    <rect x="20" y="50" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="68" r="3" fill="#00d4ff" opacity="0.6"/>
+    <text x="46" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Featured Snippets</text>
+  </g>
+  <g transform="translate(440, 316)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00d4ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">AI Overviews</text>
+  </g>
+  <g transform="translate(440, 372)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00d4ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Respostas diretas (40-60 palavras)</text>
+  </g>
+  <g transform="translate(440, 428)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#00d4ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#00d4ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Structured Data (FAQ, HowTo)</text>
+  </g>
+
+  <!-- GEO Box -->
+  <g transform="translate(820, 180)">
+    <rect x="0" y="0" width="320" height="60" rx="10" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="url(#gGEO)"/>
+    <text x="24" y="26" font-family="'Courier New', monospace" font-size="11" fill="#7b61ff" font-weight="700">GEO</text>
+    <text x="24" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#888888">Generative Engine Optimization</text>
+  </g>
+
+  <g transform="translate(820, 260)">
+    <line x1="160" y1="0" x2="160" y2="50" stroke="#7b61ff" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arrowGEO)"/>
+    <rect x="20" y="50" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="68" r="3" fill="#7b61ff" opacity="0.6"/>
+    <text x="46" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Citações em ChatGPT</text>
+  </g>
+  <g transform="translate(820, 316)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#7b61ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Share of AI Voice</text>
+  </g>
+  <g transform="translate(820, 372)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#7b61ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Conteúdo referenciável</text>
+  </g>
+  <g transform="translate(820, 428)">
+    <rect x="20" y="0" width="280" height="36" rx="6" fill="#0d0d1a" stroke="#7b61ff" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="36" cy="18" r="3" fill="#7b61ff" opacity="0.6"/>
+    <text x="46" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#aaaaaa">Perplexity · Claude · Gemini</text>
+  </g>
+
+  <!-- Fluxo -->
+  <g transform="translate(60, 520)">
+    <text x="0" y="16" font-family="'Courier New', monospace" font-size="11" fill="#888888"># fluxo integrado</text>
+  </g>
+
+  <g transform="translate(60, 550)">
+    <rect x="0" y="0" width="1080" height="4" rx="2" fill="#ffffff" opacity="0.05"/>
+  </g>
+
+  <g transform="translate(60, 580)">
+    <rect x="0" y="0" width="340" height="50" rx="8" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="#00ff88"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Camada 1 · Fundação SEO</text>
+    <text x="16" y="40" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#888888">Velocidade · Arquitetura · Autoridade</text>
+  </g>
+  <g transform="translate(430, 580)">
+    <rect x="0" y="0" width="340" height="50" rx="8" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="1"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="#00d4ff"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Camada 2 · Respostas AEO</text>
+    <text x="16" y="40" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#888888">FAQs · How-To · Structured Data</text>
+  </g>
+  <g transform="translate(800, 580)">
+    <rect x="0" y="0" width="340" height="50" rx="8" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.2" stroke-width="1"/>
+    <rect x="0" y="0" width="4" height="50" rx="2" fill="#7b61ff"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Camada 3 · Conteúdo CItável</text>
+    <text x="16" y="40" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#888888">Dados · Pesquisas · Conteúdo Original</text>
+  </g>
+
+  <!-- Conector -->
+  <g transform="translate(380, 605)">
+    <text font-family="'Courier New', monospace" font-size="16" fill="#555555">→</text>
+  </g>
+  <g transform="translate(750, 605)">
+    <text font-family="'Courier New', monospace" font-size="16" fill="#555555">→</text>
+  </g>
+
+  <g transform="translate(60, 660)">
+    <rect x="0" y="0" width="1080" height="4" rx="2" fill="#ffffff" opacity="0.05"/>
+  </g>
+
+  <g transform="translate(60, 690)">
+    <rect x="0" y="0" width="1080" height="56" rx="10" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="24" cy="28" r="6" fill="#00ff88"/>
+    <text x="42" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Estratégia integrada = presença em todo funil de descoberta</text>
+    <text x="42" y="44" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888">Do Google ao ChatGPT — sua marca aparece em todos os modos de busca</text>
+  </g>
+
+  <text x="60" y="775" font-family="'Courier New', monospace" font-size="10" fill="#444444">AI First — Guia SEO/AEO/GEO 2026</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg3" cx="30%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#0a0a2a"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <linearGradient id="msBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+    <linearGradient id="msGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff88"/>
+      <stop offset="100%" stop-color="#009944"/>
+    </linearGradient>
+    <linearGradient id="msPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b61ff"/>
+      <stop offset="100%" stop-color="#ff61d8"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid3" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+  <rect width="1200" height="630" fill="url(#grid3)"/>
+
+  <circle cx="1000" cy="100" r="200" fill="#00d4ff" opacity="0.04" filter="url(#glow3)"/>
+
+  <text x="60" y="80" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" opacity="0.6">$ ./build-2026</text>
+
+  <text x="60" y="135" font-family="'Segoe UI', system-ui, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-1">Microsoft Build 2026</text>
+  <text x="60" y="185" font-family="'Segoe UI', system-ui, sans-serif" font-size="46" font-weight="700" fill="url(#msBlue)" letter-spacing="-1">A Estratégia de Agentes</text>
+
+  <rect x="60" y="210" width="60" height="3" rx="1.5" fill="url(#msBlue)"/>
+
+  <text x="60" y="245" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" fill="#888888">
+    Azure AI Agent Service · Copilot Studio · Phi-4
+  </text>
+
+  <!-- 3 pillars -->
+  <g transform="translate(60, 290)">
+    <rect x="0" y="0" width="340" height="120" rx="12" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="1"/>
+    <circle cx="170" cy="30" r="20" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.3"/>
+    <text x="170" y="36" font-family="'Courier New', monospace" font-size="16" fill="#00d4ff" text-anchor="middle" font-weight="700">01</text>
+    <text x="170" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Azure AI Agent Service</text>
+    <text x="170" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Orquestração empresarial</text>
+    <text x="170" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Governança · Multi-modelo</text>
+  </g>
+  <g transform="translate(430, 290)">
+    <rect x="0" y="0" width="340" height="120" rx="12" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1"/>
+    <circle cx="170" cy="30" r="20" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.3"/>
+    <text x="170" y="36" font-family="'Courier New', monospace" font-size="16" fill="#00ff88" text-anchor="middle" font-weight="700">02</text>
+    <text x="170" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Copilot Studio</text>
+    <text x="170" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Agentes autônomos</text>
+    <text x="170" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">No-code · Workflows</text>
+  </g>
+  <g transform="translate(800, 290)">
+    <rect x="0" y="0" width="340" height="120" rx="12" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.2" stroke-width="1"/>
+    <circle cx="170" cy="30" r="20" fill="none" stroke="#7b61ff" stroke-width="2" opacity="0.3"/>
+    <text x="170" y="36" font-family="'Courier New', monospace" font-size="16" fill="#7b61ff" text-anchor="middle" font-weight="700">03</text>
+    <text x="170" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Phi-4 (14B)</text>
+    <text x="170" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">On-device</text>
+    <text x="170" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#888888" text-anchor="middle">$0.15/milhão tokens</text>
+  </g>
+
+  <!-- Tese -->
+  <g transform="translate(60, 440)">
+    <rect x="0" y="0" width="1080" height="4" rx="2" fill="#ffffff" opacity="0.05"/>
+  </g>
+
+  <g transform="translate(60, 470)">
+    <text font-family="'Courier New', monospace" font-size="11" fill="#888888"># tese central</text>
+  </g>
+
+  <g transform="translate(60, 500)">
+    <rect x="0" y="0" width="250" height="38" rx="6" fill="#0a0a1a" stroke="#00d4ff" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#00d4ff">Modelos são commodity</text>
+  </g>
+  <g transform="translate="330" y="500">
+    <text x="0" y="24" font-family="'Courier New', monospace" font-size="18" fill="#555555">→</text>
+  </g>
+  <g transform="translate="360" y="500">
+    <rect x="0" y="0" width="280" height="38" rx="6" fill="#0a0a1a" stroke="#00ff88" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#00ff88">Plataforma de agente é o diferencial</text>
+  </g>
+  <g transform="translate="660" y="500">
+    <text x="0" y="24" font-family="'Courier New', monospace" font-size="18" fill="#555555">→</text>
+  </g>
+  <g transform="translate="690" y="500">
+    <rect x="0" y="0" width="250" height="38" rx="6" fill="#0a0a1a" stroke="#7b61ff" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#7b61ff">Infraestrutura é Azure</text>
+  </g>
+
+  <g transform="translate(60, 565)">
+    <rect x="0" y="0" width="1080" height="4" rx="2" fill="#ffffff" opacity="0.05"/>
+  </g>
+
+  <g transform="translate(60, 590)">
+    <text font-family="'Courier New', monospace" font-size="11" fill="#555555">AI First — Marcos Luciano</text>
+  </g>
+</svg>

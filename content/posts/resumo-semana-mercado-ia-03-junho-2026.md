@@ -5,8 +5,10 @@ date: 2026-06-03
 tags:
   - Mercado
   - IA
-coverImage:
+coverImage: /images/resumo-semana-cover.svg
 ---
+
+![Mercado de IA — Resumo da Semana](/images/resumo-semana-cover.svg)
 
 ## Semana Quente: O Mercado de IA Não Para
 
