@@ -3,6 +3,7 @@ import { getPost, getAllPostSlugs as getHashnodeSlugs } from "@/lib/hashnode";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Calendar, Tag, Clock } from "lucide-react";
+import VideoBanner from "@/components/VideoBanner";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -205,6 +206,10 @@ export default async function PostPage({
           </div>
         </div>
       </header>
+
+      {post.tags?.some((t) => t.slug === 'v0') && (
+        <VideoBanner src="https://x.com/v0/status/1864180102088777964/video/1" title="Vercel • v0 — Construa mais sem código" />
+      )}
 
       {post.coverImage?.url && (
         <div className="mb-12 overflow-hidden rounded-xl animate-fade-in-delay-1 ring-1 ring-border">
