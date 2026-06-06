@@ -57,8 +57,8 @@ export default function Header() {
           <span className="font-mono text-base font-bold tracking-tight text-foreground group-hover:text-v4-red transition-colors">
             AI<span className="text-v4-red">:</span>First
           </span>
-          <span className="hidden sm:inline font-mono text-[10px] text-muted-foreground/50 tracking-widest uppercase ml-1">
-            by V4
+          <span className="hidden sm:inline font-mono text-[9px] text-muted-foreground/50 tracking-widest uppercase ml-1.5">
+            by Marcos Luciano
           </span>
         </I18nLink>
 

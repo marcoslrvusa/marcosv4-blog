@@ -68,71 +68,70 @@ export default async function Home({
 
       {/* Hero Section — Clarity-inspired split layout */}
       <section className="relative overflow-hidden border-b border-border/50">
-        <div className="mx-auto max-w-6xl px-6 py-12 sm:py-20 lg:py-28">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="mx-auto max-w-6xl px-6 py-10 sm:py-14 lg:py-20">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
             {/* Left: Content */}
             <div className="flex-1 min-w-0 animate-fade-in">
-
-              {/* Status + Tagline */}
-              <div className="mb-6 flex items-center gap-2">
-                <span className="flex h-2 w-2 rounded-full bg-v4-red animate-pulse" />
-                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-v4-red">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-muted-foreground/60">
+                  by{' '}
+                  <span className="text-v4-red">Marcos Luciano</span>
+                </span>
+                <span className="h-3 w-px bg-border" />
+                <span className="flex h-1.5 w-1.5 rounded-full bg-v4-red animate-pulse" />
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-v4-red">
                   AI First
                 </span>
               </div>
 
-              {/* Headline — clean, bold, no echo/gradient */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold leading-tight tracking-tight text-foreground">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold leading-tight tracking-tight text-foreground">
                 {t("hero.title")}
               </h1>
 
-              <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted">
+              <p className="mt-3 max-w-xl text-sm sm:text-base leading-relaxed text-muted">
                 {t("hero.description")}
               </p>
 
-              {/* Stats Row — like Clarity */}
-              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1">
-                <span className="font-mono text-xs text-muted-foreground">
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <span className="font-mono text-[11px] text-muted-foreground">
                   <span className="text-v4-red font-semibold">{total}</span> artigos
                 </span>
-                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
-                <span className="font-mono text-xs text-muted-foreground">Google & Meta Certified</span>
-                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
-                <span className="font-mono text-xs text-muted-foreground">12+ anos</span>
-                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
-                <span className="font-mono text-xs text-muted-foreground">DataCamp Data Scientist</span>
+                <span className="font-mono text-[9px] text-muted-foreground/30">/</span>
+                <span className="font-mono text-[11px] text-muted-foreground">Google & Meta Certified</span>
+                <span className="font-mono text-[9px] text-muted-foreground/30">/</span>
+                <span className="font-mono text-[11px] text-muted-foreground">12+ anos</span>
+                <span className="font-mono text-[9px] text-muted-foreground/30">/</span>
+                <span className="font-mono text-[11px] text-muted-foreground">DataCamp</span>
               </div>
 
-              {/* CTAs */}
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
                   href={`/${locale === "pt" ? "" : locale}/consulting`}
-                  className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-6 py-3 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
+                  className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
                 >
                   Solicitar Orçamento
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href={`#posts`}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-v4-red/30 hover:text-v4-red hover:bg-v4-red/5"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:border-v4-red/30 hover:text-v4-red hover:bg-v4-red/5"
                 >
                   Explorar Artigos
                 </Link>
               </div>
 
-              {/* Search */}
-              <div className="mt-8 max-w-lg">
+              <div className="mt-6 max-w-lg">
                 <HeroSearch locale={locale} />
               </div>
             </div>
 
-            {/* Right: Image with red overlay */}
-            <div className="flex-shrink-0 w-full lg:w-[440px] xl:w-[500px] animate-fade-in-delay-1">
+            {/* Right: Image with profile picture overlay */}
+            <div className="flex-shrink-0 w-full lg:w-[400px] xl:w-[460px] animate-fade-in-delay-1">
               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-black/30">
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
                 <div className="absolute inset-0 bg-gradient-to-l from-v4-red/20 via-v4-red/5 to-transparent z-10" />
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background to-transparent z-10" />
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background to-transparent z-10" />
                 <Image
                   src="/images/hero.webp"
                   alt="AI Infrastructure"
@@ -141,6 +140,19 @@ export default async function Home({
                   className="w-full h-auto object-cover scale-105"
                   priority
                 />
+                {/* Profile picture — floating at bottom-right overlap */}
+                <div className="absolute -bottom-5 -right-2 z-20">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-v4-red/20 blur-md animate-pulse" />
+                    <Image
+                      src="/profile.png"
+                      alt="Marcos Luciano"
+                      width={72}
+                      height={72}
+                      className="relative rounded-full ring-[3px] ring-v4-red/40 ring-offset-2 ring-offset-background object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
