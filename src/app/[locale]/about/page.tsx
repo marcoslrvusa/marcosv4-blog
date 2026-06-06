@@ -20,7 +20,7 @@ const certs = [
   { label: "Google Ads — AI Shopping Ads", icon: BadgeCheck },
   { label: "Google Ads — Measurement", icon: BadgeCheck },
   { label: "Google Ads — Conversion Optimization", icon: BadgeCheck },
-  { label: "Meta Ads (Fundamentos e Métricas)", icon: BadgeCheck },
+  { label: "Meta Ads (Fundamentos e M\u00E9tricas)", icon: BadgeCheck },
 ];
 
 const techStack = [
@@ -53,15 +53,15 @@ export default async function About({
             alt="Marcos Luciano"
             width={140}
             height={140}
-            className="rounded-full ring-2 ring-accent-emerald/20 object-cover shrink-0"
+            className="rounded-full ring-2 ring-v4-red/20 object-cover shrink-0"
             priority
           />
           <div>
             <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-              Marcos <span className="text-accent-emerald">Luciano</span>
+              Marcos <span className="text-v4-red">Luciano</span>
             </h1>
             <p className="mt-1 text-base text-muted">
-              AI Lead · AI & SEO Specialist · Publicitário
+              AI Lead \u00B7 AI & SEO Specialist \u00B7 Publicit\u00E1rio
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default async function About({
           <div className="overflow-hidden rounded-xl border border-border">
             <Image
               src="/images/marcos-relax.png"
-              alt="Marcos Luciano — relaxado"
+              alt="Marcos Luciano \u2014 relaxado"
               width={600}
               height={400}
               className="h-full w-full object-cover"
@@ -85,7 +85,7 @@ export default async function About({
           <div className="overflow-hidden rounded-xl border border-border">
             <Image
               src="/images/dale.png"
-              alt="Marcos Luciano — Dale"
+              alt="Marcos Luciano \u2014 Dale"
               width={600}
               height={400}
               className="h-full w-full object-cover"
@@ -97,7 +97,7 @@ export default async function About({
       <div className="mt-12 space-y-12 animate-fade-in-delay-1">
         <section>
           <div className="mb-4 flex items-center gap-2">
-            <Building2 className="h-4 w-4 text-accent-emerald" />
+            <Building2 className="h-4 w-4 text-v4-red" />
             <h2 className="font-semibold text-foreground">{t("currentRole")}</h2>
           </div>
           <p className="text-sm leading-relaxed text-muted">
@@ -107,7 +107,7 @@ export default async function About({
 
         <section>
           <div className="mb-4 flex items-center gap-2">
-            <GraduationCap className="h-4 w-4 text-accent-cyan" />
+            <GraduationCap className="h-4 w-4 text-v4-red" />
             <h2 className="font-semibold text-foreground">{t("education")}</h2>
           </div>
           <div className="grid gap-2 sm:grid-cols-2">
@@ -128,7 +128,7 @@ export default async function About({
 
         <section>
           <div className="mb-4 flex items-center gap-2">
-            <TrendingUp className="h-4 w-4 text-accent-emerald" />
+            <TrendingUp className="h-4 w-4 text-v4-red" />
             <h2 className="font-semibold text-foreground">{t("stack")}</h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -137,7 +137,7 @@ export default async function About({
                 key={tech}
                 className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-3 py-1 font-mono text-[11px] font-medium text-muted-foreground"
               >
-                <span className="text-accent-cyan">#</span>
+                <span className="text-v4-red">#</span>
                 {tech}
               </span>
             ))}
@@ -146,13 +146,13 @@ export default async function About({
 
         <section>
           <div className="mb-4 flex items-center gap-2">
-            <Award className="h-4 w-4 text-accent-amber" />
+            <Award className="h-4 w-4 text-accent-gold" />
             <h2 className="font-semibold text-foreground">{t("whatYouFind")}</h2>
           </div>
           <ul className="space-y-2 text-sm leading-relaxed text-muted">
             {(t.raw("items") as string[]).map((item: string, i: number) => (
               <li key={i} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-emerald" />
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-v4-red" />
                 <span dangerouslySetInnerHTML={{ __html: item }} />
               </li>
             ))}
@@ -168,18 +168,18 @@ export default async function About({
               alt="Marcos Luciano"
               width={64}
               height={64}
-              className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+              className="rounded-full ring-2 ring-v4-red/20 object-cover"
             />
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
               <p className="text-sm text-muted">
-                AI Lead · AI & SEO Specialist · DataCamp Data Scientist
+                AI Lead \u00B7 AI & SEO Specialist \u00B7 DataCamp Data Scientist
               </p>
               <a
                 href="https://linkedin.com/in/marcoslrvieira"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-accent-emerald hover:underline"
+                className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-v4-red hover:underline"
               >
                 <LinkedInIcon className="h-3 w-3" />
                 {t("connectLinkedin")}

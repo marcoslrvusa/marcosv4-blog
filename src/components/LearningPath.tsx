@@ -10,7 +10,7 @@ const paths = [
     title: "AI Cases",
     desc: "Cases replicáveis de arquiteturas reais",
     href: "/topic/ia",
-    color: "#00ff88",
+    color: "#e50914",
     count: "40+",
   },
   {
@@ -18,7 +18,7 @@ const paths = [
     title: "Mercado de IA",
     desc: "Conjuntura e análises de mercado",
     href: "/topic/mercado",
-    color: "#00d4ff",
+    color: "#f59e0b",
     count: "30+",
   },
   {
@@ -26,7 +26,7 @@ const paths = [
     title: "AI Search",
     desc: "SEO, AEO e GEO para motores generativos",
     href: "/topic/ai-search",
-    color: "#8b5cf6",
+    color: "#e50914",
     count: "20+",
   },
   {
@@ -44,7 +44,7 @@ export default function LearningPath() {
     <section className="section-premium py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2 mb-8">
-          <GraduationCap className="w-4 h-4 text-[#00ff88]" />
+          <GraduationCap className="w-4 h-4 text-v4-red" />
           <span className="font-mono text-xs font-medium uppercase tracking-widest text-[#6b6b80]">
             $ ./learning-path.sh
           </span>

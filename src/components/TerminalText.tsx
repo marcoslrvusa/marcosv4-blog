@@ -21,7 +21,7 @@ export default function TerminalText({ lines, className = "" }: { lines: string[
             transform: visible ? "translateX(0)" : "translateX(-8px)",
           }}
         >
-          <span className="text-accent-emerald">$</span> {line}
+          <span className="text-v4-red">$</span> {line}
         </p>
       ))}
     </div>

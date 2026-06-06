@@ -54,16 +54,16 @@ export default function EbookClient({
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
       <Link
         href={`/${locale === "pt" ? "" : locale}`}
-        className="mb-8 inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground hover:text-accent-emerald transition-colors"
+        className="mb-8 inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground hover:text-v4-red transition-colors"
       >
-        <ArrowLeft className="h-3 w-3" /> {locale === "en" ? "Back to home" : locale === "es" ? "Volver al inicio" : "Voltar ao início"}
+        <ArrowLeft className="h-3 w-3" /> {locale === "en" ? "Back to home" : locale === "es" ? "Volver al inicio" : "Voltar ao in\u00EDcio"}
       </Link>
 
       <div className="mb-8">
         <div className="mb-2 flex items-center gap-2">
-          <span className="status-pulse flex h-2 w-2 rounded-full bg-accent-cyan" />
-          <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-accent-cyan">
-            {locale === "en" ? "FREE EBOOK" : "E-BOOK GRÁTIS"}
+          <span className="status-pulse flex h-2 w-2 rounded-full bg-v4-red" />
+          <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-v4-red">
+            {locale === "en" ? "FREE EBOOK" : "E-BOOK GR\u00C1TIS"}
           </span>
         </div>
         <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
@@ -76,45 +76,45 @@ export default function EbookClient({
 
       {status === "success" ? (
         <div className="space-y-8">
-          <div className="flex items-center gap-3 rounded-xl border border-accent-emerald/20 bg-accent-emerald/5 px-6 py-4">
-            <Check className="h-6 w-6 text-accent-emerald" />
+          <div className="flex items-center gap-3 rounded-xl border border-v4-red/20 bg-v4-red/5 px-6 py-4">
+            <Check className="h-6 w-6 text-v4-red" />
             <div>
-              <p className="font-semibold text-accent-emerald">{translations.downloadReady}</p>
+              <p className="font-semibold text-v4-red">{translations.downloadReady}</p>
               <p className="text-sm text-muted">{translations.success}</p>
             </div>
           </div>
 
           <button
             onClick={() => window.print()}
-            className="inline-flex items-center gap-2 rounded-lg bg-accent-cyan px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent-cyan/90"
+            className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-6 py-3 text-sm font-semibold text-background transition-all hover:bg-v4-red/90"
           >
             <Printer className="h-4 w-4" />
             {translations.printCta}
           </button>
 
           <div
-            className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:text-foreground prose-a:text-accent-cyan prose-strong:text-foreground prose-code:rounded-md prose-code:bg-accent-cyan/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-accent-cyan prose-code:font-normal prose-blockquote:border-l-accent-cyan prose-blockquote:text-muted prose-hr:border-border"
+            className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:text-foreground prose-a:text-v4-red prose-strong:text-foreground prose-code:rounded-md prose-code:bg-v4-red/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-v4-red prose-code:font-normal prose-blockquote:border-l-v4-red prose-blockquote:text-muted prose-hr:border-border"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
       ) : (
         <div className="space-y-8">
-          <div className="rounded-xl border border-accent-cyan/20 bg-accent-cyan/[0.02] px-6 py-4">
+          <div className="rounded-xl border border-v4-red/20 bg-v4-red/[0.02] px-6 py-4">
             <p className="text-sm text-muted">
               {translations.previewNote}
             </p>
           </div>
 
           <div
-            className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:text-foreground prose-a:text-accent-cyan prose-strong:text-foreground prose-code:rounded-md prose-code:bg-accent-cyan/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-accent-cyan prose-code:font-normal prose-blockquote:border-l-accent-cyan prose-blockquote:text-muted prose-hr:border-border"
+            className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:text-foreground prose-a:text-v4-red prose-strong:text-foreground prose-code:rounded-md prose-code:bg-v4-red/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-v4-red prose-code:font-normal prose-blockquote:border-l-v4-red prose-blockquote:text-muted prose-hr:border-border"
             dangerouslySetInnerHTML={{ __html: previewHtml }}
           />
 
           <div className="gradient-border rounded-xl p-6 sm:p-8">
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-cyan/10">
-                  <Mail className="h-5 w-5 text-accent-cyan" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v4-red/10">
+                  <Mail className="h-5 w-5 text-v4-red" />
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-foreground">
@@ -133,7 +133,7 @@ export default function EbookClient({
                     placeholder={translations.namePlaceholder}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-cyan/50 focus:outline-none focus:ring-1 focus:ring-accent-cyan/20"
+                    className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20"
                   />
                   <input
                     type="email"
@@ -141,13 +141,13 @@ export default function EbookClient({
                     placeholder={translations.emailPlaceholder}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-cyan/50 focus:outline-none focus:ring-1 focus:ring-accent-cyan/20"
+                    className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-cyan px-5 py-2.5 text-sm font-semibold text-black transition-all hover:bg-accent-cyan/90 disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-v4-red px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 disabled:opacity-60"
                 >
                   {status === "loading" ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

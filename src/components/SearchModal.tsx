@@ -91,7 +91,7 @@ export default function SearchModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-accent-emerald/30 hover:text-accent-emerald"
+        className="flex items-center gap-2 rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
         aria-label="Search articles"
       >
         <Search className="h-3.5 w-3.5" />
@@ -167,7 +167,7 @@ export default function SearchModal() {
                         onClick={() => setOpen(false)}
                         className={`group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                           i === activeIdx
-                            ? "bg-accent-emerald/10 text-accent-emerald"
+                            ? "bg-v4-red/10 text-v4-red"
                             : "text-foreground hover:bg-card-hover"
                         }`}
                       >

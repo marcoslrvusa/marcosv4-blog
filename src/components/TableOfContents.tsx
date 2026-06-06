@@ -62,7 +62,7 @@ export default function TableOfContents({
           onClick={() => setCollapsed(!collapsed)}
           className="flex w-full items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
         >
-          <ListTree className="h-3.5 w-3.5 text-accent-emerald" />
+          <ListTree className="h-3.5 w-3.5 text-v4-red" />
           <span>{label}</span>
           <svg
             className={`ml-auto h-3 w-3 transition-transform duration-200 ${collapsed ? "-rotate-90" : ""}`}
@@ -79,11 +79,11 @@ export default function TableOfContents({
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`block w-full text-left text-xs transition-all duration-200 hover:text-accent-emerald ${
+                className={`block w-full text-left text-xs transition-all duration-200 hover:text-v4-red ${
                   item.level === 3 ? "pl-4" : ""
                 } ${
                   activeId === item.id
-                    ? "font-medium text-accent-emerald"
+                    ? "font-medium text-v4-red"
                     : "text-muted-foreground"
                 }`}
               >

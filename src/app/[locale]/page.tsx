@@ -17,9 +17,9 @@ export const revalidate = 300;
 
 const topics = [
   { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-v4-red", border: "border-v4-red/20" },
-  { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-cyan", border: "border-accent-cyan/20" },
+  { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-gold", border: "border-accent-gold/20" },
   { label: "AI Search", slug: "ai-search", icon: Layers, color: "text-accent-amber", border: "border-accent-amber/20" },
-  { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-purple-400", border: "border-purple-400/20" },
+  { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-accent-gold", border: "border-accent-gold/20" },
 ];
 
 const PER_PAGE = 6;
@@ -97,7 +97,7 @@ export default async function Home({
               AI Lead @ V4 Company
             </p>
             <div className="mt-1 flex flex-wrap gap-1.5">
-              <span className="inline-flex items-center gap-1 rounded-md border border-accent-cyan/10 bg-accent-cyan/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-cyan/80">
+              <span className="inline-flex items-center gap-1 rounded-md border border-accent-gold/10 bg-accent-gold/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-gold/80">
                 <Brain className="h-2.5 w-2.5" />
                 {t("badges.specialist")}
               </span>
@@ -105,7 +105,7 @@ export default async function Home({
                 <BarChart3 className="h-2.5 w-2.5" />
                 {t("badges.datacamp")}
               </span>
-              <span className="inline-flex items-center gap-1 rounded-md border border-purple-400/10 bg-purple-400/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-purple-400/80">
+              <span className="inline-flex items-center gap-1 rounded-md border border-accent-gold/10 bg-accent-gold/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-gold/80">
                 <BadgeCheck className="h-2.5 w-2.5" />
                 {t("badges.xp")}
               </span>
@@ -145,7 +145,7 @@ export default async function Home({
           <span className="text-[#555]">$ </span>
           <span className="text-foreground">echo</span>
           <span className="text-v4-red"> &quot;</span>
-          <span className="bg-gradient-to-r from-v4-red via-accent-cyan to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-v4-red via-accent-gold to-accent-gold bg-clip-text text-transparent">
             {t("hero.title")}
           </span>
           <span className="text-v4-red">&quot;</span>
@@ -156,15 +156,15 @@ export default async function Home({
 
         <div className="mt-6">
           <TerminalText lines={[
-            "whoami  → AI Lead @ V4 Company",
-            "skills  → AI Search · SEO · Growth · Architecture",
-            "mission → Engineering AI Lead",
+            "whoami  \u2192 AI Lead @ V4 Company",
+            "skills  \u2192 AI Search \u00B7 SEO \u00B7 Growth \u00B7 Architecture",
+            "mission \u2192 Engineering AI Lead",
           ]} />
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <div className="flex items-center gap-2 text-sm">
-            <Sparkles className="h-3.5 w-3.5 text-accent-cyan" />
+            <Sparkles className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
               {t("updated")} {new Date().toLocaleDateString(locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR")}
             </span>
@@ -212,7 +212,7 @@ export default async function Home({
                     href={`${prefix}/?page=${safePage - 1}`}
                     className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
                   >
-                    ← {t("prev")}
+                    \u2190 {t("prev")}
                   </Link>
                 )}
                 <div className="flex items-center gap-1">
@@ -247,7 +247,7 @@ export default async function Home({
                     href={`${prefix}/?page=${safePage + 1}`}
                     className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
                   >
-                    {t("next")} →
+                    {t("next")} \u2192
                   </Link>
                 )}
               </nav>
@@ -276,7 +276,7 @@ export default async function Home({
             return (
               <Link
                 key={topic.slug}
-                href={`/posts?tag=${topic.slug}`}
+                href={`/topic/${topic.slug}`}
                 className="group rounded-xl border border-border bg-card/30 p-4 transition-all hover:border-v4-red/30 hover:bg-card/60"
               >
                 <div className="flex items-center gap-3">
@@ -286,7 +286,7 @@ export default async function Home({
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-foreground">{topic.label}</p>
                     <p className="font-mono text-[11px] text-muted-foreground">
-                      {topic.count} {topic.count === 1 ? t("common.article", {}) : t("common.articles", {})}
+                      {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
                     </p>
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-v4-red" />

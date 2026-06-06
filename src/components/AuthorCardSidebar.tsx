@@ -11,7 +11,7 @@ export default function AuthorCardSidebar({ locale = "pt" }: { locale?: string }
             alt="Marcos Luciano"
             width={40}
             height={40}
-            className="rounded-full ring-2 ring-accent-emerald/20 object-cover shrink-0"
+            className="rounded-full ring-2 ring-v4-red/20 object-cover shrink-0"
           />
           <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground truncate">
@@ -26,7 +26,7 @@ export default function AuthorCardSidebar({ locale = "pt" }: { locale?: string }
           href="https://linkedin.com/in/marcoslrvieira"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 flex items-center justify-center gap-1.5 rounded-lg border border-accent-emerald/20 px-3 py-1.5 text-[11px] font-medium text-accent-emerald transition-all hover:bg-accent-emerald/10"
+          className="mt-3 flex items-center justify-center gap-1.5 rounded-lg border border-v4-red/20 px-3 py-1.5 text-[11px] font-medium text-v4-red transition-all hover:bg-v4-red/10"
         >
           <LinkedInIcon className="h-3 w-3" />
           {locale === "en"

@@ -46,8 +46,8 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
     <div className="gradient-border rounded-xl p-6 sm:p-8">
       <div className="flex flex-col gap-4">
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-emerald/10">
-            <Mail className="h-5 w-5 text-accent-emerald" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v4-red/10">
+            <Mail className="h-5 w-5 text-v4-red" />
           </div>
           <div>
             <h3 className="text-base font-semibold text-foreground">
@@ -60,9 +60,9 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
         </div>
 
         {status === "success" ? (
-          <div className="flex items-center gap-2 rounded-lg bg-accent-emerald/5 px-4 py-3">
-            <Check className="h-5 w-5 text-accent-emerald" />
-            <p className="text-sm text-accent-emerald">{message}</p>
+          <div className="flex items-center gap-2 rounded-lg bg-v4-red/5 px-4 py-3">
+            <Check className="h-5 w-5 text-v4-red" />
+            <p className="text-sm text-v4-red">{message}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
@@ -72,7 +72,7 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
                 placeholder={t("namePlaceholder")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
+                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20"
               />
               <input
                 type="email"
@@ -80,13 +80,13 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
                 placeholder={t("emailPlaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent-emerald/50 focus:outline-none focus:ring-1 focus:ring-accent-emerald/20"
+                className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20"
               />
             </div>
             <button
               type="submit"
               disabled={status === "loading"}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-emerald px-5 py-2.5 text-sm font-semibold text-black transition-all hover:bg-accent-emerald/90 disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-v4-red px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 disabled:opacity-60"
             >
               {status === "loading" ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -106,8 +106,8 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
           {locale === "en"
             ? "No spam. Unsubscribe anytime. Your data will not be shared."
             : locale === "es"
-            ? "Sin spam. Date de baja cuando quieras. Tus datos no serán compartidos."
-            : "Sem spam. Descadastre-se quando quiser. Seus dados não serão compartilhados."}
+            ? "Sin spam. Date de baja cuando quieras. Tus datos no ser\u00E1n compartidos."
+            : "Sem spam. Descadastre-se quando quiser. Seus dados n\u00E3o ser\u00E3o compartilhados."}
         </p>
       </div>
     </div>

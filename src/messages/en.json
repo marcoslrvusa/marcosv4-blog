@@ -9,7 +9,13 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "articles": "Articles"
+    "articles": "Articles",
+    "topics": {
+      "ia": "AI Cases",
+      "mercado": "Market",
+      "aiSearch": "AI Search",
+      "arquitetura": "Architecture"
+    }
   },
   "home": {
     "hero": {

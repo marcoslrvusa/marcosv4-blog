@@ -18,7 +18,7 @@ export default function RecentPosts({ locale = "pt" }: { locale?: string }) {
     <div className="gradient-border rounded-xl">
       <div className="p-4">
         <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          <FileText className="h-3.5 w-3.5 text-accent-cyan" />
+          <FileText className="h-3.5 w-3.5 text-v4-red" />
           <span>{label(locale)}</span>
         </div>
         <ul className="space-y-2.5">
@@ -37,7 +37,7 @@ export default function RecentPosts({ locale = "pt" }: { locale?: string }) {
                   <time className="font-mono text-[10px] text-muted-foreground">
                     {date}
                   </time>
-                  <p className="mt-0.5 text-xs text-foreground transition-colors group-hover:text-accent-emerald line-clamp-2">
+                  <p className="mt-0.5 text-xs text-foreground transition-colors group-hover:text-v4-red line-clamp-2">
                     {post.title}
                   </p>
                 </Link>

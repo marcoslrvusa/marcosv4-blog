@@ -4,7 +4,8 @@ import { useTheme } from "next-themes";
 import { Sun, Moon, Globe, Brain, TrendingUp, Layers, Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link as I18nLink, usePathname, useRouter } from "@/i18n/navigation";
+import NextLink from "next/link";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import SearchModal from "@/components/SearchModal";
@@ -44,7 +45,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3 group">
+        <I18nLink href="/" className="flex items-center gap-3 group">
           <Image
             src="/profile.png"
             alt="Marcos Luciano"
@@ -55,21 +56,21 @@ export default function Header() {
           <span className="font-mono text-sm font-medium tracking-tight text-foreground">
             AI<tspan className="text-v4-red">:</tspan>First
           </span>
-        </Link>
+          </I18nLink>
 
         <nav className="flex items-center gap-3">
-          <Link
+          <I18nLink
             href="/"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {t("home")}
-          </Link>
-          <Link
+          </I18nLink>
+          <I18nLink
             href="/about"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {t("about")}
-          </Link>
+          </I18nLink>
           <div className="topics-dropdown relative hidden sm:block">
             <button
               onClick={() => setTopicsOpen(!topicsOpen)}
@@ -79,27 +80,27 @@ export default function Header() {
             </button>
             {topicsOpen && (
               <div className="absolute right-0 top-6 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-2xl shadow-black/40 z-50">
-                <Link href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Brain className="w-4 h-4" style={{ color: "#00ff88" }} /> Cases de IA
-                </Link>
-                <Link href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <TrendingUp className="w-4 h-4" style={{ color: "#00d4ff" }} /> Mercado
-                </Link>
-                <Link href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Layers className="w-4 h-4" style={{ color: "#8b5cf6" }} /> AI Search
-                </Link>
-                <Link href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Briefcase className="w-4 h-4" style={{ color: "#f59e0b" }} /> Arquitetura
-                </Link>
+                <NextLink href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+                  <Brain className="w-4 h-4 text-v4-red" /> {t("topics.ia")}
+                </NextLink>
+                <NextLink href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+                  <TrendingUp className="w-4 h-4 text-v4-red" /> {t("topics.mercado")}
+                </NextLink>
+                <NextLink href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+                  <Layers className="w-4 h-4 text-v4-red" /> {t("topics.aiSearch")}
+                </NextLink>
+                <NextLink href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+                  <Briefcase className="w-4 h-4 text-v4-red" /> {t("topics.arquitetura")}
+                </NextLink>
               </div>
             )}
           </div>
-          <Link
+          <I18nLink
             href="/consulting"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {tConsulting("nav")}
-          </Link>
+          </I18nLink>
 
           <SearchModal />
 

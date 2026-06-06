@@ -103,17 +103,17 @@ export default async function PostPage({
       <header className="mb-12 animate-fade-in">
         <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
           <time dateTime={post.publishedAt} className="flex items-center gap-1.5">
-            <Calendar className="h-3 w-3 text-accent-emerald" />
+            <Calendar className="h-3 w-3 text-v4-red" />
             {date}
           </time>
           <span className="flex items-center gap-1.5">
-            <Clock className="h-3 w-3 text-accent-cyan" />
+            <Clock className="h-3 w-3 text-accent-gold" />
             {readingTime} {t("minRead")}
           </span>
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag.slug}
-              className="flex items-center gap-1 rounded-md border border-accent-emerald/10 bg-accent-emerald/5 px-2 py-0.5 text-[10px] uppercase tracking-wider text-accent-emerald/80"
+              className="flex items-center gap-1 rounded-md border border-v4-red/10 bg-v4-red/5 px-2 py-0.5 text-[10px] uppercase tracking-wider text-v4-red/80"
             >
               <Tag className="h-2.5 w-2.5" />
               {tag.name}
@@ -139,7 +139,7 @@ export default async function PostPage({
                 alt="Marcos Luciano"
                 width={40}
                 height={40}
-                className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+                className="rounded-full ring-2 ring-v4-red/20 object-cover"
               />
               <div>
                 <p className="text-sm font-medium text-foreground">
@@ -155,7 +155,7 @@ export default async function PostPage({
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-accent-emerald/20 px-3 py-1.5 font-mono text-xs font-medium text-accent-emerald transition-all hover:bg-accent-emerald/10"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-v4-red/20 px-3 py-1.5 font-mono text-xs font-medium text-v4-red transition-all hover:bg-v4-red/10"
               >
                 <LinkedInIcon className="h-3 w-3" />
                 {t("share")}
@@ -164,7 +164,7 @@ export default async function PostPage({
                 href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-accent-cyan/20 px-3 py-1.5 font-mono text-xs font-medium text-accent-cyan transition-all hover:bg-accent-cyan/10"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-accent-gold/20 px-3 py-1.5 font-mono text-xs font-medium text-accent-gold transition-all hover:bg-accent-gold/10"
               >
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -187,7 +187,7 @@ export default async function PostPage({
       )}
 
       <div
-        className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground prose-a:text-accent-emerald prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded-md prose-code:bg-accent-emerald/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-accent-cyan prose-code:font-normal prose-pre:rounded-xl prose-pre:border prose-pre:border-border prose-pre:bg-card prose-pre:text-sm prose-blockquote:border-l-accent-emerald prose-blockquote:text-muted prose-figure:my-8 prose-img:rounded-xl animate-fade-in-delay-1"
+        className="prose prose-sm max-w-none prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground prose-a:text-v4-red prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded-md prose-code:bg-v4-red/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-code:text-v4-red prose-code:font-normal prose-pre:rounded-xl prose-pre:border prose-pre:border-border prose-pre:bg-card prose-pre:text-sm prose-blockquote:border-l-v4-red prose-blockquote:text-muted prose-figure:my-8 prose-img:rounded-xl animate-fade-in-delay-1"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
 
@@ -200,7 +200,7 @@ export default async function PostPage({
               alt="Marcos Luciano"
               width={56}
               height={56}
-              className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+              className="rounded-full ring-2 ring-v4-red/20 object-cover"
             />
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-foreground">Marcos Luciano</p>
@@ -211,7 +211,7 @@ export default async function PostPage({
                 href="https://linkedin.com/in/marcoslrvieira"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-accent-emerald hover:underline"
+                className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-v4-red hover:underline"
               >
                 <LinkedInIcon className="h-3 w-3" />
                 {t("connectLinkedin")}

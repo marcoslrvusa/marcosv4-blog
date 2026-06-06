@@ -8,8 +8,14 @@
   },
   "nav": {
     "home": "Inicio",
-    "about": "Sobre Mí",
-    "articles": "Artículos"
+    "about": "Sobre mí",
+    "articles": "Artículos",
+    "topics": {
+      "ia": "Casos de IA",
+      "mercado": "Mercado",
+      "aiSearch": "AI Search",
+      "arquitetura": "Arquitectura"
+    }
   },
   "home": {
     "hero": {
