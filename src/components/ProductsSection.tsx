@@ -251,7 +251,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
         <div className="flex items-center gap-2 mb-2 px-1">
           <span className="inline-block w-2 h-2 rounded-full bg-accent-gold" />
           <span className="font-mono text-[9px] uppercase tracking-widest text-accent-gold font-semibold">
-            ESPAÇO RESERVADO — LINK DE AFILIADO HOSTINGER
+            Comece agora a usar a AI em outro nível
           </span>
         </div>
         <HostingerBanner variant="hero" locale={locale} />
@@ -320,7 +320,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
         <div className="flex items-center gap-2 mb-2 px-1">
           <span className="inline-block w-2 h-2 rounded-full bg-accent-gold" />
           <span className="font-mono text-[9px] uppercase tracking-widest text-accent-gold font-semibold">
-            ESPAÇO RESERVADO — LINK DE AFILIADO HOSTINGER
+            Comece agora a usar a AI em outro nível
           </span>
         </div>
         <HostingerBanner variant="inline" locale={locale} />

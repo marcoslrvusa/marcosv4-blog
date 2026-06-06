@@ -52,7 +52,7 @@ export default function Sidebar({
         <div className="flex items-center gap-1.5 mb-2 px-1">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-gold" />
           <span className="font-mono text-[8px] uppercase tracking-widest text-accent-gold font-semibold">
-            LINK DE AFILIADO HOSTINGER
+            Comece agora a usar a AI em outro nível
           </span>
         </div>
         <HostingerBanner variant="sidebar" locale={locale} />

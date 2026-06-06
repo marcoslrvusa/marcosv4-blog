@@ -179,9 +179,6 @@ export default async function Home({
       {/* Main content wrapper */}
       <div className="mx-auto max-w-6xl px-6 pb-16">
 
-      {/* Produtos AI */}
-      <ProductsSection locale={locale} />
-
       {/* Materiais Ricos */}
       <MateriaisRicos locale={locale} />
 
@@ -288,6 +285,10 @@ export default async function Home({
           <Sidebar locale={locale} topicCounts={topicCounts} />
         </div>
       </div>
+
+      {/* Produtos AI — abaixo dos artigos */}
+      <ProductsSection locale={locale} />
+
     </div>
   </div>
   );
