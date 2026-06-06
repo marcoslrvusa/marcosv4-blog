@@ -9,7 +9,8 @@
 
 | Info | Detalhe |
 |------|---------|
-| **Link** | `https://hostinger.com/ir/v4company` |
+| **Link** | `https://www.hostinger.com/br/hospedagem-n8n?REFERRALCODE=MARCOSLUCIANO20` |
+| **Cupom** | **MARCOSLUCIANO20** — 20% de desconto |
 | **Comissão** | 40%–60% por venda (tiered) |
 | **Cookie** | 30 dias |
 | **Pagamento** | PayPal, transferência |

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4-flash-free",
+  "small_model": "opencode/minimax-m2.5-free",
+  "provider": {
+    "gemini": {
+      "apiKey": "{env:GEMINI_API_KEY}"
+    },
+    "openrouter": {
+      "apiKey": "{env:OPENROUTER_API_KEY}"
+    }
+  },
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "skill": "allow",
+    "question": "allow",
+    "todowrite": "allow"
+  },
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "skill": "allow",
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "skill": "allow"
+      }
+    }
+  },
+  "command": {
+    "session-save": {
+      "description": "Exporta a sessao atual para a pasta log/",
+      "template": "Exporte a sessão atual do OpenCode para a pasta log/ do projeto usando: !`bash scripts/session-save.sh`\n\nDepois de salvar, liste o arquivo gerado e confirme que foi salvo corretamente.\n\nSe o script nao existir, exporte manualmente com: opencode export $(opencode session list --format json | python3 -c \"import sys,json;s=json.load(sys.stdin);print(s[0]['id'] if s else '')\") --sanitize > log/session-$(date +%Y-%m-%d_%H-%M-%S).json"
+    },
+    "session-list": {
+      "description": "Lista todas as sessoes salvas na pasta log/",
+      "template": "Liste as sessões salvas anteriormente na pasta log/: !`ls -lh log/*.json 2>/dev/null | awk '{print $5, $6, $7, $8, $9}'`\n\nListe também as sessões ativas do OpenCode: !`opencode session list --format table 2>/dev/null`\n\nApresente um resumo organizado das sessões disponíveis, com data, título e tamanho. Pergunte ao usuário se ele quer carregar alguma."
+    },
+    "session-load": {
+      "description": "Carrega contexto de uma sessao anterior salva em log/",
+      "template": "Primeiro, liste as sessões disponíveis em log/: !`ls -1t log/*.json 2>/dev/null | head -20`\n\nO usuário vai escolher uma sessão pelo nome do arquivo. Carregue o arquivo escolhido, extraia o resumo das mensagens e apresente o contexto relevante para a sessão atual.\n\nSe o usuário pedir para carregar uma sessão específica que não está em log/, tente exportá-la primeiro com /session-save e depois carregue."
+    },
+    "new-post": {
+      "description": "Cria um novo artigo no blog",
+      "template": "Pergunte ao usuário o título do artigo (ou aceite o padrão).\n\nExecute: !`npm run new-post \"${TITULO}\"`\n\nApós criar, leia o arquivo gerado e sugira:\n1. Estrutura de tópicos baseada no título\n2. Palavras-chave para SEO\n3. Fontes para pesquisa\n\nPergunte se quer ativar @estrategia-marketing ou @seo-visibilidade para otimizar o artigo."
+    },
+    "pipeline-conteudo": {
+      "description": "Pipeline completo de conteudo: topicos → producao → revisao → publicacao",
+      "template": "Ative @pipeline-conteudo (do V4 OpenCode agents) ou monte manualmente:\n\n1. Pesquise topicos em alta no nicho de IA\n!`webfetch \"https://trends.google.com/trending?geo=BR&q=inteligencia+artificial\"`\n\n2. Verifique o calendário editorial no _opensquad/\n!`ls _opensquad/_memory/`\n\n3. Produza o artigo usando templates em scripts/templates/\n!`ls scripts/templates/`\n\n4. Sugira distribuicao para Instagram/LinkedIn/YouTube\n\nPergunte ao usuario qual o topico, formato e prazos."
+    },
+    "team-conteudo": {
+      "description": "Monta o Content Squad para producao de artigos (estrategia + copy + SEO + revisao)",
+      "template": "Ative os agentes V4 para producao de conteudo:\n1. @estrategia-marketing — pesquisa de topicos e palavras-chave\n2. @copy-content — producao do artigo\n3. @seo-visibilidade — otimizacao SEO + AEO/GEO\n4. @revisor — quality gate e revisao final\n\nPergunte ao usuario qual o tema, formato e prazo do artigo."
+    },
+    "team-seo": {
+      "description": "Monta o SEO Squad (seo-visibilidade + estrategia + analista-dados + pesquisador)",
+      "template": "Ative os agentes V4 para auditoria e otimizacao SEO:\n1. @seo-visibilidade — auditoria tecnica e de conteudo\n2. @estrategia-marketing — pesquisa de palavras-chave\n3. @analista-dados — analise de performance atual\n4. @pesquisador — pesquisa de concorrentes e tendencias\n\nPergunte ao usuario qual o escopo: artigo especifico, categoria ou site todo."
+    },
+    "orquestra": {
+      "description": "Mostra o mapa completo da Agent Orchestra V4 — 35 subagentes disponiveis",
+      "template": "Liste os agentes V4 disponiveis globalmente:\n!`ls ~/.config/opencode/agents/ | sed 's/.md$//'`\n\nListe as skills V4 disponiveis:\n!`ls ~/.config/opencode/skills-v4/ 2>/dev/null | head -20`\n\nPergunte ao usuario qual missao ele quer executar e sugira a formacao ideal de agentes."
+    },
+    "skills-v4": {
+      "description": "Lista todas as skills V4 disponiveis globalmente",
+      "template": "Liste as skills V4 Company disponiveis:\n\nSkills OpenCode:\n!`ls ~/.config/opencode/skills/`\n\nSkills V4 Marketing (66 skills):\n!`ls ~/.config/opencode/skills-v4/`\n\nSkills CSM:\n!`ls ~/.config/opencode/csm-hub/modulos/ 2>/dev/null`\n\nPergunte ao usuario qual skill ele quer carregar e ative com @skill."
+    }
+  }
+}

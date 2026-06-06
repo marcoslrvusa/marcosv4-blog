@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react"
 import { useTranslations } from "next-intl"
-import { Mail, User, Building2, MessageSquare, ArrowRight, Check, Loader2, BarChart3 } from "lucide-react"
+import { Mail, User, Building2, MessageSquare, ArrowRight, Check, Loader2, BarChart3, Phone } from "lucide-react"
 
 const budgetRanges = [
   { value: "", label: "Selecione..." },
@@ -15,7 +15,7 @@ const budgetRanges = [
 
 export default function ConsultingLeadCapture() {
   const t = useTranslations("consulting.ctaSection")
-  const [formData, setFormData] = useState({ name: "", email: "", company: "", pain: "", budget: "" })
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", company: "", pain: "", budget: "" })
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
 
@@ -37,7 +37,7 @@ export default function ConsultingLeadCapture() {
       if (res.ok) {
         setStatus("success")
         setMessage("Recebemos sua solicitação! Analisaremos e enviaremos uma proposta personalizada em até 48h.")
-        setFormData({ name: "", email: "", company: "", pain: "", budget: "" })
+        setFormData({ name: "", phone: "", email: "", company: "", pain: "", budget: "" })
       } else {
         setStatus("error")
         setMessage(data.error || "Algo deu errado. Tente novamente.")
@@ -78,6 +78,13 @@ export default function ConsultingLeadCapture() {
               </label>
               <input type="email" required value={formData.email} onChange={e => handleChange("email", e.target.value)}
                 placeholder="seu@email.com" className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
+             </div>
+            <div>
+              <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                <Phone className="w-3 h-3 inline mr-1" /> Telefone
+              </label>
+              <input type="tel" value={formData.phone} onChange={e => handleChange("phone", e.target.value)}
+                placeholder="+55 (11) 9 9999-9999" className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
             </div>
             <div>
               <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">

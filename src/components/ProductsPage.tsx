@@ -4,6 +4,8 @@ import { Cloud, Building2, BookOpen, ArrowRight, Server, Sparkles,
 import Image from "next/image"
 import Link from "next/link"
 import HostingerBanner from "./HostingerBanner"
+import LLMLogosBar from "./LLMLogosBar"
+import ModelHighlights from "./ModelHighlights"
 
 interface ProductsPageProps {
   locale: string
@@ -392,6 +394,8 @@ export default function ProductsPage({ locale }: ProductsPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Hero */}
+        <LLMLogosBar />
+        <ModelHighlights />
       <section className="relative overflow-hidden border-b border-border/50">
         <div className="mx-auto max-w-6xl px-6 py-14 sm:py-20">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">

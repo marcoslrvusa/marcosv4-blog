@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "cdn.hashnode.com" },
       { protocol: "https", hostname: "hashnode.com" },
+      { protocol: "https", hostname: "www.hostinger.com" },
+      { protocol: "https", hostname: "guiadohost.com" },
+      { protocol: "https", hostname: "encrypted-tbn0.gstatic.com" },
+      { protocol: "https", hostname: "media.licdn.com" },
+      { protocol: "https", hostname: "i.ytimg.com" },
+      { protocol: "https", hostname: "v0.app" },
+      { protocol: "https", hostname: "pbs.twimg.com" },
     ],
   },
 };
