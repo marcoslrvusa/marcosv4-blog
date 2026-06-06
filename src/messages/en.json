@@ -97,5 +97,90 @@
     "previewNote": "👆 This is a preview. Fill out the form below to unlock the full content and download the PDF.",
     "downloadReady": "✅ Guide unlocked!",
     "printCta": "Save as PDF (Ctrl+P)"
+  },
+  "consulting": {
+    "nav": "Consulting",
+    "metaTitle": "AI Consulting — Strategy, AI Search & Intelligent Systems | Marcos Luciano",
+    "metaDescription": "AI First consulting: AI Strategy, AEO/GEO, SEO, and AI Ops. 12+ years of experience translated into replicable results for your company.",
+    "hero": {
+      "tag": "AI First Consulting",
+      "title": "Transform your business with AI — from strategy to execution",
+      "subtitle": "12 years of experience in AI Search, SEO, and intelligent systems translated into replicable results for your company.",
+      "cta": "Schedule Free Consultation",
+      "available": "available for new projects",
+      "stats": {
+        "projects": { "value": "50+", "label": "Projects" },
+        "clients": { "value": "30+", "label": "Clients" },
+        "reports": { "value": "200+", "label": "Reports" },
+        "time": { "value": "12+", "label": "Years XP" }
+      }
+    },
+    "problem": {
+      "tag": "Diagnosis",
+      "title": "The diagnosis nobody is making",
+      "description": "80% of AI projects never leave the pilot phase. Not because the technology doesn't work — but because there's no architecture.",
+      "points": [
+        { "title": "You implemented AI but saw no ROI", "description": "80% of AI projects never leave the pilot phase. Not because the technology doesn't work — but because there's no architecture and strategy." },
+        { "title": "Your organic traffic is declining", "description": "Google AI Overviews, ChatGPT Search and Perplexity changed search. Your 2019 SEO no longer works." },
+        { "title": "You don't know where to start", "description": "A new model comes out every day. The noise is greater than the signal. Without guidance, you're stuck." },
+        { "title": "Your team has no AI direction", "description": "Without an AI Lead who understands business, technology, and execution, you'll fall behind the market." }
+      ]
+    },
+    "services": {
+      "tag": "Services",
+      "title": "From strategy to execution",
+      "description": "Each service is designed to deliver measurable results within 90 days.",
+      "items": [
+        { "title": "AI Strategy & Roadmap", "description": "Complete diagnosis of your company's AI maturity. 6 to 12-month roadmap with clear milestones, impact-based prioritization, and reference architecture.", "topics": ["AI Maturity", "Roadmap", "Architecture", "Governance"] },
+        { "title": "AI Search (AEO & GEO)", "description": "Full adaptation of your digital presence for generative engines: ChatGPT, Perplexity, Google AI Overviews. Entity research, schemas, and topical authority.", "topics": ["AEO", "GEO", "Entity SEO", "Schema.org", "Topical Authority"] },
+        { "title": "Strategic SEO & Performance", "description": "Technical and strategic SEO for companies that want predictable results. Complete audit with recommendations prioritized by impact.", "topics": ["Technical SEO", "Strategic SEO", "Performance", "Analytics"] },
+        { "title": "AI Ops & Intelligent Automation", "description": "AI and automation pipelines for marketing, sales, and support. Agents, RAG, fine-tuning, and multi-agent orchestration.", "topics": ["AI Ops", "Automation", "Agents", "RAG", "Fine-tuning"] }
+      ]
+    },
+    "process": {
+      "title": "AI First Methodology",
+      "subtitle": "A process tested over 12+ years in the market. 4 pillars that ensure predictability and results.",
+      "steps": [
+        { "step": "01", "title": "Diagnosis", "desc": "Complete mapping: technology, team, processes, competition, and digital maturity." },
+        { "step": "02", "title": "Strategy", "desc": "Customized roadmap with impact vs. effort prioritization and business-linked OKRs." },
+        { "step": "03", "title": "Execution", "desc": "Hands-on implementation with specialized squads, weekly reviews, and data-driven adjustments." },
+        { "step": "04", "title": "Scale", "desc": "Knowledge transfer, documentation, and playbooks for your team to maintain and scale." }
+      ]
+    },
+    "results": {
+      "title": "Results that speak",
+      "subtitle": "Real numbers from real projects. No generic case studies.",
+      "items": [
+        { "number": "340%", "label": "Increase in organic traffic", "desc": "B2B SaaS — SEO restructure + AI Search" },
+        { "number": "$2.4M", "label": "Revenue attributed to AI Search", "desc": "Education platform — AEO + entities" },
+        { "number": "12x", "label": "Average ROI in AI Ops", "desc": "Average across 8 intelligent automation projects" },
+        { "number": "100%", "label": "Projects delivered on time", "desc": "Agile methodology with weekly OKRs" }
+      ]
+    },
+    "ctaSection": {
+      "title": "Is your company ready for the next era of AI?",
+      "description": "Schedule a free 30-minute consultation. No commitment. Just an initial diagnosis and a clear action plan.",
+      "cta": "Get My Free Consultation",
+      "guarantee": "Zero risk: if you don't identify value in the first session, you don't pay."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        { "q": "What is AI First consulting?", "a": "A methodology that puts AI at the center of business strategy. Unlike traditional consulting, we treat AI as infrastructure — and design systems, processes, and teams around it." },
+        { "q": "How long does it take to see results?", "a": "Measurable results between 30 and 90 days. Diagnosis in 1 week. Roadmap in 2 weeks. First experiments in 30 days. Scale results between 3 and 6 months." },
+        { "q": "Do I need a tech team?", "a": "No. We serve everyone from solo founders to established companies. For founders without a team, we deliver full execution via a specialized outsourced squad." },
+        { "q": "How does the free consultation work?", "a": "30 min video call. You share your challenges. I give 3+ actionable insights. If there's a fit, we draft a proposal. If not, you leave with insights at no cost." },
+        { "q": "What's the difference from other consultancies?", "a": "We don't sell tools — we sell architecture. We don't do endless pilots — we deliver production. Our consultants are engineers who execute." },
+        { "q": "Do you serve clients outside Brazil?", "a": "Yes. We serve clients in Brazil, the US, and Latin America. Sessions in Portuguese, English, or Spanish. 100% remote." }
+      ]
+    },
+    "stickyCta": {
+    "title": "Your AI architecture starts here",
+    "cta": "Book Your Free Consultation →"
+  },
+    "footerCta": {
+      "title": "Ready to build your AI architecture?",
+      "cta": "Book Now"
+    }
   }
 }

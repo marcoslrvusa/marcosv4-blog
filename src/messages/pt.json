@@ -97,5 +97,90 @@
     "previewNote": "👆 Esta é uma prévia do guia. Preencha o formulário abaixo para liberar o conteúdo completo e baixar o PDF.",
     "downloadReady": "✅ Guia liberado!",
     "printCta": "Salvar como PDF (Ctrl+P)"
+  },
+  "consulting": {
+    "nav": "Consultoria",
+    "metaTitle": "Consultoria AI — Estratégia, AI Search & Sistemas Inteligentes | Marcos Luciano",
+    "metaDescription": "Consultoria AI First: AI Strategy, AEO/GEO, SEO e AI Ops. 12+ anos de experiência traduzidos em resultados replicáveis para sua empresa.",
+    "hero": {
+      "tag": "Consultoria AI First",
+      "title": "Transforme seu negócio com IA — da estratégia à execução",
+      "subtitle": "12 anos de experiência em AI Search, SEO e sistemas inteligentes traduzidos em resultados replicáveis para sua empresa.",
+      "cta": "Agendar Consultoria Gratuita",
+      "available": "disponível para novos projetos",
+      "stats": {
+        "projects": { "value": "50+", "label": "Projetos" },
+        "clients": { "value": "30+", "label": "Clientes" },
+        "reports": { "value": "200+", "label": "Análises" },
+        "time": { "value": "12+", "label": "Anos XP" }
+      }
+    },
+    "problem": {
+      "tag": "Diagnóstico",
+      "title": "O diagnóstico que ninguém está fazendo",
+      "description": "80% dos projetos de IA não saem do piloto. Não porque a tecnologia não funciona — porque falta arquitetura.",
+      "points": [
+        { "title": "Você implementou IA, mas não viu retorno", "description": "80% dos projetos de IA não saem do piloto. Não porque a tecnologia não funciona — porque falta arquitetura e estratégia." },
+        { "title": "Seu tráfego orgânico está caindo", "description": "Google AI Overviews, ChatGPT Search e Perplexity mudaram a busca. Seu SEO de 2019 não funciona mais." },
+        { "title": "Você não sabe por onde começar", "description": "Todo dia surge um modelo novo. O ruído é maior que o sinal. Sem um norte, você empata." },
+        { "title": "Sua equipe não tem direção de IA", "description": "Sem um AI Lead que entenda de negócio, tecnologia e execução, você fica para trás do mercado." }
+      ]
+    },
+    "services": {
+      "tag": "Serviços",
+      "title": "Da estratégia à execução",
+      "description": "Cada serviço é desenhado para gerar resultado mensurável em 90 dias.",
+      "items": [
+        { "title": "AI Strategy & Roadmap", "description": "Diagnóstico completo da maturidade de IA da sua empresa. Roadmap de 6 a 12 meses com marcos claros, priorização por impacto e arquitetura de referência.", "topics": ["Maturidade IA", "Roadmap", "Arquitetura", "Governança"] },
+        { "title": "AI Search (AEO & GEO)", "description": "Adaptação completa da sua presença digital para motores generativos: ChatGPT, Perplexity, Google AI Overviews. Pesquisa de entidades, schemas e topical authority.", "topics": ["AEO", "GEO", "Entity SEO", "Schema.org", "Topical Authority"] },
+        { "title": "SEO Estratégico & Performance", "description": "SEO técnico e estratégico para empresas que querem resultado previsível. Auditoria completa com recomendações priorizadas por impacto.", "topics": ["SEO Técnico", "SEO Estratégico", "Performance", "Analytics"] },
+        { "title": "AI Ops & Automação Inteligente", "description": "Pipelines de IA e automação para marketing, vendas e atendimento. Agentes, RAG, fine-tuning e orquestração multi-agente.", "topics": ["AI Ops", "Automação", "Agentes", "RAG", "Fine-tuning"] }
+      ]
+    },
+    "process": {
+      "title": "Metodologia AI First",
+      "subtitle": "Um processo testado em 12+ anos de mercado. 4 pilares que garantem previsibilidade e resultado.",
+      "steps": [
+        { "step": "01", "title": "Diagnóstico", "desc": "Mapeamento completo: tecnologia, equipe, processos, concorrência e maturidade digital." },
+        { "step": "02", "title": "Estratégia", "desc": "Roadmap personalizado com priorização por impacto vs. esforço e OKRs vinculados a negócio." },
+        { "step": "03", "title": "Execução", "desc": "Implementação hands-on com squads especializados, revisões semanais e ajustes baseados em dados." },
+        { "step": "04", "title": "Escala", "desc": "Transferência de conhecimento, documentação e playbooks para seu time manter e escalar." }
+      ]
+    },
+    "results": {
+      "title": "Resultados que falam",
+      "subtitle": "Números reais de projetos reais. Sem casos genéricos.",
+      "items": [
+        { "number": "340%", "label": "Aumento em tráfego orgânico", "desc": "SaaS B2B — Reestruturação de SEO + AI Search" },
+        { "number": "R$ 2.4M", "label": "Receita atribuída a AI Search", "desc": "Plataforma de educação — AEO + entidades" },
+        { "number": "12x", "label": "ROI médio em AI Ops", "desc": "Média sobre 8 projetos de automação inteligente" },
+        { "number": "100%", "label": "Projetos entregues no prazo", "desc": "Metodologia ágil com OKRs semanais" }
+      ]
+    },
+    "ctaSection": {
+      "title": "Sua empresa está pronta para a próxima era da IA?",
+      "description": "Agende uma consultoria gratuita de 30 minutos. Sem compromisso. Apenas um diagnóstico inicial e um plano de ação claro.",
+      "cta": "Quero Minha Consultoria Grátis",
+      "guarantee": "Risco zero: se na primeira sessão você não identificar valor, não paga nada."
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "items": [
+        { "q": "O que é consultoria AI First?", "a": "Metodologia que coloca IA no centro da estratégia de negócio. Diferente de consultorias tradicionais, tratamos IA como infraestrutura — e desenhamos sistemas, processos e equipes em torno dela." },
+        { "q": "Quanto tempo leva para ver resultados?", "a": "Resultados mensuráveis entre 30 e 90 dias. Diagnóstico em 1 semana. Roadmap em 2 semanas. Primeiros experimentos em 30 dias. Resultados de escala entre 3 e 6 meses." },
+        { "q": "Preciso ter time de tecnologia?", "a": "Não. Atendemos desde founders solo até empresas estabelecidas. Para founders sem time, entregamos execução completa via squad terceirizado." },
+        { "q": "Como funciona a consultoria gratuita?", "a": "30 min por videochamada. Você conta seus desafios. Eu dou 3+ insights acionáveis. Se houver fit, desenhamos proposta. Se não houver, você sai com insights sem compromisso." },
+        { "q": "Qual a diferença para outras consultorias?", "a": "Não vendemos ferramentas — vendemos arquitetura. Não fazemos piloto eterno — entregamos produção. Nossos consultores são engenheiros que executam." },
+        { "q": "Atendem fora do Brasil?", "a": "Sim. Atendemos clientes no Brasil, EUA e América Latina. Sessões em português, inglês ou espanhol. 100% remoto." }
+      ]
+    },
+    "stickyCta": {
+    "title": "Sua arquitetura de IA começa aqui",
+    "cta": "Agende sua Consultoria Grátis →"
+  },
+    "footerCta": {
+      "title": "Vamos construir sua arquitetura de IA?",
+      "cta": "Agendar Agora"
+    }
   }
 }

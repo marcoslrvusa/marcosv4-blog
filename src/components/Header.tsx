@@ -18,6 +18,7 @@ const locales = [
 
 export default function Header() {
   const t = useTranslations("nav");
+  const tConsulting = useTranslations("consulting");
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -60,6 +61,12 @@ export default function Header() {
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
           >
             {t("about")}
+          </Link>
+          <Link
+            href="/consulting"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+          >
+            {tConsulting("nav")}
           </Link>
 
           <SearchModal />
