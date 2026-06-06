@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Plantilla Artículo AEO - V4 Company</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--v4-red:#e50914;--v4-gold:#f59e0b;--v4-amber:#d97706;--v4-dark-bg:#0a0a0a;--v4-carbon:#1a1a1a;--v4-white:#fafafa;--v4-body:#a1a1aa;--v4-green:rgba(0,255,136,0.6);--v4-border:rgba(255,255,255,0.06)}
+body{font-family:'Inter',sans-serif;margin:0;padding:0;background:var(--v4-dark-bg);color:var(--v4-body);line-height:1.6;font-size:16px}
+.cover{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px;page-break-after:always}
+.cover h1{font-size:3.5em;color:var(--v4-red);margin-bottom:10px;font-weight:700;text-transform:uppercase}
+.cover h2{font-size:1.8em;color:var(--v4-white);margin-top:0;font-weight:400}
+.cover .author{margin-top:40px;font-size:1.2em;color:var(--v4-body)}
+.cover .photo{width:150px;height:150px;border-radius:50%;border:5px solid var(--v4-red);margin-top:30px;object-fit:cover}
+.page{background:var(--v4-dark-bg);padding:60px 40px;min-height:100vh;page-break-after:always}
+.page:last-of-type{page-break-after:avoid}
+h2{font-size:2em;color:var(--v4-red);margin-top:30px;font-weight:600;border-bottom:2px solid var(--v4-border);padding-bottom:10px}
+h3{font-size:1.3em;color:var(--v4-gold);margin-top:25px;font-weight:600}
+p{margin-bottom:1em;color:var(--v4-body)}
+pre{background:var(--v4-carbon);padding:15px;border-radius:8px;overflow-x:auto;margin-bottom:1.5em;border:1px solid var(--v4-border);font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--v4-white)}
+code{font-family:'JetBrains Mono',monospace;background:var(--v4-carbon);color:var(--v4-green);padding:2px 4px;border-radius:3px;font-size:0.9em}
+ul{margin-left:20px;margin-bottom:1em;color:var(--v4-body)}
+ul li{margin-bottom:0.5em}
+ul li::before{content:'» ';color:var(--v4-green);font-weight:bold;display:inline-block;width:1em;margin-left:-1em}
+hr{border:none;border-top:1px dashed var(--v4-border);margin:40px 0}
+.final{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px}
+.final h2{font-size:2.5em;color:var(--v4-gold);margin-bottom:20px;border:none}
+.final p{font-size:1.2em;color:var(--v4-body);margin-bottom:30px}
+.final a{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:15px 30px;text-decoration:none;border-radius:8px;font-size:1.3em;font-weight:600}
+.tag{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:2px 10px;border-radius:4px;font-size:0.7em;font-family:'JetBrains Mono',monospace;margin-bottom:10px}
+@media print{body{background:#fff;color:#333}.cover,.page,.final{background:#fff;color:#333;min-height:auto;height:297mm;width:210mm;margin:0;padding:20mm;box-sizing:border-box;page-break-after:always}h2,h3{color:var(--v4-red)}p,ul{color:#333}ul li::before{color:var(--v4-red)}pre{background:#f5f5f5;color:#333;border:1px solid #ddd}code{background:#f5f5f5;color:#333}}
+</style></head>
+<body>
+<div class="cover">
+<span class="tag">PLANTILLA</span>
+<h1>Plantilla de Artículo para AEO</h1>
+<h2>Estructura lista para ser citada por IAs generativas</h2>
+<img src="/home/marcos/Desktop/AI/marcosv4-blog/public/profile.png" alt="Marcos Luciano" class="photo">
+<p class="author">Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</p>
+</div>
+<div class="page">
+<h2>Cómo usar esta plantilla</h2>
+<p>Esta plantilla sigue la estructura que maximiza la probabilidad de que tu contenido sea extraído y citado por ChatGPT, Perplexity, Google AI Overviews y otras IAs generativas.</p>
+<p>Completa cada sección siguiendo las instrucciones entre corchetes <code>[así]</code>. Mantén párrafos de 2-4 frases para facilitar la extracción RAG.</p>
+<hr>
+<h2>Plantilla</h2>
+<pre>
+# [Título Principal con Palabra Clave]
+## Subtítulo que explica el valor del artículo en 1 línea
+
+## [Pregunta o Tema Principal - H2]
+[Respuesta directa en 1-2 frases. Esta es la respuesta que la IA extraerá.]
+
+[Contexto o profundización en 2-3 frases. Datos, fuentes, ejemplos.]
+
+- Punto clave 1 con dato o fuente
+- Punto clave 2 con ejemplo práctico
+- Punto clave 3 con contrapunto o matiz
+
+### [Pregunta Específica - H3 para FAQ]
+[Respuesta directa y completa. Usa FAQ Schema en JSON-LD.]
+</pre>
+</div>
+<div class="page">
+<h2>Ejemplo Práctico</h2>
+<pre>
+# Cómo Implementar RAG en Producción
+## Guía práctica de Retrieval-Augmented Generation para ingenieros
+
+## ¿Qué es RAG y por qué usarlo?
+RAG (Retrieval-Augmented Generation) es una arquitectura que combina recuperación de información con generación de texto por IA. Permite que modelos como GPT-4 respondan preguntas basándose en tus propios datos.
+
+A diferencia del fine-tuning, que altera los pesos del modelo, RAG mantiene el modelo base intacto y añade una capa de recuperación. Esto significa que puedes actualizar el conocimiento del sistema sin necesidad de re-entrenar.
+
+- RAG reduce alucinaciones al proporcionar contexto factual
+- Cuesta menos que fine-tuning para bases de conocimiento grandes
+- Permite actualización en tiempo real de los datos de referencia
+
+### ¿Cuáles son las principales técnicas de chunking para RAG?
+El chunking semántico con superposición del 10-15% es el estándar de oro. Para documentos técnicos, chunks de 256-512 tokens con overlap de 32 tokens funcionan bien en la mayoría de los casos.
+</pre>
+</div>
+<div class="page">
+<h2>Checklist de SEO Técnico para AEO</h2>
+<ul>
+<li>Headings (H2) en formato de pregunta o tema claro</li>
+<li>Párrafos de 2-4 frases (extraíbles como respuesta autónoma)</li>
+<li>Listas y definiciones explícitas en formato "X es Y que hace Z"</li>
+<li>FAQ Schema implementado en JSON-LD</li>
+<li>Meta description con resumen ejecutivo del artículo</li>
+<li>Open Graph y Twitter Cards configurados</li>
+<li>Datos estructurados Article en JSON-LD</li>
+<li>Breadcrumbs con BreadcrumbList Schema</li>
+<li>URL amigable con palabra clave principal</li>
+<li>Imagen de portada con alt text descriptivo</li>
+<li>Fecha de publicación y última modificación visibles</li>
+<li>Enlaces internos a artículos relacionados</li>
+<li>Enlaces externos a fuentes primarias y datos oficiales</li>
+<li>Mobile-first con Core Web Vitals optimizados</li>
+<li>Velocidad de carga sub-2s (LCP &lt; 2.5s)</li>
+</ul>
+</div>
+<div class="final">
+<h2>Domina AI Search</h2>
+<p>Usa esta plantilla en cada artículo que publiques. Para ir más allá, descarga la Guía Práctica de AI Search con ejemplos detallados.</p>
+<a href="https://marcosv4.cloud">Visitar marcosv4.cloud</a>
+</div>
+</body></html>

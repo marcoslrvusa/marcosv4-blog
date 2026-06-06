@@ -6,7 +6,7 @@ tags:
   - Microsoft
   - Market
   - AI
-coverImage: /images/microsoft-build-cover-2.jpg
+coverImage: https://picsum.photos/seed/microsoft-build-azure-phi4/1200/630
 ---
 
 ## The Theme of Build 2026

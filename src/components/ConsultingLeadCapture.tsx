@@ -2,11 +2,20 @@
 
 import { useState, FormEvent } from "react"
 import { useTranslations } from "next-intl"
-import { Mail, User, Building2, MessageSquare, ArrowRight, Check, Loader2, Shield } from "lucide-react"
+import { Mail, User, Building2, MessageSquare, ArrowRight, Check, Loader2, BarChart3 } from "lucide-react"
+
+const budgetRanges = [
+  { value: "", label: "Selecione..." },
+  { value: "15-30k", label: "R$ 15k – R$ 30k" },
+  { value: "30-60k", label: "R$ 30k – R$ 60k" },
+  { value: "60-120k", label: "R$ 60k – R$ 120k" },
+  { value: "120k+", label: "R$ 120k+" },
+  { value: "indefinido", label: "Ainda não defini" },
+]
 
 export default function ConsultingLeadCapture() {
   const t = useTranslations("consulting.ctaSection")
-  const [formData, setFormData] = useState({ name: "", email: "", company: "", pain: "" })
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", pain: "", budget: "" })
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
 
@@ -27,8 +36,8 @@ export default function ConsultingLeadCapture() {
       const data = await res.json()
       if (res.ok) {
         setStatus("success")
-        setMessage("Recebemos sua solicitação! Entraremos em contato em até 24h.")
-        setFormData({ name: "", email: "", company: "", pain: "" })
+        setMessage("Recebemos sua solicitação! Analisaremos e enviaremos uma proposta personalizada em até 48h.")
+        setFormData({ name: "", email: "", company: "", pain: "", budget: "" })
       } else {
         setStatus("error")
         setMessage(data.error || "Algo deu errado. Tente novamente.")
@@ -75,23 +84,33 @@ export default function ConsultingLeadCapture() {
                 <Building2 className="w-3 h-3 inline mr-1" /> Empresa
               </label>
               <input type="text" value={formData.company} onChange={e => handleChange("company", e.target.value)}
-                placeholder="Sua empresa (opcional)" className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
+                placeholder="Sua empresa" className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
             </div>
             <div>
               <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
-                <MessageSquare className="w-3 h-3 inline mr-1" /> Qual seu maior desafio com IA?
+                <BarChart3 className="w-3 h-3 inline mr-1" /> Orçamento estimado
+              </label>
+              <select value={formData.budget} onChange={e => handleChange("budget", e.target.value)}
+                className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20">
+                {budgetRanges.map((r) => (
+                  <option key={r.value} value={r.value}>{r.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                <MessageSquare className="w-3 h-3 inline mr-1" /> Descreva seu projeto
               </label>
               <textarea rows={3} value={formData.pain} onChange={e => handleChange("pain", e.target.value)}
-                placeholder="Conte um pouco sobre o que sua empresa precisa..." className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
+                placeholder="Conte sobre o projeto, seus objetivos e desafios..." className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-v4-red/50 focus:outline-none focus:ring-1 focus:ring-v4-red/20" />
             </div>
             <button type="submit" disabled={status === "loading"}
               className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-v4-red px-6 py-4 text-base font-semibold text-background transition-all hover:bg-v4-red/90 disabled:opacity-60">
-              {status === "loading" ? <Loader2 className="w-5 h-5 animate-spin" /> : <><ArrowRight className="w-5 h-5" /> {t("cta")}</>}
+              {status === "loading" ? <Loader2 className="w-5 h-5 animate-spin" /> : <><ArrowRight className="w-5 h-5" /> Solicitar Orçamento</>}
             </button>
-            <div className="flex items-center gap-2 justify-center pt-2">
-              <Shield className="w-3.5 h-3.5 text-muted-foreground" />
-              <p className="text-xs text-muted-foreground">{t("guarantee")}</p>
-            </div>
+            <p className="text-[10px] text-muted-foreground/60 text-center pt-2">
+              {t("guarantee")}
+            </p>
           </form>
         )}
         {status === "error" && <p className="text-sm text-red-400 mt-4 text-center">{message}</p>}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AEO Article Template - V4 Company</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--v4-red:#e50914;--v4-gold:#f59e0b;--v4-amber:#d97706;--v4-dark-bg:#0a0a0a;--v4-carbon:#1a1a1a;--v4-white:#fafafa;--v4-body:#a1a1aa;--v4-green:rgba(0,255,136,0.6);--v4-border:rgba(255,255,255,0.06)}
+body{font-family:'Inter',sans-serif;margin:0;padding:0;background:var(--v4-dark-bg);color:var(--v4-body);line-height:1.6;font-size:16px}
+.cover{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px;page-break-after:always}
+.cover h1{font-size:3.5em;color:var(--v4-red);margin-bottom:10px;font-weight:700;text-transform:uppercase}
+.cover h2{font-size:1.8em;color:var(--v4-white);margin-top:0;font-weight:400}
+.cover .author{margin-top:40px;font-size:1.2em;color:var(--v4-body)}
+.cover .photo{width:150px;height:150px;border-radius:50%;border:5px solid var(--v4-red);margin-top:30px;object-fit:cover}
+.page{background:var(--v4-dark-bg);padding:60px 40px;min-height:100vh;page-break-after:always}
+.page:last-of-type{page-break-after:avoid}
+h2{font-size:2em;color:var(--v4-red);margin-top:30px;font-weight:600;border-bottom:2px solid var(--v4-border);padding-bottom:10px}
+h3{font-size:1.3em;color:var(--v4-gold);margin-top:25px;font-weight:600}
+p{margin-bottom:1em;color:var(--v4-body)}
+pre{background:var(--v4-carbon);padding:15px;border-radius:8px;overflow-x:auto;margin-bottom:1.5em;border:1px solid var(--v4-border);font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--v4-white)}
+code{font-family:'JetBrains Mono',monospace;background:var(--v4-carbon);color:var(--v4-green);padding:2px 4px;border-radius:3px;font-size:0.9em}
+ul{margin-left:20px;margin-bottom:1em;color:var(--v4-body)}
+ul li{margin-bottom:0.5em}
+ul li::before{content:'» ';color:var(--v4-green);font-weight:bold;display:inline-block;width:1em;margin-left:-1em}
+hr{border:none;border-top:1px dashed var(--v4-border);margin:40px 0}
+.final{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px}
+.final h2{font-size:2.5em;color:var(--v4-gold);margin-bottom:20px;border:none}
+.final p{font-size:1.2em;color:var(--v4-body);margin-bottom:30px}
+.final a{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:15px 30px;text-decoration:none;border-radius:8px;font-size:1.3em;font-weight:600}
+.tag{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:2px 10px;border-radius:4px;font-size:0.7em;font-family:'JetBrains Mono',monospace;margin-bottom:10px}
+@media print{body{background:#fff;color:#333}.cover,.page,.final{background:#fff;color:#333;min-height:auto;height:297mm;width:210mm;margin:0;padding:20mm;box-sizing:border-box;page-break-after:always}h2,h3{color:var(--v4-red)}p,ul{color:#333}ul li::before{color:var(--v4-red)}pre{background:#f5f5f5;color:#333;border:1px solid #ddd}code{background:#f5f5f5;color:#333}}
+</style></head>
+<body>
+<div class="cover">
+<span class="tag">TEMPLATE</span>
+<h1>AEO Article Template</h1>
+<h2>Ready-to-use structure optimized for generative AI citation</h2>
+<img src="/home/marcos/Desktop/AI/marcosv4-blog/public/profile.png" alt="Marcos Luciano" class="photo">
+<p class="author">Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</p>
+</div>
+<div class="page">
+<h2>How to Use This Template</h2>
+<p>This template follows the structure that maximizes your content's chance of being extracted and cited by ChatGPT, Perplexity, Google AI Overviews, and other generative AIs.</p>
+<p>Fill each section following the instructions in brackets <code>[like this]</code>. Keep paragraphs at 2-4 sentences for easy RAG extraction.</p>
+<hr>
+<h2>Template</h2>
+<pre>
+# [Main Title with Keyword]
+## Subtitle explaining the article's value in 1 line
+
+## [Question or Main Topic - H2]
+[Direct answer in 1-2 sentences. This is the answer the AI will extract.]
+
+[Context or depth in 2-3 sentences. Data, sources, examples.]
+
+- Key point 1 with data or source
+- Key point 2 with practical example
+- Key point 3 with counterpoint or nuance
+
+### [Specific Question - H3 for FAQ]
+[Direct and complete answer. Use FAQ Schema in JSON-LD.]
+</pre>
+</div>
+<div class="page">
+<h2>Practical Example</h2>
+<pre>
+# How to Implement RAG in Production
+## Practical guide to Retrieval-Augmented Generation for engineers
+
+## What is RAG and Why Use It?
+RAG (Retrieval-Augmented Generation) is an architecture that combines information retrieval with AI text generation. It allows models like GPT-4 to answer questions based on your own data.
+
+Unlike fine-tuning, which changes model weights, RAG keeps the base model intact and adds a retrieval layer. This means you can update system knowledge without retraining.
+
+- RAG reduces hallucinations by providing factual context
+- Costs less than fine-tuning for large knowledge bases
+- Enables real-time updates to reference data
+
+### What Are the Main Chunking Techniques for RAG?
+Semantic chunking with 10-15% overlap is the gold standard. For technical documents, chunks of 256-512 tokens with 32-token overlap work well in most cases.
+</pre>
+</div>
+<div class="page">
+<h2>Technical SEO Checklist for AEO</h2>
+<ul>
+<li>Headings (H2) in question or clear topic format</li>
+<li>Paragraphs of 2-4 sentences (extractable as standalone answer)</li>
+<li>Lists and explicit definitions in "X is Y that does Z" format</li>
+<li>FAQ Schema implemented in JSON-LD</li>
+<li>Meta description with executive summary of the article</li>
+<li>Open Graph and Twitter Cards configured</li>
+<li>Article structured data in JSON-LD</li>
+<li>Breadcrumbs with BreadcrumbList Schema</li>
+<li>Friendly URL with main keyword</li>
+<li>Cover image with descriptive alt text</li>
+<li>Publication date and last modified visible</li>
+<li>Internal links to related articles</li>
+<li>External links to primary sources and official data</li>
+<li>Mobile-first with optimized Core Web Vitals</li>
+<li>Loading speed sub-2s (LCP &lt; 2.5s)</li>
+</ul>
+</div>
+<div class="final">
+<h2>Master AI Search</h2>
+<p>Use this template for every article you publish. To go deeper, download the AI Search Practical Guide with detailed examples.</p>
+<a href="https://marcosv4.cloud">Visit marcosv4.cloud</a>
+</div>
+</body></html>

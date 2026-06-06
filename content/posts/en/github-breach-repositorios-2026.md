@@ -6,7 +6,7 @@ tags:
   - Security
   - GitHub
   - Market
-coverImage: /images/github-cover.jpg
+coverImage: https://picsum.photos/seed/github-breach-2026/1200/630
 ---
 
 On May 24, 2026, GitHub publicly confirmed the largest private repository leak in its history: 3,800 repositories exposed, including API tokens, SSH keys, and production credentials from hundreds of companies.

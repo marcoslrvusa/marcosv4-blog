@@ -6,7 +6,7 @@ tags:
   - Segurança
   - GitHub
   - Mercado
-coverImage: /images/github-cover.jpg
+coverImage: https://picsum.photos/seed/github-breach-2026/1200/630
 ---
 
 Em 24 de maio de 2026, o GitHub confirmou publicamente o maior vazamento de repositórios privados de sua história: 3.800 repositórios expostos, incluindo tokens de API, chaves SSH e credenciais de produção de centenas de empresas.

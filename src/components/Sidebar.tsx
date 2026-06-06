@@ -1,8 +1,10 @@
 import Image from "next/image"
+import { Link as I18nLink } from "@/i18n/navigation"
 import Link from "next/link"
 import { Brain, TrendingUp, Layers, Briefcase, ChevronRight, ArrowUpRight, BookOpen, Mail } from "lucide-react"
 import NewsletterForm from "@/components/NewsletterForm"
 import EbookCta from "@/components/EbookCta"
+import HostingerBanner from "@/components/HostingerBanner"
 import type { Post } from "@/lib/types"
 
 const topics = [
@@ -36,13 +38,24 @@ export default function Sidebar({
             <p className="text-xs text-muted-foreground">AI Lead @ V4 Company</p>
           </div>
         </div>
-        <Link
-          href={`/${locale === "pt" ? "" : locale}/consulting`}
+        <I18nLink
+          href="/consulting"
           className="flex items-center justify-between rounded-lg border border-v4-red/20 bg-v4-red/5 px-4 py-2.5 text-sm font-medium text-v4-red transition-all hover:bg-v4-red/10"
         >
           <span>Consultoria AI</span>
           <ArrowUpRight className="h-3.5 w-3.5" />
-        </Link>
+        </I18nLink>
+      </div>
+
+      {/* HOSTINGER BANNER — SIDEBAR */}
+      <div className="border border-dashed border-accent-gold/30 rounded-xl p-2">
+        <div className="flex items-center gap-1.5 mb-2 px-1">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-gold" />
+          <span className="font-mono text-[8px] uppercase tracking-widest text-accent-gold font-semibold">
+            LINK DE AFILIADO HOSTINGER
+          </span>
+        </div>
+        <HostingerBanner variant="sidebar" locale={locale} />
       </div>
 
       {/* Topics */}
@@ -76,6 +89,17 @@ export default function Sidebar({
       {/* Newsletter */}
       <NewsletterForm locale={locale} />
 
+      {/* ADSENSE — SIDEBAR (300x250 / 300x600) */}
+      <div className="adsense-placeholder border-2 border-dashed border-v4-red/30 rounded-xl p-6 text-center bg-v4-red/[0.02]">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-v4-red animate-pulse" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-v4-red font-bold">
+            ESPAÇO RESERVADO — ADSENSE SIDEBAR
+          </span>
+        </div>
+        <p className="font-mono text-[9px] text-v4-red/50">300x250 / 300x600 — Cole o código do AdSense aqui</p>
+      </div>
+
       {/* Ebook lead magnet */}
       <EbookCta locale={locale} />
 
@@ -102,15 +126,15 @@ export default function Sidebar({
       <div className="premium-card rounded-xl p-5 text-center sticky bottom-6">
         <p className="text-xs font-semibold text-foreground mb-1">Quer levar AI a sério?</p>
         <p className="font-mono text-[10px] text-muted-foreground mb-3">
-          Agende uma conversationa gratuita
+          Solicite um orçamento personalizado
         </p>
-        <Link
-          href={`/${locale === "pt" ? "" : locale}/consulting`}
+        <I18nLink
+          href="/consulting"
           className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-4 py-2 text-xs font-semibold text-background transition-all hover:bg-v4-red/90"
         >
           Falar com consultor
           <ArrowUpRight className="h-3 w-3" />
-        </Link>
+        </I18nLink>
       </div>
     </aside>
   )

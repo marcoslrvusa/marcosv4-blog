@@ -41,7 +41,7 @@ export default function NewsletterMini({ locale = "pt" }: { locale?: string }) {
   }
 
   return (
-    <div className="gradient-border rounded-xl">
+    <div className="gradient-border rounded-xl overflow-hidden">
       <div className="p-4">
         <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           <Mail className="h-3.5 w-3.5 text-v4-red" />

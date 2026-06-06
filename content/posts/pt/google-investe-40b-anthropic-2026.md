@@ -6,7 +6,7 @@ tags:
   - Google
   - Anthropic
   - Mercado
-coverImage: /images/google-cover.jpg
+coverImage: https://picsum.photos/seed/google-anthropic-40b/1200/630
 ---
 
 No dia 2 de abril de 2026, o Google anunciou um investimento adicional de US$40 bilhões na Anthropic, elevando o total investido para mais de US$60 bilhões desde 2023. É o maior investimento corporativo em uma empresa de IA da história, e sinaliza uma estratégia clara: o Google está disposto a pagar qualquer preço para não ficar para trás na corrida de inteligência artificial.

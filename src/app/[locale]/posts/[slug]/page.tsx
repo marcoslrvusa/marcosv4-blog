@@ -9,6 +9,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import ReadingProgress from "@/components/ReadingProgress";
 import PostSidebar from "@/components/PostSidebar";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HostingerBanner from "@/components/HostingerBanner";
 import { extractHeadings } from "@/lib/headings";
 import { getTranslations } from "next-intl/server";
 
@@ -253,6 +254,28 @@ export default async function PostPage({
       {/* Newsletter */}
       <div className="mt-8 animate-fade-in-delay-3">
         <NewsletterForm locale={locale} />
+      </div>
+
+      {/* ADSENSE — POST (após artigo, antes do sidebar) */}
+      <div className="adsense-placeholder border-2 border-dashed border-v4-red/30 rounded-xl p-6 text-center bg-v4-red/[0.02]">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-v4-red animate-pulse" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-v4-red font-bold">
+            ESPAÇO RESERVADO — ADSENSE POST
+          </span>
+        </div>
+        <p className="font-mono text-[9px] text-v4-red/50">300x250 / In-Article — Cole o código do AdSense aqui</p>
+      </div>
+
+      {/* HOSTINGER BANNER — POST (link de afiliado entre conteúdo e newsletter) */}
+      <div className="mt-6 border border-dashed border-accent-gold/30 rounded-xl p-3">
+        <div className="flex items-center gap-1.5 mb-2 px-1">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-gold" />
+          <span className="font-mono text-[8px] uppercase tracking-widest text-accent-gold font-semibold">
+            LINK DE AFILIADO HOSTINGER
+          </span>
+        </div>
+        <HostingerBanner variant="post" locale={locale} />
       </div>
     </article>
 

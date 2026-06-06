@@ -112,9 +112,9 @@
       "tag": "Consultoría AI First",
       "title": "Convierte la IA en el principal motor para escalar tu negocio",
       "subtitle": "Tendrás acceso a mi experiencia para revolucionar tu negocio o carrera con el poder de la IA. Diagnóstico, estrategia y ejecución práctica.",
-      "cta": "Agendar Consultoría Gratuita",
-      "available": "disponible para nuevos proyectos",
-      "urgency": "Plazas limitadas — proceso selectivo para garantizar entrega de valor"
+      "cta": "Solicitar Presupuesto",
+      "available": "proyectos seleccionados",
+      "urgency": "Disponibilidad limitada — proceso selectivo para garantizar entrega de valor"
     },
     "problem": {
       "tag": "Diagnóstico",
@@ -176,10 +176,10 @@
       "credentials": ["AI Lead", "AI & SEO Specialist", "12+ Años XP", "DataCamp Data Scientist"]
     },
     "ctaSection": {
-      "title": "¿Tu empresa está lista para la próxima era de la IA?",
-      "description": "Agenda una consultoría gratuita de 30 minutos. Sin compromiso. Solo un diagnóstico inicial y un plan de acción claro.",
-      "cta": "Quiero Mi Consultoría Gratis",
-      "guarantee": "Riesgo cero: si en la primera sesión no identificas valor, no pagas nada."
+      "title": "¿Construimos tu arquitectura de IA?",
+      "description": "Solicita un presupuesto personalizado. Incluye briefing detallado, análisis de viabilidad y propuesta con inversión, alcance y plazos.",
+      "cta": "Solicitar Presupuesto",
+      "guarantee": "Propuesta sin compromiso con análisis detallado de tu escenario."
     },
     "faq": {
       "title": "Preguntas Frecuentes",
@@ -187,22 +187,22 @@
         { "q": "¿Qué es la consultoría AI First?", "a": "Metodología que pone la IA en el centro de la estrategia de negocio. A diferencia de consultorías tradicionales, tratamos la IA como infraestructura — y diseñamos sistemas, procesos y equipos a su alrededor." },
         { "q": "¿Cuánto tiempo se tarda en ver resultados?", "a": "Resultados medibles entre 30 y 90 días. Diagnóstico en 1 semana. Roadmap en 2 semanas. Primeros experimentos en 30 días. Resultados de escala entre 3 y 6 meses." },
         { "q": "¿Necesito tener equipo de tecnología?", "a": "No. Atendemos desde founders solos hasta empresas establecidas. Para founders sin equipo, entregamos ejecución completa mediante squad externo especializado." },
-        { "q": "¿Cómo funciona la consultoría gratuita?", "a": "30 min por videollamada. Cuentas tus desafíos. Te doy 3+ insights accionables. Si hay fit, diseñamos propuesta. Si no, te vas con insights sin compromiso." },
+        { "q": "¿Cuál es la inversión promedio?", "a": "Cada proyecto es único. La inversión varía según alcance, complejidad y plazo. Proyectos de consultoría desde $15K. Proyectos completos de arquitectura IA pueden llegar a $120K. Solicita un presupuesto para una evaluación personalizada." },
         { "q": "¿Cuál es la diferencia con otras consultorías?", "a": "No vendemos herramientas — vendemos arquitectura. No hacemos piloto eterno — entregamos producción. Nuestros consultores son ingenieros que ejecutan." },
         { "q": "¿Atienden fuera de Brasil?", "a": "Sí. Atendemos clientes en Brasil, EE.UU. y América Latina. Sesiones en portugués, inglés o español. 100% remoto." }
       ]
     },
     "whatsapp": {
-      "tag": "Atención",
-      "title": "¿Aún tienes dudas sobre la consultoría?",
-      "description": "Habla directamente conmigo por WhatsApp. Resuelvo tus dudas en tiempo real y te ayudo a saber si esto es para ti.",
-      "cta": "Hablar por WhatsApp",
+      "tag": "Canal Directo",
+      "title": "¿Prefieres un contacto más directo?",
+      "description": "Envía un mensaje por WhatsApp con tu nombre, empresa y briefing del proyecto. Respondo con un presupuesto preliminar en 24h.",
+      "cta": "Solicitar por WhatsApp",
       "number": "+55 (31) 99999-9999",
-      "message": "¡Hola! Tengo interés en la consultoría AI First. ¿Puedes ayudarme?"
+      "message": "¡Hola! Me gustaría solicitar un presupuesto para consultoría AI First. Aquí está el briefing del proyecto: "
     },
     "stickyCta": {
     "title": "Tu arquitectura de IA comienza aquí",
-    "cta": "Agenda tu Consultoría Gratis →"
+    "cta": "Solicitar Presupuesto →"
   },
     "footerCta": {
       "title": "¿Listo para construir tu arquitectura de IA?",

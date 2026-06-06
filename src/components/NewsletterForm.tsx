@@ -43,7 +43,7 @@ export default function NewsletterForm({ locale = "pt" }: { locale?: string }) {
   }
 
   return (
-    <div className="gradient-border rounded-xl p-6 sm:p-8">
+    <div className="gradient-border rounded-xl p-6 sm:p-8 overflow-hidden">
       <div className="flex flex-col gap-4">
         <div className="flex items-start gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v4-red/10">

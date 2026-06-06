@@ -2,12 +2,12 @@ import { getAllLocalPosts } from "@/lib/content";
 import { getPublication } from "@/lib/hashnode";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
-import TerminalText from "@/components/TerminalText";
 import HeroSearch from "@/components/HeroSearch";
 import Sidebar from "@/components/Sidebar";
+import MateriaisRicos from "@/components/MateriaisRicos";
+import ProductsSection from "@/components/ProductsSection";
 import {
-  Brain, BarChart3, BadgeCheck, Sparkles,
-  BookOpen,
+  Brain, BarChart3, BadgeCheck, Sparkles, ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -64,68 +64,93 @@ export default async function Home({
   const prefix = locale === "pt" ? "" : `/${locale}`;
 
   return (
-    <div className="mx-auto px-6 py-16 sm:py-24">
+    <div className="mx-auto">
 
-      {/* Hero Section */}
-      <section className="mx-auto max-w-5xl mb-16 animate-fade-in">
-        <div className="mb-8 flex items-center gap-2">
-          <span className="status-pulse flex h-2 w-2 rounded-full bg-v4-red" />
-          <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-v4-red">
-            {t("tagline")}
-          </span>
-        </div>
+      {/* Hero Section — Clarity-inspired split layout */}
+      <section className="relative overflow-hidden border-b border-border/50">
+        <div className="mx-auto max-w-6xl px-6 py-12 sm:py-20 lg:py-28">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-        <div className="mb-8 flex items-center gap-4 rounded-xl border border-border bg-card/50 p-4">
-          <Image
-            src="/profile.png"
-            alt="Marcos Luciano"
-            width={64}
-            height={64}
-            className="rounded-full ring-2 ring-v4-red/20 object-cover"
-            priority
-          />
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2">
-              <h2 className="text-base font-semibold text-foreground">
-                Marcos Luciano
-              </h2>
-              <span className="rounded-md border border-v4-red/10 bg-v4-red/5 px-1.5 py-0.5 font-mono text-[10px] text-v4-red">
-                {t("badges.lead")}
-              </span>
+            {/* Left: Content */}
+            <div className="flex-1 min-w-0 animate-fade-in">
+
+              {/* Status + Tagline */}
+              <div className="mb-6 flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-v4-red animate-pulse" />
+                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-v4-red">
+                  AI First
+                </span>
+              </div>
+
+              {/* Headline — clean, bold, no echo/gradient */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold leading-tight tracking-tight text-foreground">
+                {t("hero.title")}
+              </h1>
+
+              <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted">
+                {t("hero.description")}
+              </p>
+
+              {/* Stats Row — like Clarity */}
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1">
+                <span className="font-mono text-xs text-muted-foreground">
+                  <span className="text-v4-red font-semibold">{total}</span> artigos
+                </span>
+                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
+                <span className="font-mono text-xs text-muted-foreground">Google & Meta Certified</span>
+                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
+                <span className="font-mono text-xs text-muted-foreground">12+ anos</span>
+                <span className="font-mono text-[10px] text-muted-foreground/40">/</span>
+                <span className="font-mono text-xs text-muted-foreground">DataCamp Data Scientist</span>
+              </div>
+
+              {/* CTAs */}
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href={`/${locale === "pt" ? "" : locale}/consulting`}
+                  className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-6 py-3 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
+                >
+                  Solicitar Orçamento
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={`#posts`}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-v4-red/30 hover:text-v4-red hover:bg-v4-red/5"
+                >
+                  Explorar Artigos
+                </Link>
+              </div>
+
+              {/* Search */}
+              <div className="mt-8 max-w-lg">
+                <HeroSearch locale={locale} />
+              </div>
             </div>
-            <p className="mt-0.5 text-sm text-muted">
-              AI Lead @ V4 Company
-            </p>
-            <div className="mt-1 flex flex-wrap gap-1.5">
-              <span className="inline-flex items-center gap-1 rounded-md border border-accent-gold/10 bg-accent-gold/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-gold/80">
-                <Brain className="h-2.5 w-2.5" />
-                {t("badges.specialist")}
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-md border border-accent-amber/10 bg-accent-amber/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-amber/80">
-                <BarChart3 className="h-2.5 w-2.5" />
-                {t("badges.datacamp")}
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-md border border-accent-gold/10 bg-accent-gold/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent-gold/80">
-                <BadgeCheck className="h-2.5 w-2.5" />
-                {t("badges.xp")}
-              </span>
+
+            {/* Right: Image with red overlay */}
+            <div className="flex-shrink-0 w-full lg:w-[440px] xl:w-[500px] animate-fade-in-delay-1">
+              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-black/30">
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-l from-v4-red/20 via-v4-red/5 to-transparent z-10" />
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background to-transparent z-10" />
+                <Image
+                  src="/images/hero.webp"
+                  alt="AI Infrastructure"
+                  width={1024}
+                  height={693}
+                  className="w-full h-auto object-cover scale-105"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Authority Bar */}
-        <div className="mb-8 flex flex-wrap items-center gap-2 rounded-xl border border-v4-red/10 bg-v4-red/[0.02] px-5 py-3">
-          <span className="font-mono text-[11px] text-muted-foreground">{total} artigos</span>
-          <span className="h-3 w-px bg-border" />
-          <span className="font-mono text-[11px] text-muted-foreground">Google & Meta Certified</span>
-          <span className="h-3 w-px bg-border" />
-          <span className="font-mono text-[11px] text-muted-foreground">12+ anos</span>
-          <span className="h-3 w-px bg-border" />
-          <span className="font-mono text-[11px] text-muted-foreground">DataCamp Data Scientist</span>
-        </div>
-
-        {/* Topics as clickable pills */}
-        <div className="mb-8 flex flex-wrap gap-2">
+      {/* Topics Pills — below hero */}
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-mono text-[10px] text-muted-foreground/50 uppercase tracking-widest mr-1">Tópicos</span>
           {topicCounts.map((t) => (
             <Link
               key={t.slug}
@@ -137,46 +162,16 @@ export default async function Home({
             </Link>
           ))}
         </div>
+      </div>
 
-        <h1 className="font-sans text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
-          <span className="text-[#555]">$ </span>
-          <span className="text-foreground">echo</span>
-          <span className="text-v4-red"> &quot;</span>
-          <span className="bg-gradient-to-r from-v4-red via-accent-gold to-accent-gold bg-clip-text text-transparent">
-            {t("hero.title")}
-          </span>
-          <span className="text-v4-red">&quot;</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-          {t("hero.description")}
-        </p>
+      {/* Main content wrapper */}
+      <div className="mx-auto max-w-6xl px-6 pb-16">
 
-        <div className="mt-6">
-          <TerminalText lines={[
-            "whoami  \u2192 AI Lead @ V4 Company",
-            "skills  \u2192 AI Search \u00B7 SEO \u00B7 Growth \u00B7 Architecture",
-            "mission \u2192 Engineering AI Lead",
-          ]} />
-        </div>
+      {/* Produtos AI */}
+      <ProductsSection locale={locale} />
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <div className="flex items-center gap-2 text-sm">
-            <Sparkles className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {t("updated")} {new Date().toLocaleDateString(locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR")}
-            </span>
-          </div>
-          {usingLocal && (
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
-              <span className="text-v4-red">*</span>{t("localContent")}
-            </div>
-          )}
-        </div>
-
-        <div className="mt-8">
-          <HeroSearch locale={locale} />
-        </div>
-      </section>
+      {/* Materiais Ricos */}
+      <MateriaisRicos locale={locale} />
 
       {/* Main Content + Sidebar */}
       <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-12">
@@ -205,6 +200,17 @@ export default async function Home({
                       <PostCard post={node} locale={locale} />
                     </div>
                   ))}
+                </div>
+
+                {/* ADSENSE — IN-FEED (entre grid de posts e paginação) */}
+                <div className="adsense-placeholder border-2 border-dashed border-v4-red/30 rounded-xl p-6 text-center bg-v4-red/[0.02]">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-v4-red animate-pulse" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-v4-red font-bold">
+                      ESPAÇO RESERVADO — ADSENSE IN-FEED
+                    </span>
+                  </div>
+                  <p className="font-mono text-[9px] text-v4-red/50">Display responsivo — Cole o código do AdSense aqui</p>
                 </div>
 
                 {totalPages > 1 && (
@@ -271,5 +277,6 @@ export default async function Home({
         </div>
       </div>
     </div>
+  </div>
   );
 }

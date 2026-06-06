@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Práctica de AI Search - V4 Company</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+        :root { --v4-red: #e50914; --v4-gold: #f59e0b; --v4-amber: #d97706; --v4-dark-bg: #0a0a0a; --v4-carbon-card: #1a1a1a; --v4-text-white: #fafafa; --v4-text-body: #a1a1aa; --v4-green-accent: rgba(0,255,136,0.6); --v4-border-subtle: rgba(255,255,255,0.06); }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: var(--v4-dark-bg); color: var(--v4-text-body); line-height: 1.6; font-size: 16px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .cover-page { background: var(--v4-dark-bg); color: var(--v4-text-white); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 100vh; padding: 40px; page-break-after: always; }
+        .cover-page h1 { font-size: 3.5em; color: var(--v4-red); margin-bottom: 10px; font-weight: 700; text-transform: uppercase; }
+        .cover-page h2 { font-size: 1.8em; color: var(--v4-text-white); margin-top: 0; font-weight: 400; }
+        .cover-page .author { margin-top: 40px; font-size: 1.2em; color: var(--v4-text-body); }
+        .cover-page .profile-photo { width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--v4-red); margin-top: 30px; object-fit: cover; }
+        .content-page { background: var(--v4-dark-bg); padding: 60px 40px; min-height: 100vh; page-break-after: always; }
+        .content-page:last-of-type { page-break-after: avoid; }
+        h1 { font-size: 2.5em; color: var(--v4-red); border-bottom: 2px solid var(--v4-border-subtle); padding-bottom: 10px; margin-top: 40px; font-weight: 600; }
+        h2 { font-size: 1.8em; color: var(--v4-red); margin-top: 30px; font-weight: 600; }
+        h3 { font-size: 1.4em; color: var(--v4-gold); margin-top: 25px; font-weight: 600; }
+        p { margin-bottom: 1em; color: var(--v4-text-body); }
+        ul, ol { margin-left: 20px; margin-bottom: 1em; color: var(--v4-text-body); }
+        ul li, ol li { margin-bottom: 0.5em; }
+        ul li::before { content: '» '; color: var(--v4-green-accent); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+        code { font-family: 'JetBrains Mono', monospace; background: var(--v4-carbon-card); color: var(--v4-green-accent); padding: 2px 4px; border-radius: 3px; font-size: 0.9em; }
+        pre { background: var(--v4-carbon-card); padding: 15px; border-radius: 8px; overflow-x: auto; margin-bottom: 1.5em; border: 1px solid var(--v4-border-subtle); }
+        pre code { display: block; background: none; color: var(--v4-text-white); padding: 0; font-size: 1em; }
+        hr { border: none; border-top: 1px dashed var(--v4-border-subtle); margin: 40px 0; }
+        .final-page { background: var(--v4-dark-bg); color: var(--v4-text-white); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 100vh; padding: 40px; }
+        .final-page h2 { font-size: 2.5em; color: var(--v4-gold); margin-bottom: 20px; }
+        .final-page p { font-size: 1.2em; color: var(--v4-text-body); margin-bottom: 30px; }
+        .final-page a { display: inline-block; background: var(--v4-red); color: var(--v4-text-white); padding: 15px 30px; text-decoration: none; border-radius: 8px; font-size: 1.3em; font-weight: 600; }
+        @media print { body { background: #fff; color: #333; } .cover-page, .content-page, .final-page { background: #fff; color: #333; min-height: auto; height: 297mm; width: 210mm; margin: 0; padding: 20mm; box-sizing: border-box; page-break-after: always; } .cover-page h2 { color: #333; } h1, h2, h3 { color: var(--v4-red); } p, ul, ol { color: #333; } ul li::before { color: var(--v4-red); } code { background: #f0f0f0; color: #333; } pre { background: #f0f0f0; border: 1px solid #ccc; } pre code { color: #333; } }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <h1>Guía Práctica de AI Search</h1>
+        <h2>Cómo Ser Encontrado por ChatGPT, Perplexity y Google AI Overviews</h2>
+        <img src="/home/marcos/Desktop/AI/marcosv4-blog/public/profile.png" alt="Marcos Luciano" class="profile-photo">
+        <p class="author">Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</p>
+    </div>
+
+    <div class="content-page">
+        <h2>Introducción</h2>
+        <p>AI Search — también llamado AEO (Answer Engine Optimization) o GEO (Generative Engine Optimization) — es el nuevo paradigma de búsqueda. A diferencia del SEO tradicional (que entrega enlaces azules), el AI Search entrega respuestas directas generadas por inteligencia artificial.</p>
+        <p>Cuando alguien le pregunta a ChatGPT "¿cuál es la mejor herramienta de IA para marketing?", la respuesta que da es el resultado de un proceso de <strong>recuperación y síntesis</strong> — y tu marca puede (y debe) estar ahí.</p>
+        <p>Esta guía muestra, en 5 pasos prácticos, cómo optimizar tu contenido para ser citado por IAs generativas.</p>
+    </div>
+
+    <div class="content-page">
+        <h2>Paso 1: Entiende cómo las IAs "ven" tu contenido</h2>
+        <p>A diferencia de Google, que indexa páginas y rankea por enlaces y relevancia, las IAs como ChatGPT, Claude y Perplexity:</p>
+        <ol>
+            <li><strong>Rastrean la web</strong> — pero no de la misma forma que Googlebot. Priorizan fuentes con estructura limpia, autoridad y actualización frecuente.</li>
+            <li><strong>Extraen fragmentos</strong> — no páginas enteras. Buscan párrafos, listas y definiciones que respondan preguntas específicas.</li>
+            <li><strong>Sintetizan múltiples fuentes</strong> — tu marca puede ser citada junto a competidores o autoridades establecidas.</li>
+        </ol>
+        <p><strong>Qué significa esto:</strong> tu contenido debe ser extraíble. Los párrafos densos pero bien estructurados tienen más probabilidad de ser citados que las páginas llenas de navegación y anuncios.</p>
+    </div>
+
+    <div class="content-page">
+        <h2>Paso 2: Estructura tu contenido para extracción</h2>
+        <p>Las IAs generativas usan técnicas de <strong>Recuperación Aumentada (RAG)</strong>. Ellas:</p>
+        <ul>
+            <li>Dividen tu texto en fragmentos (chunks)</li>
+            <li>Indexan esos fragmentos semánticamente</li>
+            <li>Recuperan los fragmentos más relevantes para cada pregunta</li>
+        </ul>
+        <p><strong>Para optimizar:</strong></p>
+        <ul>
+            <li>Usa encabezados descriptivos (<code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) que sean preguntas o temas claros</li>
+            <li>Escribe párrafos cortos (2-4 frases) que funcionen como respuestas autónomas</li>
+            <li>Incluye listas (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>) para información estructurada</li>
+            <li>Define términos técnicos en la misma frase (ej: "RAG, o Retrieval-Augmented Generation, es...")</li>
+        </ul>
+        <p><strong>Formato ideal:</strong></p>
+        <pre><code>
+&lt;h2&gt;[Pregunta o Tema]&lt;/h2&gt;
+
+[Respuesta directa en 1-2 frases]
+
+[Contexto o profundización en 2-3 frases]
+
+- Punto 1
+- Punto 2
+- Punto 3
+        </code></pre>
+    </div>
+
+    <div class="content-page">
+        <h2>Paso 3: Optimiza para preguntas naturales (FAQ Schema + NLP)</h2>
+        <p>Las IAs reciben preguntas en lenguaje natural. Tu contenido debe responder preguntas reales que tu audiencia hace.</p>
+        <p><strong>Técnicas:</strong></p>
+        <ol>
+            <li><strong>Mapea preguntas reales</strong> — usa "People Also Ask" de Google, AnswerThePublic, Reddit y comunidades de tu nicho.</li>
+            <li><strong>Crea secciones de FAQ</strong> — cada variante de pregunta se convierte en un <code>&lt;h3&gt;</code> o elemento de FAQ Schema.</li>
+            <li><strong>Usa lenguaje natural</strong> — escribe como le hablarías a un cliente, no como un manual técnico.</li>
+            <li><strong>Incluye definiciones explícitas</strong> — "X es Y que hace Z" es un formato que las IAs adoran citar.</li>
+        </ol>
+        <p><strong>FAQ Schema es CRÍTICO</strong> para AI Overviews de Google. Implementa JSON-LD con preguntas y respuestas completas (no solo "ver más").</p>
+    </div>
+
+    <div class="content-page">
+        <h2>Paso 4: Construye autoridad citable</h2>
+        <p>Las IAs priorizan fuentes con autoridad demostrada. Para construir autoridad:</p>
+        <ol>
+            <li><strong>Cita fuentes primarias</strong> — estudios, papers, datos oficiales. Las IAs confían más en contenido que referencia fuentes verificables.</li>
+            <li><strong>Mantén contenido actualizado</strong> — las IAs tienen preferencia temporal. El contenido con fecha de actualización reciente (last modified) tiene ventaja.</li>
+            <li><strong>Genera backlinks de calidad</strong> — incluso en AI Search, los enlaces de dominios confiables importan (señal de autoridad).</li>
+            <li><strong>Ten presencia en múltiples plataformas</strong> — las IAs indexan Wikipedia, LinkedIn, Medium, Substack, GitHub. Tu marca en múltiples fuentes aumenta la probabilidad de cita.</li>
+            <li><strong>Produce contenido original</strong> — las IAs detectan y penalizan contenido fabricado (AI-generated spam). El contenido con datos y análisis originales es preferido.</li>
+        </ol>
+    </div>
+
+    <div class="content-page">
+        <h2>Paso 5: Monitorea y mide tu presencia en IA</h2>
+        <p>A diferencia del SEO, que tiene Google Search Console, AI Search sigue siendo un territorio nuevo. Pero ya es posible medir:</p>
+        <ol>
+            <li><strong>SearchGPT / Perplexity</strong> — busca términos clave de tu nicho y ve si tu marca aparece en las respuestas.</li>
+            <li><strong>AI Overviews</strong> — busca en Google términos de tu sector y ve si el AI Overview cita tu marca.</li>
+            <li><strong>Herramientas de visibilidad AI</strong> — plataformas como Brand24, Mente y herramientas especializadas en AI Search están comenzando a ofrecer métricas de citación en IAs.</li>
+            <li><strong>Share of AI Voice (SAV)</strong> — métrica emergente: cuántas veces tu marca es citada vs. competidores en respuestas de IA.</li>
+        </ol>
+        <p><strong>Métrica práctica:</strong> por cada artículo que publiques, pregúntale a ChatGPT, Claude y Perplexity una pregunta relacionada al tema. ¿Tu marca aparece en la respuesta? Si no, revisa la estructura.</p>
+    </div>
+
+    <div class="content-page">
+        <h2>Checklist Rápido</h2>
+        <ul>
+            <li>Los encabezados son preguntas o temas claros</li>
+            <li>Los párrafos tienen 2-4 frases (extraíbles)</li>
+            <li>Listas y definiciones explícitas están presentes</li>
+            <li>FAQ Schema implementado</li>
+            <li>Contenido actualizado en los últimos 6 meses</li>
+            <li>Responde preguntas reales de la audiencia</li>
+            <li>Cita fuentes primarias y datos verificables</li>
+            <li>Presencia en múltiples plataformas (LinkedIn, Medium, GitHub)</li>
+        </ul>
+    </div>
+
+    <div class="content-page">
+        <h2>Conclusión</h2>
+        <p>AI Search no es una moda pasajera — es la nueva capa de descubrimiento digital. Mientras tus competidores aún optimizan solo para Google, tú puedes dominar el próximo paradigma.</p>
+        <p>Comienza con un artículo, estructúralo para extracción, implementa FAQ Schema y monitorea tu presencia. En 30 días, tendrás datos concretos sobre tu visibilidad en IA.</p>
+        <p><em>Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</em></p>
+    </div>
+
+    <div class="final-page">
+        <h2>¿Quieres ir más allá?</h2>
+        <p>Visita marcosv4.cloud para análisis semanales de mercado, casos prácticos y guías.</p>
+        <a href="https://marcosv4.cloud" target="_blank">Visitar marcosv4.cloud</a>
+    </div>
+</body>
+</html>

@@ -1,11 +1,10 @@
 "use client"
 
 import { useTranslations } from "next-intl"
-import { ArrowRight, Sparkles, Shield } from "lucide-react"
+import { ArrowRight, Sparkles } from "lucide-react"
 
 export default function ConsultingHero() {
   const t = useTranslations("consulting.hero")
-  const ctaT = useTranslations("consulting.ctaSection")
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
@@ -39,8 +38,8 @@ export default function ConsultingHero() {
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono text-muted-foreground border border-border rounded-full">
-            <Shield className="w-3.5 h-3.5 text-accent-gold" />
-            {ctaT("guarantee")}
+            <Sparkles className="w-3.5 h-3.5 text-accent-gold" />
+            Projetos a partir de R$ 15 mil
           </span>
         </div>
 

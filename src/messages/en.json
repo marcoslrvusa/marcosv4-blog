@@ -112,9 +112,9 @@
       "tag": "AI First Consulting",
       "title": "Turn AI into the main lever to scale your business",
       "subtitle": "You'll have access to my expertise to revolutionize your business or career with the power of AI. Diagnosis, strategy, and hands-on execution.",
-      "cta": "Schedule Free Consultation",
-      "available": "available for new projects",
-      "urgency": "Limited spots — selection process to guarantee value delivery"
+      "cta": "Request a Quote",
+      "available": "select projects",
+      "urgency": "Limited availability — selection process to guarantee value delivery"
     },
     "problem": {
       "tag": "Diagnosis",
@@ -176,10 +176,10 @@
       "credentials": ["AI Lead", "AI & SEO Specialist", "12+ Years XP", "DataCamp Data Scientist"]
     },
     "ctaSection": {
-      "title": "Is your company ready for the next era of AI?",
-      "description": "Schedule a free 30-minute consultation. No commitment. Just an initial diagnosis and a clear action plan.",
-      "cta": "Get My Free Consultation",
-      "guarantee": "Zero risk: if you don't identify value in the first session, you don't pay."
+      "title": "Ready to build your AI architecture?",
+      "description": "Request a personalized quote. Includes detailed briefing, feasibility analysis, and a proposal with investment, scope, and timeline.",
+      "cta": "Request a Quote",
+      "guarantee": "No-obligation proposal with a detailed analysis of your scenario."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -187,22 +187,22 @@
         { "q": "What is AI First consulting?", "a": "A methodology that puts AI at the center of business strategy. Unlike traditional consulting, we treat AI as infrastructure — and design systems, processes, and teams around it." },
         { "q": "How long does it take to see results?", "a": "Measurable results between 30 and 90 days. Diagnosis in 1 week. Roadmap in 2 weeks. First experiments in 30 days. Scale results between 3 and 6 months." },
         { "q": "Do I need a tech team?", "a": "No. We serve everyone from solo founders to established companies. For founders without a team, we deliver full execution via a specialized outsourced squad." },
-        { "q": "How does the free consultation work?", "a": "30 min video call. You share your challenges. I give 3+ actionable insights. If there's a fit, we draft a proposal. If not, you leave with insights at no cost." },
+        { "q": "What is the average investment?", "a": "Each project is unique. Investment varies by scope, complexity, and timeline. Consulting projects start at $15K. Full AI architecture projects can reach $120K. Request a quote for a personalized assessment." },
         { "q": "What's the difference from other consultancies?", "a": "We don't sell tools — we sell architecture. We don't do endless pilots — we deliver production. Our consultants are engineers who execute." },
         { "q": "Do you serve clients outside Brazil?", "a": "Yes. We serve clients in Brazil, the US, and Latin America. Sessions in Portuguese, English, or Spanish. 100% remote." }
       ]
     },
     "whatsapp": {
-      "tag": "Support",
-      "title": "Still have questions about the consulting?",
-      "description": "Talk to me directly on WhatsApp. I'll answer your questions in real time and help you figure out if this is right for you.",
-      "cta": "Chat on WhatsApp",
+      "tag": "Direct Channel",
+      "title": "Prefer a more direct contact?",
+      "description": "Send a WhatsApp message with your name, company, and project brief. I'll respond with a preliminary quote within 24h.",
+      "cta": "Request via WhatsApp",
       "number": "+55 (31) 99999-9999",
-      "message": "Hi! I'm interested in the AI First consulting. Can you help me?"
+      "message": "Hi! I'd like to request a quote for AI First consulting. Here's my project brief: "
     },
     "stickyCta": {
     "title": "Your AI architecture starts here",
-    "cta": "Book Your Free Consultation →"
+    "cta": "Request a Quote →"
   },
     "footerCta": {
       "title": "Ready to build your AI architecture?",

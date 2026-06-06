@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Checklist AI Search - V4 Company</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--v4-red:#e50914;--v4-gold:#f59e0b;--v4-amber:#d97706;--v4-dark-bg:#0a0a0a;--v4-carbon:#1a1a1a;--v4-white:#fafafa;--v4-body:#a1a1aa;--v4-green:rgba(0,255,136,0.6);--v4-border:rgba(255,255,255,0.06)}
+body{font-family:'Inter',sans-serif;margin:0;padding:0;background:var(--v4-dark-bg);color:var(--v4-body);line-height:1.6;font-size:16px}
+.cover{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px;page-break-after:always}
+.cover h1{font-size:3.5em;color:var(--v4-red);margin-bottom:10px;font-weight:700;text-transform:uppercase}
+.cover h2{font-size:1.8em;color:var(--v4-white);margin-top:0;font-weight:400}
+.cover .author{margin-top:40px;font-size:1.2em;color:var(--v4-body)}
+.cover .photo{width:150px;height:150px;border-radius:50%;border:5px solid var(--v4-red);margin-top:30px;object-fit:cover}
+.page{background:var(--v4-dark-bg);padding:60px 40px;min-height:100vh;page-break-after:always}
+.page:last-of-type{page-break-after:avoid}
+h2{font-size:2em;color:var(--v4-red);margin-top:30px;font-weight:600;border-bottom:2px solid var(--v4-border);padding-bottom:10px}
+h3{font-size:1.3em;color:var(--v4-gold);margin-top:25px;font-weight:600}
+p{margin-bottom:1em;color:var(--v4-body)}
+ul{margin-left:20px;margin-bottom:1em;color:var(--v4-body);list-style:none}
+ul li{margin-bottom:0.8em;padding-left:1.5em;position:relative}
+ul li::before{content:'☐';color:var(--v4-red);font-weight:bold;position:absolute;left:0}
+.done li::before{content:'✓';color:var(--v4-green)}
+.final{background:var(--v4-dark-bg);color:var(--v4-white);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;padding:40px}
+.final h2{font-size:2.5em;color:var(--v4-gold);margin-bottom:20px;border:none}
+.final p{font-size:1.2em;color:var(--v4-body);margin-bottom:30px}
+.final a{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:15px 30px;text-decoration:none;border-radius:8px;font-size:1.3em;font-weight:600}
+.tag{display:inline-block;background:var(--v4-red);color:var(--v4-white);padding:2px 10px;border-radius:4px;font-size:0.7em;font-family:'JetBrains Mono',monospace;margin-bottom:10px}
+@media print{body{background:#fff;color:#333}.cover,.page,.final{background:#fff;color:#333;min-height:auto;height:297mm;width:210mm;margin:0;padding:20mm;box-sizing:border-box;page-break-after:always}h2,h3{color:var(--v4-red)}p,ul{color:#333}ul li::before{color:var(--v4-red)}}
+</style></head>
+<body>
+<div class="cover">
+<span class="tag">CHECKLIST</span>
+<h1>AI Search Checklist</h1>
+<h2>8 Passos para ser encontrado por IAs generativas</h2>
+<img src="/home/marcos/Desktop/AI/marcosv4-blog/public/profile.png" alt="Marcos Luciano" class="photo">
+<p class="author">Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</p>
+</div>
+<div class="page">
+<h2>☐ Passo 1: Headings extraíveis</h2>
+<p>Seus headings (H2, H3) são perguntas ou tópicos claros que uma IA pode extrair como resposta autônoma?</p>
+<ul class="done"><li>H2 descrevem o tópico principal de cada seção</li><li>H3 são perguntas específicas ou subtópicos</li><li>Cada heading funciona como uma resposta independente</li></ul>
+<h2>☐ Passo 2: Parágrafos otimizados</h2>
+<p>Seus parágrafos têm 2-4 frases e funcionam como respostas autônomas para extração por RAG?</p>
+<ul class="done"><li>Parágrafos curtos (2-4 frases cada)</li><li>Primeira frase responde diretamente a pergunta</li><li>Frases seguintes aprofundam o contexto</li></ul>
+<h2>☐ Passo 3: Listas e definições</h2>
+<p>Você incluiu listas e definições explícitas que IAs adoram citar?</p>
+<ul class="done"><li>Listas ordenadas e não ordenadas para info estruturada</li><li>Definições no formato "X é Y que faz Z"</li><li>Termos técnicos definidos na própria frase</li></ul>
+</div>
+<div class="page">
+<h2>☐ Passo 4: FAQ Schema implementado</h2>
+<p>Você implementou JSON-LD com FAQ Schema no artigo?</p>
+<ul class="done"><li>FAQ Schema com perguntas e respostas completas</li><li>Perguntas reais do seu público (AnswerThePublic, Reddit, PAA)</li><li>Respostas completas (não apenas "veja mais")</li></ul>
+<h2>☐ Passo 5: Conteúdo atualizado</h2>
+<p>Seu conteúdo tem data de atualização recente (últimos 6 meses)?</p>
+<ul class="done"><li>Data de última modificação visível no artigo</li><li>Conteúdo revisado nos últimos 6 meses</li><li>Referências a dados e eventos atuais</li></ul>
+<h2>☐ Passo 6: Fontes primárias citadas</h2>
+<p>Você cita fontes primárias e dados verificáveis?</p>
+<ul class="done"><li>Estudos, papers e dados oficiais citados</li><li>Links para fontes originais</li><li>Dados numéricos com atribuição clara</li></ul>
+</div>
+<div class="page">
+<h2>☐ Passo 7: Presença multi-plataforma</h2>
+<p>Sua marca está presente em múltiplas plataformas que IAs indexam?</p>
+<ul class="done"><li>LinkedIn com perfil completo e atividade</li><li>Medium, Substack ou Hashnode com artigos</li><li>GitHub com projetos relevantes</li><li>Wikipedia (se aplicável)</li></ul>
+<h2>☐ Passo 8: Monitoramento ativo</h2>
+<p>Você monitora regularmente sua presença em respostas de IA?</p>
+<ul class="done"><li>Teste no ChatGPT: sua marca aparece?</li><li>Teste no Perplexity: sua marca é citada?</li><li>Teste no Google AI Overviews: sua marca está lá?</li><li>Métrica: Share of AI Voice vs concorrentes</li></ul>
+</div>
+<div class="final">
+<h2>Baixe o Guia Completo</h2>
+<p>Este checklist é um resumo do Guia Prático de AI Search. Baixe o guia completo com exemplos detalhados e casos práticos.</p>
+<a href="https://marcosv4.cloud">Acessar marcosv4.cloud</a>
+</div>
+</body></html>

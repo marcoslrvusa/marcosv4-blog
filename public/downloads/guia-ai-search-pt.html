@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Prático de AI Search - V4 Company</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+        :root {
+            --v4-red: #e50914;
+            --v4-gold: #f59e0b;
+            --v4-amber: #d97706;
+            --v4-dark-bg: #0a0a0a;
+            --v4-carbon-card: #1a1a1a;
+            --v4-text-white: #fafafa;
+            --v4-text-body: #a1a1aa;
+            --v4-green-accent: rgba(0, 255, 136, 0.6);
+            --v4-border-subtle: rgba(255,255,255,0.06);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--v4-dark-bg);
+            color: var(--v4-text-body);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            background-color: var(--v4-dark-bg);
+            color: var(--v4-text-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 40px;
+            page-break-after: always;
+        }
+
+        .cover-page h1 {
+            font-size: 3.5em;
+            color: var(--v4-red);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .cover-page h2 {
+            font-size: 1.8em;
+            color: var(--v4-text-white);
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        .cover-page .author {
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: var(--v4-text-body);
+        }
+
+        .cover-page .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--v4-red);
+            margin-top: 30px;
+            object-fit: cover;
+        }
+
+        /* Content Pages */
+        .content-page {
+            background-color: var(--v4-dark-bg);
+            padding: 60px 40px;
+            min-height: 100vh; /* Ensure content takes full page */
+            page-break-after: always;
+        }
+
+        .content-page:last-of-type {
+            page-break-after: avoid; /* No page break after the last content page */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--v4-red);
+            border-bottom: 2px solid var(--v4-border-subtle);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--v4-red);
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--v4-gold);
+            margin-top: 25px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: var(--v4-text-body);
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+            color: var(--v4-text-body);
+        }
+
+        ul li, ol li {
+            margin-bottom: 0.5em;
+        }
+
+        ul li::before {
+            content: '» '; /* Custom bullet point */
+            color: var(--v4-green-accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--v4-carbon-card);
+            color: var(--v4-green-accent);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--v4-carbon-card);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+            border: 1px solid var(--v4-border-subtle);
+        }
+
+        pre code {
+            display: block;
+            background: none;
+            color: var(--v4-text-white);
+            padding: 0;
+            font-size: 1em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed var(--v4-border-subtle);
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--v4-carbon-card);
+            color: var(--v4-text-body);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.8em;
+            border-top: 1px solid var(--v4-border-subtle);
+            /* This will be handled by the PDF generator for page numbers */
+        }
+
+        .footer .branding {
+            color: var(--v4-red);
+            font-weight: 600;
+        }
+
+        /* Final Page CTA */
+        .final-page {
+            background-color: var(--v4-dark-bg);
+            color: var(--v4-text-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .final-page h2 {
+            font-size: 2.5em;
+            color: var(--v4-gold);
+            margin-bottom: 20px;
+        }
+
+        .final-page p {
+            font-size: 1.2em;
+            color: var(--v4-text-body);
+            margin-bottom: 30px;
+        }
+
+        .final-page a {
+            display: inline-block;
+            background-color: var(--v4-red);
+            color: var(--v4-text-white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .final-page a:hover {
+            background-color: var(--v4-amber);
+        }
+
+        /* Print specific styles */
+        @media print {
+            body {
+                background-color: #ffffff; /* White background for print */
+                color: #333333; /* Darker text for print */
+            }
+            .cover-page, .content-page, .final-page {
+                background-color: #ffffff;
+                color: #333333;
+                min-height: auto; /* Allow content to flow naturally */
+                height: 297mm; /* A4 height */
+                width: 210mm; /* A4 width */
+                margin: 0;
+                padding: 20mm; /* A4 margins */
+                box-sizing: border-box;
+                page-break-after: always;
+            }
+            .cover-page {
+                page-break-after: always;
+            }
+            .content-page:last-of-type, .final-page {
+                page-break-after: avoid;
+            }
+            .footer {
+                display: none; /* Hide fixed footer, let PDF generator handle */
+            }
+            h1, h2, h3 {
+                color: var(--v4-red); /* Keep red for headings */
+            }
+            p, ul, ol {
+                color: #333333; /* Darker text for print */
+            }
+            ul li::before {
+                color: var(--v4-red); /* Use red for bullets in print */
+            }
+            code {
+                background-color: #f0f0f0;
+                color: #333333;
+            }
+            pre {
+                background-color: #f0f0f0;
+                border: 1px solid #cccccc;
+            }
+            pre code {
+                color: #333333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <h1>Guia Prático de AI Search</h1>
+        <h2>Como Ser Encontrado pelo ChatGPT, Perplexity e Google AI Overviews</h2>
+        <img src="/home/marcos/Desktop/AI/marcosv4-blog/public/profile.png" alt="Marcos Luciano" class="profile-photo">
+        <p class="author">Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</p>
+    </div>
+
+    <div class="content-page">
+        <!-- Introduction -->
+        <h2>Introdução</h2>
+        <p>AI Search — também chamado de AEO (Answer Engine Optimization) ou GEO (Generative Engine Optimization) — é o novo paradigma de busca. Diferente do SEO tradicional (que entrega links azuis), o AI Search entrega respostas diretas geradas por inteligência artificial.</p>
+        <p>Quando alguém pergunta ao ChatGPT "qual a melhor ferramenta de IA para marketing?", a resposta que ele dá é o resultado de um processo de <strong>recuperação e síntese</strong> — e sua marca pode (e deve) estar lá.</p>
+        <p>Este guia mostra, em 5 passos práticos, como otimizar seu conteúdo para ser citado por IAs generativas.</p>
+    </div>
+
+    <div class="content-page">
+        <!-- Passo 1 -->
+        <h2>Passo 1: Entenda como as IAs "enxergam" seu conteúdo</h2>
+        <p>Diferente do Google, que indexa páginas e ranqueia por links e relevância, as IAs como ChatGPT, Claude e Perplexity:</p>
+        <ol>
+            <li><strong>Raspam a web</strong> — mas não da mesma forma que o Googlebot. Elas priorizam fontes com estrutura limpa, autoridade e atualização frequente.</li>
+            <li><strong>Extraem fragmentos</strong> — não páginas inteiras. Elas buscam parágrafos, listas e definições que respondam perguntas específicas.</li>
+            <li><strong>Sintetizam múltiplas fontes</strong> — sua marca pode ser citada ao lado de concorrentes ou de autoridades estabelecidas.</li>
+        </ol>
+        <p><strong>O que isso significa:</strong> seu conteúdo precisa ser extraível. Parágrafos densos, mas bem estruturados, têm mais chance de serem citados do que páginas cheias de navegação e anúncios.</p>
+    </div>
+
+    <div class="content-page">
+        <!-- Passo 2 -->
+        <h2>Passo 2: Estruture seu conteúdo para extração</h2>
+        <p>As IAs generativas usam técnicas de <strong>recuperação aumentada</strong> (RAG). Elas:</p>
+        <ul>
+            <li>Dividem seu texto em chunks</li>
+            <li>Indexam esses chunks semanticamente</li>
+            <li>Recuperam os chunks mais relevantes para cada pergunta</li>
+        </ul>
+        <p><strong>Para otimizar:</strong></p>
+        <ul>
+            <li>Use headings descritivos (<code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) que sejam perguntas ou tópicos claros</li>
+            <li>Escreva parágrafos curtos (2-4 frases) que funcionem como respostas autônomas</li>
+            <li>Inclua listas (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>) para informações estruturadas</li>
+            <li>Defina termos técnicos na própria frase (ex: "RAG, ou Retrieval-Augmented Generation, é...")</li>
+        </ul>
+        <p><strong>Formato ideal:</strong></p>
+        <pre><code>
+&lt;h2&gt;[Pergunta ou tópico]&lt;/h2&gt;
+
+[Resposta direta em 1-2 frases]
+
+[Contexto ou aprofundamento em 2-3 frases]
+
+- Ponto 1
+- Ponto 2
+- Ponto 3
+        </code></pre>
+    </div>
+
+    <div class="content-page">
+        <!-- Passo 3 -->
+        <h2>Passo 3: Otimize para perguntas naturais (FAQ Schema + NLP)</h2>
+        <p>As IAs recebem perguntas em linguagem natural. Seu conteúdo deve responder perguntas reais que seu público faz.</p>
+        <p><strong>Técnicas:</strong></p>
+        <ol>
+            <li><strong>Mapeie perguntas reais</strong> — use "People Also Ask" do Google, AnswerThePublic, Reddit e comunidades do seu nicho.</li>
+            <li><strong>Crie seções de FAQ</strong> — cada pergunta-variant vira um <code>&lt;h3&gt;</code> ou item de FAQ Schema.</li>
+            <li><strong>Use linguagem natural</strong> — escreva como você falaria com um cliente, não como um manual técnico.</li>
+            <li><strong>Inclua definições explícitas</strong> — "X é Y que faz Z" é um formato que IAs adoram citar.</li>
+        </ol>
+        <p><strong>FAQ Schema é CRÍTICO</strong> para AI Overviews do Google. Implemente JSON-LD com perguntas e respostas completas (não apenas "veja mais").</p>
+    </div>
+
+    <div class="content-page">
+        <!-- Passo 4 -->
+        <h2>Passo 4: Construa autoridade citável</h2>
+        <p>IAs priorizam fontes com autoridade demonstrada. Para construir autoridade:</p>
+        <ol>
+            <li><strong>Cite fontes primárias</strong> — estudos, papers, dados oficiais. IAs confiam mais em conteúdo que referencia fontes verificáveis.</li>
+            <li><strong>Mantenha conteúdo atualizado</strong> — IAs têm preferência temporal. Conteúdos com data de atualização recente (last modified) têm vantagem.</li>
+            <li><strong>Gere backlinks de qualidade</strong> — mesmo em AI Search, links de domínios confiáveis importam (sinal de autoridade).</li>
+            <li><strong>Tenha presença em múltiplas plataformas</strong> — IAs indexam Wikipedia, LinkedIn, Medium, Substack, GitHub. Sua marca em múltiplas fontes aumenta a chance de citação.</li>
+            <li><strong>Produza conteúdo original</strong> — IAs detectam e penalizam conteúdo fabricado (AI-generated spam). Conteúdo com dados e análises originais é preferido.</li>
+        </ol>
+    </div>
+
+    <div class="content-page">
+        <!-- Passo 5 -->
+        <h2>Passo 5: Monitore e meça sua presença em AI</h2>
+        <p>Diferente do SEO, que tem Google Search Console, AI Search ainda é um território novo. Mas já é possível medir:</p>
+        <ol>
+            <li><strong>SearchGPT / Perplexity</strong> — procure por termos-chave do seu nicho e veja se sua marca aparece nas respostas.</li>
+            <li><strong>AI Overviews</strong> — busque no Google por termos do seu setor e veja se o AI Overview cita sua marca.</li>
+            <li><strong>Ferramentas de AI visibility</strong> — plataformas como Brand24, Mente e ferramentas especializadas em AI Search começam a oferecer métricas de citação em IAs.</li>
+            <li><strong>Share of AI Voice (SоV)</strong> — métrica emergente: quantas vezes sua marca é citada vs. concorrentes em respostas de IA.</li>
+        </ol>
+        <p><strong>Métrica prática:</strong> para cada artigo que você publicar, pergunte ao ChatGPT, Claude e Perplexity uma pergunta relacionada ao tema. Sua marca aparece na resposta? Se não, revise a estrutura.</p>
+    </div>
+
+    <div class="content-page">
+        <!-- Checklist Rápido -->
+        <h2>Checklist Rápido</h2>
+        <ul>
+            <li>Headings são perguntas ou tópicos claros</li>
+            <li>Parágrafos têm 2-4 frases (extraíveis)</li>
+            <li>Listas e definições explícitas estão presentes</li>
+            <li>FAQ Schema implementado</li>
+            <li>Conteúdo atualizado nos últimos 6 meses</li>
+            <li>Responde perguntas reais do público</li>
+            <li>Cita fontes primárias e dados verificáveis</li>
+            <li>Presença em múltiplas plataformas (LinkedIn, Medium, GitHub)</li>
+        </ul>
+    </div>
+
+    <div class="content-page">
+        <!-- Conclusão -->
+        <h2>Conclusão</h2>
+        <p>AI Search não é uma moda passageira — é a nova camada de descoberta digital. Enquanto seus concorrentes ainda otimizam apenas para Google, você pode dominar o próximo paradigma.</p>
+        <p>Comece com um artigo, estruture para extração, implemente FAQ Schema, e monitore sua presença. Em 30 dias, você terá dados concretos sobre sua visibilidade em IA.</p>
+        <p><em>Marcos Luciano · AI Lead & AI Search Specialist @ V4 Company</em></p>
+    </div>
+
+    <div class="final-page">
+        <h2>Quer ir mais fundo?</h2>
+        <p>Acesse marcosv4.cloud para análises semanais de mercado, cases e guias práticos.</p>
+        <a href="https://marcosv4.cloud" target="_blank">Visitar marcosv4.cloud</a>
+    </div>
+
+    <!-- Footer - This will be handled by the PDF generator for page numbers -->
+    <!-- <div class="footer">
+        <span class="branding">V4 Company · AI First</span>
+        <span>Página <span class="page-number"></span></span>
+    </div> -->
+
+</body>
+</html>

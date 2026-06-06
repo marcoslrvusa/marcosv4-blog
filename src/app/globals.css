@@ -29,6 +29,11 @@
 
   --glass-bg: rgba(16, 16, 30, 0.6);
   --glass-border: rgba(30, 30, 48, 0.5);
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
   --glass-hover-bg: rgba(24, 24, 42, 0.7);
   --glass-hover-border: rgba(229, 9, 20, 0.2);
   --premium-card-bg: linear-gradient(135deg, rgba(16, 16, 30, 0.9), rgba(24, 24, 42, 0.6));
