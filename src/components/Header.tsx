@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Globe } from "lucide-react";
+import { Sun, Moon, Globe, Brain, TrendingUp, Layers, Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
@@ -25,8 +25,17 @@ export default function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [topicsOpen, setTopicsOpen] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (!(e.target as Element).closest(".topics-dropdown")) setTopicsOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   function switchLocale(code: string) {
     router.replace(pathname, { locale: code });
@@ -62,6 +71,30 @@ export default function Header() {
           >
             {t("about")}
           </Link>
+          <div className="topics-dropdown relative hidden sm:block">
+            <button
+              onClick={() => setTopicsOpen(!topicsOpen)}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+            >
+              Tópicos
+            </button>
+            {topicsOpen && (
+              <div className="absolute right-0 top-6 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-2xl shadow-black/40 z-50">
+                <Link href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                  <Brain className="w-4 h-4" style={{ color: "#00ff88" }} /> Cases de IA
+                </Link>
+                <Link href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                  <TrendingUp className="w-4 h-4" style={{ color: "#00d4ff" }} /> Mercado
+                </Link>
+                <Link href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                  <Layers className="w-4 h-4" style={{ color: "#8b5cf6" }} /> AI Search
+                </Link>
+                <Link href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                  <Briefcase className="w-4 h-4" style={{ color: "#f59e0b" }} /> Arquitetura
+                </Link>
+              </div>
+            )}
+          </div>
           <Link
             href="/consulting"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"

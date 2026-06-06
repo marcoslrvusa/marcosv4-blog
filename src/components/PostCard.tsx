@@ -1,79 +1,72 @@
-import Link from "next/link";
-import type { Post } from "@/lib/types";
+import Link from "next/link"
+import type { Post } from "@/lib/types"
+import { Clock, ArrowUpRight } from "lucide-react"
 
-function getTagColor(tag: string) {
-  const colors: Record<string, string> = {
-    nvidia: "text-accent-emerald border-accent-emerald/20 bg-accent-emerald/5",
-    openai: "text-accent-cyan border-accent-cyan/20 bg-accent-cyan/5",
-    google: "text-accent-amber border-accent-amber/20 bg-accent-amber/5",
-    microsoft: "text-accent-purple border-accent-purple/20 bg-accent-purple/5",
-    arquitetura: "text-v4-red border-v4-red/20 bg-v4-red/5",
-    "ai ops": "text-accent-emerald border-accent-emerald/20 bg-accent-emerald/5",
-    mercado: "text-accent-cyan border-accent-cyan/20 bg-accent-cyan/5",
-    estratégia: "text-accent-amber border-accent-amber/20 bg-accent-amber/5",
-  };
-  const key = tag.toLowerCase();
-  return colors[key] || "text-muted-foreground border-border bg-card";
-}
-
-export default function PostCard({ post, locale = "pt" }: { post: Post; locale?: string }) {
+export default function PostCard({ post, locale = "pt", index = 0 }: { post: Post; locale?: string; index?: number }) {
   const date = new Date(post.publishedAt).toLocaleDateString(
     locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }
-  );
+    { day: "numeric", month: "long", year: "numeric" }
+  )
 
-  const readingTime = Math.max(
-    1,
-    Math.ceil((post.content?.markdown?.length || 0) / 1000)
-  );
+  const prefix = locale === "pt" ? "" : `/${locale}`
 
-  const prefix = locale === "pt" ? "" : `/${locale}`;
+  const readingTime = Math.max(1, Math.ceil((post.content?.markdown?.length || 1000) / 1000))
 
   return (
     <Link href={`${prefix}/posts/${post.slug}`} className="group block">
-      <article className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,136,0.04)] hover:border-accent-emerald/20">
+      <article className="premium-card rounded-xl overflow-hidden h-full flex flex-col">
+        {/* Image Container */}
         {post.coverImage?.url && (
-          <div className="relative aspect-[2/1] overflow-hidden border-b border-border/50">
+          <div className="relative aspect-[16/9] overflow-hidden bg-[#0c0c18]">
             <img
               src={post.coverImage.url}
               alt={post.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent opacity-60" />
+            <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+              {post.tags?.slice(0, 2).map((tag) => (
+                <span
+                  key={tag.slug}
+                  className="px-2 py-0.5 rounded-md text-[10px] font-mono font-medium border border-[#00ff88]/20 bg-[#050508]/80 text-[#00ff88] backdrop-blur-sm"
+                >
+                  {tag.name}
+                </span>
+              ))}
+            </div>
           </div>
         )}
-        <div className="p-5">
-          <div className="flex items-center gap-2 text-xs text-muted">
+
+        {/* Content */}
+        <div className="flex flex-col flex-1 p-5">
+          {/* Meta */}
+          <div className="flex items-center gap-3 text-[11px] font-mono text-[#6b6b80] mb-2">
             <time dateTime={post.publishedAt}>{date}</time>
-            <span className="text-muted-foreground">·</span>
-            <span className="text-muted-foreground">{readingTime} min</span>
-            {post.tags?.slice(0, 2).map((tag) => (
-              <span
-                key={tag.slug}
-                className={`rounded-md border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${getTagColor(tag.name)}`}
-              >
-                {tag.name}
-              </span>
-            ))}
+            <span className="w-1 h-1 rounded-full bg-[#1a1a2e]" />
+            <span className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              {readingTime} min
+            </span>
           </div>
-          <h2 className="mt-3 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-accent-emerald">
+
+          {/* Title */}
+          <h2 className="text-base font-bold leading-snug text-[#e8e8f0] transition-colors group-hover:text-[#00ff88] mb-2">
             {post.title}
           </h2>
+
+          {/* Brief */}
           {post.brief && (
-            <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
+            <p className="text-sm text-[#8888a0] leading-relaxed line-clamp-2 flex-1">
               {post.brief}
             </p>
           )}
-          <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground group-hover:text-accent-emerald transition-colors">
-            {locale === "en" ? "Read article" : locale === "es" ? "Leer artículo" : "Ler artigo"}
-            <span className="transition-transform group-hover:translate-x-0.5">→</span>
+
+          {/* CTA */}
+          <div className="flex items-center gap-1.5 mt-4 text-xs font-medium text-[#6b6b80] group-hover:text-[#00ff88] transition-colors">
+            Ler artigo <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>
       </article>
     </Link>
-  );
+  )
 }
