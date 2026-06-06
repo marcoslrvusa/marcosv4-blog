@@ -110,26 +110,32 @@
     "metaDescription": "Consultoría AI First: AI Strategy, AEO/GEO, SEO y AI Ops. 12+ años de experiencia traducidos en resultados replicables para tu empresa.",
     "hero": {
       "tag": "Consultoría AI First",
-      "title": "Transforma tu negocio con IA — de la estrategia a la ejecución",
-      "subtitle": "12 años de experiencia en AI Search, SEO y sistemas inteligentes traducidos en resultados replicables para tu empresa.",
+      "title": "Convierte la IA en el principal motor para escalar tu negocio",
+      "subtitle": "Tendrás acceso a mi experiencia para revolucionar tu negocio o carrera con el poder de la IA. Diagnóstico, estrategia y ejecución práctica.",
       "cta": "Agendar Consultoría Gratuita",
       "available": "disponible para nuevos proyectos",
-      "stats": {
-        "projects": { "value": "50+", "label": "Proyectos" },
-        "clients": { "value": "30+", "label": "Clientes" },
-        "reports": { "value": "200+", "label": "Análisis" },
-        "time": { "value": "12+", "label": "Años XP" }
-      }
+      "urgency": "Plazas limitadas — proceso selectivo para garantizar entrega de valor"
     },
     "problem": {
       "tag": "Diagnóstico",
-      "title": "El diagnóstico que nadie está haciendo",
-      "description": "El 80% de los proyectos de IA no salen del piloto. No porque la tecnología no funcione — sino porque falta arquitectura.",
+      "title": "Estás dejando dinero sobre la mesa si aún no has entendido que…",
+      "description": "El juego de los negocios ya no se trata solo de gestión, metas y contrataciones. La brecha entre quienes usan IA estratégicamente y quienes no, sigue creciendo. Ignorar esto es perder la mayor oportunidad del siglo.",
       "points": [
         { "title": "Implementaste IA pero no viste retorno", "description": "El 80% de los proyectos de IA no salen del piloto. No porque la tecnología no funcione — sino porque falta arquitectura y estrategia." },
         { "title": "Tu tráfico orgánico está cayendo", "description": "Google AI Overviews, ChatGPT Search y Perplexity cambiaron la búsqueda. Tu SEO de 2019 ya no funciona." },
         { "title": "No sabes por dónde empezar", "description": "Cada día surge un modelo nuevo. El ruido es mayor que la señal. Sin un norte, estás estancado." },
         { "title": "Tu equipo no tiene dirección de IA", "description": "Sin un AI Lead que entienda de negocio, tecnología y ejecución, te quedas atrás del mercado." }
+      ],
+      "cta": "Quiero entender cómo salir de esto"
+    },
+    "audience": {
+      "tag": "Para Quién Es",
+      "title": "La mentoría es para ti si eres:",
+      "description": "Sesiones individuales y personalizadas — cada plan está diseñado para tu momento de negocio.",
+      "items": [
+        { "type": "EMPRESARIO", "title": "Empresario", "desc": "y quieres optimizar los procesos y tareas de tu empresa con IA aplicada." },
+        { "type": "AUTÓNOMO", "title": "Autónomo", "desc": "y quieres aprovechar la IA para ganar más tiempo, reducir costos y aumentar ingresos." },
+        { "type": "PROFESIONAL", "title": "Profesional", "desc": "de cualquier área y quieres usar IA para producir mejor y destacarte." }
       ]
     },
     "services": {
@@ -163,6 +169,12 @@
         { "number": "100%", "label": "Proyectos entregados a tiempo", "desc": "Metodología ágil con OKRs semanales" }
       ]
     },
+    "bio": {
+      "tag": "Conoce a Tu Mentor",
+      "name": "Marcos Luciano",
+      "description": "AI Lead y consultor especializado en inteligencia artificial con enfoque en aplicaciones prácticas para negocios. Desarrollo proyectos, arquitecturas y capacitaciones en IA para empresas que buscan adaptarse y liderar en esta nueva era. Creo contenido diario sobre IA, arquitectura de sistemas inteligentes y AI Search, con más de 12 años de experiencia en tecnología y estrategia digital.",
+      "credentials": ["AI Lead", "AI & SEO Specialist", "12+ Años XP", "DataCamp Data Scientist"]
+    },
     "ctaSection": {
       "title": "¿Tu empresa está lista para la próxima era de la IA?",
       "description": "Agenda una consultoría gratuita de 30 minutos. Sin compromiso. Solo un diagnóstico inicial y un plan de acción claro.",
@@ -179,6 +191,14 @@
         { "q": "¿Cuál es la diferencia con otras consultorías?", "a": "No vendemos herramientas — vendemos arquitectura. No hacemos piloto eterno — entregamos producción. Nuestros consultores son ingenieros que ejecutan." },
         { "q": "¿Atienden fuera de Brasil?", "a": "Sí. Atendemos clientes en Brasil, EE.UU. y América Latina. Sesiones en portugués, inglés o español. 100% remoto." }
       ]
+    },
+    "whatsapp": {
+      "tag": "Atención",
+      "title": "¿Aún tienes dudas sobre la consultoría?",
+      "description": "Habla directamente conmigo por WhatsApp. Resuelvo tus dudas en tiempo real y te ayudo a saber si esto es para ti.",
+      "cta": "Hablar por WhatsApp",
+      "number": "+55 (31) 99999-9999",
+      "message": "¡Hola! Tengo interés en la consultoría AI First. ¿Puedes ayudarme?"
     },
     "stickyCta": {
     "title": "Tu arquitectura de IA comienza aquí",

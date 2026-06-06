@@ -1,11 +1,14 @@
 import { getTranslations } from "next-intl/server"
 import ConsultingHero from "@/components/ConsultingHero"
 import ConsultingProblem from "@/components/ConsultingProblem"
+import ConsultingAudience from "@/components/ConsultingAudience"
 import ConsultingServices from "@/components/ConsultingServices"
 import ConsultingProcess from "@/components/ConsultingProcess"
 import ConsultingResults from "@/components/ConsultingResults"
+import ConsultingBio from "@/components/ConsultingBio"
 import ConsultingLeadCapture from "@/components/ConsultingLeadCapture"
 import ConsultingFaq from "@/components/ConsultingFaq"
+import ConsultingWhatsApp from "@/components/ConsultingWhatsApp"
 import ConsultingStickyCta from "@/components/ConsultingStickyCta"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -100,11 +103,14 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
 
       <ConsultingHero />
       <ConsultingProblem />
+      <ConsultingAudience />
       <ConsultingServices />
       <ConsultingProcess />
       <ConsultingResults />
+      <ConsultingBio />
       <ConsultingLeadCapture />
       <ConsultingFaq />
+      <ConsultingWhatsApp />
       <ConsultingStickyCta />
     </>
   )

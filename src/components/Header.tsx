@@ -1,7 +1,6 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { Sun, Moon, Globe, Brain, TrendingUp, Layers, Briefcase } from "lucide-react";
+import { Globe, Brain, TrendingUp, Layers, Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link as I18nLink, usePathname, useRouter } from "@/i18n/navigation";
@@ -22,12 +21,8 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [topicsOpen, setTopicsOpen] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -140,19 +135,7 @@ export default function Header() {
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="text-muted-foreground transition-colors hover:text-v4-red"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </button>
-          )}
+          
         </nav>
       </div>
     </header>

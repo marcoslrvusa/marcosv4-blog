@@ -110,26 +110,32 @@
     "metaDescription": "AI First consulting: AI Strategy, AEO/GEO, SEO, and AI Ops. 12+ years of experience translated into replicable results for your company.",
     "hero": {
       "tag": "AI First Consulting",
-      "title": "Transform your business with AI — from strategy to execution",
-      "subtitle": "12 years of experience in AI Search, SEO, and intelligent systems translated into replicable results for your company.",
+      "title": "Turn AI into the main lever to scale your business",
+      "subtitle": "You'll have access to my expertise to revolutionize your business or career with the power of AI. Diagnosis, strategy, and hands-on execution.",
       "cta": "Schedule Free Consultation",
       "available": "available for new projects",
-      "stats": {
-        "projects": { "value": "50+", "label": "Projects" },
-        "clients": { "value": "30+", "label": "Clients" },
-        "reports": { "value": "200+", "label": "Reports" },
-        "time": { "value": "12+", "label": "Years XP" }
-      }
+      "urgency": "Limited spots — selection process to guarantee value delivery"
     },
     "problem": {
       "tag": "Diagnosis",
-      "title": "The diagnosis nobody is making",
-      "description": "80% of AI projects never leave the pilot phase. Not because the technology doesn't work — but because there's no architecture.",
+      "title": "You're leaving money on the table if you haven't realized that…",
+      "description": "The business game is no longer just about management, goals, and hiring. The gap between those who use AI strategically and those who don't keeps growing. Ignoring this means missing the biggest opportunity of the century.",
       "points": [
         { "title": "You implemented AI but saw no ROI", "description": "80% of AI projects never leave the pilot phase. Not because the technology doesn't work — but because there's no architecture and strategy." },
         { "title": "Your organic traffic is declining", "description": "Google AI Overviews, ChatGPT Search and Perplexity changed search. Your 2019 SEO no longer works." },
         { "title": "You don't know where to start", "description": "A new model comes out every day. The noise is greater than the signal. Without guidance, you're stuck." },
         { "title": "Your team has no AI direction", "description": "Without an AI Lead who understands business, technology, and execution, you'll fall behind the market." }
+      ],
+      "cta": "I want to understand how to get out of this"
+    },
+    "audience": {
+      "tag": "Who It's For",
+      "title": "The mentorship is for you if you are:",
+      "description": "Individual, personalized sessions — each plan is designed for your business stage.",
+      "items": [
+        { "type": "ENTREPRENEUR", "title": "Entrepreneur", "desc": "and want to optimize your company's processes and tasks with applied AI." },
+        { "type": "FREELANCER", "title": "Freelancer", "desc": "and want to leverage AI to save time, reduce costs, and increase revenue." },
+        { "type": "PROFESSIONAL", "title": "Professional", "desc": "from any field who wants to use AI to produce better and stand out." }
       ]
     },
     "services": {
@@ -163,6 +169,12 @@
         { "number": "100%", "label": "Projects delivered on time", "desc": "Agile methodology with weekly OKRs" }
       ]
     },
+    "bio": {
+      "tag": "Meet Your Mentor",
+      "name": "Marcos Luciano",
+      "description": "AI Lead and consultant specialized in artificial intelligence with a focus on practical business applications. I develop projects, architectures, and AI training for companies looking to adapt and lead in this new era. I create daily content about AI, intelligent systems architecture, and AI Search, with over 12 years of experience in technology and digital strategy.",
+      "credentials": ["AI Lead", "AI & SEO Specialist", "12+ Years XP", "DataCamp Data Scientist"]
+    },
     "ctaSection": {
       "title": "Is your company ready for the next era of AI?",
       "description": "Schedule a free 30-minute consultation. No commitment. Just an initial diagnosis and a clear action plan.",
@@ -179,6 +191,14 @@
         { "q": "What's the difference from other consultancies?", "a": "We don't sell tools — we sell architecture. We don't do endless pilots — we deliver production. Our consultants are engineers who execute." },
         { "q": "Do you serve clients outside Brazil?", "a": "Yes. We serve clients in Brazil, the US, and Latin America. Sessions in Portuguese, English, or Spanish. 100% remote." }
       ]
+    },
+    "whatsapp": {
+      "tag": "Support",
+      "title": "Still have questions about the consulting?",
+      "description": "Talk to me directly on WhatsApp. I'll answer your questions in real time and help you figure out if this is right for you.",
+      "cta": "Chat on WhatsApp",
+      "number": "+55 (31) 99999-9999",
+      "message": "Hi! I'm interested in the AI First consulting. Can you help me?"
     },
     "stickyCta": {
     "title": "Your AI architecture starts here",

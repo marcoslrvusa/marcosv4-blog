@@ -30,7 +30,6 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
       <head>
         <link
