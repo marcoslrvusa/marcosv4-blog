@@ -27,7 +27,7 @@ export default function ConsultingFaq() {
       </div>
       <div className="space-y-3">
         {items.map((item, i) => (
-          <div key={i} className="glass-card rounded-xl border border-[#1a1a2e] overflow-hidden transition-all duration-300 hover:border-[#00ff88]/10">
+          <div key={i} className="glass-card rounded-xl border border-[#1a1a2e] overflow-hidden transition-all duration-300 hover:border-[#e50914]/10">
             <button onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className="w-full flex items-center justify-between px-6 py-4 text-left transition-colors hover:bg-[#1a1a2e]/30">
               <span className="text-sm font-medium text-[#e8e8f0] pr-4">{item.q}</span>

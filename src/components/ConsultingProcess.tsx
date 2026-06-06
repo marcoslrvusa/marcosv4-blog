@@ -17,16 +17,16 @@ export default function ConsultingProcess() {
       </div>
       <div className="relative">
         {/* Vertical line */}
-        <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#00ff88] via-[#00d4ff] to-transparent hidden md:block" />
+        <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#e50914] via-[#00d4ff] to-transparent hidden md:block" />
         <div className="space-y-12">
           {steps.map((step, i) => (
             <div key={i} className="relative flex items-start gap-6 md:gap-10 group">
-              <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-[#0c0c18] border border-[#1a1a2e] items-center justify-center z-10 group-hover:border-[#00ff88]/30 transition-colors">
-                <span className="font-mono text-lg font-bold text-[#00ff88]">{step.step}</span>
+              <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-[#0c0c18] border border-[#1a1a2e] items-center justify-center z-10 group-hover:border-[#e50914]/30 transition-colors">
+                <span className="font-mono text-lg font-bold text-[#e50914]">{step.step}</span>
               </div>
-              <div className="glass-card rounded-xl p-6 md:p-8 border border-[#1a1a2e] flex-1 group-hover:border-[#00ff88]/20 transition-all duration-300">
+              <div className="glass-card rounded-xl p-6 md:p-8 border border-[#1a1a2e] flex-1 group-hover:border-[#e50914]/20 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#00ff88]" />
+                  <CheckCircle2 className="w-5 h-5 text-[#e50914]" />
                   <h3 className="text-xl font-sans font-semibold text-[#e8e8f0]">{step.title}</h3>
                 </div>
                 <p className="text-sm text-[#8888a0] leading-relaxed">{step.desc}</p>

@@ -5,12 +5,12 @@ export default function Footer() {
     <footer className="border-t border-border bg-card/50">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <p className="font-mono text-xs text-muted-foreground">
-          <span className="text-accent-emerald">$</span> echo &quot;Feito com ☕ por{" "}
+          <span className="text-v4-red">$</span> echo &quot;Feito com ☕ por{" "}
           <a
             href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground transition-colors hover:text-accent-emerald"
+            className="font-medium text-foreground transition-colors hover:text-v4-red"
           >
             Marcos Luciano
           </a>
@@ -21,7 +21,7 @@ export default function Footer() {
             href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-accent-emerald"
+            className="text-muted-foreground transition-colors hover:text-v4-red"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>

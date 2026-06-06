@@ -28,7 +28,7 @@ export default function PostCard({ post, locale = "pt", index = 0 }: { post: Pos
               {post.tags?.slice(0, 2).map((tag) => (
                 <span
                   key={tag.slug}
-                  className="px-2 py-0.5 rounded-md text-[10px] font-mono font-medium border border-[#00ff88]/20 bg-[#050508]/80 text-[#00ff88] backdrop-blur-sm"
+                  className="px-2 py-0.5 rounded-md text-[10px] font-mono font-medium border border-[#e50914]/20 bg-[#050508]/80 text-[#e50914] backdrop-blur-sm"
                 >
                   {tag.name}
                 </span>
@@ -50,7 +50,7 @@ export default function PostCard({ post, locale = "pt", index = 0 }: { post: Pos
           </div>
 
           {/* Title */}
-          <h2 className="text-base font-bold leading-snug text-[#e8e8f0] transition-colors group-hover:text-[#00ff88] mb-2">
+          <h2 className="text-base font-bold leading-snug text-[#e8e8f0] transition-colors group-hover:text-[#e50914] mb-2">
             {post.title}
           </h2>
 
@@ -62,7 +62,7 @@ export default function PostCard({ post, locale = "pt", index = 0 }: { post: Pos
           )}
 
           {/* CTA */}
-          <div className="flex items-center gap-1.5 mt-4 text-xs font-medium text-[#6b6b80] group-hover:text-[#00ff88] transition-colors">
+          <div className="flex items-center gap-1.5 mt-4 text-xs font-medium text-[#6b6b80] group-hover:text-[#e50914] transition-colors">
             Ler artigo <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>

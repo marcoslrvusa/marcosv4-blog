@@ -55,7 +55,7 @@ export default function ConsultingServices() {
 
                 <a
                   href="#lead-capture"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[#e50914] hover:text-[#e50914]/80 transition-colors"
                 >
                   Saber Mais
                   <ArrowRight className="w-4 h-4" />

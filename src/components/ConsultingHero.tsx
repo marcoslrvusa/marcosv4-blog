@@ -12,15 +12,15 @@ export default function ConsultingHero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00ff88]/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#e50914]/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-mono tracking-wider uppercase text-[#00ff88] border border-[#00ff88]/30 rounded-full animate-fade-in">
+        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-mono tracking-wider uppercase text-[#e50914] border border-[#e50914]/30 rounded-full animate-fade-in">
           {t("tag")}
         </span>
 
         <div className="flex items-center justify-center gap-2 mb-4 animate-fade-in-delay-1">
-          <span className="w-2 h-2 rounded-full bg-[#00ff88] status-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#e50914] status-pulse" />
           <span className="text-xs font-mono text-[#6b6b80]">disponível para novos projetos</span>
         </div>
 
@@ -41,9 +41,9 @@ export default function ConsultingHero() {
             return (
               <div
                 key={key}
-                className="glass-card rounded-xl p-5 border border-[#1a1a2e] hover:border-[#00ff88]/20 transition-all duration-300"
+                className="glass-card rounded-xl p-5 border border-[#1a1a2e] hover:border-[#e50914]/20 transition-all duration-300"
               >
-                <Icon className="w-5 h-5 text-[#00ff88] mb-3 mx-auto" />
+                <Icon className="w-5 h-5 text-[#e50914] mb-3 mx-auto" />
                 <div className="text-2xl md:text-3xl font-bold text-[#e8e8f0] font-sans">
                   {stat.value}
                 </div>
@@ -57,7 +57,7 @@ export default function ConsultingHero() {
 
         <a
           href="#lead-capture"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00ff88] text-[#050508] font-semibold text-lg hover:bg-[#00ff88]/90 transition-all duration-300 animate-fade-in-delay-3 group"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#e50914] text-[#050508] font-semibold text-lg hover:bg-[#e50914]/90 transition-all duration-300 animate-fade-in-delay-3 group"
         >
           {t("cta")}
           <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

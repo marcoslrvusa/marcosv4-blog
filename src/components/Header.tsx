@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Globe, Brain, TrendingUp, Layers, Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import SearchModal from "@/components/SearchModal";
@@ -51,45 +50,45 @@ export default function Header() {
             alt="Marcos Luciano"
             width={32}
             height={32}
-            className="rounded-full ring-2 ring-accent-emerald/20 object-cover"
+            className="rounded-full ring-2 ring-v4-red/20 object-cover"
           />
           <span className="font-mono text-sm font-medium tracking-tight text-foreground">
-            AI<tspan className="text-accent-emerald">:</tspan>First
+            AI<tspan className="text-v4-red">:</tspan>First
           </span>
         </Link>
 
         <nav className="flex items-center gap-3">
           <Link
             href="/"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {t("home")}
           </Link>
           <Link
             href="/about"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {t("about")}
           </Link>
           <div className="topics-dropdown relative hidden sm:block">
             <button
               onClick={() => setTopicsOpen(!topicsOpen)}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
             >
               Tópicos
             </button>
             {topicsOpen && (
               <div className="absolute right-0 top-6 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-2xl shadow-black/40 z-50">
-                <Link href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                <Link href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
                   <Brain className="w-4 h-4" style={{ color: "#00ff88" }} /> Cases de IA
                 </Link>
-                <Link href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                <Link href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
                   <TrendingUp className="w-4 h-4" style={{ color: "#00d4ff" }} /> Mercado
                 </Link>
-                <Link href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                <Link href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
                   <Layers className="w-4 h-4" style={{ color: "#8b5cf6" }} /> AI Search
                 </Link>
-                <Link href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-accent-emerald hover:bg-accent-emerald/5 transition-colors">
+                <Link href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
                   <Briefcase className="w-4 h-4" style={{ color: "#f59e0b" }} /> Arquitetura
                 </Link>
               </div>
@@ -97,7 +96,7 @@ export default function Header() {
           </div>
           <Link
             href="/consulting"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent-emerald"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-v4-red"
           >
             {tConsulting("nav")}
           </Link>
@@ -107,7 +106,7 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-md border border-border px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:border-accent-emerald/30 hover:text-accent-emerald"
+              className="flex items-center gap-1 rounded-md border border-border px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
             >
               <Globe className="h-3 w-3" />
               {locale.toUpperCase()}
@@ -118,9 +117,9 @@ export default function Header() {
                   <button
                     key={l.code}
                     onClick={() => switchLocale(l.code)}
-                    className={`block w-full rounded-md px-3 py-1.5 text-left font-mono text-xs transition-colors hover:bg-accent-emerald/10 ${
+                    className={`block w-full rounded-md px-3 py-1.5 text-left font-mono text-xs transition-colors hover:bg-v4-red/10 ${
                       l.code === locale
-                        ? "text-accent-emerald"
+                        ? "text-v4-red"
                         : "text-muted-foreground"
                     }`}
                   >
@@ -135,7 +134,7 @@ export default function Header() {
             href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-accent-emerald"
+            className="text-muted-foreground transition-colors hover:text-v4-red"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="h-4 w-4" />
@@ -143,7 +142,7 @@ export default function Header() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="text-muted-foreground transition-colors hover:text-accent-emerald"
+              className="text-muted-foreground transition-colors hover:text-v4-red"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (

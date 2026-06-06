@@ -25,7 +25,7 @@ export default function ConsultingResults() {
                   <Icon className="w-6 h-6 text-[#00d4ff]" />
                 </div>
                 <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#00ff88] font-sans mb-1">{item.number}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-[#e50914] font-sans mb-1">{item.number}</div>
                   <div className="text-sm font-semibold text-[#e8e8f0] mb-1">{item.label}</div>
                   <div className="text-xs text-[#6b6b80]">{item.desc}</div>
                 </div>

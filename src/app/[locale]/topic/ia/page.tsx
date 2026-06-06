@@ -38,9 +38,9 @@ export default async function TopicIaPage({ params }: { params: Promise<{ locale
         label: "Cases de IA",
         description: "Arquiteturas reais de empresas como Nvidia, Microsoft, Google e OpenAI. Cases reproduzíveis com dados, código e lições aprendidas — traduzidos para aplicação prática no seu contexto.",
         icon: Brain,
-        color: "#00ff88",
-        gradient: "from-[#00ff88] to-[#00d4ff]",
-        badgeColor: "emerald",
+        color: "#e50914",
+        gradient: "from-[#e50914] to-[#00d4ff]",
+        badgeColor: "v4-red",
         articles: filtered.length,
         posts: filtered,
       }}
