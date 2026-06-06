@@ -1,10 +1,11 @@
 "use client"
 
+import { useState } from "react"
 import { useTranslations } from "next-intl"
 import PostCard from "@/components/PostCard"
 import {
   Brain, TrendingUp, Layers, Briefcase,
-  BookOpen
+  BookOpen, Clock, Filter
 } from "lucide-react"
 import type { Post } from "@/lib/types"
 
@@ -29,10 +30,26 @@ interface TopicData {
 export default function TopicHubPage({ topic, locale }: { topic: TopicData; locale: string }) {
   const Icon = iconMap[topic.slug] || Brain
   const prefix = locale === "pt" ? "" : `/${locale}`
+  const [filter, setFilter] = useState<string>("all")
+
+  const tags = [...new Set(topic.posts.flatMap(({ node }) => node.tags?.map(t => t.slug) || []))]
+  const subTags = tags.filter(t => t !== topic.slug).slice(0, 6)
+
+  const filteredPosts = filter === "all"
+    ? topic.posts
+    : topic.posts.filter(({ node }) =>
+        node.tags?.some(t => t.slug.includes(filter))
+      )
+
+  const totalMinutes = filteredPosts.reduce((acc, { node }) => {
+    const mins = Math.max(1, Math.ceil((node.content?.markdown?.length || 1000) / 1000))
+    return acc + mins
+  }, 0)
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <section className="mb-20">
+    <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+      {/* Hero */}
+      <section className="mb-12">
         <div className="flex items-center gap-2 mb-4">
           <span className="status-pulse flex h-2 w-2 rounded-full" style={{ backgroundColor: topic.color }} />
           <span className="font-mono text-[11px] font-medium uppercase tracking-widest" style={{ color: topic.color }}>
@@ -55,22 +72,69 @@ export default function TopicHubPage({ topic, locale }: { topic: TopicData; loca
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">{topic.description}</p>
             </div>
           </div>
+
+          {/* Stats row */}
+          <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/50 pt-6">
+            <div className="text-center">
+              <p className="font-mono text-lg font-bold text-foreground">{topic.articles}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">artigos</p>
+            </div>
+            <div className="text-center">
+              <p className="font-mono text-lg font-bold text-foreground">{totalMinutes}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">min leitura</p>
+            </div>
+            <div className="text-center">
+              <p className="font-mono text-lg font-bold text-foreground">{subTags.length}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">subtópicos</p>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Filter bar */}
+      {subTags.length > 0 && (
+        <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2">
+          <Filter className="w-4 h-4 text-muted-foreground shrink-0" />
+          <button
+            onClick={() => setFilter("all")}
+            className={`whitespace-nowrap rounded-lg px-3 py-1.5 font-mono text-xs transition-colors ${
+              filter === "all"
+                ? "bg-v4-red/10 text-v4-red border border-v4-red/20"
+                : "text-muted-foreground border border-border hover:border-v4-red/20 hover:text-v4-red"
+            }`}
+          >
+            Todos
+          </button>
+          {subTags.map(tag => (
+            <button
+              key={tag}
+              onClick={() => setFilter(tag)}
+              className={`whitespace-nowrap rounded-lg px-3 py-1.5 font-mono text-xs transition-colors ${
+                filter === tag
+                  ? "bg-v4-red/10 text-v4-red border border-v4-red/20"
+                  : "text-muted-foreground border border-border hover:border-v4-red/20 hover:text-v4-red"
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Posts grid */}
       <section>
-        <div className="flex items-center gap-3 mb-10">
+        <div className="flex items-center gap-3 mb-8">
           <BookOpen className="w-4 h-4" style={{ color: topic.color }} />
           <span className="font-mono text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            $ ls -la {topic.slug}/ | {topic.articles} entries
+            $ ls -la {topic.slug}/ | {filteredPosts.length} entries
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
         </div>
 
-        {topic.posts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {topic.posts.map(({ node }, i) => (
-              <div key={node.id} className="animate-fade-in" style={{ animationDelay: `${i * 80}ms` }}>
+        {filteredPosts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {filteredPosts.map(({ node }, i) => (
+              <div key={node.id} className="animate-fade-in" style={{ animationDelay: `${i * 60}ms` }}>
                 <PostCard post={node} locale={locale} />
               </div>
             ))}
