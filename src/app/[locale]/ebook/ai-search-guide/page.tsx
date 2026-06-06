@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import EbookClient from "./client";
 
 function loadEbook(locale: string): string {
@@ -38,8 +39,15 @@ export default async function EbookPage({ params }: { params: Promise<{ locale: 
   const html = loadEbook(locale);
 
   return (
-    <EbookClient
-      locale={locale}
+    <>
+      <div className="mx-auto max-w-4xl px-6 pt-16">
+        <Breadcrumbs items={[
+          { label: "Home", href: `/${locale === "pt" ? "" : locale}` },
+          { label: "Guia de AI Search" },
+        ]} />
+      </div>
+      <EbookClient
+        locale={locale}
       html={html}
       translations={{
         title: t("title"),
@@ -56,5 +64,6 @@ export default async function EbookPage({ params }: { params: Promise<{ locale: 
         printCta: t("printCta"),
       }}
     />
+    </>
   );
 }

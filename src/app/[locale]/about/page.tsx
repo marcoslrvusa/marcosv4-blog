@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import LinkedInIcon from "@/components/LinkedInIcon";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getTranslations } from "next-intl/server";
 import {
   Brain,
@@ -41,6 +42,10 @@ export default async function About({
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+      <Breadcrumbs items={[
+        { label: "Home", href: `/${locale === "pt" ? "" : locale}` },
+        { label: "Sobre" },
+      ]} />
       <section className="animate-fade-in">
         <div className="mb-2 flex items-center gap-2">
           <span className="font-mono text-xs text-muted-foreground">$ cat about.md</span>

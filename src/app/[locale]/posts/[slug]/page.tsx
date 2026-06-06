@@ -8,6 +8,7 @@ import LinkedInIcon from "@/components/LinkedInIcon";
 import NewsletterForm from "@/components/NewsletterForm";
 import ReadingProgress from "@/components/ReadingProgress";
 import PostSidebar from "@/components/PostSidebar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { extractHeadings } from "@/lib/headings";
 import { getTranslations } from "next-intl/server";
 
@@ -94,10 +95,38 @@ export default async function PostPage({
   const articleUrl = `${baseUrl}/posts/${post.slug}`;
   const shareText = encodeURIComponent(`${post.title} — AI First`);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.brief,
+    image: post.coverImage?.url,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    author: {
+      "@type": "Person",
+      name: "Marcos Luciano",
+      url: "https://marcosv4.cloud/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "V4 Company",
+      logo: { "@type": "ImageObject", url: "https://marcosv4.cloud/profile.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    wordCount: post.content?.markdown?.length || 0,
+  }
+
   return (
     <>
       <ReadingProgress />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
+        <Breadcrumbs items={[
+          { label: "Home", href: `/${locale === "pt" ? "" : locale}` },
+          ...(post.tags?.[0] ? [{ label: post.tags[0].name, href: `/topic/${post.tags[0].slug}` }] : []),
+          { label: post.title },
+        ]} />
         <div className="md:grid md:grid-cols-[1fr_260px] md:gap-8">
           <article>
       <header className="mb-12 animate-fade-in">

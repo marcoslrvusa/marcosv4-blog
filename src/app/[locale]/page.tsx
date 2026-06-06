@@ -2,13 +2,12 @@ import { getAllLocalPosts } from "@/lib/content";
 import { getPublication } from "@/lib/hashnode";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
-import NewsletterForm from "@/components/NewsletterForm";
 import TerminalText from "@/components/TerminalText";
-import EbookCta from "@/components/EbookCta";
 import HeroSearch from "@/components/HeroSearch";
+import Sidebar from "@/components/Sidebar";
 import {
   Brain, BarChart3, BadgeCheck, Sparkles,
-  BookOpen, Briefcase, Layers, ChevronRight, TrendingUp,
+  BookOpen,
 } from "lucide-react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -17,9 +16,9 @@ export const revalidate = 300;
 
 const topics = [
   { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-v4-red", border: "border-v4-red/20" },
-  { label: "Mercado", slug: "mercado", icon: TrendingUp, color: "text-accent-gold", border: "border-accent-gold/20" },
-  { label: "AI Search", slug: "ai-search", icon: Layers, color: "text-accent-amber", border: "border-accent-amber/20" },
-  { label: "Arquitetura AI", slug: "arquitetura", icon: Briefcase, color: "text-accent-gold", border: "border-accent-gold/20" },
+  { label: "Mercado", slug: "mercado", icon: null, color: "text-accent-gold", border: "border-accent-gold/20" },
+  { label: "AI Search", slug: "ai-search", icon: null, color: "text-accent-amber", border: "border-accent-amber/20" },
+  { label: "Arquitetura AI", slug: "arquitetura", icon: null, color: "text-accent-gold", border: "border-accent-gold/20" },
 ];
 
 const PER_PAGE = 6;
@@ -65,9 +64,10 @@ export default async function Home({
   const prefix = locale === "pt" ? "" : `/${locale}`;
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+    <div className="mx-auto px-6 py-16 sm:py-24">
+
       {/* Hero Section */}
-      <section className="mb-16 animate-fade-in">
+      <section className="mx-auto max-w-5xl mb-16 animate-fade-in">
         <div className="mb-8 flex items-center gap-2">
           <span className="status-pulse flex h-2 w-2 rounded-full bg-v4-red" />
           <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-v4-red">
@@ -113,7 +113,6 @@ export default async function Home({
           </div>
         </div>
 
-        {/* Stats + Search */}
         <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
             <p className="font-mono text-xl font-bold text-foreground">{total}</p>
@@ -181,156 +180,98 @@ export default async function Home({
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="mb-8 flex items-center gap-3 animate-fade-in-delay-1">
-        <span className="font-mono text-xs font-medium text-muted-foreground">
-          $ ls -la {t("divider")}/
-        </span>
-        <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
-        <span className="font-mono text-[10px] text-muted-foreground">
-          {total} {t("results")}
-        </span>
-      </div>
+      {/* Main Content + Sidebar */}
+      <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-12">
 
-      {/* Posts Grid */}
-      <section className="animate-fade-in-delay-1">
-        {pagePosts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {pagePosts.map(({ node }) => (
-                <div key={node.id} className="animate-fade-in-delay-2">
-                  <PostCard post={node} locale={locale} />
+        {/* Left — Posts */}
+        <div>
+
+          {/* Divider */}
+          <div className="mb-8 flex items-center gap-3 animate-fade-in-delay-1">
+            <span className="font-mono text-xs font-medium text-muted-foreground">
+              $ ls -la {t("divider")}/
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+            <span className="font-mono text-[10px] text-muted-foreground">
+              {total} {t("results")}
+            </span>
+          </div>
+
+          {/* Posts Grid */}
+          <section className="animate-fade-in-delay-1">
+            {pagePosts.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                  {pagePosts.map(({ node }) => (
+                    <div key={node.id} className="animate-fade-in-delay-2">
+                      <PostCard post={node} locale={locale} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Pagination">
-                {safePage > 1 && (
-                  <Link
-                    href={`${prefix}/?page=${safePage - 1}`}
-                    className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
-                  >
-                    \u2190 {t("prev")}
-                  </Link>
-                )}
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
-                    let pageNum: number;
-                    if (totalPages <= 7) {
-                      pageNum = i + 1;
-                    } else if (safePage <= 4) {
-                      pageNum = i + 1;
-                    } else if (safePage >= totalPages - 3) {
-                      pageNum = totalPages - 6 + i;
-                    } else {
-                      pageNum = safePage - 3 + i;
-                    }
-                    return (
+                {totalPages > 1 && (
+                  <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Pagination">
+                    {safePage > 1 && (
                       <Link
-                        key={pageNum}
-                        href={`${prefix}/?page=${pageNum}`}
-                        className={`rounded-lg px-3 py-2 font-mono text-xs transition-colors ${
-                          pageNum === safePage
-                            ? "bg-v4-red/10 text-v4-red"
-                            : "text-muted-foreground hover:text-v4-red"
-                        }`}
+                        href={`${prefix}/?page=${safePage - 1}`}
+                        className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
                       >
-                        {pageNum}
+                        \u2190 {t("prev")}
                       </Link>
-                    );
-                  })}
-                </div>
-                {safePage < totalPages && (
-                  <Link
-                    href={`${prefix}/?page=${safePage + 1}`}
-                    className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
-                  >
-                    {t("next")} \u2192
-                  </Link>
+                    )}
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                        let pageNum: number;
+                        if (totalPages <= 7) {
+                          pageNum = i + 1;
+                        } else if (safePage <= 4) {
+                          pageNum = i + 1;
+                        } else if (safePage >= totalPages - 3) {
+                          pageNum = totalPages - 6 + i;
+                        } else {
+                          pageNum = safePage - 3 + i;
+                        }
+                        return (
+                          <Link
+                            key={pageNum}
+                            href={`${prefix}/?page=${pageNum}`}
+                            className={`rounded-lg px-3 py-2 font-mono text-xs transition-colors ${
+                              pageNum === safePage
+                                ? "bg-v4-red/10 text-v4-red"
+                                : "text-muted-foreground hover:text-v4-red"
+                            }`}
+                          >
+                            {pageNum}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                    {safePage < totalPages && (
+                      <Link
+                        href={`${prefix}/?page=${safePage + 1}`}
+                        className="rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
+                      >
+                        {t("next")} \u2192
+                      </Link>
+                    )}
+                  </nav>
                 )}
-              </nav>
+              </>
+            ) : (
+              <div className="glass-card rounded-xl p-12 text-center">
+                <p className="font-mono text-sm text-muted-foreground">
+                  {t("noPosts")}
+                </p>
+              </div>
             )}
-          </>
-        ) : (
-          <div className="glass-card rounded-xl p-12 text-center">
-            <p className="font-mono text-sm text-muted-foreground">
-              {t("noPosts")}
-            </p>
-          </div>
-        )}
-      </section>
-
-      {/* Topics Grid */}
-      <section className="mt-16 animate-fade-in-delay-2">
-        <div className="mb-6 flex items-center gap-3">
-          <span className="font-mono text-xs font-medium text-muted-foreground">
-            $ tree {t("topics").toLowerCase().replace(/\s+/g, "-")}/
-          </span>
-          <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+          </section>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {topicCounts.map((topic) => {
-            const Icon = topic.icon;
-            return (
-              <Link
-                key={topic.slug}
-                href={`/topic/${topic.slug}`}
-                className="group rounded-xl border border-border bg-card/30 p-4 transition-all hover:border-v4-red/30 hover:bg-card/60"
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`rounded-lg border ${topic.border} p-2 ${topic.color}`}>
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-foreground">{topic.label}</p>
-                    <p className="font-mono text-[11px] text-muted-foreground">
-                      {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
-                    </p>
-                  </div>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-v4-red" />
-                </div>
-              </Link>
-            );
-          })}
+
+        {/* Right — Sidebar */}
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <Sidebar locale={locale} topicCounts={topicCounts} />
         </div>
-      </section>
-
-      {/* Lead Magnet */}
-      <section className="mt-12 animate-fade-in-delay-2">
-        <EbookCta locale={locale} />
-      </section>
-
-      {/* LinkedIn Authority */}
-      <section className="mt-12 animate-fade-in-delay-3">
-        <a
-          href="https://linkedin.com/in/marcoslrvieira"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-3 rounded-xl border border-v4-red/10 bg-v4-red/[0.02] px-5 py-4 transition-all hover:border-v4-red/20 hover:bg-v4-red/[0.04]"
-        >
-          <div className="rounded-lg border border-v4-red/20 bg-v4-red/5 p-2">
-            <svg className="h-5 w-5 text-v4-red" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-sm font-medium text-foreground group-hover:text-v4-red">
-              {t("linkedin")}
-            </p>
-            <p className="font-mono text-[11px] text-muted-foreground">
-              {t("linkedinSub")}
-            </p>
-          </div>
-          <ChevronRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-v4-red" />
-        </a>
-      </section>
-
-      {/* Newsletter Form */}
-      <section className="mt-12 animate-fade-in-delay-3">
-        <NewsletterForm locale={locale} />
-      </section>
+      </div>
     </div>
   );
 }

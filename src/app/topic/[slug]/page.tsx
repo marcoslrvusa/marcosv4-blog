@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server"
 import { getAllLocalPosts } from "@/lib/content"
 import { getPublication } from "@/lib/hashnode"
 import TopicHubPage from "@/components/TopicHubPage"
+import Breadcrumbs from "@/components/Breadcrumbs"
 import type { Post } from "@/lib/types"
 
 const topics: Record<string, { label: string; description: string; color: string; gradient: string; badgeColor: string; tagFilter: string }> = {
@@ -79,8 +80,13 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   )
 
   return (
-    <TopicHubPage
-      topic={{
+    <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+      <Breadcrumbs items={[
+        { label: "Home", href: `/${locale === "pt" ? "" : locale}` },
+        { label: topic.label },
+      ]} />
+      <TopicHubPage
+        topic={{
         slug,
         label: topic.label,
         description: topic.description,
@@ -92,5 +98,6 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       }}
       locale={locale}
     />
+    </div>
   )
 }

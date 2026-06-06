@@ -47,7 +47,7 @@ export default function TopicHubPage({ topic, locale }: { topic: TopicData; loca
   }, 0)
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+    <div className="mx-auto max-w-6xl">
       {/* Hero */}
       <section className="mb-12">
         <div className="flex items-center gap-2 mb-4">
