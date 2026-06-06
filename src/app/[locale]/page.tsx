@@ -15,10 +15,10 @@ import { getTranslations } from "next-intl/server";
 export const revalidate = 300;
 
 const topics = [
-  { label: "Cases de IA", slug: "ia", icon: Brain, color: "text-v4-red", border: "border-v4-red/20" },
-  { label: "Mercado", slug: "mercado", icon: null, color: "text-accent-gold", border: "border-accent-gold/20" },
-  { label: "AI Search", slug: "ai-search", icon: null, color: "text-accent-amber", border: "border-accent-amber/20" },
-  { label: "Arquitetura AI", slug: "arquitetura", icon: null, color: "text-accent-gold", border: "border-accent-gold/20" },
+  { label: "Cases de IA", slug: "ia", color: "text-v4-red", border: "border-v4-red/20" },
+  { label: "Mercado", slug: "mercado", color: "text-accent-gold", border: "border-accent-gold/20" },
+  { label: "AI Search", slug: "ai-search", color: "text-accent-amber", border: "border-accent-amber/20" },
+  { label: "Arquitetura AI", slug: "arquitetura", color: "text-accent-gold", border: "border-accent-gold/20" },
 ];
 
 const PER_PAGE = 6;
@@ -113,31 +113,29 @@ export default async function Home({
           </div>
         </div>
 
-        <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
-            <p className="font-mono text-xl font-bold text-foreground">{total}</p>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("stats.articles")}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
-            <p className="font-mono text-xl font-bold text-foreground">12+</p>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("stats.xp")}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
-            <p className="font-mono text-xl font-bold text-foreground">8</p>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("stats.certs")}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-card/30 p-3 text-center">
-            <p className="font-mono text-xl font-bold text-foreground">4</p>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("stats.topics")}
-            </p>
-          </div>
+        {/* Authority Bar */}
+        <div className="mb-8 flex flex-wrap items-center gap-2 rounded-xl border border-v4-red/10 bg-v4-red/[0.02] px-5 py-3">
+          <span className="font-mono text-[11px] text-muted-foreground">{total} artigos</span>
+          <span className="h-3 w-px bg-border" />
+          <span className="font-mono text-[11px] text-muted-foreground">Google & Meta Certified</span>
+          <span className="h-3 w-px bg-border" />
+          <span className="font-mono text-[11px] text-muted-foreground">12+ anos</span>
+          <span className="h-3 w-px bg-border" />
+          <span className="font-mono text-[11px] text-muted-foreground">DataCamp Data Scientist</span>
+        </div>
+
+        {/* Topics as clickable pills */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          {topicCounts.map((t) => (
+            <Link
+              key={t.slug}
+              href={`/topic/${t.slug}`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/50 px-3 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:border-v4-red/30 hover:text-v4-red hover:bg-v4-red/5"
+            >
+              {t.label}
+              <span className="text-[10px] text-muted-foreground/60">{t.count}</span>
+            </Link>
+          ))}
         </div>
 
         <h1 className="font-sans text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
@@ -201,7 +199,7 @@ export default async function Home({
           <section className="animate-fade-in-delay-1">
             {pagePosts.length > 0 ? (
               <>
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {pagePosts.map(({ node }) => (
                     <div key={node.id} className="animate-fade-in-delay-2">
                       <PostCard post={node} locale={locale} />
