@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.svg"
+coverImage: "/images/vercel-icon.svg"
 ---
 
 <script type="application/ld+json">

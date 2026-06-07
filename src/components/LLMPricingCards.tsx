@@ -1,5 +1,9 @@
-import { ArrowRight, Cpu, Sparkles, Zap } from "lucide-react"
+import { ExternalLink, Sparkles } from "lucide-react"
 import Link from "next/link"
+import {
+  OpenAIIcon, AnthropicIcon, GoogleAIcon, DeepSeekIcon,
+  MetaAIcon, MistralIcon, MiniMaxIcon, NexAGIIcon, MoonshotIcon,
+} from "./LLMIcons"
 
 interface LLMPricingCardsProps {
   locale: string
@@ -9,117 +13,176 @@ const modelsData = [
   {
     name: "GPT‑4o",
     provider: "OpenAI",
+    slug: null,
     context: "128K",
     maxOutput: "16K",
-    input: "$2.50",
-    output: "$10.00",
-    icon: "⚡",
+    input: "2.50",
+    output: "10.00",
+    icon: OpenAIIcon,
     color: "text-emerald-400",
-    borderColor: "border-emerald-500/20",
-    bgColor: "bg-emerald-500/5",
-    badgeBg: "bg-emerald-500/10",
   },
   {
     name: "Claude 3.5 Sonnet",
     provider: "Anthropic",
+    slug: null,
     context: "200K",
     maxOutput: "8K",
-    input: "$3.00",
-    output: "$15.00",
-    icon: "🎯",
+    input: "3.00",
+    output: "15.00",
+    icon: AnthropicIcon,
     color: "text-orange-400",
-    borderColor: "border-orange-500/20",
-    bgColor: "bg-orange-500/5",
-    badgeBg: "bg-orange-500/10",
   },
   {
     name: "Gemini 2.0 Flash",
     provider: "Google",
+    slug: null,
     context: "1M",
     maxOutput: "8K",
-    input: "$0.10",
-    output: "$0.40",
-    icon: "🌀",
+    input: "0.10",
+    output: "0.40",
+    icon: GoogleAIcon,
     color: "text-blue-400",
-    borderColor: "border-blue-500/20",
-    bgColor: "bg-blue-500/5",
-    badgeBg: "bg-blue-500/10",
   },
   {
-    name: "DeepSeek-V3",
+    name: "DeepSeek-V4-Pro",
     provider: "DeepSeek",
-    context: "128K",
-    maxOutput: "8K",
-    input: "$0.50",
-    output: "$2.00",
-    icon: "🧠",
-    color: "text-purple-400",
-    borderColor: "border-purple-500/20",
-    bgColor: "bg-purple-500/5",
-    badgeBg: "bg-purple-500/10",
-  },
-  {
-    name: "Llama 3.1 405B",
-    provider: "Meta",
-    context: "128K",
-    maxOutput: "8K",
-    input: "$0.57",
-    output: "$2.40",
-    icon: "🦙",
+    slug: "deepseek-v4-pro",
+    context: "1049K",
+    maxOutput: "393K",
+    input: "1.60",
+    output: "3.48",
+    icon: DeepSeekIcon,
     color: "text-cyan-400",
-    borderColor: "border-cyan-500/20",
-    bgColor: "bg-cyan-500/5",
-    badgeBg: "bg-cyan-500/10",
   },
   {
-    name: "Mistral Large 2",
-    provider: "Mistral",
-    context: "128K",
-    maxOutput: "8K",
-    input: "$2.00",
-    output: "$6.00",
-    icon: "🌬️",
-    color: "text-rose-400",
-    borderColor: "border-rose-500/20",
-    bgColor: "bg-rose-500/5",
-    badgeBg: "bg-rose-500/10",
+    name: "MiniMax-M3",
+    provider: "MiniMax AI",
+    slug: "minimax-m3",
+    context: "1049K",
+    maxOutput: "131K",
+    input: "0.30",
+    output: "1.20",
+    icon: MiniMaxIcon,
+    color: "text-purple-400",
+  },
+  {
+    name: "Nex-N2-Pro",
+    provider: "Nex AGI",
+    slug: "nex-n2-pro",
+    context: "262K",
+    maxOutput: "256K",
+    input: "0.00",
+    output: "0.00",
+    icon: NexAGIIcon,
+    color: "text-emerald-400",
+  },
+  {
+    name: "Kimi K2.6",
+    provider: "Moonshot AI",
+    slug: "kimi-k2-6",
+    context: "262K",
+    maxOutput: "262K",
+    input: "0.77",
+    output: "4.00",
+    icon: MoonshotIcon,
+    color: "text-amber-400",
   },
 ]
 
 const dict = {
   pt: {
-    tag: "Modelos de IA",
-    title: "Preços de LLMs por Milhão de Tokens",
-    desc: "Compare os principais modelos do mercado. Preços em USD por milhão de tokens (input/output).",
+    tag: "Inferência de Alta Velocidade",
+    title: "para Texto, Imagem, Vídeo e Além",
+    desc: "Uma API para todos os modelos LLM e multimodais — open source e comerciais.",
     inputLabel: "Input",
     outputLabel: "Output",
     contextLabel: "Contexto",
-    cta: "Precisa de ajuda para escolher?",
-    ctaSub: "Consultoria especializada em arquitetura de IA",
-    ctaLink: "Solicitar Orçamento",
+    perMillion: "/ M tokens",
+    cta: "Ver todos os modelos no SiliconFlow",
+    detail: "Detalhes",
   },
   en: {
-    tag: "AI Models",
-    title: "LLM Pricing per Million Tokens",
-    desc: "Compare the top models in the market. Prices in USD per million tokens (input/output).",
+    tag: "High-Speed Inference",
+    title: "for Text, Image, Video, and Beyond",
+    desc: "One API for all open and commercial LLMs & multimodal models.",
     inputLabel: "Input",
     outputLabel: "Output",
     contextLabel: "Context",
-    cta: "Need help choosing?",
-    ctaSub: "Expert AI architecture consulting",
-    ctaLink: "Request Proposal",
+    perMillion: "/ M tokens",
+    cta: "View all models on SiliconFlow",
+    detail: "Details",
   },
   es: {
-    tag: "Modelos de IA",
-    title: "Precios de LLMs por Millón de Tokens",
-    desc: "Compara los principales modelos del mercado. Precios en USD por millón de tokens (input/output).",
+    tag: "Inferencia de Alta Velocidad",
+    title: "para Texto, Imagen, Video y Más",
+    desc: "Una API para todos los modelos LLM y multimodales — open source y comerciales.",
     inputLabel: "Input",
     outputLabel: "Output",
     contextLabel: "Contexto",
-    cta: "¿Necesitas ayuda para elegir?",
-    ctaSub: "Consultoría especializada en arquitectura de IA",
-    ctaLink: "Solicitar Presupuesto",
+    perMillion: "/ M tokens",
+    cta: "Ver todos los modelos en SiliconFlow",
+    detail: "Detalles",
   },
+}
+
+function ModelCard({ model, locale, t }: { model: typeof modelsData[0]; locale: string; t: typeof dict.pt }) {
+  const Icon = model.icon
+  const prefix = locale === "pt" ? "" : `/${locale}`
+  const content = (
+    <>
+      <div className="flex items-center gap-2.5 mb-3">
+        <span className={model.color}>
+          <Icon className="h-5 w-5" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-sm font-semibold text-foreground leading-tight truncate">{model.name}</h3>
+          <p className="text-[10px] font-mono text-muted-foreground/50 truncate">{model.provider}</p>
+        </div>
+        {model.slug && (
+          <span className="shrink-0 text-[9px] font-mono text-muted-foreground/40 group-hover:text-v4-red transition-colors">
+            {t.detail} →
+          </span>
+        )}
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-3">
+        <div className="text-center py-1.5 rounded-lg bg-card/60 border border-border/20">
+          <p className="text-[9px] font-mono text-muted-foreground/50 uppercase tracking-wider">{t.contextLabel}</p>
+          <p className="text-xs font-semibold text-foreground">{model.context}</p>
+        </div>
+        <div className="text-center py-1.5 rounded-lg bg-card/60 border border-border/20">
+          <p className="text-[9px] font-mono text-muted-foreground/50 uppercase tracking-wider">{t.inputLabel}</p>
+          <p className="text-xs font-semibold text-v4-red">${model.input}</p>
+        </div>
+        <div className="text-center py-1.5 rounded-lg bg-card/60 border border-border/20">
+          <p className="text-[9px] font-mono text-muted-foreground/50 uppercase tracking-wider">{t.outputLabel}</p>
+          <p className="text-xs font-semibold text-accent-gold">${model.output}</p>
+        </div>
+      </div>
+
+      <div className="border-t border-border/20 pt-2 flex items-center justify-between">
+        <span className="text-[9px] font-mono text-muted-foreground/40">{t.perMillion}</span>
+        <span className="text-[9px] font-mono text-muted-foreground/40">max {model.maxOutput}</span>
+      </div>
+    </>
+  )
+
+  if (model.slug) {
+    return (
+      <Link
+        href={`${prefix}/models/${model.slug}`}
+        className="group rounded-xl border border-border/40 bg-card/40 p-4 transition-all duration-300 hover:border-v4-red/20 hover:bg-card/60 hover:shadow-[0_0_20px_-8px_rgba(229,9,20,0.1)] block"
+      >
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <div className="rounded-xl border border-border/40 bg-card/40 p-4 transition-all duration-300">
+      {content}
+    </div>
+  )
 }
 
 export default function LLMPricingCards({ locale }: LLMPricingCardsProps) {
@@ -127,85 +190,34 @@ export default function LLMPricingCards({ locale }: LLMPricingCardsProps) {
 
   return (
     <section className="mx-auto max-w-6xl px-6 mb-16 animate-fade-in">
-      <div className="mb-8 flex items-center gap-3">
-        <span className="font-mono text-xs font-medium text-muted-foreground">
-          $ cat models/pricing.json
-        </span>
-        <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
-      </div>
-
-      <div className="text-center mb-10">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-mono tracking-wider uppercase text-v4-red border border-v4-red/30 rounded-full">
-          <Cpu className="w-3 h-3" />
+      <div className="text-center mb-12">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-[11px] font-mono tracking-wider uppercase text-v4-red border border-v4-red/20 rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-v4-red animate-pulse" />
           {t.tag}
         </span>
-        <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-3">
+        <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-3 leading-tight">
           {t.title}
         </h2>
-        <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+        <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
           {t.desc}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {modelsData.map((model, i) => (
-          <div
-            key={i}
-            className={`group rounded-xl border ${model.borderColor} ${model.bgColor} bg-card/50 backdrop-blur-sm p-5 transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(229,9,20,0.08)] hover:border-v4-red/20`}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2.5">
-                <span className="text-xl">{model.icon}</span>
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground leading-tight">{model.name}</h3>
-                  <p className="text-[10px] font-mono text-muted-foreground/60">{model.provider}</p>
-                </div>
-              </div>
-              <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md ${model.badgeBg} ${model.color}`}>
-                <Zap className="w-2.5 h-2.5" />
-                <span className="text-[10px] font-mono font-semibold tracking-tight">LLM</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex-1 text-center py-2 rounded-lg bg-card/50 border border-border/30">
-                <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">{t.contextLabel}</p>
-                <p className="text-sm font-semibold text-foreground">{model.context}</p>
-              </div>
-              <div className="flex-1 text-center py-2 rounded-lg bg-card/50 border border-border/30">
-                <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">{t.inputLabel}</p>
-                <p className="text-sm font-semibold text-v4-red">${model.input}</p>
-              </div>
-              <div className="flex-1 text-center py-2 rounded-lg bg-card/50 border border-border/30">
-                <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">{t.outputLabel}</p>
-                <p className="text-sm font-semibold text-accent-gold">${model.output}</p>
-              </div>
-            </div>
-
-            <div className="border-t border-border/30 pt-3 flex items-center justify-between">
-              <span className="text-[10px] font-mono text-muted-foreground/50">
-                /M tokens
-              </span>
-              <span className="text-[10px] font-mono text-muted-foreground/50">
-                max {model.maxOutput}
-              </span>
-            </div>
-          </div>
+          <ModelCard key={i} model={model} locale={locale} t={t} />
         ))}
       </div>
 
-      <div className="mt-8 rounded-xl border border-v4-red/20 bg-v4-red/[0.02] p-6 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Sparkles className="w-4 h-4 text-v4-red" />
-          <p className="text-sm font-semibold text-foreground">{t.cta}</p>
-        </div>
-        <p className="text-xs text-muted-foreground mb-4">{t.ctaSub}</p>
+      <div className="mt-8 text-center">
         <Link
-          href={`/${locale === "pt" ? "" : locale}/consulting`}
-          className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
+          href="https://www.siliconflow.com/models"
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground/60 hover:text-v4-red transition-colors"
         >
-          {t.ctaLink}
-          <ArrowRight className="w-4 h-4" />
+          {t.cta}
+          <ExternalLink className="h-3 w-3" />
         </Link>
       </div>
     </section>

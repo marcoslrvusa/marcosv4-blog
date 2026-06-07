@@ -110,10 +110,10 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       <ConsultingProblem />
       <ConsultingAudience />
       <ConsultingServices />
+      <ProductsSection locale={locale} />
       <ConsultingProcess />
       <ConsultingResults />
       <ConsultingBio />
-      <ProductsSection locale={locale} />
       <ConsultingLeadCapture />
       <ConsultingFaq />
       <ConsultingWhatsApp />
