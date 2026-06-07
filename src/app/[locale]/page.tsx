@@ -6,6 +6,8 @@ import HeroSearch from "@/components/HeroSearch";
 import Sidebar from "@/components/Sidebar";
 import MateriaisRicos from "@/components/MateriaisRicos";
 import ProductsSection from "@/components/ProductsSection";
+import LLMLogosBar from "@/components/LLMLogosBar";
+import LLMPricingCards from "@/components/LLMPricingCards";
 import {
   Brain, BarChart3, BadgeCheck, Sparkles, ArrowRight,
 } from "lucide-react";
@@ -159,6 +161,15 @@ export default async function Home({
         </div>
       </section>
 
+      {/* LLM Logos Bar — below hero */}
+      <LLMLogosBar />
+
+      {/* LLM Pricing Cards — comparison section */}
+      <LLMPricingCards locale={locale} />
+
+      {/* Produtos AI — posição estratégica com call-to-action para consultoria */}
+      <ProductsSection locale={locale} />
+
       {/* Topics Pills — below hero */}
       <div className="mx-auto max-w-6xl px-6 py-6">
         <div className="flex flex-wrap items-center gap-2">
@@ -285,9 +296,6 @@ export default async function Home({
           <Sidebar locale={locale} topicCounts={topicCounts} />
         </div>
       </div>
-
-      {/* Produtos AI — abaixo dos artigos */}
-      <ProductsSection locale={locale} />
 
     </div>
   </div>

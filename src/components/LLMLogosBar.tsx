@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Sparkles } from "lucide-react"
 
 const logos = [
   {
@@ -31,18 +32,54 @@ const logos = [
     src: "https://logo.clearbit.com/cohere.com",
     href: "https://cohere.com",
   },
+  {
+    alt: "DeepSeek",
+    src: "https://logo.clearbit.com/deepseek.com",
+    href: "https://deepseek.com",
+  },
+  {
+    alt: "Perplexity",
+    src: "https://logo.clearbit.com/perplexity.ai",
+    href: "https://perplexity.ai",
+  },
 ]
 
 export default function LLMLogosBar() {
   return (
-    <div className="overflow-x-auto whitespace-nowrap py-4 bg-card/30 border-t border-b border-border/30">
-      <div className="flex items-center space-x-8 px-6 marquee-track">
-        {logos.map((logo, i) => (
-          <a key={i} href={logo.href} target="_blank" rel="noopener noreferrer" className="inline-block">
-            <Image src={logo.src} alt={logo.alt} width={48} height={48} className="object-contain" />
-          </a>
-        ))}
+    <section className="border-b border-border/30 bg-card/20">
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Sparkles className="w-3.5 h-3.5 text-v4-red" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60 font-medium">
+            Principais Modelos de IA do Mercado
+          </span>
+          <Sparkles className="w-3.5 h-3.5 text-v4-red" />
+        </div>
+        <div className="overflow-hidden">
+          <div className="flex items-center gap-12 marquee-track">
+            {[...logos, ...logos].map((logo, i) => (
+              <a
+                key={i}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 shrink-0 transition-all duration-300 hover:opacity-80"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={28}
+                  height={28}
+                  className="rounded-full object-contain ring-1 ring-border/30"
+                />
+                <span className="text-xs font-medium text-muted-foreground/70 whitespace-nowrap">
+                  {logo.alt}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
