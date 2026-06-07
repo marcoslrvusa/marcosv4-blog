@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.ico"
+coverImage: "https://vercel.com/favicon.svg"
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ coverImage: "https://vercel.com/favicon.ico"
   "@type": "HowTo",
   "name": "Vercel + OpenAI API + v0: Demostración de chat",
   "description": "Crea un chatbot IA usando Next.js API routes y OpenAI con Vercel + v0.",
-  "image": "https://vercel.com/favicon.ico",
+  "image": "https://vercel.com/favicon.svg",
   "estimatedCost": "Gratuito",
   "totalTime": "PT15M"
 }

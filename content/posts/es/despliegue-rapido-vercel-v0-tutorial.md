@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.ico"
+coverImage: "https://vercel.com/favicon.svg"
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ coverImage: "https://vercel.com/favicon.ico"
   "@type": "HowTo",
   "name": "Despliegue rápido con Vercel + v0: Tutorial completo",
   "description": "Aprende a crear y publicar un sitio web en segundos usando Vercel y v0 con IA. Plantilla gratuita incluida.",
-  "image": "https://vercel.com/favicon.ico",
+  "image": "https://vercel.com/favicon.svg",
   "estimatedCost": "Gratuito",
   "totalTime": "PT15M"
 }

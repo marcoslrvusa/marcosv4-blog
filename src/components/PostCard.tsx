@@ -16,13 +16,15 @@ export default function PostCard({ post, locale = "pt", index = 0 }: { post: Pos
     <Link href={`${prefix}/posts/${post.slug}`} className="group block">
       <article className="premium-card rounded-xl overflow-hidden h-full flex flex-col">
         {post.coverImage?.url && (
-          <div className="relative aspect-[16/9] overflow-hidden bg-card">
+          <div className="relative aspect-[16/9] overflow-hidden bg-card/80">
             <img
               src={post.coverImage.url}
               alt={post.title}
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80" />
             <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
               {post.tags?.slice(0, 2).map((tag) => (
                 <span

@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.ico"
+coverImage: "https://vercel.com/favicon.svg"
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ coverImage: "https://vercel.com/favicon.ico"
   "@type": "HowTo",
   "name": "Vercel Edge Functions with v0 reference",
   "description": "Practical examples of Edge Functions for on‑edge AI using v0.",
-  "image": "https://vercel.com/favicon.ico",
+  "image": "https://vercel.com/favicon.svg",
   "estimatedCost": "Gratuito",
   "totalTime": "PT15M"
 }

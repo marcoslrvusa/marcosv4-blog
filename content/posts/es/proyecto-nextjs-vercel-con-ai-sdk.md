@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.ico"
+coverImage: "https://vercel.com/favicon.svg"
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ coverImage: "https://vercel.com/favicon.ico"
   "@type": "HowTo",
   "name": "Proyecto Next.js en Vercel con AI SDK",
   "description": "Crea una app impulsada por IA usando Next.js, AI SDK de Vercel y OpenAI.",
-  "image": "https://vercel.com/favicon.ico",
+  "image": "https://vercel.com/favicon.svg",
   "estimatedCost": "Gratuito",
   "totalTime": "PT15M"
 }

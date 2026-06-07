@@ -7,7 +7,7 @@ tags:
   - v0
   - ai
   - infraestrutura
-coverImage: "https://vercel.com/favicon.ico"
+coverImage: "https://vercel.com/favicon.svg"
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ coverImage: "https://vercel.com/favicon.ico"
   "@type": "HowTo",
   "name": "Vercel + A/B Testing con v0 y Middleware",
   "description": "Ejecuta experimentos en producción sin configuración compleja.",
-  "image": "https://vercel.com/favicon.ico",
+  "image": "https://vercel.com/favicon.svg",
   "estimatedCost": "Gratuito",
   "totalTime": "PT15M"
 }

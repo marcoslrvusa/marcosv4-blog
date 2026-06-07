@@ -15,8 +15,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.ytimg.com" },
       { protocol: "https", hostname: "v0.app" },
       { protocol: "https", hostname: "pbs.twimg.com" },
+      { protocol: "https", hostname: "openai.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "logo.clearbit.com" },
     ],
   },
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+  poweredByHeader: false,
 };
 
 export default withNextIntl(nextConfig);

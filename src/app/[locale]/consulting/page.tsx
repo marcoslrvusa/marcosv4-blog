@@ -10,6 +10,8 @@ import ConsultingLeadCapture from "@/components/ConsultingLeadCapture"
 import ConsultingFaq from "@/components/ConsultingFaq"
 import ConsultingWhatsApp from "@/components/ConsultingWhatsApp"
 import ConsultingStickyCta from "@/components/ConsultingStickyCta"
+import ProductsSection from "@/components/ProductsSection"
+import LLMLogosBar from "@/components/LLMLogosBar"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -102,12 +104,16 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <ConsultingHero />
+      <div className="mx-auto max-w-6xl px-6 py-8">
+        <LLMLogosBar />
+      </div>
       <ConsultingProblem />
       <ConsultingAudience />
       <ConsultingServices />
       <ConsultingProcess />
       <ConsultingResults />
       <ConsultingBio />
+      <ProductsSection locale={locale} />
       <ConsultingLeadCapture />
       <ConsultingFaq />
       <ConsultingWhatsApp />

@@ -5,9 +5,10 @@ import PostCard from "@/components/PostCard";
 import HeroSearch from "@/components/HeroSearch";
 import Sidebar from "@/components/Sidebar";
 import MateriaisRicos from "@/components/MateriaisRicos";
-import ProductsSection from "@/components/ProductsSection";
+import SiliconFlowModelBox from "@/components/SiliconFlowModelBox"
 import LLMLogosBar from "@/components/LLMLogosBar";
 import LLMPricingCards from "@/components/LLMPricingCards";
+import ProductsSection from "@/components/ProductsSection";
 import {
   Brain, BarChart3, BadgeCheck, Sparkles, ArrowRight,
 } from "lucide-react";
@@ -159,10 +160,8 @@ export default async function Home({
             </div>
           </div>
         </div>
+        <LLMLogosBar />
       </section>
-
-      {/* LLM Logos Bar — below hero */}
-      <LLMLogosBar />
 
       {/* LLM Pricing Cards — comparison section */}
       <LLMPricingCards locale={locale} />
@@ -211,7 +210,7 @@ export default async function Home({
           </div>
 
           {/* Posts Grid */}
-          <section className="animate-fade-in-delay-1">
+          <section id="posts" className="animate-fade-in-delay-1">
             {pagePosts.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -220,9 +219,9 @@ export default async function Home({
                       <PostCard post={node} locale={locale} />
                     </div>
                   ))}
-                </div>
+                  </div>
 
-                {/* ADSENSE — IN-FEED (entre grid de posts e paginação) */}
+                  {/* ADSENSE — IN-FEED (entre grid de posts e paginação) */}
                 <div className="adsense-placeholder border-2 border-dashed border-v4-red/30 rounded-xl p-6 text-center bg-v4-red/[0.02]">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="inline-block w-2 h-2 rounded-full bg-v4-red animate-pulse" />

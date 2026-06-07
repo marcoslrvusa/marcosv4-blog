@@ -39,6 +39,20 @@ export default function RootLayout({
           title="AI First — RSS Feed"
           href="/feed.xml"
         />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDL0F888PV" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EDL0F888PV', {
+                page_title: document.title,
+                page_location: window.location.href,
+              });`,
+          }}
+        />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <ParticleBackground />

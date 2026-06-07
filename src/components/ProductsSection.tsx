@@ -1,4 +1,4 @@
-import { Cloud, Building2, BookOpen, ArrowRight, Server, Sparkles } from "lucide-react"
+import { Cloud, Building2, BookOpen } from "lucide-react"
 import Link from "next/link"
 import HostingerBanner from "./HostingerBanner"
 
@@ -255,64 +255,6 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
           </span>
         </div>
         <HostingerBanner variant="hero" locale={locale} />
-      </div>
-
-      {/* 3 Product Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-        {t.items.map((item, i) => {
-          const Icon = item.icon
-          return (
-            <div
-              key={i}
-              className="group gradient-border rounded-xl bg-card overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(229,9,20,0.1)] flex flex-col"
-            >
-              <div className="p-6 flex flex-col h-full">
-                <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className={`w-6 h-6 ${item.color}`} />
-                </div>
-
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="inline-block px-2 py-0.5 text-[10px] font-mono tracking-wider uppercase text-v4-red border border-v4-red/20 rounded-full self-start">
-                    {item.investment}
-                  </div>
-                  <span className="font-mono text-[9px] text-muted-foreground/50 uppercase tracking-wider">
-                    {item.tagline}
-                  </span>
-                </div>
-
-                <h3 className="text-base font-sans font-semibold text-foreground mb-2">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                  {item.desc}
-                </p>
-
-                <ul className="space-y-1.5 mb-5 flex-1">
-                  {item.features.map((f, j) => (
-                    <li key={j} className="text-[11px] text-muted-foreground flex items-start gap-2">
-                      <span className="text-v4-red mt-0.5 shrink-0">›</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="border-t border-border pt-4 mt-auto">
-                  <p className="text-[10px] text-muted-foreground/60 font-mono mb-3">
-                    {item.investDetail}
-                  </p>
-                  <Link
-                    href={`/${locale === "pt" ? "" : locale}/consulting#lead-capture`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-v4-red/10 text-v4-red border border-v4-red/20 px-4 py-2.5 text-xs font-semibold transition-all hover:bg-v4-red hover:text-background w-full group/link"
-                  >
-                    {t.cta}
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )
-        })}
       </div>
 
       {/* HOSTINGER BANNER — INLINE (entre produtos e próximos passos) */}
