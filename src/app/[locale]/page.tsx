@@ -165,6 +165,9 @@ export default async function Home({
       {/* LLM Pricing Cards — comparison section */}
       <LLMPricingCards locale={locale} />
 
+      {/* SiliconFlow Model Box — featured models */}
+      <SiliconFlowModelBox locale={locale} />
+
       {/* Topics Pills — below hero */}
       <div className="mx-auto max-w-6xl px-6 py-6">
         <div className="flex flex-wrap items-center gap-2">
