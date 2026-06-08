@@ -112,7 +112,7 @@ export default async function Home({
                   href={`/${locale === "pt" ? "" : locale}/consulting`}
                   className="inline-flex items-center gap-2 rounded-lg bg-v4-red px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
                 >
-                  Solicitar Orçamento
+                  {t("hero.cta")}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link

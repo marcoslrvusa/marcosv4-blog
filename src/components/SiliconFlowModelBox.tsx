@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { DeepSeekIcon, MiniMaxIcon, NexAGIIcon, MoonshotIcon } from "./LLMIcons"
-import { ExternalLink } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 const models = [
   {
     name: "DeepSeek V4 Pro",
     brand: "DeepSeek",
+    slug: "deepseek-v4-pro",
     context: "1049K tokens",
     output: "393K tokens max",
     inputPrice: "$ 1.6 / M",
@@ -13,11 +14,11 @@ const models = [
     icon: DeepSeekIcon,
     color: "text-blue-400",
     bg: "bg-blue-400/10",
-    link: "https://www.siliconflow.com/models/deepseek-v4-pro",
   },
   {
     name: "MiniMax M3",
     brand: "MiniMax AI",
+    slug: "minimax-m3",
     context: "1049K tokens",
     output: "131K tokens max",
     inputPrice: "$ 0.3 / M",
@@ -25,11 +26,11 @@ const models = [
     icon: MiniMaxIcon,
     color: "text-purple-400",
     bg: "bg-purple-400/10",
-    link: "https://www.siliconflow.com/models/minimax-m3",
   },
   {
     name: "Nex-N2-Pro",
     brand: "Nex AGI",
+    slug: "nex-n2-pro",
     context: "262K tokens",
     output: "256K tokens max",
     inputPrice: "$ 0.0 / M",
@@ -37,11 +38,11 @@ const models = [
     icon: NexAGIIcon,
     color: "text-emerald-400",
     bg: "bg-emerald-400/10",
-    link: "https://www.siliconflow.com/models/nex-n2-pro",
   },
   {
     name: "Kimi K2.6",
     brand: "Moonshot AI",
+    slug: "kimi-k2-6",
     context: "262K tokens",
     output: "262K tokens max",
     inputPrice: "$ 0.77 / M",
@@ -49,7 +50,6 @@ const models = [
     icon: MoonshotIcon,
     color: "text-amber-400",
     bg: "bg-amber-400/10",
-    link: "https://www.siliconflow.com/models/kimi-k2-6",
   },
 ]
 
@@ -74,10 +74,8 @@ export default function SiliconFlowModelBox() {
             return (
               <Link
                 key={i}
-                href={m.link}
-                target="_blank"
-                rel="noopener"
-                className="group relative rounded-xl border border-border/50 bg-card/50 p-4 hover:border-v4-red/30 hover:bg-card transition-all"
+                href={`/models/${m.slug}`}
+                className="group relative rounded-xl border border-border/40 bg-card/40 p-4 hover:border-v4-red/20 hover:bg-card-hover transition-all"
               >
                 <div className="flex items-center gap-2.5 mb-3">
                   <div className={`w-9 h-9 rounded-lg ${m.bg} flex items-center justify-center ${m.color}`}>
@@ -107,9 +105,9 @@ export default function SiliconFlowModelBox() {
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-center gap-1 text-[9px] font-mono text-muted-foreground/60 group-hover:text-v4-red transition-colors">
-                  Ver no SiliconFlow
-                  <ExternalLink className="h-2.5 w-2.5" />
+                <div className="mt-3 flex items-center justify-center gap-1 text-[9px] font-mono text-muted-foreground/40 group-hover:text-v4-red transition-colors">
+                  Ver detalhes
+                  <ArrowRight className="h-2.5 w-2.5" />
                 </div>
               </Link>
             )

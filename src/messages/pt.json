@@ -20,7 +20,8 @@
   "home": {
     "hero": {
       "title": "AI First — Inteligência Artificial & Arquitetura AI",
-      "description": "AI Lead, AI & SEO Specialist com 12+ anos de experiência. Escrevo sobre inteligência artificial, arquitetura de sistemas AI, cases replicáveis de Nvidia/Microsoft/Google/OpenAI e o mercado de IA no Brasil."
+      "description": "AI Lead, AI & SEO Specialist com 12+ anos de experiência. Crio conteúdo, arquiteturas e sistemas inteligentes — do VPS aos agentes em produção.",
+      "cta": "Vamos Conversar"
     },
     "stats": {
       "articles": "Artigos",

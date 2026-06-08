@@ -102,3 +102,32 @@ export function MoonshotIcon({ className = "h-5 w-5" }: { className?: string }) 
     </svg>
   )
 }
+
+export function TencentIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <rect x="3" y="3" width="18" height="18" rx="4" className="fill-current opacity-15" />
+      <path d="M7 12h10M12 7v10" className="stroke-current stroke-[1.5]" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="2" className="fill-current" />
+    </svg>
+  )
+}
+
+export function ZaiIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M12 3L3 8v8l9 5 9-5V8l-9-5z" className="fill-current opacity-15" />
+      <path d="M12 3L3 8v8l9-5V3z" className="fill-current opacity-30" />
+      <text x="12" y="16" textAnchor="middle" className="fill-current text-[11px] font-bold" fontFamily="system-ui">Z</text>
+    </svg>
+  )
+}
+
+export function QwenIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="12" cy="12" r="9" className="stroke-current stroke-[1.5] opacity-30" />
+      <path d="M8 12l3 3 5-5" className="stroke-current stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
