@@ -5,6 +5,8 @@ import { useEffect, useRef } from "react";
 interface GraphNode {
   x: number;
   y: number;
+  baseX: number;
+  baseY: number;
   vx: number;
   vy: number;
   radius: number;
@@ -20,6 +22,9 @@ interface Spike {
   progress: number;
   speed: number;
 }
+
+const CONNECT_DIST = 200;
+const DRAW_DIST = 300;
 
 export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -46,51 +51,57 @@ export default function ParticleBackground() {
       nodes = [];
       spikes = [];
 
-      const count = 70;
       const w = canvas.width;
       const h = canvas.height;
+      const margin = 60;
 
-      // Generate nodes with Poisson-disc-like distribution
-      for (let i = 0; i < count; i++) {
-        let x: number, y: number;
-        let attempts = 0;
-        do {
-          x = w * 0.03 + Math.random() * w * 0.94;
-          y = h * 0.05 + Math.random() * h * 0.90;
-          attempts++;
-        } while (
-          attempts < 50 &&
-          nodes.some(
-            (n) => Math.hypot(n.x - x, n.y - y) < 50
-          )
-        );
+      // Place nodes in clusters for better visual connectivity
+      const clusterCenters = [
+        { x: w * 0.25, y: h * 0.35 },
+        { x: w * 0.5, y: h * 0.25 },
+        { x: w * 0.75, y: h * 0.35 },
+        { x: w * 0.3, y: h * 0.6 },
+        { x: w * 0.6, y: h * 0.65 },
+        { x: w * 0.5, y: h * 0.45 },
+      ];
+      const clusterRadius = Math.min(w, h) * 0.12;
+      const nodesPerCluster = 11;
 
-        nodes.push({
-          x,
-          y,
-          vx: (Math.random() - 0.5) * 0.08,
-          vy: (Math.random() - 0.5) * 0.08,
-          radius: 1.5 + Math.random() * 2.5,
-          phase: Math.random() * Math.PI * 2,
-          firing: false,
-          fireTimer: 0,
-          connections: [],
-        });
+      for (const center of clusterCenters) {
+        for (let i = 0; i < nodesPerCluster; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const r = Math.random() * clusterRadius;
+          const x = center.x + Math.cos(angle) * r;
+          const y = center.y + Math.sin(angle) * r;
+
+          if (x < margin || x > w - margin || y < margin || y > h - margin) continue;
+
+          nodes.push({
+            x, y,
+            baseX: x, baseY: y,
+            vx: (Math.random() - 0.5) * 0.06,
+            vy: (Math.random() - 0.5) * 0.06,
+            radius: 1.2 + Math.random() * 2.8,
+            phase: Math.random() * Math.PI * 2,
+            firing: false,
+            fireTimer: 0,
+            connections: [],
+          });
+        }
       }
 
-      // Connect nodes within distance
+      // Connect nearby nodes
       for (let i = 0; i < nodes.length; i++) {
-        const neighbors: number[] = [];
+        const neighbors: { idx: number; dist: number }[] = [];
         for (let j = 0; j < nodes.length; j++) {
           if (i === j) continue;
           const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
-          if (dist < 180 && dist > 20) {
-            neighbors.push(j);
+          if (dist < CONNECT_DIST) {
+            neighbors.push({ idx: j, dist });
           }
         }
-        // Keep 2-5 connections
-        const shuffled = neighbors.sort(() => Math.random() - 0.5);
-        nodes[i].connections = shuffled.slice(0, 2 + Math.floor(Math.random() * 4));
+        neighbors.sort((a, b) => a.dist - b.dist);
+        nodes[i].connections = neighbors.slice(0, 3 + Math.floor(Math.random() * 3)).map((n) => n.idx);
       }
     }
 
@@ -112,14 +123,15 @@ export default function ParticleBackground() {
             from: i,
             to: connIdx,
             progress: 0,
-            speed: 0.02 + Math.random() * 0.03,
+            speed: 0.015 + Math.random() * 0.025,
           });
 
-          if (Math.random() < 0.2) {
+          if (Math.random() < 0.25) {
             nodes[connIdx].firing = true;
             nodes[connIdx].fireTimer = 0;
           }
         }
+        n.firing = false;
       }
     }
 
@@ -128,22 +140,24 @@ export default function ParticleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const time = Date.now() / 1000;
 
-      // Random firing
-      if (Math.random() < 0.015) triggerFire();
-      if (Math.random() < 0.01) triggerFire();
+      // Periodic firing
+      if (Math.random() < 0.02) triggerFire();
 
       propagate();
 
-      // Update nodes
+      // Update node positions — drift with elastic pull toward base
       for (const n of nodes) {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 5 || n.x > canvas.width - 5) n.vx *= -1;
-        if (n.y < 5 || n.y > canvas.height - 5) n.vy *= -1;
+        n.x += n.vx + (n.baseX - n.x) * 0.0008;
+        n.y += n.vy + (n.baseY - n.y) * 0.0008;
+        n.vx *= 0.99;
+        n.vy *= 0.99;
+
+        if (n.x < 10 || n.x > canvas.width - 10) { n.vx *= -0.5; }
+        if (n.y < 10 || n.y > canvas.height - 10) { n.vy *= -0.5; }
 
         if (n.firing) {
-          n.fireTimer += 0.02;
-          if (n.fireTimer > 0.8) {
+          n.fireTimer += 0.025;
+          if (n.fireTimer > 1) {
             n.firing = false;
             n.fireTimer = 0;
           }
@@ -158,15 +172,15 @@ export default function ParticleBackground() {
           const dx = n.x - target.x;
           const dy = n.y - target.y;
           const dist = Math.hypot(dx, dy);
-          const alpha = 0.035 * (1 - dist / 220);
+          if (dist > DRAW_DIST) continue;
 
-          if (alpha < 0.008) continue;
+          const alpha = 0.06 * (1 - dist / DRAW_DIST);
 
           ctx.beginPath();
           ctx.moveTo(n.x, n.y);
           ctx.lineTo(target.x, target.y);
           ctx.strokeStyle = `rgba(229, 9, 20, ${alpha})`;
-          ctx.lineWidth = 0.3 + alpha * 2;
+          ctx.lineWidth = 0.5 + alpha * 3;
           ctx.stroke();
         }
       }
@@ -190,52 +204,50 @@ export default function ParticleBackground() {
         const b = Math.sin(s.progress * Math.PI);
 
         ctx.beginPath();
-        ctx.arc(x, y, 1 + b * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(229, 9, 20, ${b * 0.65})`;
+        ctx.arc(x, y, 0.8 + b * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(229, 9, 20, ${b * 0.8})`;
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(x, y, 0.5 + b * 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${b * 0.35})`;
+        ctx.arc(x, y, 0.4 + b * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${b * 0.4})`;
         ctx.fill();
       }
 
       // Draw nodes
       for (const n of nodes) {
-        const firing = n.firing;
-        const fp = firing ? Math.sin(n.fireTimer * Math.PI) : 0;
-        const idle = Math.sin(time * 0.3 + n.phase) * 0.15 + 0.85;
+        const fp = n.firing ? Math.sin(n.fireTimer * Math.PI) : 0;
+        const idle = Math.sin(time * 0.4 + n.phase) * 0.15 + 0.85;
 
-        const alpha = firing ? 0.1 + fp * 0.4 : 0.04 * idle;
-        const r = firing ? n.radius + fp * 4 : n.radius * idle;
+        const alpha = n.firing ? 0.2 + fp * 0.5 : 0.06 * idle;
+        const r = n.firing ? n.radius + fp * 5 : n.radius * idle;
 
-        // Outer glow (firing only)
-        if (firing) {
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, r + 6, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(229, 9, 20, ${fp * 0.08})`;
-          ctx.fill();
-        }
+        // Glow
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r + 4, 0, Math.PI * 2);
+        ctx.fillStyle = n.firing
+          ? `rgba(229, 9, 20, ${fp * 0.1})`
+          : `rgba(229, 9, 20, 0.01)`;
+        ctx.fill();
 
         // Body
         ctx.beginPath();
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-        ctx.fillStyle = firing
-          ? `rgba(255, 255, 255, ${0.25 + fp * 0.5})`
+        ctx.fillStyle = n.firing
+          ? `rgba(255, 255, 255, ${0.3 + fp * 0.6})`
           : `rgba(229, 9, 20, ${alpha})`;
         ctx.fill();
 
         // Core
         ctx.beginPath();
-        ctx.arc(n.x, n.y, r * 0.35, 0, Math.PI * 2);
-        ctx.fillStyle = firing
-          ? `rgba(255, 255, 255, ${0.4 + fp * 0.5})`
-          : `rgba(229, 9, 20, ${0.08 * idle})`;
+        ctx.arc(n.x, n.y, r * 0.3, 0, Math.PI * 2);
+        ctx.fillStyle = n.firing
+          ? `rgba(255, 255, 255, ${0.5 + fp * 0.5})`
+          : `rgba(229, 9, 20, ${0.1 * idle})`;
         ctx.fill();
       }
 
-      // Clean spikes
-      if (spikes.length > 100) spikes = spikes.slice(-80);
+      if (spikes.length > 120) spikes = spikes.slice(-80);
 
       animationId = requestAnimationFrame(draw);
     }
