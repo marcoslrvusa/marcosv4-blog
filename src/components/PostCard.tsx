@@ -14,7 +14,7 @@ export default function PostCard({ post, locale = "pt", index = 0 }: { post: Pos
 
   return (
     <Link href={`${prefix}/posts/${post.slug}`} className="group block">
-      <article className="premium-card rounded-xl overflow-hidden h-full flex flex-col">
+      <article className="card overflow-hidden h-full flex flex-col">
         {post.coverImage?.url && (
           <div className="relative aspect-[16/9] overflow-hidden bg-card/80">
             <img

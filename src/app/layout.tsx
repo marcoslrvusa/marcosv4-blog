@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -17,12 +17,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcosv4.cloud"),
   icons: { shortcut: "/favicon.ico" },
@@ -36,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <link

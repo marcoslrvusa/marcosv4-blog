@@ -1,5 +1,4 @@
 import { OpenAIIcon, AnthropicIcon, GoogleAIcon, MetaAIcon, MistralIcon, CohereIcon } from "./LLMIcons"
-import { Sparkles } from "lucide-react"
 
 function DeepSeekTextIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -21,27 +20,20 @@ function PerplexityIcon({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 const logos = [
-  { name: "OpenAI", icon: OpenAIIcon, href: "https://openai.com", color: "text-emerald-400" },
-  { name: "Anthropic", icon: AnthropicIcon, href: "https://anthropic.com", color: "text-orange-400" },
-  { name: "Google AI", icon: GoogleAIcon, href: "https://ai.google", color: "text-blue-400" },
-  { name: "Meta AI", icon: MetaAIcon, href: "https://ai.meta.com", color: "text-sky-400" },
-  { name: "Mistral", icon: MistralIcon, href: "https://mistral.ai", color: "text-purple-400" },
-  { name: "Cohere", icon: CohereIcon, href: "https://cohere.com", color: "text-rose-400" },
-  { name: "DeepSeek", icon: DeepSeekTextIcon, href: "https://deepseek.com", color: "text-cyan-400" },
-  { name: "Perplexity", icon: PerplexityIcon, href: "https://perplexity.ai", color: "text-violet-400" },
+  { name: "OpenAI", icon: OpenAIIcon, href: "https://openai.com" },
+  { name: "Anthropic", icon: AnthropicIcon, href: "https://anthropic.com" },
+  { name: "Google AI", icon: GoogleAIcon, href: "https://ai.google" },
+  { name: "Meta AI", icon: MetaAIcon, href: "https://ai.meta.com" },
+  { name: "Mistral", icon: MistralIcon, href: "https://mistral.ai" },
+  { name: "Cohere", icon: CohereIcon, href: "https://cohere.com" },
+  { name: "DeepSeek", icon: DeepSeekTextIcon, href: "https://deepseek.com" },
+  { name: "Perplexity", icon: PerplexityIcon, href: "https://perplexity.ai" },
 ]
 
 export default function LLMLogosBar() {
   return (
-    <section className="border-b border-border/30 bg-card/20">
+    <section className="border-b border-border bg-card/20">
       <div className="mx-auto max-w-6xl px-6 py-6">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-v4-red" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60 font-medium">
-            Principais Modelos de IA do Mercado
-          </span>
-          <Sparkles className="w-3.5 h-3.5 text-v4-red" />
-        </div>
         <div className="overflow-hidden">
           <div className="flex items-center gap-12 marquee-track">
             {[...logos, ...logos].map((logo, i) => {
@@ -54,10 +46,10 @@ export default function LLMLogosBar() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 shrink-0 group"
                 >
-                  <span className={`${logo.color} transition-all duration-300 group-hover:scale-110`}>
+                  <span className="text-muted-foreground/60 group-hover:text-foreground transition-colors">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <span className="text-xs font-medium text-muted-foreground/70 group-hover:text-foreground transition-colors whitespace-nowrap">
+                  <span className="text-xs text-muted-foreground/50 group-hover:text-foreground transition-colors whitespace-nowrap">
                     {logo.name}
                   </span>
                 </a>

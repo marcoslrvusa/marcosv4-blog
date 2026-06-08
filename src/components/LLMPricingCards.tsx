@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import {
   OpenAIIcon, AnthropicIcon, GoogleAIcon, DeepSeekIcon,
@@ -15,217 +15,181 @@ const modelsData = [
     name: "MiniMax-M3",
     provider: "MiniMax AI",
     slug: "minimax-m3",
-    context: "1049K", maxOutput: "131K",
+    context: "1049K",
     input: "0.30", output: "1.20",
-    icon: MiniMaxIcon, color: "text-purple-400",
+    icon: MiniMaxIcon, bestValue: true,
   },
   {
     name: "DeepSeek-V4-Pro",
     provider: "DeepSeek",
     slug: "deepseek-v4-pro",
-    context: "1049K", maxOutput: "393K",
+    context: "1049K",
     input: "1.60", output: "3.48",
-    icon: DeepSeekIcon, color: "text-cyan-400",
+    icon: DeepSeekIcon,
   },
   {
     name: "Nex-N2-Pro",
     provider: "Nex AGI",
     slug: "nex-n2-pro",
-    context: "262K", maxOutput: "256K",
+    context: "262K",
     input: "0.00", output: "0.00",
-    icon: NexAGIIcon, color: "text-emerald-400",
+    icon: NexAGIIcon,
   },
   {
     name: "DeepSeek-V4-Flash",
     provider: "DeepSeek",
     slug: "deepseek-v4-flash",
-    context: "1049K", maxOutput: "393K",
+    context: "1049K",
     input: "0.13", output: "0.28",
-    icon: DeepSeekIcon, color: "text-cyan-400",
+    icon: DeepSeekIcon,
   },
   {
     name: "Kimi K2.6",
     provider: "Moonshot AI",
     slug: "kimi-k2-6",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.77", output: "4.00",
-    icon: MoonshotIcon, color: "text-amber-400",
+    icon: MoonshotIcon,
   },
   {
     name: "Hy3-preview",
     provider: "Tencent",
     slug: "hy3-preview",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.066", output: "0.26",
-    icon: TencentIcon, color: "text-blue-300",
+    icon: TencentIcon,
   },
   {
     name: "GLM-5.1",
     provider: "Z.ai",
     slug: "glm-5-1",
-    context: "205K", maxOutput: "131K",
+    context: "205K",
     input: "1.40", output: "4.40",
-    icon: ZaiIcon, color: "text-violet-400",
+    icon: ZaiIcon,
   },
   {
     name: "Qwen3.6-35B-A3B",
     provider: "Qwen",
     slug: "qwen3-6-35b-a3b",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.20", output: "1.60",
-    icon: QwenIcon, color: "text-rose-400",
+    icon: QwenIcon,
   },
   {
     name: "Qwen3.6-27B",
     provider: "Qwen",
     slug: "qwen3-6-27b",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.30", output: "3.20",
-    icon: QwenIcon, color: "text-rose-400",
+    icon: QwenIcon,
   },
   {
     name: "GLM-5V-Turbo",
     provider: "Z.ai",
     slug: "glm-5v-turbo",
-    context: "205K", maxOutput: "131K",
+    context: "205K",
     input: "1.20", output: "4.00",
-    icon: ZaiIcon, color: "text-violet-400",
+    icon: ZaiIcon,
   },
   {
     name: "Qwen3.5-397B-A17B",
     provider: "Qwen",
     slug: "qwen3-5-397b-a17b",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.39", output: "2.34",
-    icon: QwenIcon, color: "text-rose-400",
+    icon: QwenIcon,
   },
   {
     name: "Qwen3.5-122B-A10B",
     provider: "Qwen",
     slug: "qwen3-5-122b-a10b",
-    context: "262K", maxOutput: "262K",
+    context: "262K",
     input: "0.26", output: "2.08",
-    icon: QwenIcon, color: "text-rose-400",
+    icon: QwenIcon,
   },
 ]
 
-const dict = {
-  pt: {
-    tag: "Inferência de Alta Velocidade",
-    title: "para Texto, Imagem, Vídeo e Além",
-    desc: "Uma API para todos os modelos LLM e multimodais — open source e comerciais.",
-    contextLabel: "Contexto", perMillion: "/ M tokens",
-    cta: "Ver todos os modelos no SiliconFlow",
-    detail: "Detalhes",
-  },
-  en: {
-    tag: "High-Speed Inference",
-    title: "for Text, Image, Video, and Beyond",
-    desc: "One API for all open and commercial LLMs & multimodal models.",
-    contextLabel: "Context", perMillion: "/ M tokens",
-    cta: "View all models on SiliconFlow",
-    detail: "Details",
-  },
-  es: {
-    tag: "Inferencia de Alta Velocidad",
-    title: "para Texto, Imagen, Video y Más",
-    desc: "Una API para todos los modelos LLM y multimodales — open source y comerciales.",
-    contextLabel: "Contexto", perMillion: "/ M tokens",
-    cta: "Ver todos los modelos en SiliconFlow",
-    detail: "Detalles",
-  },
-}
-
-function ModelCard({ model, locale, t }: { model: typeof modelsData[0]; locale: string; t: typeof dict.pt }) {
+function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: string }) {
   const Icon = model.icon
   const prefix = locale === "pt" ? "" : `/${locale}`
-  const content = (
-    <>
-      <div className="flex items-center gap-2.5 mb-3">
-        <span className={model.color}>
-          <Icon className="h-5 w-5" />
-        </span>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-xs font-semibold text-foreground leading-tight truncate">{model.name}</h3>
-          <p className="text-[9px] font-mono text-muted-foreground/50 truncate">{model.provider}</p>
-        </div>
-        <span className="shrink-0 text-[8px] font-mono text-muted-foreground/40 group-hover:text-v4-red transition-colors">
-          {t.detail} →
-        </span>
-      </div>
-      <div className="grid grid-cols-3 gap-1.5 mb-2">
-        <div className="text-center py-1 rounded-lg bg-card/60 border border-border/20">
-          <p className="text-[8px] font-mono text-muted-foreground/50 uppercase tracking-wider">{t.contextLabel}</p>
-          <p className="text-[11px] font-semibold text-foreground">{model.context}</p>
-        </div>
-        <div className="text-center py-1 rounded-lg bg-card/60 border border-border/20">
-          <p className="text-[8px] font-mono text-muted-foreground/50 uppercase tracking-wider">Input</p>
-          <p className="text-[11px] font-semibold text-v4-red">${model.input}</p>
-        </div>
-        <div className="text-center py-1 rounded-lg bg-card/60 border border-border/20">
-          <p className="text-[8px] font-mono text-muted-foreground/50 uppercase tracking-wider">Output</p>
-          <p className="text-[11px] font-semibold text-accent-gold">${model.output}</p>
-        </div>
-      </div>
-      <div className="border-t border-border/20 pt-1.5 flex items-center justify-between">
-        <span className="text-[8px] font-mono text-muted-foreground/40">{t.perMillion}</span>
-        <span className="text-[8px] font-mono text-muted-foreground/40">max {model.maxOutput}</span>
-      </div>
-    </>
-  )
-
-  if (model.slug) {
-    return (
-      <Link
-        href={`${prefix}/models/${model.slug}`}
-        className="group rounded-lg border border-border/40 bg-card/40 p-3 transition-all duration-300 hover:border-v4-red/20 hover:bg-card/60 hover:shadow-[0_0_20px_-8px_rgba(229,9,20,0.1)] block"
-      >
-        {content}
-      </Link>
-    )
-  }
 
   return (
-    <div className="rounded-lg border border-border/40 bg-card/40 p-3">
-      {content}
-    </div>
+    <Link
+      href={`${prefix}/models/${model.slug}`}
+      className={`card block p-4 group ${model.bestValue ? "border-accent/30" : ""}`}
+    >
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-muted-foreground/70 group-hover:text-foreground transition-colors">
+          <Icon className="h-4 w-4" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5">
+            <h3 className="text-sm font-semibold text-foreground leading-tight truncate">{model.name}</h3>
+            {model.bestValue && (
+              <span className="text-[10px] font-medium text-accent px-1.5 py-0.5 rounded-full border border-accent/20 bg-accent-subtle leading-none">
+                best value
+              </span>
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground truncate">{model.provider}</p>
+        </div>
+        <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/30 group-hover:text-foreground transition-colors shrink-0" />
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-2">
+        <div className="text-center py-1.5 rounded-lg bg-card-hover/50 border border-border">
+          <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">Context</p>
+          <p className="text-xs font-semibold text-foreground">{model.context}</p>
+        </div>
+        <div className="text-center py-1.5 rounded-lg bg-card-hover/50 border border-border">
+          <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">Input</p>
+          <p className="text-xs font-semibold text-foreground">${model.input}</p>
+        </div>
+        <div className="text-center py-1.5 rounded-lg bg-card-hover/50 border border-border">
+          <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">Output</p>
+          <p className="text-xs font-semibold text-foreground">${model.output}</p>
+        </div>
+      </div>
+
+      <div className="pt-2 border-t border-border flex items-center justify-between">
+        <span className="text-[10px] text-muted-foreground/40">/ M tokens</span>
+        <span className="text-[10px] text-muted-foreground/50 group-hover:text-accent transition-colors inline-flex items-center gap-0.5">
+          Ver detalhes <ArrowUpRight className="h-3 w-3" />
+        </span>
+      </div>
+    </Link>
   )
 }
 
 export default function LLMPricingCards({ locale }: LLMPricingCardsProps) {
-  const t = dict[locale as keyof typeof dict] || dict.pt
-
   return (
     <section className="mx-auto max-w-6xl px-6 mb-16 animate-fade-in">
-      <div className="text-center mb-10">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-[11px] font-mono tracking-wider uppercase text-v4-red border border-v4-red/20 rounded-full">
-          <span className="w-1.5 h-1.5 rounded-full bg-v4-red animate-pulse" />
-          {t.tag}
-        </span>
-        <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-3 leading-tight">
-          {t.title}
+      <div className="text-center mb-8">
+        <span className="text-xs text-muted-foreground uppercase tracking-wider mb-2 inline-block">LLM Inference</span>
+        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 leading-tight">
+          Models I build infrastructure around
         </h2>
-        <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-          {t.desc}
+        <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+          Each model below runs in production at scale. The value isn't the API call — it's the system built around it.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
         {modelsData.map((model, i) => (
-          <ModelCard key={i} model={model} locale={locale} t={t} />
+          <ModelCard key={i} model={model} locale={locale} />
         ))}
       </div>
 
       <div className="mt-8 text-center">
-        <Link
+        <a
           href="https://www.siliconflow.com/models"
           target="_blank"
           rel="noopener"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground/60 hover:text-v4-red transition-colors"
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-foreground transition-colors"
         >
-          {t.cta}
-          <ExternalLink className="h-3 w-3" />
-        </Link>
+          Todos os modelos no SiliconFlow
+          <ArrowUpRight className="h-3 w-3" />
+        </a>
       </div>
     </section>
   )

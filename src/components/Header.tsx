@@ -49,16 +49,13 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
-        ? "border-b border-border bg-background/80 backdrop-blur-xl shadow-lg shadow-black/10"
+        ? "border-b border-border bg-background/80 backdrop-blur-xl"
         : "bg-background/40 backdrop-blur-sm"
     }`}>
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <I18nLink href="/" className="flex items-center gap-1.5 group shrink-0">
-          <span className="font-mono text-base font-bold tracking-tight text-foreground group-hover:text-v4-red transition-colors">
-            AI<span className="text-v4-red">:</span>First
-          </span>
-          <span className="hidden sm:inline font-mono text-[9px] text-muted-foreground/50 tracking-widest uppercase ml-1.5">
-            by Marcos Luciano
+          <span className="font-mono text-base font-bold tracking-tight text-foreground">
+            AI<span className="text-accent">:</span>First
           </span>
         </I18nLink>
 
@@ -68,8 +65,8 @@ export default function Header() {
             href="/"
             className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
               pathname === "/" || (pathname !== "/about" && pathname !== "/consulting" && !pathname.startsWith("/topic"))
-                ? "text-v4-red bg-v4-red/5"
-                : "text-muted-foreground hover:text-v4-red hover:bg-v4-red/5"
+                ? "text-accent bg-accent-subtle"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {t("home")}
@@ -78,8 +75,8 @@ export default function Header() {
             href="/about"
             className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
               pathname === "/about"
-                ? "text-v4-red bg-v4-red/5"
-                : "text-muted-foreground hover:text-v4-red hover:bg-v4-red/5"
+                ? "text-accent bg-accent-subtle"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {t("about")}
@@ -89,8 +86,8 @@ export default function Header() {
               onClick={() => setTopicsOpen(!topicsOpen)}
               className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${
                 pathname.startsWith("/topic")
-                  ? "text-v4-red bg-v4-red/5"
-                  : "text-muted-foreground hover:text-v4-red hover:bg-v4-red/5"
+                  ? "text-accent bg-accent-subtle"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Tópicos
@@ -99,18 +96,18 @@ export default function Header() {
               </svg>
             </button>
             {topicsOpen && (
-              <div className="absolute left-0 top-10 min-w-[200px] rounded-xl border border-border bg-card p-1.5 shadow-2xl shadow-black/40 z-50">
-                <NextLink href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Brain className="w-4 h-4 text-v4-red" /> {t("topics.ia")}
+              <div className="absolute left-0 top-10 min-w-[200px] rounded-xl border border-border bg-card p-1.5 shadow-2xl z-50">
+                <NextLink href="/topic/ia" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Brain className="w-4 h-4 text-muted-foreground" /> {t("topics.ia")}
                 </NextLink>
-                <NextLink href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <TrendingUp className="w-4 h-4 text-v4-red" /> {t("topics.mercado")}
+                <NextLink href="/topic/mercado" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <TrendingUp className="w-4 h-4 text-muted-foreground" /> {t("topics.mercado")}
                 </NextLink>
-                <NextLink href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Layers className="w-4 h-4 text-v4-red" /> {t("topics.aiSearch")}
+                <NextLink href="/topic/ai-search" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Layers className="w-4 h-4 text-muted-foreground" /> {t("topics.aiSearch")}
                 </NextLink>
-                <NextLink href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-                  <Briefcase className="w-4 h-4 text-v4-red" /> {t("topics.arquitetura")}
+                <NextLink href="/topic/arquitetura" onClick={() => setTopicsOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Briefcase className="w-4 h-4 text-muted-foreground" /> {t("topics.arquitetura")}
                 </NextLink>
               </div>
             )}
@@ -119,8 +116,8 @@ export default function Header() {
             href="/consulting"
             className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
               pathname === "/consulting"
-                ? "text-v4-red bg-v4-red/5"
-                : "text-muted-foreground hover:text-v4-red hover:bg-v4-red/5"
+                ? "text-accent bg-accent-subtle"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {tConsulting("nav")}
@@ -134,20 +131,19 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:border-v4-red/30 hover:text-v4-red"
+              className="flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 font-mono text-xs text-muted-foreground transition-colors hover:border-[#3a3a52] hover:text-foreground"
             >
               <Globe className="h-3 w-3" />
-              <span className="hidden sm:inline">{locale.toUpperCase()}</span>
-              <span className="sm:hidden">{locale.toUpperCase()}</span>
+              <span>{locale.toUpperCase()}</span>
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-10 min-w-[70px] rounded-lg border border-border bg-card p-1 shadow-xl z-50">
+              <div className="absolute right-0 top-10 min-w-[70px] rounded-lg border border-border bg-card p-1 z-50">
                 {locales.map((l) => (
                   <button
                     key={l.code}
                     onClick={() => switchLocale(l.code)}
-                    className={`block w-full rounded-md px-3 py-1.5 text-left font-mono text-xs transition-colors hover:bg-v4-red/10 ${
-                      l.code === locale ? "text-v4-red" : "text-muted-foreground"
+                    className={`block w-full rounded-md px-3 py-1.5 text-left font-mono text-xs transition-colors hover:bg-accent-subtle ${
+                      l.code === locale ? "text-accent" : "text-muted-foreground"
                     }`}
                   >
                     {l.label}
@@ -162,24 +158,16 @@ export default function Header() {
             href="https://linkedin.com/in/marcoslrvieira"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground transition-colors hover:text-v4-red hover:bg-v4-red/5"
+            className="hidden sm:flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground transition-colors hover:text-foreground"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>
 
-          {/* CTA Button */}
-          <I18nLink
-            href="/consulting"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-v4-red px-4 py-1.5 text-xs font-semibold text-background transition-all hover:bg-v4-red/90 hover:shadow-lg hover:shadow-v4-red/20"
-          >
-            {tConsulting("hero.cta")}
-          </I18nLink>
-
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors"
+            className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Menu"
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -191,27 +179,27 @@ export default function Header() {
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
-            <I18nLink href="/" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+            <I18nLink href="/" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t("home")}
             </I18nLink>
-            <I18nLink href="/about" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
+            <I18nLink href="/about" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t("about")}
             </I18nLink>
             <div className="border-t border-border/50 my-1" />
-            <NextLink href="/topic/ia" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-              <Brain className="w-4 h-4 text-v4-red" /> {t("topics.ia")}
+            <NextLink href="/topic/ia" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Brain className="w-4 h-4 text-muted-foreground" /> {t("topics.ia")}
             </NextLink>
-            <NextLink href="/topic/mercado" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-              <TrendingUp className="w-4 h-4 text-v4-red" /> {t("topics.mercado")}
+            <NextLink href="/topic/mercado" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <TrendingUp className="w-4 h-4 text-muted-foreground" /> {t("topics.mercado")}
             </NextLink>
-            <NextLink href="/topic/ai-search" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-              <Layers className="w-4 h-4 text-v4-red" /> {t("topics.aiSearch")}
+            <NextLink href="/topic/ai-search" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Layers className="w-4 h-4 text-muted-foreground" /> {t("topics.aiSearch")}
             </NextLink>
-            <NextLink href="/topic/arquitetura" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors">
-              <Briefcase className="w-4 h-4 text-v4-red" /> {t("topics.arquitetura")}
+            <NextLink href="/topic/arquitetura" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Briefcase className="w-4 h-4 text-muted-foreground" /> {t("topics.arquitetura")}
             </NextLink>
             <div className="border-t border-border/50 my-1" />
-            <I18nLink href="/consulting" onClick={() => setMobileOpen(false)} className="flex items-center justify-between rounded-lg bg-v4-red/10 px-3 py-2.5 text-sm font-semibold text-v4-red transition-colors">
+            <I18nLink href="/consulting" onClick={() => setMobileOpen(false)} className="flex items-center justify-between rounded-lg border border-border px-3 py-2.5 text-sm font-medium text-foreground transition-colors">
               {tConsulting("nav")}
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -222,7 +210,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-v4-red hover:bg-v4-red/5 transition-colors"
+              className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <LinkedInIcon className="h-4 w-4" />
               LinkedIn
