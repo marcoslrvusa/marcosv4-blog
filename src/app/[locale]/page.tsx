@@ -56,23 +56,65 @@ export default async function Home({
       <section className="hero-ambient border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-5">
               <Image
                 src="/profile.png"
                 alt="Marcos Luciano"
-                width={32}
-                height={32}
-                className="rounded-full ring-1.5 ring-border object-cover shrink-0"
+                width={56}
+                height={56}
+                className="rounded-full ring-2 ring-border object-cover shrink-0"
               />
-              <span className="led-dot" />
-              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Marcos Luciano
-              </span>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="led-dot" />
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    Marcos Luciano
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground/60">Infrastructure Engineer</p>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-foreground">
-              {t("hero.title")}
-            </h1>
+            <div className="flex items-start gap-4">
+              <svg className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 mt-1 animate-float" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <defs>
+                  <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#e50914" stopOpacity="0.15" />
+                    <stop offset="100%" stopColor="#e50914" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="48" fill="url(#brainGlow)" />
+                <path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 29-2 5-5 10-9 14l4 3c5-4 9-9 12-14 5 2 11 3 16 3s11-1 16-3c3 5 7 10 12 14l4-3c-4-4-7-9-9-14 9-7 15-17 15-29 0-21-17-38-38-38z" className="fill-current text-accent/10" />
+                <path d="M50 12C31 12 16 27 16 46c0 11 5 20 12 26" className="stroke-current text-accent/30" strokeWidth="1.5" strokeLinecap="round" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="0" to="200" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-dasharray" values="0 200;30 170;30 170;0 200" dur="3s" repeatCount="indefinite" />
+                </path>
+                <path d="M50 12c19 0 34 15 34 34 0 11-5 20-12 26" className="stroke-current text-accent/30" strokeWidth="1.5" strokeLinecap="round" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="200" to="0" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-dasharray" values="0 200;30 170;30 170;0 200" dur="3s" repeatCount="indefinite" />
+                </path>
+                <path d="M35 35l5-8M65 35l-5-8M35 55l5 8M65 55l-5-8" className="stroke-current text-accent/20" strokeWidth="1" strokeLinecap="round" />
+                <circle cx="50" cy="40" r="12" className="fill-current text-accent/8" />
+                <path d="M42 35l8 10 8-10" className="stroke-current text-accent/40" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+                  <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
+                </path>
+                <circle cx="35" cy="35" r="2" className="fill-current text-accent/30">
+                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="65" cy="35" r="2" className="fill-current text-accent/30">
+                  <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="35" cy="55" r="2" className="fill-current text-accent/30">
+                  <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="65" cy="55" r="2" className="fill-current text-accent/30">
+                  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-foreground">
+                {t("hero.title")}
+              </h1>
+            </div>
 
             <p className="mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-muted">
               {t("hero.description")}

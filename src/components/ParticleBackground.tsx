@@ -2,27 +2,21 @@
 
 import { useEffect, useRef } from "react";
 
-interface LayerNeuron {
+interface GraphNode {
   x: number;
   y: number;
-  layer: number;
-  index: number;
-  baseY: number;
+  vx: number;
+  vy: number;
+  radius: number;
   phase: number;
   firing: boolean;
   fireTimer: number;
-}
-
-interface Synapse {
-  fromLayer: number;
-  fromIndex: number;
-  toLayer: number;
-  toIndex: number;
+  connections: number[];
 }
 
 interface Spike {
-  from: { x: number; y: number };
-  to: { x: number; y: number };
+  from: number;
+  to: number;
   progress: number;
   speed: number;
 }
@@ -38,12 +32,8 @@ export default function ParticleBackground() {
     if (!ctx) return;
 
     let animationId: number;
-    let neurons: LayerNeuron[] = [];
-    let synapses: Synapse[] = [];
+    let nodes: GraphNode[] = [];
     let spikes: Spike[] = [];
-
-    const LAYER_SIZES = [4, 7, 9, 7, 4];
-    const NEURON_RADIUS = 2.5;
 
     function resize() {
       if (!canvas) return;
@@ -51,93 +41,83 @@ export default function ParticleBackground() {
       canvas.height = window.innerHeight;
     }
 
-    function buildNetwork() {
+    function buildGraph() {
       if (!canvas) return;
-      neurons = [];
-      synapses = [];
+      nodes = [];
+      spikes = [];
 
-      const totalLayers = LAYER_SIZES.length;
-      const margin = canvas.width * 0.08;
-      const layerSpacing = (canvas.width - margin * 2) / (totalLayers - 1);
-      const centerY = canvas.height * 0.5;
-      const spread = canvas.height * 0.22;
+      const count = 70;
+      const w = canvas.width;
+      const h = canvas.height;
 
-      for (let l = 0; l < totalLayers; l++) {
-        const count = LAYER_SIZES[l];
-        const layerX = margin + l * layerSpacing;
-        const verticalSpread = spread * (0.6 + (count / 9) * 0.4);
-        const startY = centerY - (verticalSpread * (count - 1)) / 2;
+      // Generate nodes with Poisson-disc-like distribution
+      for (let i = 0; i < count; i++) {
+        let x: number, y: number;
+        let attempts = 0;
+        do {
+          x = w * 0.03 + Math.random() * w * 0.94;
+          y = h * 0.05 + Math.random() * h * 0.90;
+          attempts++;
+        } while (
+          attempts < 50 &&
+          nodes.some(
+            (n) => Math.hypot(n.x - x, n.y - y) < 50
+          )
+        );
 
-        for (let i = 0; i < count; i++) {
-          neurons.push({
-            x: layerX + (Math.random() - 0.5) * 6,
-            y: startY + i * verticalSpread + (Math.random() - 0.5) * 4,
-            layer: l,
-            index: i,
-            baseY: startY + i * verticalSpread,
-            phase: Math.random() * Math.PI * 2,
-            firing: false,
-            fireTimer: 0,
-          });
-        }
+        nodes.push({
+          x,
+          y,
+          vx: (Math.random() - 0.5) * 0.08,
+          vy: (Math.random() - 0.5) * 0.08,
+          radius: 1.5 + Math.random() * 2.5,
+          phase: Math.random() * Math.PI * 2,
+          firing: false,
+          fireTimer: 0,
+          connections: [],
+        });
       }
 
-      // Build synapses: connect each neuron to ~60% of the next layer
-      for (let l = 0; l < totalLayers - 1; l++) {
-        const currentLayer = neurons.filter((n) => n.layer === l);
-        const nextLayer = neurons.filter((n) => n.layer === l + 1);
-
-        for (const from of currentLayer) {
-          for (const to of nextLayer) {
-            if (Math.random() < 0.55) {
-              synapses.push({
-                fromLayer: l,
-                fromIndex: from.index,
-                toLayer: l + 1,
-                toIndex: to.index,
-              });
-            }
+      // Connect nodes within distance
+      for (let i = 0; i < nodes.length; i++) {
+        const neighbors: number[] = [];
+        for (let j = 0; j < nodes.length; j++) {
+          if (i === j) continue;
+          const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+          if (dist < 180 && dist > 20) {
+            neighbors.push(j);
           }
         }
+        // Keep 2-5 connections
+        const shuffled = neighbors.sort(() => Math.random() - 0.5);
+        nodes[i].connections = shuffled.slice(0, 2 + Math.floor(Math.random() * 4));
       }
     }
 
-    function triggerRandomFire() {
-      const inputNeurons = neurons.filter((n) => n.layer === 0);
-      if (inputNeurons.length === 0) return;
-
-      const count = 1 + Math.floor(Math.random() * 2);
-      for (let c = 0; c < count; c++) {
-        const idx = Math.floor(Math.random() * inputNeurons.length);
-        inputNeurons[idx].firing = true;
-        inputNeurons[idx].fireTimer = 0;
-      }
+    function triggerFire() {
+      const idx = Math.floor(Math.random() * nodes.length);
+      nodes[idx].firing = true;
+      nodes[idx].fireTimer = 0;
     }
 
-    function propagateFiring() {
-      for (let l = 0; l < LAYER_SIZES.length - 1; l++) {
-        const layerNeurons = neurons.filter((n) => n.layer === l && n.firing);
-        const nextLayer = neurons.filter((n) => n.layer === l + 1);
+    function propagate() {
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        if (!n.firing) continue;
 
-        for (const from of layerNeurons) {
-          const conns = synapses.filter(
-            (s) => s.fromLayer === l && s.fromIndex === from.index
-          );
-          for (const conn of conns) {
-            const to = nextLayer.find((n) => n.index === conn.toIndex);
-            if (!to) continue;
+        for (const connIdx of n.connections) {
+          if (!nodes[connIdx]) continue;
 
-            spikes.push({
-              from: { x: from.x, y: from.y },
-              to: { x: to.x, y: to.y },
-              progress: 0,
-              speed: 0.015 + Math.random() * 0.025,
-            });
+          spikes.push({
+            from: i,
+            to: connIdx,
+            progress: 0,
+            speed: 0.02 + Math.random() * 0.03,
+          });
 
-            if (Math.random() < 0.3) {
-              to.firing = true;
-              to.fireTimer = 0;
-            }
+          if (Math.random() < 0.2) {
+            nodes[connIdx].firing = true;
+            nodes[connIdx].fireTimer = 0;
           }
         }
       }
@@ -148,134 +128,125 @@ export default function ParticleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const time = Date.now() / 1000;
 
-      // Trigger firing periodically
-      if (Math.random() < 0.02) triggerRandomFire();
+      // Random firing
+      if (Math.random() < 0.015) triggerFire();
+      if (Math.random() < 0.01) triggerFire();
 
-      // Propagate
-      propagateFiring();
+      propagate();
 
-      // Update neuron states
-      for (const n of neurons) {
+      // Update nodes
+      for (const n of nodes) {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 5 || n.x > canvas.width - 5) n.vx *= -1;
+        if (n.y < 5 || n.y > canvas.height - 5) n.vy *= -1;
+
         if (n.firing) {
           n.fireTimer += 0.02;
-          if (n.fireTimer > 1) {
+          if (n.fireTimer > 0.8) {
             n.firing = false;
             n.fireTimer = 0;
           }
         }
-        n.y += (n.baseY - n.y) * 0.005 + Math.sin(time * 0.3 + n.phase) * 0.08;
       }
 
-      // Draw synapses
-      for (const s of synapses) {
-        const from = neurons.find((n) => n.layer === s.fromLayer && n.index === s.fromIndex);
-        const to = neurons.find((n) => n.layer === s.toLayer && n.index === s.toIndex);
-        if (!from || !to) continue;
+      // Draw connections
+      for (const n of nodes) {
+        for (const connIdx of n.connections) {
+          const target = nodes[connIdx];
+          if (!target) continue;
+          const dx = n.x - target.x;
+          const dy = n.y - target.y;
+          const dist = Math.hypot(dx, dy);
+          const alpha = 0.035 * (1 - dist / 220);
 
-        const dx = from.x - to.x;
-        const dy = from.y - to.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const alpha = 0.025 * (1 - Math.min(dist / 300, 1));
+          if (alpha < 0.008) continue;
 
-        if (alpha < 0.005) continue;
-
-        ctx.beginPath();
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
-        ctx.strokeStyle = `rgba(229, 9, 20, ${alpha})`;
-        ctx.lineWidth = 0.4;
-        ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(target.x, target.y);
+          ctx.strokeStyle = `rgba(229, 9, 20, ${alpha})`;
+          ctx.lineWidth = 0.3 + alpha * 2;
+          ctx.stroke();
+        }
       }
 
       // Draw spikes
       for (let i = spikes.length - 1; i >= 0; i--) {
-        const spike = spikes[i];
-        spike.progress += spike.speed;
+        const s = spikes[i];
+        s.progress += s.speed;
 
-        if (spike.progress >= 1) {
+        if (s.progress >= 1) {
           spikes.splice(i, 1);
           continue;
         }
 
-        const x = spike.from.x + (spike.to.x - spike.from.x) * spike.progress;
-        const y = spike.from.y + (spike.to.y - spike.from.y) * spike.progress;
-        const brightness = Math.sin(spike.progress * Math.PI);
+        const from = nodes[s.from];
+        const to = nodes[s.to];
+        if (!from || !to) { spikes.splice(i, 1); continue; }
+
+        const x = from.x + (to.x - from.x) * s.progress;
+        const y = from.y + (to.y - from.y) * s.progress;
+        const b = Math.sin(s.progress * Math.PI);
 
         ctx.beginPath();
-        ctx.arc(x, y, 1 + brightness * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(229, 9, 20, ${brightness * 0.6})`;
+        ctx.arc(x, y, 1 + b * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(229, 9, 20, ${b * 0.65})`;
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(x, y, 0.6 + brightness * 1.2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${brightness * 0.3})`;
+        ctx.arc(x, y, 0.5 + b * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${b * 0.35})`;
         ctx.fill();
       }
 
-      // Draw neurons
-      for (const n of neurons) {
-        const isFiring = n.firing;
-        const firePhase = isFiring ? Math.sin(n.fireTimer * Math.PI) : 0;
-        const idlePulse = Math.sin(time * 0.5 + n.phase) * 0.15 + 0.85;
+      // Draw nodes
+      for (const n of nodes) {
+        const firing = n.firing;
+        const fp = firing ? Math.sin(n.fireTimer * Math.PI) : 0;
+        const idle = Math.sin(time * 0.3 + n.phase) * 0.15 + 0.85;
 
-        const alpha = isFiring
-          ? 0.15 + firePhase * 0.35
-          : 0.06 * idlePulse;
-        const radius = isFiring
-          ? NEURON_RADIUS + firePhase * 3
-          : NEURON_RADIUS * idlePulse;
+        const alpha = firing ? 0.1 + fp * 0.4 : 0.04 * idle;
+        const r = firing ? n.radius + fp * 4 : n.radius * idle;
 
-        // Outer glow
+        // Outer glow (firing only)
+        if (firing) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r + 6, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(229, 9, 20, ${fp * 0.08})`;
+          ctx.fill();
+        }
+
+        // Body
         ctx.beginPath();
-        ctx.arc(n.x, n.y, radius + 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(229, 9, 20, ${alpha * 0.3})`;
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = firing
+          ? `rgba(255, 255, 255, ${0.25 + fp * 0.5})`
+          : `rgba(229, 9, 20, ${alpha})`;
         ctx.fill();
 
         // Core
         ctx.beginPath();
-        ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = isFiring
-          ? `rgba(255, 255, 255, ${0.2 + firePhase * 0.4})`
-          : `rgba(229, 9, 20, ${0.08 * idlePulse})`;
-        ctx.fill();
-
-        // Bright center
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, radius * 0.35, 0, Math.PI * 2);
-        ctx.fillStyle = isFiring
-          ? `rgba(255, 255, 255, ${0.3 + firePhase * 0.5})`
-          : `rgba(229, 9, 20, ${0.12 * idlePulse})`;
+        ctx.arc(n.x, n.y, r * 0.35, 0, Math.PI * 2);
+        ctx.fillStyle = firing
+          ? `rgba(255, 255, 255, ${0.4 + fp * 0.5})`
+          : `rgba(229, 9, 20, ${0.08 * idle})`;
         ctx.fill();
       }
 
-      // Draw layer labels
-      const labels = ["Input", "Hidden 1", "Hidden 2", "Hidden 3", "Output"];
-      const margin = canvas.width * 0.08;
-      const totalLayers = LAYER_SIZES.length;
-      const layerSpacing = (canvas.width - margin * 2) / (totalLayers - 1);
-
-      ctx.font = "10px system-ui";
-      ctx.textAlign = "center";
-      for (let l = 0; l < totalLayers; l++) {
-        const layerX = margin + l * layerSpacing;
-        const labelAlpha = 0.15 + Math.sin(time * 0.2 + l * 0.5) * 0.05;
-        ctx.fillStyle = `rgba(100, 100, 130, ${labelAlpha})`;
-        ctx.fillText(labels[l], layerX, canvas.height * 0.85);
-      }
-
-      // Clean up
-      if (spikes.length > 80) spikes = spikes.slice(-60);
+      // Clean spikes
+      if (spikes.length > 100) spikes = spikes.slice(-80);
 
       animationId = requestAnimationFrame(draw);
     }
 
     resize();
-    buildNetwork();
+    buildGraph();
     draw();
 
     const handleResize = () => {
       resize();
-      buildNetwork();
+      buildGraph();
     };
 
     window.addEventListener("resize", handleResize);
