@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Link as I18nLink } from "@/i18n/navigation"
 import NewsletterForm from "@/components/NewsletterForm"
+import HostingerBanner from "@/components/HostingerBanner"
 import { ArrowUpRight } from "lucide-react"
 
 export default function Sidebar({
@@ -30,15 +31,30 @@ export default function Sidebar({
         </p>
         <I18nLink
           href="/consulting"
-          className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#3a3a52] hover:text-foreground"
+          className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#3a3a52]"
         >
           <span>Vamos Conversar</span>
           <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" />
         </I18nLink>
       </div>
 
+      {/* Hostinger — sidebar */}
+      <div className="card overflow-hidden">
+        <HostingerBanner variant="sidebar" locale={locale} />
+      </div>
+
       {/* Newsletter */}
       <NewsletterForm locale={locale} />
+
+      {/* AdSense — sidebar */}
+      <div className="card p-4 text-center">
+        <div className="flex items-center justify-center gap-2 mb-1">
+          <span className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-wider">
+            — AdSpace —
+          </span>
+        </div>
+        <p className="text-[10px] text-muted-foreground/30 font-mono">300x250 / 300x600</p>
+      </div>
 
       {/* LinkedIn */}
       <a

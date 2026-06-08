@@ -5,6 +5,7 @@ import {
   MetaAIcon, MistralIcon, MiniMaxIcon, NexAGIIcon, MoonshotIcon,
   TencentIcon, ZaiIcon, QwenIcon,
 } from "./LLMIcons"
+import HostingerBanner from "./HostingerBanner"
 
 interface LLMPricingCardsProps {
   locale: string
@@ -109,7 +110,40 @@ const modelsData = [
   },
 ]
 
-function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: string }) {
+const dict = {
+  pt: {
+    tag: "Inferência LLM",
+    title: "Infraestrutura que domino",
+    desc: "Cada modelo abaixo roda em produção em escala. O valor não está na chamada de API — está no sistema construído ao redor.",
+    contextLabel: "Contexto",
+    detail: "Ver detalhes",
+    perMillion: "/ M tokens",
+    cta: "Todos os modelos no SiliconFlow",
+    bestValue: "melhor custo",
+  },
+  en: {
+    tag: "LLM Inference",
+    title: "Models I build infrastructure around",
+    desc: "Each model below runs in production at scale. The value isn't the API call — it's the system built around it.",
+    contextLabel: "Context",
+    detail: "View details",
+    perMillion: "/ M tokens",
+    cta: "All models on SiliconFlow",
+    bestValue: "best value",
+  },
+  es: {
+    tag: "Inferencia LLM",
+    title: "Infraestructura que domino",
+    desc: "Cada modelo a continuación se ejecuta en producción a escala. El valor no está en la llamada API — está en el sistema construido alrededor.",
+    contextLabel: "Contexto",
+    detail: "Ver detalles",
+    perMillion: "/ M tokens",
+    cta: "Todos los modelos en SiliconFlow",
+    bestValue: "mejor costo",
+  },
+}
+
+function ModelCard({ model, locale, t }: { model: typeof modelsData[0]; locale: string; t: typeof dict.pt }) {
   const Icon = model.icon
   const prefix = locale === "pt" ? "" : `/${locale}`
 
@@ -127,7 +161,7 @@ function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: str
             <h3 className="text-sm font-semibold text-foreground leading-tight truncate">{model.name}</h3>
             {model.bestValue && (
               <span className="text-[10px] font-medium text-accent px-1.5 py-0.5 rounded-full border border-accent/20 bg-accent-subtle leading-none">
-                best value
+                {t.bestValue}
               </span>
             )}
           </div>
@@ -138,7 +172,7 @@ function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: str
 
       <div className="grid grid-cols-3 gap-2 mb-2">
         <div className="text-center py-1.5 rounded-lg bg-card-hover/50 border border-border">
-          <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">Context</p>
+          <p className="text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">{t.contextLabel}</p>
           <p className="text-xs font-semibold text-foreground">{model.context}</p>
         </div>
         <div className="text-center py-1.5 rounded-lg bg-card-hover/50 border border-border">
@@ -152,9 +186,9 @@ function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: str
       </div>
 
       <div className="pt-2 border-t border-border flex items-center justify-between">
-        <span className="text-[10px] text-muted-foreground/40">/ M tokens</span>
+        <span className="text-[10px] text-muted-foreground/40">{t.perMillion}</span>
         <span className="text-[10px] text-muted-foreground/50 group-hover:text-accent transition-colors inline-flex items-center gap-0.5">
-          Ver detalhes <ArrowUpRight className="h-3 w-3" />
+          {t.detail} <ArrowUpRight className="h-3 w-3" />
         </span>
       </div>
     </Link>
@@ -162,22 +196,28 @@ function ModelCard({ model, locale }: { model: typeof modelsData[0]; locale: str
 }
 
 export default function LLMPricingCards({ locale }: LLMPricingCardsProps) {
+  const t = dict[locale as keyof typeof dict] || dict.pt
+
   return (
     <section className="mx-auto max-w-6xl px-6 mb-16 animate-fade-in">
       <div className="text-center mb-8">
-        <span className="text-xs text-muted-foreground uppercase tracking-wider mb-2 inline-block">LLM Inference</span>
+        <span className="text-xs text-muted-foreground uppercase tracking-wider mb-2 inline-block">{t.tag}</span>
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 leading-tight">
-          Models I build infrastructure around
+          {t.title}
         </h2>
         <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-          Each model below runs in production at scale. The value isn't the API call — it's the system built around it.
+          {t.desc}
         </p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
         {modelsData.map((model, i) => (
-          <ModelCard key={i} model={model} locale={locale} />
+          <ModelCard key={i} model={model} locale={locale} t={t} />
         ))}
+      </div>
+
+      <div className="mt-6">
+        <HostingerBanner variant="inline" locale={locale} />
       </div>
 
       <div className="mt-8 text-center">
@@ -187,7 +227,7 @@ export default function LLMPricingCards({ locale }: LLMPricingCardsProps) {
           rel="noopener"
           className="inline-flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-foreground transition-colors"
         >
-          Todos os modelos no SiliconFlow
+          {t.cta}
           <ArrowUpRight className="h-3 w-3" />
         </a>
       </div>

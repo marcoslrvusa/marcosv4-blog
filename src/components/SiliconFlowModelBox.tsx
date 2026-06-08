@@ -14,15 +14,22 @@ const models = [
   { name: "Hy3-preview", provider: "Tencent", slug: "hy3-preview", context: "262K", inputPrice: "$0.066", outputPrice: "$0.26" },
 ]
 
+const dict = {
+  pt: { title: "Infraestrutura que domino", desc: "Não uso apenas modelos. Construo os sistemas que os fazem funcionar em produção.", detail: "Ver detalhes", cta: "Ver todos no SiliconFlow" },
+  en: { title: "Infrastructure I've Mastered", desc: "I don't just use models. I build the systems that make them work in production.", detail: "View details", cta: "View all on SiliconFlow" },
+  es: { title: "Infraestructura que domino", desc: "No solo uso modelos. Construyo los sistemas que los hacen funcionar en producción.", detail: "Ver detalles", cta: "Ver todos en SiliconFlow" },
+}
+
 export default function SiliconFlowModelBox({ locale }: Props) {
+  const t = dict[locale as keyof typeof dict] || dict.pt
   const prefix = locale === "pt" ? "" : `/${locale}`
 
   return (
     <section className="mx-auto max-w-6xl px-6 mb-16 animate-fade-in">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-lg font-bold text-foreground">Infrastructure I've Mastered</h2>
-          <p className="text-sm text-muted-foreground">I don't just use models. I build the systems that make them work in production.</p>
+          <h2 className="text-lg font-bold text-foreground">{t.title}</h2>
+          <p className="text-sm text-muted-foreground">{t.desc}</p>
         </div>
       </div>
 
@@ -50,7 +57,7 @@ export default function SiliconFlowModelBox({ locale }: Props) {
             </div>
 
             <div className="mt-3 pt-3 border-t border-border flex items-center gap-1 text-xs text-muted-foreground/50 group-hover:text-accent transition-colors">
-              <span>Ver detalhes</span>
+              <span>{t.detail}</span>
               <ArrowUpRight className="h-3 w-3" />
             </div>
           </Link>
@@ -64,7 +71,7 @@ export default function SiliconFlowModelBox({ locale }: Props) {
           rel="noopener"
           className="inline-flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-foreground transition-colors"
         >
-          Ver todos no SiliconFlow
+          {t.cta}
           <ArrowUpRight className="h-3 w-3" />
         </a>
       </div>

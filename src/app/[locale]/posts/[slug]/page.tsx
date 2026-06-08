@@ -138,7 +138,7 @@ export default async function PostPage({
             {date}
           </time>
           <span className="flex items-center gap-1.5">
-            <Clock className="h-3 w-3 text-accent-gold" />
+            <Clock className="h-3 w-3 text-muted-foreground" />
             {readingTime} {t("minRead")}
           </span>
           {post.tags?.slice(0, 3).map((tag) => (
@@ -195,7 +195,7 @@ export default async function PostPage({
                 href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(articleUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-accent-gold/20 px-3 py-1.5 font-mono text-xs font-medium text-accent-gold transition-all hover:bg-accent-gold/10"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 font-mono text-xs font-medium text-muted-foreground transition-all hover:text-foreground hover:border-[#3a3a52]"
               >
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -228,7 +228,7 @@ export default async function PostPage({
 
       {/* Author Bio */}
       <footer className="mt-16 animate-fade-in-delay-2 border-b border-border pb-12">
-        <div className="gradient-border rounded-xl p-5">
+        <div className="card p-5">
           <div className="flex items-center gap-4">
             <Image
               src="/profile.png"
@@ -261,25 +261,18 @@ export default async function PostPage({
         <NewsletterForm locale={locale} />
       </div>
 
-      {/* ADSENSE — POST (após artigo, antes do sidebar) */}
-      <div className="adsense-placeholder border-2 border-dashed border-v4-red/30 rounded-xl p-6 text-center bg-v4-red/[0.02]">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-v4-red animate-pulse" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-v4-red font-bold">
-            ESPAÇO RESERVADO — ADSENSE POST
+      {/* AdSense — post */}
+      <div className="card p-4 text-center my-6">
+        <div className="flex items-center justify-center gap-2 mb-1">
+          <span className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-wider">
+            — AdSpace —
           </span>
         </div>
-        <p className="font-mono text-[9px] text-v4-red/50">300x250 / In-Article — Cole o código do AdSense aqui</p>
+        <p className="text-[10px] text-muted-foreground/30 font-mono">300x250 / In-Article</p>
       </div>
 
-      {/* HOSTINGER BANNER — POST (link de afiliado entre conteúdo e newsletter) */}
-      <div className="mt-6 border border-dashed border-accent-gold/30 rounded-xl p-3">
-        <div className="flex items-center gap-1.5 mb-2 px-1">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-gold" />
-          <span className="font-mono text-[8px] uppercase tracking-widest text-accent-gold font-semibold">
-            Comece agora a usar a AI em outro nível
-          </span>
-        </div>
+      {/* Hostinger — post */}
+      <div className="mt-6">
         <HostingerBanner variant="post" locale={locale} />
       </div>
     </article>

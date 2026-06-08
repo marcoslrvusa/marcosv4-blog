@@ -6,6 +6,7 @@ import Sidebar from "@/components/Sidebar";
 import MateriaisRicos from "@/components/MateriaisRicos";
 import SiliconFlowModelBox from "@/components/SiliconFlowModelBox"
 import LLMPricingCards from "@/components/LLMPricingCards";
+import HostingerBanner from "@/components/HostingerBanner";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -99,6 +100,10 @@ export default async function Home({
       {/* LLM Pricing Cards */}
       <LLMPricingCards locale={locale} />
 
+      <div className="mx-auto max-w-6xl px-6 mb-8">
+        <HostingerBanner variant="inline" locale={locale} />
+      </div>
+
       {/* SiliconFlow Model Box */}
       <SiliconFlowModelBox locale={locale} />
 
@@ -127,6 +132,16 @@ export default async function Home({
                         <PostCard post={node} locale={locale} />
                       </div>
                     ))}
+                  </div>
+
+                  {/* AdSense — in-feed */}
+                  <div className="card p-4 text-center my-5">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-wider">
+                        — AdSpace —
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground/30 font-mono">In-feed</p>
                   </div>
 
                   {totalPages > 1 && (
