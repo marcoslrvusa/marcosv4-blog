@@ -1,5 +1,6 @@
 import { getAllLocalPosts } from "@/lib/content";
 import { getPublication } from "@/lib/hashnode";
+import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import Sidebar from "@/components/Sidebar";
 import MateriaisRicos from "@/components/MateriaisRicos";
@@ -54,7 +55,14 @@ export default async function Home({
       <section className="hero-ambient border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/profile.png"
+                alt="Marcos Luciano"
+                width={32}
+                height={32}
+                className="rounded-full ring-1.5 ring-border object-cover shrink-0"
+              />
               <span className="led-dot" />
               <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
                 Marcos Luciano
